@@ -42,11 +42,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="Entities\DisciplineAcademicPlan.cs" />
     <Compile Include="Entities\DisiplineTeacherLoad.cs" />
     <Compile Include="Entities\Teacher.cs" />
     <Compile Include="Enums\AcademicTitle.cs" />
+    <Compile Include="Excel\ExcelExporter.cs" />
+    <Compile Include="Excel\ExcelImporter.cs" />
+    <Compile Include="Excel\Interfaces\IExcelExporter.cs" />
+    <Compile Include="Excel\Interfaces\IExcelImporter.cs" />
+    <Compile Include="Json\Interfaces\IJsonExporter.cs" />
+    <Compile Include="Json\Interfaces\IJsonImporter.cs" />
+    <Compile Include="Json\JsonExporter.cs" />
+    <Compile Include="Json\JsonImporter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

@@ -24,7 +24,6 @@ namespace Core.Entities
 
         public int HoursLaboratoryWork { get; set; }
 
-
         /// <summary>
         /// Часы отведенные для практики.
         /// </summary>
