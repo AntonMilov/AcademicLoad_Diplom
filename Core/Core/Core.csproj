@@ -44,6 +44,8 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="Entities\DisciplineAcademicPlan.cs" />
+    <Compile Include="Entities\DisiplineTeacherLoad.cs" />
+    <Compile Include="Entities\Teacher.cs" />
     <Compile Include="Enums\AcademicTitle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

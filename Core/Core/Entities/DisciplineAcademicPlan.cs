@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Core.Entities
 {
+    /// <summary>
+    /// Сущности для строк в таблице по плану учебной нагрузки
+    /// </summary>
     public class DisciplineAcademicPlan
     {
         public string Index { get; set; }
@@ -20,7 +23,9 @@ namespace Core.Entities
 
         public string Groups { get; set; }
 
-        //Поток.
+        /// <summary>
+        /// Поток.
+        /// </summary>
         public string Stream { get; set; }
 
         public int StudentsBudget { get; set; }
@@ -32,25 +37,37 @@ namespace Core.Entities
 
         public int CountLaboratoryWork { get; set; }
 
-        //Практическое занятие.
+        /// <summary>
+        /// Количество практических занятий.
+        /// </summary>
         public int CountPracticum { get; set; }
 
-        // КП (так называется в таблице).
+        /// <summary>
+        /// Количество КП (так называется в таблице).
+        /// </summary>
         public int CountKp { get; set; }
 
-        // КР (так называется в таблице).
+        /// <summary>
+        /// Количество КР (так называется в таблице).
+        /// </summary>
         public int CountKr { get; set; }
 
-        //Контрольная работа
+        /// <summary>
+        /// Количество контрольных работ.
+        /// </summary>
         public int CountСontrolWork { get; set; }
 
         public int CountExam { get; set; }
 
-        //Зачет.
+        /// <summary>
+        /// Количество зачетов.
+        /// </summary>
         public int CountTest { get; set; }
         #endregion
 
-        //Прочее.
+        /// <summary>
+        /// Прочее.
+        /// </summary>
         public int Etc { get; set; }
 
         #region Hours
@@ -58,29 +75,43 @@ namespace Core.Entities
 
         public int HoursLaboratoryWork { get; set; }
 
-        //Практическое занятие.
+        /// <summary>
+        /// Часы отведенные для практических занятий.
+        /// </summary>
         public int HoursPracticumLesson { get; set; }
 
-        // КП, КР (так называется в таблице).
+        /// <summary>
+        /// КП, КР (так называется в таблице).
+        /// </summary>
         public int HoursKpKr { get; set; }
-        
-        //Контрольная работа
+
+        /// <summary>
+        /// Часы отведенные для контрольных работ.
+        /// </summary>
         public int HoursСontrolWork { get; set; }
 
         public int HoursExam { get; set; }
 
-        //Зачет.
+        /// <summary>
+        /// Часы отведенные для зачета.
+        /// </summary>
         public int HoursTest { get; set; }
 
         public int HoursConsultation { get; set; }
 
-        //Гиа.
+        /// <summary>
+        /// Часы отведенные для Гиа.
+        /// </summary>
         public int HoursGia { get; set; }
 
-        //Практика.
+        /// <summary>
+        /// Часы отведенные для Практики.
+        /// </summary>
         public int HoursPracticum { get; set; }
 
-        //Всего часов.
+        /// <summary>
+        /// Всего часов.
+        /// </summary>
         public int HoursTotal { get; set; }
         #endregion
     }
