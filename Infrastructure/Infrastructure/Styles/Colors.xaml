@@ -1,5 +1,21 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:Infrastructure.Styles">
+
+    <SolidColorBrush x:Key="BlackText" Color="#000000" />
+    <SolidColorBrush x:Key="YellowText" Color="#FFE500" />
+    <SolidColorBrush x:Key="GrayText" Color="#DBDBDB" />
+    <SolidColorBrush x:Key="White" Color="#FFFFFF" />
     
+    <SolidColorBrush x:Key="HeaderWindow" Color="#4C7BB3" />
+    <SolidColorBrush x:Key="Icon" Color="#112D4E" />
+    <SolidColorBrush x:Key="IconLabel" Color="#112D4E" />
+    <SolidColorBrush x:Key="Button" Color="#112D4E" />
+
+    <SolidColorBrush x:Key="Tint95" Color="#3F72AF" />
+    <SolidColorBrush x:Key="Tint80" Color="#A8C5E9" />
+    <SolidColorBrush x:Key="Tint65" Color="#DBE2EF" />
+    
+
+    <SolidColorBrush x:Key="Background" Color="#F9F7F7" />
 </ResourceDictionary>
