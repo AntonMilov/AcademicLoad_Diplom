@@ -37,5 +37,10 @@ namespace Core.Entities
         /// </summary>
         public double Rate { get; set; }
 
+        /// <summary>
+        /// Дата рождения.
+        /// </summary>
+        DateTime Birthday { get; set; }
+
     }
 }
