@@ -96,5 +96,11 @@
   <ItemGroup>
     <PackageReference Include="Prism.Unity" Version="7.2.0.1422" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Modules\AcademicLoad\AcademicLoadModule.csproj">
+      <Project>{d083a3e8-85cd-4a8b-9e2e-0484fef366d1}</Project>
+      <Name>AcademicLoadModule</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
