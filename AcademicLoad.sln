@@ -25,6 +25,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{14681132-8243-4EA5-9E7A-A8C340689478}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AcademicLoadModule", "AcademicLoad\AcademicLoadModule.csproj", "{D083A3E8-85CD-4A8B-9E2E-0484FEF366D1}"
+	ProjectSection(ProjectDependencies) = postProject
+		{957E7BD3-AB9F-44D4-A0F4-2D68EF1B239D} = {957E7BD3-AB9F-44D4-A0F4-2D68EF1B239D}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
