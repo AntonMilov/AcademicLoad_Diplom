@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8FCD3448-C6D4-4851-B237-ECE92440A012}</ProjectGuid>
+    <ProjectGuid>{14681132-8243-4EA5-9E7A-A8C340689478}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Core</RootNamespace>
-    <AssemblyName>Core</AssemblyName>
+    <RootNamespace>Data</RootNamespace>
+    <AssemblyName>Data</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -17,11 +17,11 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\out\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\Core.xml</DocumentationFile>
+    <DocumentationFile>..\out\Debug\Data.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -42,21 +42,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Excel\ExcelExporter.cs" />
-    <Compile Include="Excel\ExcelImporter.cs" />
-    <Compile Include="Excel\Interfaces\IExcelExporter.cs" />
-    <Compile Include="Excel\Interfaces\IExcelImporter.cs" />
-    <Compile Include="Json\Interfaces\IJsonExporter.cs" />
-    <Compile Include="Json\Interfaces\IJsonImporter.cs" />
-    <Compile Include="Json\JsonExporter.cs" />
-    <Compile Include="Json\JsonImporter.cs" />
+    <Compile Include="Enums\AcademicTitle.cs" />
+    <Compile Include="Enums\Rate.cs" />
+    <Compile Include="Models\DisciplineAcademicPlan.cs" />
+    <Compile Include="Models\DisiplineTeacherLoad.cs" />
+    <Compile Include="Models\Group.cs" />
+    <Compile Include="Models\Teacher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Data\Data\Data.csproj">
-      <Project>{14681132-8243-4ea5-9e7a-a8c340689478}</Project>
-      <Name>Data</Name>
-    </ProjectReference>
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
