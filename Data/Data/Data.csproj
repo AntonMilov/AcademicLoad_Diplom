@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enums\AcademicTitle.cs" />
+    <Compile Include="Enums\Rate.cs" />
     <Compile Include="Models\DisciplineAcademicPlan.cs" />
     <Compile Include="Models\DisiplineTeacherLoad.cs" />
     <Compile Include="Models\Teacher.cs" />

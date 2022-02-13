@@ -13,15 +13,25 @@ namespace Core.Entities
     class Teacher
     {
         /// <summary>
-        /// Фамилия с инициалами.
+        /// Имя.
         /// </summary>
-        public string LastNameInitials { get; set; }
+        public string FirstName { get; set; }
+
+        /// <summary>
+        /// Фамилия.
+        /// </summary>
+        public string LastName { get; set; }
+
+        /// <summary>
+        /// Отчество.
+        /// </summary>
+        public string MiddleNName { get; set; }
 
         /// <summary>
         /// Должность.
         /// </summary>
-        public  AcademicTitle AcademicTitle { get; set; }
-        
+        public AcademicTitle AcademicTitle { get; set; }
+
         /// <summary>
         /// Ставка.
         /// </summary>
