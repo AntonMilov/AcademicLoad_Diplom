@@ -42,10 +42,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\DisciplineAcademicPlan.cs" />
-    <Compile Include="Entities\DisiplineTeacherLoad.cs" />
-    <Compile Include="Entities\Teacher.cs" />
-    <Compile Include="Enums\AcademicTitle.cs" />
     <Compile Include="Excel\ExcelExporter.cs" />
     <Compile Include="Excel\ExcelImporter.cs" />
     <Compile Include="Excel\Interfaces\IExcelExporter.cs" />
@@ -56,6 +52,11 @@
     <Compile Include="Json\JsonImporter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\..\Data\Data\Data.csproj">
+      <Project>{14681132-8243-4ea5-9e7a-a8c340689478}</Project>
+      <Name>Data</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
