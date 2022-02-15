@@ -7,8 +7,8 @@
              d:DesignHeight="300" d:DesignWidth="300"
              xmlns:prism="http://prismlibrary.com/"
              prism:ViewModelLocator.AutoWireViewModel="True" >
+    
     <UserControl.Resources>
-
         <ResourceDictionary Source="/Infrastructure;component/Themes/Generic.xaml"/>
     </UserControl.Resources>
    

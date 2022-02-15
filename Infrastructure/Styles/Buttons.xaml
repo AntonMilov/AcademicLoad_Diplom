@@ -5,8 +5,8 @@
         <ResourceDictionary Source="Colors.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <CornerRadius x:Key="ConerRadiusLinkButton" TopLeft="22" TopRight="22" BottomLeft="22" BottomRight="22" />
-    <Thickness x:Key="PaddingLinkButton" Left="20" Top="20" Right="20" Bottom="20" />
+    <CornerRadius x:Key="ConerRadiusLinkButton" TopLeft="8" TopRight="8" BottomLeft="8" BottomRight="8" />
+    <Thickness x:Key="PaddingLinkButton" Left="16" Top="8" Right="16" Bottom="8" />
 
     <Style x:Key="LinkButton" TargetType="Button">
         <Setter Property="Background" Value="{StaticResource Button}"/>
