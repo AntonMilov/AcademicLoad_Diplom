@@ -6,6 +6,7 @@
         <ResourceDictionary Source="/Infrastructure;component/Styles/Buttons.xaml"/>
         <ResourceDictionary Source="/Infrastructure;component/Styles/Colors.xaml"/>
         <ResourceDictionary Source="/Infrastructure;component/Styles/Icons.xaml"/>
+        <ResourceDictionary Source="/Infrastructure;component/Styles/TabControls.xaml"/>
         <ResourceDictionary Source="/Infrastructure;component/Styles/Text.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
