@@ -6,9 +6,10 @@
     </ResourceDictionary.MergedDictionaries>
 
 
-    <Path x:Key="Teacher" Fill="{StaticResource Icon}" Data="M32 30.3158C32 47.0299 46.3573 60.6316 64 60.6316C81.6427 60.6316 96 47.0299 96 30.3158C96 13.6017 81.6427 0 64 0C46.3573 0 32 13.6017 32 30.3158ZM120.889 128H128V121.263C128 95.2657 105.664 74.1053 78.2222 74.1053H49.7778C22.3289 74.1053 0 95.2657 0 121.263V128H120.889Z"></Path>
+    <PathGeometry x:Key="TeacherFigure" Figures="M32 30.3158C32 47.0299 46.3573 60.6316 64 60.6316C81.6427 60.6316 96 47.0299 96 30.3158C96 13.6017 81.6427 0 64 0C46.3573 0 32 13.6017 32 30.3158ZM120.889 128H128V121.263C128 95.2657 105.664 74.1053 78.2222 74.1053H49.7778C22.3289 74.1053 0 95.2657 0 121.263V128H120.889Z"></PathGeometry>
 
-    <ContentControl x:Key="TeacherIcon"  Content="{StaticResource Teacher}">
-       
-    </ContentControl>
+    <Style TargetType="Path" x:Key="TeacherIcon">
+        <Setter Property="Fill"  Value="{StaticResource Icon}" />
+        <Setter Property="Data" Value="{StaticResource TeacherFigure}" />
+    </Style>
 </ResourceDictionary>
