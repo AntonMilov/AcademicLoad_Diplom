@@ -6,7 +6,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="640" d:DesignWidth="640"
              xmlns:prism="http://prismlibrary.com/"
-             xmlns:local="clr-namespace:AcademicLoadModule.Properties" 
+             xmlns:prop="clr-namespace:AcademicLoadModule.Properties"
              prism:ViewModelLocator.AutoWireViewModel="True">
 
     <UserControl.Resources>
@@ -17,11 +17,14 @@
         <StackPanel Orientation="Vertical"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center">
+            <Path Style="{StaticResource TeacherIcon}" 
+                  HorizontalAlignment="Center"
+                  Margin="0,0,0,30"/>
 
-            <TextBlock Text="{x:Static local:Resources.TeachersEmpty}"
+            <TextBlock Text="{x:Static prop:Resources.TeachersEmpty}"
                        Margin="0,0,0,32"/>
             <Button Style="{StaticResource LinkButton}"
-                    Content="{x:Static local:Resources.AddTeacher}"
+                    Content="{x:Static prop:Resources.AddTeacher}"
                     Width="200" />
 
         </StackPanel>

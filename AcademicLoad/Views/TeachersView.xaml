@@ -6,6 +6,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300"
              xmlns:prism="http://prismlibrary.com/"
+           
              prism:ViewModelLocator.AutoWireViewModel="True" >
     
     <UserControl.Resources>
@@ -16,12 +17,13 @@
 
     <Grid>
         <TabControl>
-            <TabItem  Header="Вкладка 1">
+            <TabItem  Header=" 1" Margin="-2,-2,-2,2">
                 <Button Style="{StaticResource LinkButton}" Content="azaza"
                      
                         Height="100"></Button>
             </TabItem>
-            <TabItem Header="Вкладка 2">Вторая вкладка</TabItem>
+            <TabItem Header="Вкладка 2">
+                <ContentControl  prism:RegionManager.RegionName="test1"></ContentControl></TabItem>
         </TabControl>
     </Grid>
 </UserControl>

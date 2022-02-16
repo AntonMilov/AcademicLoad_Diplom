@@ -11,7 +11,7 @@ namespace AcademicLoadModule
         {
             var regionManager = containerProvider.Resolve<IRegionManager>();
             regionManager.RegisterViewWithRegion("TeachersList", typeof(TeachersView));
-
+            regionManager.RegisterViewWithRegion("test1", typeof(TeachersEmptyView));
         }
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
