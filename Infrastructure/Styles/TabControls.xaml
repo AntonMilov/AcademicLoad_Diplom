@@ -21,7 +21,9 @@
                                     Background="{TemplateBinding Background}"
                                     Padding="6"
                                     CornerRadius="4,4,0,0">
-                                <TextBlock Text="{TemplateBinding Header}" />
+                                <TextBlock Text="{TemplateBinding Header}"
+                                           TextWrapping="Wrap"
+                                           TextAlignment="Left"/>
                             </Border>
                         </ControlTemplate>
                     </Setter.Value>

@@ -28,6 +28,11 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-    </Style>
 
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Opacity" Value="0.7" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
 </ResourceDictionary>
