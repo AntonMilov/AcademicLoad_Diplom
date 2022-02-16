@@ -70,6 +70,51 @@ namespace AcademicLoadModule.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Расчетные листы кафедральной нагрузки.
+        /// </summary>
+        public static string CalculationSheets {
+            get {
+                return ResourceManager.GetString("CalculationSheets", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Справка.
+        /// </summary>
+        public static string Help {
+            get {
+                return ResourceManager.GetString("Help", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Нормы времени.
+        /// </summary>
+        public static string NormsTime {
+            get {
+                return ResourceManager.GetString("NormsTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Учебные группы.
+        /// </summary>
+        public static string StudyGroups {
+            get {
+                return ResourceManager.GetString("StudyGroups", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Преподователи.
+        /// </summary>
+        public static string Teachers {
+            get {
+                return ResourceManager.GetString("Teachers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Информация о преподавателях отсутсвует. Добавьте ифнормацию о новом преподавателе..
         /// </summary>
         public static string TeachersEmpty {

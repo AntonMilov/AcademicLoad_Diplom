@@ -120,6 +120,21 @@
   <data name="AddTeacher" xml:space="preserve">
     <value>Добавить преподавателя</value>
   </data>
+  <data name="CalculationSheets" xml:space="preserve">
+    <value>Расчетные листы кафедральной нагрузки</value>
+  </data>
+  <data name="Help" xml:space="preserve">
+    <value>Справка</value>
+  </data>
+  <data name="NormsTime" xml:space="preserve">
+    <value>Нормы времени</value>
+  </data>
+  <data name="StudyGroups" xml:space="preserve">
+    <value>Учебные группы</value>
+  </data>
+  <data name="Teachers" xml:space="preserve">
+    <value>Преподователи</value>
+  </data>
   <data name="TeachersEmpty" xml:space="preserve">
     <value>Информация о преподавателях отсутсвует. Добавьте ифнормацию о новом преподавателе.</value>
   </data>
