@@ -117,11 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AddGroup" xml:space="preserve">
+    <value>Добавить учебную группу</value>
+  </data>
   <data name="AddTeacher" xml:space="preserve">
     <value>Добавить преподавателя</value>
   </data>
   <data name="CalculationSheets" xml:space="preserve">
     <value>Расчетные листы кафедральной нагрузки</value>
+  </data>
+  <data name="GroupsEmpty" xml:space="preserve">
+    <value>Информация о учебных группах отсутсвует. Добавьте ифнормацию о новой учебной группе.</value>
   </data>
   <data name="Help" xml:space="preserve">
     <value>Справка</value>
@@ -133,7 +139,7 @@
     <value>Учебные группы</value>
   </data>
   <data name="Teachers" xml:space="preserve">
-    <value>Преподователи</value>
+    <value>Преподаватели</value>
   </data>
   <data name="TeachersEmpty" xml:space="preserve">
     <value>Информация о преподавателях отсутсвует. Добавьте ифнормацию о новом преподавателе.</value>

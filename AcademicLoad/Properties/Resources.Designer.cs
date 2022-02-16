@@ -61,6 +61,15 @@ namespace AcademicLoadModule.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Добавить учебную группу.
+        /// </summary>
+        public static string AddGroup {
+            get {
+                return ResourceManager.GetString("AddGroup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Добавить преподавателя.
         /// </summary>
         public static string AddTeacher {
@@ -75,6 +84,15 @@ namespace AcademicLoadModule.Properties {
         public static string CalculationSheets {
             get {
                 return ResourceManager.GetString("CalculationSheets", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Информация о учебных группах отсутсвует. Добавьте ифнормацию о новой учебной группе..
+        /// </summary>
+        public static string GroupsEmpty {
+            get {
+                return ResourceManager.GetString("GroupsEmpty", resourceCulture);
             }
         }
         
@@ -106,7 +124,7 @@ namespace AcademicLoadModule.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Преподователи.
+        ///   Ищет локализованную строку, похожую на Преподаватели.
         /// </summary>
         public static string Teachers {
             get {
