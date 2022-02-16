@@ -8,6 +8,7 @@
     
     <SolidColorBrush x:Key="HeaderWindow" Color="#4C7BB3" />
     <SolidColorBrush x:Key="Icon" Color="#112D4E" />
+    <SolidColorBrush x:Key="TabControl" Color="#112D4E" />
     <SolidColorBrush x:Key="IconLabel" Color="#112D4E" />
     <SolidColorBrush x:Key="Button" Color="#112D4E" />
 
@@ -15,6 +16,5 @@
     <SolidColorBrush x:Key="Tint80" Color="#A8C5E9" />
     <SolidColorBrush x:Key="Tint65" Color="#DBE2EF" />
     
-
     <SolidColorBrush x:Key="Background" Color="#F9F7F7" />
 </ResourceDictionary>
