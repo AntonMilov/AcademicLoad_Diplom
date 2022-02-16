@@ -3,13 +3,17 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:prism="http://prismlibrary.com/"
         prism:ViewModelLocator.AutoWireViewModel="True"
-        Title="{Binding Title}" Height="350" Width="525">
-    <Grid>
+        Title="{Binding Title}" 
+        MinWidth="640" 
+        MinHeight="640">
+    <Border Padding="6"
+            Background="#F9F7F7">
+        <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
         
-        <ContentControl prism:RegionManager.RegionName="TeachersList" />
+        <ContentControl prism:RegionManager.RegionName="MainRegion" />
     </Grid>
+    </Border>
 </Window>
