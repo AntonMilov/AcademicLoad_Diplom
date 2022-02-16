@@ -65,9 +65,13 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="ViewModels\GroupsEmptyViewModel.cs" />
     <Compile Include="ViewModels\TabsViewModel.cs" />
     <Compile Include="ViewModels\TeachersEmptyViewModel.cs" />
     <Compile Include="ViewModels\TeachersViewModel.cs" />
+    <Compile Include="Views\GroupsEmptyView.xaml.cs">
+      <DependentUpon>GroupsEmptyView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\TabsView.xaml.cs">
       <DependentUpon>TabsView.xaml</DependentUpon>
     </Compile>
@@ -98,6 +102,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Views\GroupsEmptyView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\TabsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
