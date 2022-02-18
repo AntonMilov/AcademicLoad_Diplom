@@ -8,6 +8,8 @@
     </UserControl.Resources>
     <prism:Dialog.WindowStyle>
         <Style TargetType="Window">
+            
+            <Setter Property="SizeToContent" Value="WidthAndHeight" />
             <Setter Property="ResizeMode" Value="NoResize" />
         </Style>
     </prism:Dialog.WindowStyle>
@@ -23,7 +25,7 @@
                        Style="{StaticResource HeaderH2}"
                        Height="100" 
                        Text="{Binding Header}"></TextBlock>
-            <ContentControl Content="{Binding Content}"></ContentControl>
+            <ContentControl Grid.Row="1" Content="{Binding Content}"></ContentControl>
             <StackPanel Grid.Row="2" 
                     Orientation="Horizontal"
                     VerticalAlignment="Bottom"
