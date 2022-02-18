@@ -103,6 +103,10 @@
       <Project>{d083a3e8-85cd-4a8b-9e2e-0484fef366d1}</Project>
       <Name>AcademicLoadModule</Name>
     </ProjectReference>
+    <ProjectReference Include="Infrastructure\Infrastructure.csproj">
+      <Project>{957e7bd3-ab9f-44d4-a0f4-2d68ef1b239d}</Project>
+      <Name>Infrastructure</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

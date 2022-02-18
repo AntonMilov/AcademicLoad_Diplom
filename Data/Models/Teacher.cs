@@ -25,7 +25,7 @@ namespace Core.Entities
         /// <summary>
         /// Отчество.
         /// </summary>
-        public string MiddleNName { get; set; }
+        public string MiddleName { get; set; }
 
         /// <summary>
         /// Должность.

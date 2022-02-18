@@ -11,6 +11,7 @@
     <SolidColorBrush x:Key="TabControl" Color="#112D4E" />
     <SolidColorBrush x:Key="IconLabel" Color="#112D4E" />
     <SolidColorBrush x:Key="Button" Color="#112D4E" />
+    <SolidColorBrush x:Key="TextBoxBorder" Color="#112D4E" />
 
     <SolidColorBrush x:Key="Tint95" Color="#3F72AF" />
     <SolidColorBrush x:Key="Tint80" Color="#A8C5E9" />

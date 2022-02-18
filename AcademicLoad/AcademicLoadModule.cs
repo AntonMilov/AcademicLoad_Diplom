@@ -1,4 +1,6 @@
-﻿using AcademicLoadModule.Views;
+﻿using AcademicLoadModule.Controllers;
+using AcademicLoadModule.Controllers.Interfaces;
+using AcademicLoadModule.Views;
 using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Regions;
@@ -17,7 +19,7 @@ namespace AcademicLoadModule
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
-          
+            containerRegistry.RegisterSingleton<ITeacherController, TeacherController>();
         }
     }
 }

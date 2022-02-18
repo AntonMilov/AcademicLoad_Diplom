@@ -17,10 +17,11 @@ namespace Shell
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-           
+            containerRegistry.RegisterDialog<Infrastructure.ConfirmDialog.ConfirmDialogView, Infrastructure.ConfirmDialog.ConfirmDialogViewModel>("ConfirmDialog");
         }
         protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
         {
+          
             moduleCatalog.AddModule<AcademicLoadModule.AcademicLoadModule>();
         }
     }

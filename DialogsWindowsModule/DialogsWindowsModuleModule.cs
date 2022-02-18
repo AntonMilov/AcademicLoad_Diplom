@@ -15,7 +15,7 @@ namespace DialogsWindowsModule
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.RegisterDialog<ConfirmDialog.ConfirmDialog, ConfirmDialogViewModel>();
+           
         }
     }
 }

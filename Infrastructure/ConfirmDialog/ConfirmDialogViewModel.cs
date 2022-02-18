@@ -6,20 +6,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Controls;
 
-namespace DialogsWindowsModule.ConfirmDialog
+namespace Infrastructure.ConfirmDialog
 {
     public class ConfirmDialogViewModel : BindableBase, IDialogAware
     {
         private object content;
-        private string title = "Notification";
+        private string title;
         private string header;
+        private string сloseButonText;
+        private string сonfirmButtonText;
         public ConfirmDialogViewModel()
         {
 
         }
 
        /// <summary>
-       /// Заголовок окна
+       /// Заголовок окна.
        /// </summary>
         public string Title
         {
@@ -37,7 +39,25 @@ namespace DialogsWindowsModule.ConfirmDialog
         }
 
         /// <summary>
-        /// Заголовок окна
+        /// Текст для кнопки закрытия.
+        /// </summary>
+        public string CloseButonText
+        {
+            get => сloseButonText;
+            set => SetProperty(ref сloseButonText, value);
+        }
+
+        /// <summary>
+        /// Текст для кнопки потверждения.
+        /// </summary>
+        public string ConfirmButtonText
+        {
+            get => сonfirmButtonText;
+            set => SetProperty(ref сonfirmButtonText, value);
+        }
+
+        /// <summary>
+        /// Заголовок.
         /// </summary>
         public string Header
         {

@@ -117,14 +117,26 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AcademicTitle" xml:space="preserve">
+    <value>Должность:</value>
+  </data>
   <data name="AddGroup" xml:space="preserve">
     <value>Добавить учебную группу</value>
+  </data>
+  <data name="AddPhoto" xml:space="preserve">
+    <value>Добавить фотографию</value>
   </data>
   <data name="AddTeacher" xml:space="preserve">
     <value>Добавить преподавателя</value>
   </data>
+  <data name="Birthday" xml:space="preserve">
+    <value>Дата рождения:</value>
+  </data>
   <data name="CalculationSheets" xml:space="preserve">
     <value>Расчетные листы кафедральной нагрузки</value>
+  </data>
+  <data name="GroupName" xml:space="preserve">
+    <value>Номер группы:</value>
   </data>
   <data name="GroupsEmpty" xml:space="preserve">
     <value>Информация о учебных группах отсутсвует. Добавьте ифнормацию о новой учебной группе.</value>
@@ -132,8 +144,23 @@
   <data name="Help" xml:space="preserve">
     <value>Справка</value>
   </data>
+  <data name="LastName" xml:space="preserve">
+    <value>Фамилия:</value>
+  </data>
+  <data name="MiddleName" xml:space="preserve">
+    <value>Отчество:</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Имя:</value>
+  </data>
   <data name="NormsTime" xml:space="preserve">
     <value>Нормы времени</value>
+  </data>
+  <data name="Rate" xml:space="preserve">
+    <value>Ставка:</value>
+  </data>
+  <data name="StudentsNumber" xml:space="preserve">
+    <value>Количество человек:</value>
   </data>
   <data name="StudyGroups" xml:space="preserve">
     <value>Учебные группы</value>
