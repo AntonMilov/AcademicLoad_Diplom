@@ -70,11 +70,29 @@ namespace AcademicLoadModule.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Добавить.
+        /// </summary>
+        public static string Add {
+            get {
+                return ResourceManager.GetString("Add", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Добавить учебную группу.
         /// </summary>
         public static string AddGroup {
             get {
                 return ResourceManager.GetString("AddGroup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Добавление преподавателя.
+        /// </summary>
+        public static string AddingTeacher {
+            get {
+                return ResourceManager.GetString("AddingTeacher", resourceCulture);
             }
         }
         
@@ -111,6 +129,15 @@ namespace AcademicLoadModule.Properties {
         public static string CalculationSheets {
             get {
                 return ResourceManager.GetString("CalculationSheets", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Отмена.
+        /// </summary>
+        public static string Cancel {
+            get {
+                return ResourceManager.GetString("Cancel", resourceCulture);
             }
         }
         

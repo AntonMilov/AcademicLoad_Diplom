@@ -120,8 +120,14 @@
   <data name="AcademicTitle" xml:space="preserve">
     <value>Должность:</value>
   </data>
+  <data name="Add" xml:space="preserve">
+    <value>Добавить</value>
+  </data>
   <data name="AddGroup" xml:space="preserve">
     <value>Добавить учебную группу</value>
+  </data>
+  <data name="AddingTeacher" xml:space="preserve">
+    <value>Добавление преподавателя</value>
   </data>
   <data name="AddPhoto" xml:space="preserve">
     <value>Добавить фотографию</value>
@@ -134,6 +140,9 @@
   </data>
   <data name="CalculationSheets" xml:space="preserve">
     <value>Расчетные листы кафедральной нагрузки</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Отмена</value>
   </data>
   <data name="GroupName" xml:space="preserve">
     <value>Номер группы:</value>
