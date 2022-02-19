@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Core.Enums;
+using Data.Enums;
 
 namespace Core.Entities
 {
     /// <summary>
     /// Сущность преподователя.
     /// </summary>
-    class Teacher
+    public class Teacher
     {
         /// <summary>
         /// Имя.
