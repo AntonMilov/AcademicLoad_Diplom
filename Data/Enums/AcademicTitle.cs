@@ -32,12 +32,12 @@ namespace Data.Enums
         Docent,
 
         /// <summary>
-        /// Старший преподователь.
+        /// Старший преподаватель.
         /// </summary>
         SeniorLecturer,
 
         /// <summary>
-        /// Преподователь.
+        /// Преподаватель.
         /// </summary>
         Lecturer,
 

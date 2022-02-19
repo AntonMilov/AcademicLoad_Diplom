@@ -23,7 +23,7 @@
         <Setter Property="Foreground" Value="{StaticResource BlackText}"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderBrush" Value="{StaticResource TextBoxBorder}" />
-        <Setter Property="Padding" Value="2,2,2,0" />
+        <Setter Property="Padding" Value="2" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="TextBox">
@@ -46,6 +46,6 @@
 
     <Style x:Key="HeaderH2" TargetType="TextBlock">
         <Setter Property="FontWeight" Value="Bold"/>
-        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="FontSize" Value="16"/>
     </Style>
 </ResourceDictionary>

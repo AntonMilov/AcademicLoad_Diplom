@@ -20,6 +20,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{482F1923-6723-4137-812A-C977442EE0D3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{957E7BD3-AB9F-44D4-A0F4-2D68EF1B239D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{14681132-8243-4EA5-9E7A-A8C340689478} = {14681132-8243-4EA5-9E7A-A8C340689478}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{8FCD3448-C6D4-4851-B237-ECE92440A012}"
 EndProject

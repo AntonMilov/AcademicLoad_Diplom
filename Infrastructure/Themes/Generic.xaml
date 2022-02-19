@@ -8,5 +8,7 @@
         <ResourceDictionary Source="/Infrastructure;component/Styles/Icons.xaml"/>
         <ResourceDictionary Source="/Infrastructure;component/Styles/TabControls.xaml"/>
         <ResourceDictionary Source="/Infrastructure;component/Styles/Text.xaml"/>
+        <ResourceDictionary Source="/Infrastructure;component/Styles/ComboBoxes.xaml"/>
+        <ResourceDictionary Source="/Infrastructure;component/Styles/Converters.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

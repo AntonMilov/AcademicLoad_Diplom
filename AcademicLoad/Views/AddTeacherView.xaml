@@ -43,30 +43,32 @@
             <TextBlock Style="{StaticResource HeaderH2}"
                        Margin="{StaticResource MarginH2}"
                        Text="{x:Static prop:Resources.Name}" />
-            <TextBox Height="20" 
-                     Margin="{StaticResource MarginTextBox}"
+            <TextBox Margin="{StaticResource MarginTextBox}"
                      Style="{StaticResource EditTextBox}" />
 
             <TextBlock Style="{StaticResource HeaderH2}"
                        Margin="{StaticResource MarginH2}"
                        Text="{x:Static prop:Resources.LastName}" />
-            <TextBox Height="20" 
-                     Margin="{StaticResource MarginTextBox}"
+            <TextBox Margin="{StaticResource MarginTextBox}"
                      Style="{StaticResource EditTextBox}" />
 
             <TextBlock Style="{StaticResource HeaderH2}" 
                        Margin="{StaticResource MarginH2}"
                        Text="{x:Static prop:Resources.MiddleName}" />
-            <TextBox Height="20" 
-                     Margin="{StaticResource MarginTextBox}"
+            <TextBox Margin="{StaticResource MarginTextBox}"
                      Style="{StaticResource EditTextBox}" />
 
             <TextBlock Style="{StaticResource HeaderH2}" 
                        Margin="{StaticResource MarginH2}"
                        Text="{x:Static prop:Resources.AcademicTitle}" />
-            <ComboBox ItemsSource="{Binding AcademicTitles}" SelectedItem="{Binding SelectedAcaemicTitle,UpdateSourceTrigger=PropertyChanged}" 
-                       >
-                
+            <ComboBox ItemsSource="{Binding AcademicTitles}"
+                      SelectedItem="{Binding SelectedAcaemicTitle,UpdateSourceTrigger=PropertyChanged}"  >
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Style="{StaticResource {x:Type TextBlock}}" Text="{Binding ., Converter={StaticResource AcademicTitleToNameConverter}}" />
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+
             </ComboBox>
 
             <TextBlock Style="{StaticResource HeaderH2}" 
