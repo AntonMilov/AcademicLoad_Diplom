@@ -20,7 +20,7 @@ namespace Infrastructure.ConfirmDialog
         /// <summary>
         /// Текст для кнопки закрытия.
         /// </summary>
-        public string CloseButonText { get; set; }
+        public string CloseButtonText { get; set; }
 
 
         /// <summary>

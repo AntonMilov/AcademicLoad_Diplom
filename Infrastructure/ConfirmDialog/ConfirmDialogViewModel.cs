@@ -15,18 +15,25 @@ namespace Infrastructure.ConfirmDialog
         private string header;
         private string сloseButonText;
         private string сonfirmButtonText;
+        /// <summary>
+        /// .ctor
+        /// </summary>
         public ConfirmDialogViewModel()
         {
 
         }
 
-       /// <summary>
-       /// Заголовок окна.
-       /// </summary>
+        public DelegateCommand<string> CloseDialogCommand => new DelegateCommand<string>(CloseDialog);
+
+
+
+        /// <summary>
+        /// Заголовок окна.
+        /// </summary>
         public string Title
         {
-            get =>  title; 
-            set => SetProperty(ref title, value); 
+            get => title;
+            set => SetProperty(ref title, value);
         }
 
         /// <summary>
@@ -41,7 +48,7 @@ namespace Infrastructure.ConfirmDialog
         /// <summary>
         /// Текст для кнопки закрытия.
         /// </summary>
-        public string CloseButonText
+        public string CloseButtonText
         {
             get => сloseButonText;
             set => SetProperty(ref сloseButonText, value);
@@ -67,22 +74,42 @@ namespace Infrastructure.ConfirmDialog
 
         public event Action<IDialogResult> RequestClose;
 
+        public virtual void RaiseRequestClose(IDialogResult dialogResult)
+        {
+            RequestClose?.Invoke(dialogResult);
+        }
+
         public bool CanCloseDialog()
         {
-            throw new NotImplementedException();
+            return true;
         }
 
         public void OnDialogClosed()
         {
-            throw new NotImplementedException();
+            
         }
 
         public void OnDialogOpened(IDialogParameters parameters)
         {
-       
-            Header = parameters.GetValue<string>("Header");
-            Content = parameters.GetValue<object>("Content");
+            var parameter = parameters.GetValue<ConfirmDialogParameters>("confirmDialogParameters");
 
+            Header = parameter.Header;
+            Title = parameter.Title;
+            CloseButtonText = parameter.CloseButtonText;
+            ConfirmButtonText = parameter.ConfirmButtonText;
+            Content = parameter.Content;
+        }
+
+        private void CloseDialog(string parameter)
+        {
+            ButtonResult result = ButtonResult.None;
+
+            if (parameter?.ToLower() == "true")
+                result = ButtonResult.OK;
+            else if (parameter?.ToLower() == "false")
+                result = ButtonResult.Cancel;
+
+            RaiseRequestClose(new DialogResult(result));
         }
     }
 }

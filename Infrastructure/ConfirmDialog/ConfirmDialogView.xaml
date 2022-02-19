@@ -8,14 +8,18 @@
     </UserControl.Resources>
     <prism:Dialog.WindowStyle>
         <Style TargetType="Window">
-            
+
             <Setter Property="SizeToContent" Value="WidthAndHeight" />
             <Setter Property="ResizeMode" Value="NoResize" />
         </Style>
     </prism:Dialog.WindowStyle>
 
-    <Border Padding="10">
+    <Border Padding="20,10">
         <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="9*"/>
+                <ColumnDefinition Width="311*"/>
+            </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*"/>
@@ -23,20 +27,29 @@
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0" 
                        Style="{StaticResource HeaderH2}"
-                       Height="100" 
-                       Text="{Binding Header}"></TextBlock>
-            <ContentControl Grid.Row="1" Content="{Binding Content}"></ContentControl>
+                       Margin="0,0,0,20"
+                       Foreground="{StaticResource BlueHeader}"
+                      
+                       Text="{Binding Header}" Grid.ColumnSpan="2"></TextBlock>
+
+            <ContentControl Grid.Row="1" Content="{Binding Content}" Grid.ColumnSpan="2" Margin="0,0,0,32" Grid.RowSpan="2"></ContentControl>
+
             <StackPanel Grid.Row="2" 
                     Orientation="Horizontal"
                     VerticalAlignment="Bottom"
-                    HorizontalAlignment="Right">
-                <Button Style="{StaticResource LinkButton}"
-                    Content="{Binding ConfirmButtonText}"
-                    MinWidth="150"
-                    Margin="0,0,20,0"/>
-                <Button Style="{StaticResource LinkButton}"
-                    Content="{Binding CloseButtonText}"
-                    Width="150" />
+                    HorizontalAlignment="Right" Grid.ColumnSpan="2">
+                <Button x:Name="Confrim" 
+                        Style="{StaticResource LinkButton}"
+                        Content="{Binding ConfirmButtonText}"
+                        MinWidth="150"
+                        Margin="0,0,20,0" />
+
+                <Button x:Name="Close" 
+                        Command="{Binding CloseDialogCommand}" 
+                        CommandParameter="false"
+                        Style="{StaticResource LinkButton}"
+                        Content="{Binding CloseButtonText}"
+                        Width="150" />
             </StackPanel>
         </Grid>
     </Border>
