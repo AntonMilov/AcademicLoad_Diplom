@@ -4,5 +4,7 @@
                     xmlns:converters="clr-namespace:Infrastructure.Converters">
 
     <converters:AcademicTitleToNameConverter x:Key="AcademicTitleToNameConverter" />
-    
+    <converters:RateConverter x:Key="RateConverter" />
+    <converters:RateToDoubleConverter x:Key="RateToDoubleConverter" />
+
 </ResourceDictionary>

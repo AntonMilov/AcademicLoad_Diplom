@@ -22,7 +22,7 @@ namespace AcademicLoadModule.Controllers
             confirmDialogParameters.ConfirmButtonText = Properties.Resources.Add;
             confirmDialogParameters.Header = Properties.Resources.AddingTeacher;
             confirmDialogParameters.Title = Properties.Resources.AddingTeacher;
-            confirmDialogParameters.Content = new AddTeacherView();
+            confirmDialogParameters.Content = view;
 
             DialogParameters dialogParameters = new DialogParameters();
             dialogParameters.Add("confirmDialogParameters", confirmDialogParameters);

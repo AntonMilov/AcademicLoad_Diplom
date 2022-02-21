@@ -5,8 +5,10 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d" 
              xmlns:prism="http://prismlibrary.com/"
-             xmlns:prop="clr-namespace:AcademicLoadModule.Properties"
-             prism:ViewModelLocator.AutoWireViewModel="True">
+             xmlns:prop="clr-namespace:AcademicLoadModule.Properties" xmlns:viewmodels="clr-namespace:AcademicLoadModule.ViewModels"
+              prism:ViewModelLocator.AutoWireViewModel="True">
+
+   
 
     <UserControl.Resources>
         <ResourceDictionary Source="/Infrastructure;component/Themes/Generic.xaml"/>
@@ -27,7 +29,6 @@
                   Margin="0,0,0,10"/>
 
             <Button Style="{StaticResource LinkButton}"
-                    Command="{Binding Test}"
                     Content="{x:Static prop:Resources.AddPhoto}"
                     Width="160" />
 
@@ -68,16 +69,33 @@
                         <TextBlock Style="{StaticResource {x:Type TextBlock}}" Text="{Binding ., Converter={StaticResource AcademicTitleToNameConverter}}" />
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
-
             </ComboBox>
+
+            <TextBlock Style="{StaticResource HeaderH2}" 
+                       Margin="{StaticResource MarginH2}"
+                       Text="{x:Static prop:Resources.Rate}" />
+            <ComboBox ItemsSource="{Binding Rates}"
+                      SelectedItem="{Binding Rate, Converter={StaticResource RateToDoubleConverter}}" >
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Style="{StaticResource {x:Type TextBlock}}" Text="{Binding ., Converter={StaticResource RateConverter}}" />
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+
 
             <TextBlock Style="{StaticResource HeaderH2}" 
                         Margin="{StaticResource MarginH2}"
                        Text="{x:Static prop:Resources.Birthday}" />
+            <DatePicker SelectedDate="{Binding Birthday}" 
+                        x:Name="calendar1" 
+                        FirstDayOfWeek="Monday">
+            </DatePicker>
 
-            <TextBlock Style="{StaticResource HeaderH2}" 
-                        Margin="{StaticResource MarginH2}"
-                       Text="{x:Static prop:Resources.Rate}" />
+            <Button Height="100" Command="{Binding AddTeacherCommand}"> </Button>
+
+          
+
         </StackPanel>
     </Grid>
 </UserControl>

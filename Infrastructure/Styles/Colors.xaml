@@ -14,6 +14,8 @@
     <SolidColorBrush x:Key="BlueHeader" Color="#112D4E" />
     <SolidColorBrush x:Key="TextBoxBorder" Color="#112D4E" />
 
+    <SolidColorBrush x:Key="BrandPrimary" Color="#112D4E" />
+
     <SolidColorBrush x:Key="ComboBox" Color="#112D4E" />
 
     <SolidColorBrush x:Key="Tint95" Color="#3F72AF" />

@@ -5,6 +5,7 @@ using Prism.Mvvm;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 
 namespace AcademicLoadModule.ViewModels
@@ -28,19 +29,38 @@ namespace AcademicLoadModule.ViewModels
         public AddTeacherViewModel()
         {
             academicTitles = new ObservableCollection<AcademicTitle>();
+            rates = new ObservableCollection<Rate>();
+
             foreach (AcademicTitle academicTitle in Enum.GetValues(typeof(AcademicTitle)))
             {
-                academicTitles.Add(academicTitle);
+                AcademicTitles.Add(academicTitle);
             }
+
+
+            foreach (Rate rate in Enum.GetValues(typeof(Rate)))
+            {
+                Rates.Add(rate);
+            }
+
+            AddTeacherCommand = new DelegateCommand(AddTeacher, CanAddTeacher);
         }
 
         /// <summary>
-        /// Должности
+        /// Должности.
         /// </summary>
         public ObservableCollection<AcademicTitle> AcademicTitles
         {
             get => academicTitles;
             set => SetProperty(ref academicTitles, value);
+        }
+
+        /// <summary>
+        /// Ставки.
+        /// </summary>
+        public ObservableCollection<Rate> Rates
+        {
+            get => rates;
+            set => SetProperty(ref rates, value);
         }
 
 
@@ -58,8 +78,8 @@ namespace AcademicLoadModule.ViewModels
         /// </summary>
         public string LastName
         {
-            get => firstName;
-            set => SetProperty(ref firstName, value);
+            get => lastName;
+            set => SetProperty(ref lastName, value);
         }
 
         /// <summary>
@@ -87,6 +107,27 @@ namespace AcademicLoadModule.ViewModels
         {
             get => rate;
             set => SetProperty(ref rate, value);
+        }
+
+        /// <summary>
+        /// Дата рождения.
+        /// </summary>
+        public DateTime Birthday
+        {
+            get => birthday;
+            set => SetProperty(ref birthday, value);
+        }
+
+        public DelegateCommand AddTeacherCommand { get; set; }
+
+        private void AddTeacher()
+        {
+            Debug.WriteLine("aza");
+
+        }
+        private bool CanAddTeacher()
+        {
+            return true;
         }
     }
 }
