@@ -1,9 +1,11 @@
-﻿using Prism.Mvvm;
+﻿using NavigationModule;
+using Prism.Mvvm;
 
 namespace Shell.ViewModels
 {
     public class MainWindowViewModel : BindableBase
     {
+        private Navigator a;
         private string _title = Properties.Resources.Title;
         public string Title
         {
@@ -11,9 +13,9 @@ namespace Shell.ViewModels
             set { SetProperty(ref _title, value); }
         }
 
-        public MainWindowViewModel()
+        public MainWindowViewModel( Navigator navigator)
         {
-
+            a = navigator;
         }
     }
 }

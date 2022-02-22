@@ -52,8 +52,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AcademicLoadModule.cs" />
+    <Compile Include="Controllers\GroupController.cs" />
+    <Compile Include="Controllers\Interfaces\IGroupController.cs" />
     <Compile Include="Controllers\Interfaces\ITeacherController.cs" />
     <Compile Include="Controllers\TeacherController.cs" />
+    <Compile Include="Events\TeachersCountChangeEvent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -67,11 +70,15 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="ViewModels\AddGroupViewModel.cs" />
     <Compile Include="ViewModels\AddTeacherViewModel.cs" />
     <Compile Include="ViewModels\GroupsEmptyViewModel.cs" />
     <Compile Include="ViewModels\TabsViewModel.cs" />
     <Compile Include="ViewModels\TeachersEmptyViewModel.cs" />
     <Compile Include="ViewModels\TeachersViewModel.cs" />
+    <Compile Include="Views\AddGroupView.xaml.cs">
+      <DependentUpon>AddGroupView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\AddTeacherView.xaml.cs">
       <DependentUpon>AddTeacherView.xaml</DependentUpon>
     </Compile>
@@ -112,6 +119,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Views\AddGroupView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\AddTeacherView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -138,5 +149,6 @@
       <Version>7.2.0.1422</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

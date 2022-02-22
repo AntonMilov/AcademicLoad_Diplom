@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using NavigationModule;
 using Prism.Ioc;
 using Prism.Modularity;
 using Shell.Views;
@@ -19,10 +20,11 @@ namespace Shell
         {
             containerRegistry.RegisterDialog<Infrastructure.ConfirmDialog.ConfirmDialogView, Infrastructure.ConfirmDialog.ConfirmDialogViewModel>("ConfirmDialog");
         }
+
         protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
         {
-          
             moduleCatalog.AddModule<AcademicLoadModule.AcademicLoadModule>();
+            moduleCatalog.AddModule<NavigationModule.NavigationModule>();
         }
     }
 }

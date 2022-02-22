@@ -7,7 +7,7 @@
     </ResourceDictionary.MergedDictionaries>
 
     <Style TargetType="DatePicker">
-        <Setter Property="BorderBrush" Value="{StaticResource BrandPrimary}" />
+        <Setter Property="BorderThickness" Value="0" />
         <Setter Property="FontSize" Value="14" />
     </Style>
     

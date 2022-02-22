@@ -142,7 +142,7 @@ namespace AcademicLoadModule.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Номер группы:.
+        ///   Ищет локализованную строку, похожую на Название группы:.
         /// </summary>
         public static string GroupName {
             get {
@@ -210,6 +210,15 @@ namespace AcademicLoadModule.Properties {
         public static string Rate {
             get {
                 return ResourceManager.GetString("Rate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Количество студентов:.
+        /// </summary>
+        public static string Students {
+            get {
+                return ResourceManager.GetString("Students", resourceCulture);
             }
         }
         

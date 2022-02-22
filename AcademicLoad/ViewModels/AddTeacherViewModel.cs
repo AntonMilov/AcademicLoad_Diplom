@@ -1,5 +1,4 @@
-﻿using Core.Entities;
-using Data.Enums;
+﻿using Data.Enums;
 using Prism.Commands;
 using Prism.Mvvm;
 using System;
@@ -62,7 +61,6 @@ namespace AcademicLoadModule.ViewModels
             get => rates;
             set => SetProperty(ref rates, value);
         }
-
 
         /// <summary>
         /// Имя.

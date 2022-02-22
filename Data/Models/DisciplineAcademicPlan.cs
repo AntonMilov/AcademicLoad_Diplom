@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Core.Entities
+﻿namespace Data.Models
 {
     /// <summary>
     /// Сущности для строк в таблице по плану учебной нагрузки
