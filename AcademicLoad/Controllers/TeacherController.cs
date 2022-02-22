@@ -1,4 +1,5 @@
-﻿using AcademicLoadModule.Controllers.Interfaces;
+﻿using System.Diagnostics;
+using AcademicLoadModule.Controllers.Interfaces;
 using AcademicLoadModule.Events;
 using AcademicLoadModule.Views;
 using Core.Services.Interfaces;
@@ -35,8 +36,19 @@ namespace AcademicLoadModule.Controllers
 
             DialogParameters dialogParameters = new DialogParameters();
             dialogParameters.Add("confirmDialogParameters", confirmDialogParameters);
+            //using the dialog service as-is
+            dialogService.Show("ConfirmDialog", dialogParameters, r =>
+            {
+                if (r.Result == ButtonResult.OK)
+                {
+                    Debug.WriteLine("hui");
+                }
+                if (r.Result == ButtonResult.Cancel)
+                {
+                    Debug.WriteLine("hui1");
+                }
+            });
 
-           
             teacherService.AddTeacher(new Teacher());
             eventAggregator.GetEvent<TeachersCountChangeEvent>().Publish(teacherService.Teachers.Count);
         }

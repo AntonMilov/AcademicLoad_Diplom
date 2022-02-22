@@ -16,10 +16,6 @@
 
     <Border Padding="20,10">
         <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="9*"/>
-                <ColumnDefinition Width="311*"/>
-            </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*"/>
@@ -39,6 +35,8 @@
                     VerticalAlignment="Bottom"
                     HorizontalAlignment="Right" Grid.ColumnSpan="2">
                 <Button x:Name="Confrim" 
+                        Command="{Binding CloseDialogCommand}" 
+                        CommandParameter="true"
                         Style="{StaticResource LinkButton}"
                         Content="{Binding ConfirmButtonText}"
                         MinWidth="150"

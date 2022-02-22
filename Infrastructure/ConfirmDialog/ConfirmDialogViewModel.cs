@@ -10,6 +10,7 @@ namespace Infrastructure.ConfirmDialog
 {
     public class ConfirmDialogViewModel : BindableBase, IDialogAware
     {
+        private bool test;
         private object content;
         private string title;
         private string header;
@@ -25,7 +26,7 @@ namespace Infrastructure.ConfirmDialog
 
         public DelegateCommand<string> CloseDialogCommand => new DelegateCommand<string>(CloseDialog);
 
-
+        private Func<bool> Func { get; set; };
 
         /// <summary>
         /// Заголовок окна.
@@ -81,7 +82,7 @@ namespace Infrastructure.ConfirmDialog
 
         public bool CanCloseDialog()
         {
-            return true;
+            return test;
         }
 
         public void OnDialogClosed()
@@ -105,9 +106,16 @@ namespace Infrastructure.ConfirmDialog
             ButtonResult result = ButtonResult.None;
 
             if (parameter?.ToLower() == "true")
+            {
+                test = false;
                 result = ButtonResult.OK;
+            }
             else if (parameter?.ToLower() == "false")
+            {
+                test = true;
                 result = ButtonResult.Cancel;
+            }
+              
 
             RaiseRequestClose(new DialogResult(result));
         }
