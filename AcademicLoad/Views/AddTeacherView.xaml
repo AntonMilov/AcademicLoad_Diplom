@@ -90,10 +90,8 @@
                     BorderThickness="1">
                 <DatePicker SelectedDate="{Binding Birthday}" 
                             x:Name="DatePicker" 
-                            FirstDayOfWeek="Monday">
-                    <DatePicker.BlackoutDates>
-                        <CalendarDateRange Start="1/1/1930" End="1/1/2010"></CalendarDateRange>
-                    </DatePicker.BlackoutDates>
+                            FirstDayOfWeek="Monday"
+                            >
                 </DatePicker>
             </Border>
           

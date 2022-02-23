@@ -7,13 +7,53 @@
              d:DesignHeight="300" d:DesignWidth="300"
              xmlns:prism="http://prismlibrary.com/"
              prism:ViewModelLocator.AutoWireViewModel="True" >
-    
+
     <UserControl.Resources>
         <ResourceDictionary Source="/Infrastructure;component/Themes/Generic.xaml"/>
     </UserControl.Resources>
+
     <Grid>
-        <TextBlock Text="azaza"></TextBlock>
+        <Grid.Resources>
+
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Vertical">
+            <TextBlock Text="Поиcк по фио:" Style="{StaticResource HeaderH2}"
+                       Foreground="{StaticResource BrandPrimary}"
+                       Margin="0,0,0,8"></TextBlock>
+            <StackPanel Orientation="Horizontal">
+                <TextBox Style="{StaticResource SearchTextBox}" Width="200" TextChanged="TextBox_TextChanged"></TextBox>
+                <Rectangle  Width="1" Margin="10,0,10,0" Stroke="Gray" />
+                <Button Style="{StaticResource ButtonWithIcon}" 
+                        VerticalAlignment="Center">
+                    <Path Style="{StaticResource AddTeacherIcon}"></Path>
+                </Button>
+                <Button Style="{StaticResource ButtonWithIcon}"
+                        VerticalAlignment="Center">
+                    <Path Style="{StaticResource DeleteTeacherIcon}"></Path>
+                </Button>
+            </StackPanel>
+
+            
+        </StackPanel>
+        <ListView Grid.Row="1" ItemsSource="{Binding Items}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal" Height="64" >
+
+                        <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="12,0,0,0">
+                            <TextBlock Text="{Binding LastName}"   />
+                            <TextBlock Text="{Binding FirstName}" />
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
     </Grid>
-   
+
 
 </UserControl>

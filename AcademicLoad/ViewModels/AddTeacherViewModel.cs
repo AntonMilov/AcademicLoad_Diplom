@@ -13,6 +13,7 @@ namespace AcademicLoadModule.ViewModels
     /// <inheritdoc/>
     public class AddTeacherViewModel : BindableBase
     {
+        private readonly DateTime StartDate = new DateTime(1940, 1, 1);
         private string firstName;
         private string lastName;
         private string middleName;
@@ -29,6 +30,7 @@ namespace AcademicLoadModule.ViewModels
         {
             academicTitles = new ObservableCollection<AcademicTitle>();
             rates = new ObservableCollection<Rate>();
+            birthday = StartDate;
 
             foreach (AcademicTitle academicTitle in Enum.GetValues(typeof(AcademicTitle)))
             {
@@ -144,7 +146,7 @@ namespace AcademicLoadModule.ViewModels
                    !string.IsNullOrEmpty(LastName) &&
                    SelectedAcademicTitle != AcademicTitle.None &&
                    Rate != 5.00 &&
-                   Birthday != DateTime.MinValue;
+                   Birthday != StartDate;
         }
     }
 }

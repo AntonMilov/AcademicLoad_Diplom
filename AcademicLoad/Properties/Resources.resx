@@ -165,6 +165,9 @@
   <data name="NormsTime" xml:space="preserve">
     <value>Нормы времени</value>
   </data>
+  <data name="Notification" xml:space="preserve">
+    <value>Сообщение.</value>
+  </data>
   <data name="Rate" xml:space="preserve">
     <value>Ставка:</value>
   </data>
@@ -176,6 +179,9 @@
   </data>
   <data name="StudyGroups" xml:space="preserve">
     <value>Учебные группы</value>
+  </data>
+  <data name="SuccessAddTeahcer" xml:space="preserve">
+    <value>Преподаватель успешно добавлен.</value>
   </data>
   <data name="Teachers" xml:space="preserve">
     <value>Преподаватели</value>

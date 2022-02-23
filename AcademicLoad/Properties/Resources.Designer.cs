@@ -205,6 +205,15 @@ namespace AcademicLoadModule.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Сообщение..
+        /// </summary>
+        public static string Notification {
+            get {
+                return ResourceManager.GetString("Notification", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Ставка:.
         /// </summary>
         public static string Rate {
@@ -237,6 +246,15 @@ namespace AcademicLoadModule.Properties {
         public static string StudyGroups {
             get {
                 return ResourceManager.GetString("StudyGroups", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Преподаватель успешно добавлен..
+        /// </summary>
+        public static string SuccessAddTeahcer {
+            get {
+                return ResourceManager.GetString("SuccessAddTeahcer", resourceCulture);
             }
         }
         
