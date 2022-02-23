@@ -22,7 +22,7 @@ namespace Infrastructure.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace Infrastructure.Properties {
         ///   Возвращает кэшированный экземпляр ResourceManager, использованный этим классом.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Infrastructure.Properties.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace Infrastructure.Properties {
         ///   обращений к ресурсу с помощью этого класса ресурса со строгой типизацией.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace Infrastructure.Properties {
         /// <summary>
         ///   Ищет локализованную строку, похожую на Ассистент.
         /// </summary>
-        internal static string Assistant {
+        public static string Assistant {
             get {
                 return ResourceManager.GetString("Assistant", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace Infrastructure.Properties {
         /// <summary>
         ///   Ищет локализованную строку, похожую на Декан.
         /// </summary>
-        internal static string Dekan {
+        public static string Dekan {
             get {
                 return ResourceManager.GetString("Dekan", resourceCulture);
             }
@@ -81,16 +81,34 @@ namespace Infrastructure.Properties {
         /// <summary>
         ///   Ищет локализованную строку, похожую на Доцент.
         /// </summary>
-        internal static string Docent {
+        public static string Docent {
             get {
                 return ResourceManager.GetString("Docent", resourceCulture);
             }
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Ошибка..
+        /// </summary>
+        public static string Error {
+            get {
+                return ResourceManager.GetString("Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Невозможно выполнить операцию. Проверьте заполнение всех полей..
+        /// </summary>
+        public static string ErrorConfirm {
+            get {
+                return ResourceManager.GetString("ErrorConfirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Зав. кафедрой.
         /// </summary>
-        internal static string HeadDepartment {
+        public static string HeadDepartment {
             get {
                 return ResourceManager.GetString("HeadDepartment", resourceCulture);
             }
@@ -99,7 +117,7 @@ namespace Infrastructure.Properties {
         /// <summary>
         ///   Ищет локализованную строку, похожую на Преподаватель.
         /// </summary>
-        internal static string Lecturer {
+        public static string Lecturer {
             get {
                 return ResourceManager.GetString("Lecturer", resourceCulture);
             }
@@ -108,7 +126,7 @@ namespace Infrastructure.Properties {
         /// <summary>
         ///   Ищет локализованную строку, похожую на Профессор.
         /// </summary>
-        internal static string Professor {
+        public static string Professor {
             get {
                 return ResourceManager.GetString("Professor", resourceCulture);
             }
@@ -117,7 +135,7 @@ namespace Infrastructure.Properties {
         /// <summary>
         ///   Ищет локализованную строку, похожую на Старший преподаватель.
         /// </summary>
-        internal static string SeniorLecturer {
+        public static string SeniorLecturer {
             get {
                 return ResourceManager.GetString("SeniorLecturer", resourceCulture);
             }

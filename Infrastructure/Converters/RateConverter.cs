@@ -11,7 +11,6 @@ namespace Infrastructure.Converters
     /// </summary>
     public class RateConverter : IValueConverter
     {
-
         /// <inheritdoc/>
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {

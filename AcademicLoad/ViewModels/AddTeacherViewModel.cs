@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
+using Data.Models;
 
 namespace AcademicLoadModule.ViewModels
 {
@@ -15,9 +16,8 @@ namespace AcademicLoadModule.ViewModels
         private string firstName;
         private string lastName;
         private string middleName;
-        private double rate;
+        private double rate = 5.00;
         private DateTime birthday;
-
         private AcademicTitle selectedAcademicTitle;
         private ObservableCollection<AcademicTitle> academicTitles;
         private ObservableCollection<Rate> rates;
@@ -32,16 +32,16 @@ namespace AcademicLoadModule.ViewModels
 
             foreach (AcademicTitle academicTitle in Enum.GetValues(typeof(AcademicTitle)))
             {
-                AcademicTitles.Add(academicTitle);
+                if (academicTitle != AcademicTitle.None)
+                {
+                    AcademicTitles.Add(academicTitle);
+                }
             }
-
 
             foreach (Rate rate in Enum.GetValues(typeof(Rate)))
             {
                 Rates.Add(rate);
             }
-
-            AddTeacherCommand = new DelegateCommand(AddTeacher, CanAddTeacher);
         }
 
         /// <summary>
@@ -116,16 +116,35 @@ namespace AcademicLoadModule.ViewModels
             set => SetProperty(ref birthday, value);
         }
 
-        public DelegateCommand AddTeacherCommand { get; set; }
-
-        private void AddTeacher()
+        /// <summary>
+        /// Создание нового учителя.
+        /// </summary>
+        /// <returns></returns>
+        public Teacher CreateTeacher()
         {
-            Debug.WriteLine("aza");
-
+            return new Teacher()
+            {
+                FirstName = FirstName,
+                MiddleName = MiddleName,
+                LastName = LastName,
+                AcademicTitle = SelectedAcademicTitle,
+                Rate = Rate,
+                Birthday = Birthday
+            };
         }
-        private bool CanAddTeacher()
+
+        /// <summary>
+        /// Проверка на заполнение всех полей.
+        /// </summary>
+        /// <returns></returns>
+        public bool CanAddTeacher()
         {
-            return true;
+            return !string.IsNullOrEmpty(FirstName) &&
+                   !string.IsNullOrEmpty(MiddleName) &&
+                   !string.IsNullOrEmpty(LastName) &&
+                   SelectedAcademicTitle != AcademicTitle.None &&
+                   Rate != 5.00 &&
+                   Birthday != DateTime.MinValue;
         }
     }
 }

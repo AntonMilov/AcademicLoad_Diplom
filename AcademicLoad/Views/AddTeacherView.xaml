@@ -62,7 +62,7 @@
                        Margin="{StaticResource MarginH2}"
                        Text="{x:Static prop:Resources.AcademicTitle}" />
             <ComboBox ItemsSource="{Binding AcademicTitles}"
-                      SelectedItem="{Binding SelectedAcaemicTitle,UpdateSourceTrigger=PropertyChanged}"  >
+                      SelectedItem="{Binding SelectedAcademicTitle,UpdateSourceTrigger=PropertyChanged}"  >
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
                         <TextBlock Style="{StaticResource {x:Type TextBlock}}" Text="{Binding ., Converter={StaticResource AcademicTitleToNameConverter}}" />
@@ -89,9 +89,12 @@
                     CornerRadius="4"
                     BorderThickness="1">
                 <DatePicker SelectedDate="{Binding Birthday}" 
-                        x:Name="calendar1" 
-                        FirstDayOfWeek="Monday">
-            </DatePicker>
+                            x:Name="DatePicker" 
+                            FirstDayOfWeek="Monday">
+                    <DatePicker.BlackoutDates>
+                        <CalendarDateRange Start="1/1/1930" End="1/1/2010"></CalendarDateRange>
+                    </DatePicker.BlackoutDates>
+                </DatePicker>
             </Border>
           
         </StackPanel>

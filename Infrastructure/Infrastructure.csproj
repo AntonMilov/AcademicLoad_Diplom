@@ -71,6 +71,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="NotificationDialog\NotificationDialogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Styles\Buttons.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -118,6 +122,13 @@
     <Compile Include="Converters\AcademicTitleToNameConverter.cs" />
     <Compile Include="Converters\RateConverter.cs" />
     <Compile Include="Converters\RateToDoubleConverter.cs" />
+    <Compile Include="NotificationDialog\Controller\INotificationDialogController.cs" />
+    <Compile Include="NotificationDialog\Controller\NotificationDialogController.cs" />
+    <Compile Include="NotificationDialog\NotificationDialogParameters.cs" />
+    <Compile Include="NotificationDialog\NotificationDialogView.xaml.cs">
+      <DependentUpon>NotificationDialogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NotificationDialog\NotificationDialogViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -132,7 +143,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />
@@ -141,9 +152,7 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="NotificationDialog\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Data\Data.csproj">
       <Project>{14681132-8243-4ea5-9e7a-a8c340689478}</Project>

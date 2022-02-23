@@ -1,5 +1,7 @@
 ﻿
 
+using System;
+
 namespace Infrastructure.ConfirmDialog
 {
     /// <summary>
@@ -33,5 +35,10 @@ namespace Infrastructure.ConfirmDialog
         /// Контент.
         /// </summary>
         public object Content { get; set; }
+
+        /// <summary>
+        /// Делегат на функцию для опрелеления возможности закрытия окна.
+        /// </summary>
+        public Func<bool> CanCloseWindow { get; set; }
     }
 }

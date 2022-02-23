@@ -36,7 +36,7 @@ namespace Data.Models
         /// <summary>
         /// Дата рождения.
         /// </summary>
-        DateTime Birthday { get; set; }
+        public DateTime Birthday { get; set; }
 
     }
 }

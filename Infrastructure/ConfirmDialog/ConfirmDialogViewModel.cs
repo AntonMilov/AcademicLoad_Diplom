@@ -5,28 +5,39 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Controls;
+using Infrastructure.NotificationDialog.Controller;
 
 namespace Infrastructure.ConfirmDialog
 {
+    /// <summary>
+    /// ViewModel для окна потверждения.
+    /// </summary>
     public class ConfirmDialogViewModel : BindableBase, IDialogAware
     {
-        private bool test;
+        private readonly INotificationDialogController notificationDialogController;
         private object content;
         private string title;
         private string header;
         private string сloseButonText;
         private string сonfirmButtonText;
+
         /// <summary>
         /// .ctor
         /// </summary>
-        public ConfirmDialogViewModel()
+        public ConfirmDialogViewModel(INotificationDialogController notificationDialogController)
         {
-
+            this.notificationDialogController = notificationDialogController;
         }
 
+        /// <summary>
+        /// Команда закрытия окна.
+        /// </summary>
         public DelegateCommand<string> CloseDialogCommand => new DelegateCommand<string>(CloseDialog);
 
-        private Func<bool> Func { get; set; };
+        /// <summary>
+        /// Делегат на функцию для опрелеления возможности закрытия окна.
+        /// </summary>
+        public Func<bool> CanCloseWindow { get; set; }
 
         /// <summary>
         /// Заголовок окна.
@@ -80,14 +91,18 @@ namespace Infrastructure.ConfirmDialog
             RequestClose?.Invoke(dialogResult);
         }
 
+        /// <summary>
+        /// Может ли окно закрыться.
+        /// </summary>
+        /// <returns></returns>
         public bool CanCloseDialog()
         {
-            return test;
+            return true;
         }
 
         public void OnDialogClosed()
         {
-            
+
         }
 
         public void OnDialogOpened(IDialogParameters parameters)
@@ -99,6 +114,7 @@ namespace Infrastructure.ConfirmDialog
             CloseButtonText = parameter.CloseButtonText;
             ConfirmButtonText = parameter.ConfirmButtonText;
             Content = parameter.Content;
+            CanCloseWindow = parameter.CanCloseWindow;
         }
 
         private void CloseDialog(string parameter)
@@ -107,17 +123,25 @@ namespace Infrastructure.ConfirmDialog
 
             if (parameter?.ToLower() == "true")
             {
-                test = false;
-                result = ButtonResult.OK;
+                if (!CanCloseWindow())
+                {
+                    notificationDialogController.OpenNotificationDialog(Properties.Resources.Error, Properties.Resources.ErrorConfirm);
+                }
+                else
+                {
+                    result = ButtonResult.OK;
+                }
+
             }
             else if (parameter?.ToLower() == "false")
             {
-                test = true;
                 result = ButtonResult.Cancel;
             }
-              
 
-            RaiseRequestClose(new DialogResult(result));
+            if (result != ButtonResult.None)
+            {
+                RaiseRequestClose(new DialogResult(result));
+            }
         }
     }
 }

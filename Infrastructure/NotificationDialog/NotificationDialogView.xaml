@@ -1,0 +1,41 @@
+﻿<UserControl x:Class="Infrastructure.NotificationDialog.NotificationDialogView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:prism="http://prismlibrary.com/"             
+             prism:ViewModelLocator.AutoWireViewModel="True">
+
+    <UserControl.Resources>
+        <ResourceDictionary Source="/Infrastructure;component/Themes/Generic.xaml"/>
+    </UserControl.Resources>
+    <prism:Dialog.WindowStyle>
+        <Style TargetType="Window">
+            <Setter Property="SizeToContent" Value="WidthAndHeight" />
+            <Setter Property="ResizeMode" Value="NoResize" />
+        </Style>
+    </prism:Dialog.WindowStyle>
+
+    <Border Padding="20,10">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0"  
+                       TextAlignment="Center"
+                       MinWidth="170"
+                       Margin="0,0,0,20"
+                       Text="{Binding Message}" 
+                       TextWrapping="Wrap">
+
+            </TextBlock>
+
+            <Button x:Name="Close" 
+                    Grid.Row="1" 
+                    Command="{Binding CloseDialogCommand}" 
+                    CommandParameter="false"
+                    Style="{StaticResource LinkButton}"
+                    Content="OK"
+                    Width="150" />
+        </Grid>
+    </Border>
+</UserControl>

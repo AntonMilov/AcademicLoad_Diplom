@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using AcademicLoadModule.Controllers.Interfaces;
 using AcademicLoadModule.Events;
+using AcademicLoadModule.ViewModels;
 using AcademicLoadModule.Views;
 using Core.Services.Interfaces;
 using Data.Models;
@@ -25,7 +26,8 @@ namespace AcademicLoadModule.Controllers
         }
         public void AddTeacher()
         {
-            AddTeacherView view = new AddTeacherView();
+            AddTeacherViewModel model = new AddTeacherViewModel();
+            AddTeacherView view = new AddTeacherView(){DataContext = model};
 
             var confirmDialogParameters = new ConfirmDialogParameters();
             confirmDialogParameters.CloseButtonText = Properties.Resources.Cancel;
@@ -33,6 +35,7 @@ namespace AcademicLoadModule.Controllers
             confirmDialogParameters.Header = Properties.Resources.AddingTeacher;
             confirmDialogParameters.Title = Properties.Resources.AddingTeacher;
             confirmDialogParameters.Content = view;
+            confirmDialogParameters.CanCloseWindow = model.CanAddTeacher;
 
             DialogParameters dialogParameters = new DialogParameters();
             dialogParameters.Add("confirmDialogParameters", confirmDialogParameters);
@@ -41,16 +44,14 @@ namespace AcademicLoadModule.Controllers
             {
                 if (r.Result == ButtonResult.OK)
                 {
-                    Debug.WriteLine("hui");
+                    teacherService.AddTeacher(model.CreateTeacher());
+                    eventAggregator.GetEvent<TeachersCountChangeEvent>().Publish(teacherService.Teachers.Count);
                 }
                 if (r.Result == ButtonResult.Cancel)
                 {
-                    Debug.WriteLine("hui1");
+                  
                 }
             });
-
-            teacherService.AddTeacher(new Teacher());
-            eventAggregator.GetEvent<TeachersCountChangeEvent>().Publish(teacherService.Teachers.Count);
         }
     }
 }

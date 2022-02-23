@@ -12,6 +12,11 @@ namespace Data.Enums
     public enum AcademicTitle
     {
         /// <summary>
+        /// Значение по умолчанию.
+        /// </summary>
+        None = 0,
+
+        /// <summary>
         /// Декан
         /// </summary>
         Dekan,

@@ -19,6 +19,7 @@ namespace Shell
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterDialog<Infrastructure.ConfirmDialog.ConfirmDialogView, Infrastructure.ConfirmDialog.ConfirmDialogViewModel>("ConfirmDialog");
+            containerRegistry.RegisterDialog<Infrastructure.NotificationDialog.NotificationDialogView, Infrastructure.NotificationDialog.NotificationDialogViewModel>("NotificationDialog");
         }
 
         protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
