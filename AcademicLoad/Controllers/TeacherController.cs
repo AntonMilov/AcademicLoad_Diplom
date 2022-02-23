@@ -1,4 +1,6 @@
-﻿using System.Diagnostics;
+﻿using System.Collections.ObjectModel;
+using System.Diagnostics;
+using System.Linq;
 using AcademicLoadModule.Controllers.Interfaces;
 using AcademicLoadModule.Events;
 using AcademicLoadModule.ViewModels;
@@ -18,15 +20,26 @@ namespace AcademicLoadModule.Controllers
         private IDialogService dialogService;
         private readonly IEventAggregator eventAggregator;
         private readonly ITeacherService teacherService;
+        private ObservableCollection<Teacher> items;
 
 
+        /// <summary>
+        /// .ctor
+        /// </summary>
+        /// <param name="dialogService"></param>
+        /// <param name="eventAggregator"></param>
+        /// <param name="teacherService"></param>
+        /// <param name="notificationDialogController"></param>
         public TeacherController(IDialogService dialogService, IEventAggregator eventAggregator, ITeacherService teacherService, INotificationDialogController notificationDialogController)
         {
             this.notificationDialogController = notificationDialogController;
             this.dialogService = dialogService;
             this.eventAggregator = eventAggregator;
             this.teacherService = teacherService;
+
+            items = new ObservableCollection<Teacher>();
         }
+
         public void AddTeacher()
         {
             AddTeacherViewModel model = new AddTeacherViewModel();
@@ -47,6 +60,7 @@ namespace AcademicLoadModule.Controllers
             {
                 if (r.Result == ButtonResult.OK)
                 {
+                    items.Add(model.CreateTeacher());
                     teacherService.AddTeacher(model.CreateTeacher());
                     eventAggregator.GetEvent<TeachersCountChangeEvent>().Publish(teacherService.Teachers.Count);
                     notificationDialogController.OpenNotificationDialog(Properties.Resources.Notification, Properties.Resources.SuccessAddTeahcer);
@@ -57,5 +71,12 @@ namespace AcademicLoadModule.Controllers
                 }
             });
         }
+
+        public ObservableCollection<Teacher> Items
+        {
+            get => items;
+            set => items = value;
+        }
+
     }
 }

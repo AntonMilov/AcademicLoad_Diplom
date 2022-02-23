@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300"
+             xmlns:prop="clr-namespace:AcademicLoadModule.Properties"
              xmlns:prism="http://prismlibrary.com/"
              prism:ViewModelLocator.AutoWireViewModel="True" >
 
@@ -12,43 +13,174 @@
         <ResourceDictionary Source="/Infrastructure;component/Themes/Generic.xaml"/>
     </UserControl.Resources>
 
-    <Grid>
+    <Grid HorizontalAlignment="Center">
         <Grid.Resources>
 
         </Grid.Resources>
         <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition ></RowDefinition>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Vertical">
-            <TextBlock Text="Поиcк по фио:" Style="{StaticResource HeaderH2}"
+        <StackPanel Orientation="Vertical"
+                    Margin="0,0,0,30"
+                    HorizontalAlignment="Center">
+            <TextBlock Text="{x:Static prop:Resources.SearchForTeacher}" Style="{StaticResource HeaderH2}"
                        Foreground="{StaticResource BrandPrimary}"
                        Margin="0,0,0,8"></TextBlock>
+
             <StackPanel Orientation="Horizontal">
                 <TextBox Style="{StaticResource SearchTextBox}" Width="200" TextChanged="TextBox_TextChanged"></TextBox>
-                <Rectangle  Width="1" Margin="10,0,10,0" Stroke="Gray" />
+
+                <Rectangle  Width="1" Margin="10,5,10,5" Stroke="{StaticResource BrandPrimary}" />
+
                 <Button Style="{StaticResource ButtonWithIcon}" 
+                        Command="{Binding AddTeacherCommand}"
+                        ToolTip="{x:Static prop:Resources.AddTeacher}"
                         VerticalAlignment="Center">
                     <Path Style="{StaticResource AddTeacherIcon}"></Path>
                 </Button>
+
                 <Button Style="{StaticResource ButtonWithIcon}"
+                        ToolTip="{x:Static prop:Resources.DeleteTeacher}"
                         VerticalAlignment="Center">
                     <Path Style="{StaticResource DeleteTeacherIcon}"></Path>
                 </Button>
             </StackPanel>
-
-            
         </StackPanel>
-        <ListView Grid.Row="1" ItemsSource="{Binding Items}">
+
+        <ListView Grid.Row="1" 
+                  HorizontalAlignment="Center"
+                  AlternationCount="2"
+                  ScrollViewer.VerticalScrollBarVisibility="Auto"
+             
+                  ItemsSource="{Binding Items}" 
+                  BorderThickness="0">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="{x:Type ListBoxItem}">
+                    <Setter Property="Margin" Value="5,3"/>
+                    <Setter Property="Padding" Value="16"/>
+                    <Setter Property="BorderThickness" Value="0"/>
+                    <Setter Property="Background" Value="Transparent"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                                <Border x:Name="brd" Background="{TemplateBinding Background}" 
+                                        BorderBrush="{TemplateBinding BorderBrush}" 
+                                        BorderThickness="{TemplateBinding BorderThickness}">
+                                    <ContentPresenter Margin="{TemplateBinding Padding}"/>
+                                </Border>
+
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="ItemsControl.AlternationIndex" Value="1">
+                                        <Setter Property="Background" Value="{StaticResource Tint65}"/>
+                                    </Trigger>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter Property="Background" Value="{StaticResource Tint80}"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </ListView.ItemContainerStyle>
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Orientation="Horizontal" Height="64" >
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Path Grid.Column="0"
+                              Style="{StaticResource TeacherIcon}" 
+                              HorizontalAlignment="Center"
+                              VerticalAlignment="Bottom"
+                              Margin="0,0,20,0"/>
 
-                        <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="12,0,0,0">
-                            <TextBlock Text="{Binding LastName}"   />
-                            <TextBlock Text="{Binding FirstName}" />
-                        </StackPanel>
-                    </StackPanel>
+                        <Grid Grid.Column="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="10" />
+                                <ColumnDefinition Width="150" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <TextBlock Grid.Column="0" Grid.Row="0"
+                                       Text="{x:Static prop:Resources.Name}"/>
+                            <TextBlock Grid.Column="2" Grid.Row="0"
+                                       TextTrimming="CharacterEllipsis"
+                                       Text="{Binding FirstName}"/>
+
+                            <TextBlock Grid.Column="0" Grid.Row="1"
+                                       Text="{x:Static prop:Resources.LastName}"/>
+                            <TextBlock Grid.Column="2" Grid.Row="1"
+                                       TextTrimming="CharacterEllipsis"
+                                       Text="{Binding LastName}"/>
+
+                            <TextBlock Grid.Column="0" Grid.Row="2"
+                                       Text="{x:Static prop:Resources.MiddleName}"/>
+                            <TextBlock Grid.Column="2" Grid.Row="2" 
+                                       TextTrimming="CharacterEllipsis"
+                                       Text="{Binding MiddleName}"/>
+                        </Grid>
+
+                        <Grid Grid.Column="2" Margin="0,0,20,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="10" />
+                                <ColumnDefinition Width="150" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <TextBlock Grid.Column="0" Grid.Row="0"
+                                       Text="{x:Static prop:Resources.Rate}"/>
+                            <TextBlock Grid.Column="2" Grid.Row="0"
+                                       Text="{Binding Rate, Converter={StaticResource RateConverter}}"/>
+
+                            <TextBlock Grid.Column="0" Grid.Row="1"
+                                       Text="{x:Static prop:Resources.AcademicTitle}"/>
+                            <TextBlock Grid.Column="2" Grid.Row="1"
+                                       Text="{Binding AcademicTitle, Converter={StaticResource AcademicTitleToNameConverter}}"/>
+                        </Grid>
+
+                        <Grid Grid.Column="3" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="10" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <TextBlock Grid.Column="0" Grid.Row="0"
+                                       TextWrapping="Wrap"
+                                       Text="{x:Static prop:Resources.AcademicLoad}"/>
+                            <TextBlock Grid.Column="2" Grid.Row="0"
+                                       Text="{Binding FirstName}"/>
+
+                            <TextBlock Grid.Column="0" Grid.Row="1"
+                                       TextWrapping="Wrap"
+                                       Text="{x:Static prop:Resources.LectionLoad}"/>
+                            <TextBlock Grid.Column="2" Grid.Row="1"
+                                       Text="{Binding FirstName}"/>
+
+                            <TextBlock Grid.Column="0" Grid.Row="2"
+                                       TextWrapping="Wrap"
+                                       Text="{x:Static prop:Resources.HourlyFond}"/>
+                            <TextBlock Grid.Column="2" Grid.Row="1"
+                                       Text="{Binding FirstName}"/>
+                        </Grid>
+                    </Grid>
+                 
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

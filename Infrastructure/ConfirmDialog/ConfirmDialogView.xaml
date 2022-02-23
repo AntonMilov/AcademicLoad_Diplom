@@ -25,15 +25,17 @@
                        Style="{StaticResource HeaderH2}"
                        Margin="0,0,0,20"
                        Foreground="{StaticResource BlueHeader}"
-                      
-                       Text="{Binding Header}" Grid.ColumnSpan="2"></TextBlock>
+                       Text="{Binding Header}" />
 
-            <ContentControl Grid.Row="1" Content="{Binding Content}" Grid.ColumnSpan="2" Margin="0,0,0,32" Grid.RowSpan="2"></ContentControl>
+            <ContentControl Grid.Row="1" 
+                            Content="{Binding Content}" 
+                            Margin="0,0,0,0" />
 
             <StackPanel Grid.Row="2" 
-                    Orientation="Horizontal"
-                    VerticalAlignment="Bottom"
-                    HorizontalAlignment="Right" Grid.ColumnSpan="2">
+                        Orientation="Horizontal"
+                        Margin="0,20,0,0"
+                        VerticalAlignment="Bottom"
+                        HorizontalAlignment="Right">
                 <Button x:Name="Confrim" 
                         Command="{Binding CloseDialogCommand}" 
                         CommandParameter="true"

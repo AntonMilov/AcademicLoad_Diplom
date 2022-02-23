@@ -29,14 +29,14 @@
                     Content="{x:Static prop:Resources.AddPhoto}"
                     Width="160" />
         </StackPanel>
-        
+
         <StackPanel Grid.Column="1" 
                     Orientation="Vertical">
             <StackPanel.Resources>
                 <Thickness x:Key="MarginH2" Left="0" Top="0" Right="0" Bottom="4" />
                 <Thickness x:Key="MarginTextBox" Left="0" Top="0" Right="0" Bottom="8" />
             </StackPanel.Resources>
-            
+
             <TextBlock Style="{StaticResource HeaderH2}"
                        Margin="{StaticResource MarginH2}"
                        Text="{x:Static prop:Resources.Name}" />
@@ -74,7 +74,7 @@
                        Margin="{StaticResource MarginH2}"
                        Text="{x:Static prop:Resources.Rate}" />
             <ComboBox ItemsSource="{Binding Rates}"
-                      SelectedItem="{Binding Rate, Converter={StaticResource RateToDoubleConverter}}" >
+                      SelectedItem="{Binding SelectedRate}" >
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
                         <TextBlock Style="{StaticResource {x:Type TextBlock}}" Text="{Binding ., Converter={StaticResource RateConverter}}" />
@@ -94,7 +94,7 @@
                             >
                 </DatePicker>
             </Border>
-          
+
         </StackPanel>
     </Grid>
 </UserControl>

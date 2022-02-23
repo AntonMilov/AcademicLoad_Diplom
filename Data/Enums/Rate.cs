@@ -12,6 +12,11 @@ namespace Data.Enums
     public enum Rate
     {
         /// <summary>
+        /// Значение по умолчанию.
+        /// </summary>
+        None = 0,
+
+        /// <summary>
         /// Почасовая ставка.
         /// </summary>
         RateHourly,

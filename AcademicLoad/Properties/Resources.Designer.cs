@@ -61,6 +61,15 @@ namespace AcademicLoadModule.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Учебная нагрузка:.
+        /// </summary>
+        public static string AcademicLoad {
+            get {
+                return ResourceManager.GetString("AcademicLoad", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Должность:.
         /// </summary>
         public static string AcademicTitle {
@@ -142,6 +151,15 @@ namespace AcademicLoadModule.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Удалить преподавателя.
+        /// </summary>
+        public static string DeleteTeacher {
+            get {
+                return ResourceManager.GetString("DeleteTeacher", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Название группы:.
         /// </summary>
         public static string GroupName {
@@ -169,11 +187,29 @@ namespace AcademicLoadModule.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Почасовой фонд.
+        /// </summary>
+        public static string HourlyFond {
+            get {
+                return ResourceManager.GetString("HourlyFond", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Фамилия:.
         /// </summary>
         public static string LastName {
             get {
                 return ResourceManager.GetString("LastName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Лекционная нагрузка:.
+        /// </summary>
+        public static string LectionLoad {
+            get {
+                return ResourceManager.GetString("LectionLoad", resourceCulture);
             }
         }
         
@@ -219,6 +255,15 @@ namespace AcademicLoadModule.Properties {
         public static string Rate {
             get {
                 return ResourceManager.GetString("Rate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Поис по ФИО:.
+        /// </summary>
+        public static string SearchForTeacher {
+            get {
+                return ResourceManager.GetString("SearchForTeacher", resourceCulture);
             }
         }
         

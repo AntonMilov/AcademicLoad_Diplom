@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Data.Models;
 
 namespace AcademicLoadModule.Controllers.Interfaces
 {
@@ -15,6 +17,11 @@ namespace AcademicLoadModule.Controllers.Interfaces
         /// Добавление преподователя.
         /// </summary>
         void AddTeacher();
+
+        /// <summary>
+        /// Добавление преподователя.
+        /// </summary>
+        ObservableCollection<Teacher> Items { get; set; }
 
     }
 }

@@ -23,6 +23,11 @@
         <Style.Resources>
             <Style TargetType="Border">
                 <Setter Property="CornerRadius" Value="4"/>
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="BorderBrush" Value="{StaticResource TextBoxBorder}"></Setter>
+                    </Trigger>
+                </Style.Triggers>
             </Style>
         </Style.Resources>
         <Setter Property="FontSize" Value="14"/>

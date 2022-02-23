@@ -31,7 +31,7 @@ namespace Data.Models
         /// <summary>
         /// Ставка.
         /// </summary>
-        public double Rate { get; set; }
+        public Rate Rate { get; set; }
 
         /// <summary>
         /// Дата рождения.

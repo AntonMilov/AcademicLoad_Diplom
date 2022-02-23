@@ -17,7 +17,7 @@ namespace AcademicLoadModule.ViewModels
         private string firstName;
         private string lastName;
         private string middleName;
-        private double rate = 5.00;
+        private Rate _selectedSelectedRate;
         private DateTime birthday;
         private AcademicTitle selectedAcademicTitle;
         private ObservableCollection<AcademicTitle> academicTitles;
@@ -42,7 +42,10 @@ namespace AcademicLoadModule.ViewModels
 
             foreach (Rate rate in Enum.GetValues(typeof(Rate)))
             {
-                Rates.Add(rate);
+                if (rate != Rate.None)
+                {
+                    Rates.Add(rate);
+                }
             }
         }
 
@@ -103,10 +106,10 @@ namespace AcademicLoadModule.ViewModels
         /// <summary>
         /// Ставка.
         /// </summary>
-        public double Rate
+        public Rate SelectedRate
         {
-            get => rate;
-            set => SetProperty(ref rate, value);
+            get => _selectedSelectedRate;
+            set => SetProperty(ref _selectedSelectedRate, value);
         }
 
         /// <summary>
@@ -130,7 +133,7 @@ namespace AcademicLoadModule.ViewModels
                 MiddleName = MiddleName,
                 LastName = LastName,
                 AcademicTitle = SelectedAcademicTitle,
-                Rate = Rate,
+                Rate = SelectedRate,
                 Birthday = Birthday
             };
         }
@@ -145,7 +148,7 @@ namespace AcademicLoadModule.ViewModels
                    !string.IsNullOrEmpty(MiddleName) &&
                    !string.IsNullOrEmpty(LastName) &&
                    SelectedAcademicTitle != AcademicTitle.None &&
-                   Rate != 5.00 &&
+                   SelectedRate != Rate.None &&
                    Birthday != StartDate;
         }
     }
