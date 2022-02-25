@@ -19,7 +19,7 @@ namespace AcademicLoadModule.Controllers.Interfaces
         void AddTeacher();
 
         /// <summary>
-        /// Добавление преподователя.
+        /// Преподователи.
         /// </summary>
         ObservableCollection<Teacher> Items { get; set; }
 

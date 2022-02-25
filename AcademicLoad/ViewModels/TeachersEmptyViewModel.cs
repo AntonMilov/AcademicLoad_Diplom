@@ -22,13 +22,13 @@ namespace AcademicLoadModule.ViewModels
         public TeachersEmptyViewModel(ITeacherController teacherController)
         {
             this.teacherController = teacherController;
-            AddTeacherComamnd = new DelegateCommand(addTeacher);
+            AddTeacherCommand = new DelegateCommand(addTeacher);
         }
 
         /// <summary>
-        /// Команда для добавения преподавателя.
+        /// Команда для добавления преподавателя.
         /// </summary>
-        public DelegateCommand AddTeacherComamnd { get; private set; }
+        public DelegateCommand AddTeacherCommand { get; private set; }
 
         private void addTeacher()
         {

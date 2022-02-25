@@ -30,6 +30,7 @@ namespace AcademicLoadModule
 
             containerRegistry.RegisterSingleton<ITeacherController, TeacherController>();
             containerRegistry.RegisterSingleton<ITeacherService, TeacherService>();
+            containerRegistry.RegisterSingleton<IGroupController, GroupController>();
         }
     }
 }

@@ -3,13 +3,15 @@ using Prism.Mvvm;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Data.Models;
 
 namespace AcademicLoadModule.ViewModels
 {
+    /// <inheritdoc/>
     public class AddGroupViewModel : BindableBase
     {
         private string name;
-        private int studnets;
+        private int students = 0;
 
         /// <summary>
         /// .ctor
@@ -31,10 +33,35 @@ namespace AcademicLoadModule.ViewModels
         /// <summary>
         /// Количество студентов.
         /// </summary>
-        public int Studnets
+        public int Students
         {
-            get => studnets;
-            set => SetProperty(ref studnets, value);
+            get => students;
+            set => SetProperty(ref students, value);
         }
+
+        /// <summary>
+        /// Создание новой учебной группы.
+        /// </summary>
+        /// <returns></returns>
+        public Group CreateGroup()
+        {
+            return new Group()
+            {
+              Name = Name,
+              Students = Students
+            };
+        }
+
+        /// <summary>
+        /// Проверка на заполнение всех полей.
+        /// </summary>
+        /// <returns></returns>
+        public bool CanAddGroup()
+        {
+            return !string.IsNullOrEmpty(Name) &&
+                   Students != 0;
+        }
+
+
     }
 }

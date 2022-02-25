@@ -8,14 +8,13 @@
              xmlns:prop="clr-namespace:AcademicLoadModule.Properties"
              prism:ViewModelLocator.AutoWireViewModel="True">
 
-
     <UserControl.Resources>
         <ResourceDictionary Source="/Infrastructure;component/Themes/Generic.xaml"/>
     </UserControl.Resources>
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200" />
+            <ColumnDefinition Width="180" />
         </Grid.ColumnDefinitions>
         <StackPanel>
             <StackPanel.Resources>
@@ -27,13 +26,14 @@
                        Margin="{StaticResource MarginH2}"
                        Text="{x:Static prop:Resources.GroupName}" />
             <TextBox Margin="{StaticResource MarginTextBox}"
+                     Text="{Binding Name}"
                      Style="{StaticResource EditTextBox}" />
-
 
             <TextBlock Style="{StaticResource HeaderH2}"
                        Margin="{StaticResource MarginH2}"
                        Text="{x:Static prop:Resources.Students}" />
             <TextBox Margin="{StaticResource MarginTextBox}"
+                     Text="{Binding Students}"
                      Style="{StaticResource EditTextBox}" />
 
         </StackPanel>

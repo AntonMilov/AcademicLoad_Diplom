@@ -14,14 +14,13 @@ using Prism.Services.Dialogs;
 
 namespace AcademicLoadModule.Controllers
 {
-    class TeacherController : ITeacherController
+    public class TeacherController : ITeacherController
     {
         private readonly INotificationDialogController notificationDialogController;
-        private IDialogService dialogService;
+        private readonly IDialogService dialogService;
         private readonly IEventAggregator eventAggregator;
         private readonly ITeacherService teacherService;
         private ObservableCollection<Teacher> items;
-
 
         /// <summary>
         /// .ctor

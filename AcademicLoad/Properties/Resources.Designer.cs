@@ -97,6 +97,15 @@ namespace AcademicLoadModule.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Добавление учебной группы.
+        /// </summary>
+        public static string AddingGroup {
+            get {
+                return ResourceManager.GetString("AddingGroup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Добавление преподавателя.
         /// </summary>
         public static string AddingTeacher {
