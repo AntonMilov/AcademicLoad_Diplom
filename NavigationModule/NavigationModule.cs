@@ -1,5 +1,4 @@
 ﻿using System.Dynamic;
-using NavigationModule.Views;
 using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Regions;

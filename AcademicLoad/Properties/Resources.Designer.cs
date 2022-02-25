@@ -160,11 +160,29 @@ namespace AcademicLoadModule.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Удалить учебную группу.
+        /// </summary>
+        public static string DeleteGroup {
+            get {
+                return ResourceManager.GetString("DeleteGroup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Удалить преподавателя.
         /// </summary>
         public static string DeleteTeacher {
             get {
                 return ResourceManager.GetString("DeleteTeacher", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Редактировать учебную группу.
+        /// </summary>
+        public static string EditGroup {
+            get {
+                return ResourceManager.GetString("EditGroup", resourceCulture);
             }
         }
         
@@ -264,6 +282,15 @@ namespace AcademicLoadModule.Properties {
         public static string Rate {
             get {
                 return ResourceManager.GetString("Rate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Поиск по названию группы:.
+        /// </summary>
+        public static string SearchForGroup {
+            get {
+                return ResourceManager.GetString("SearchForGroup", resourceCulture);
             }
         }
         

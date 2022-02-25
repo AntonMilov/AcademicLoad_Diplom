@@ -150,8 +150,14 @@
   <data name="Cancel" xml:space="preserve">
     <value>Отмена</value>
   </data>
+  <data name="DeleteGroup" xml:space="preserve">
+    <value>Удалить учебную группу</value>
+  </data>
   <data name="DeleteTeacher" xml:space="preserve">
     <value>Удалить преподавателя</value>
+  </data>
+  <data name="EditGroup" xml:space="preserve">
+    <value>Редактировать учебную группу</value>
   </data>
   <data name="GroupName" xml:space="preserve">
     <value>Название группы:</value>
@@ -185,6 +191,9 @@
   </data>
   <data name="Rate" xml:space="preserve">
     <value>Ставка:</value>
+  </data>
+  <data name="SearchForGroup" xml:space="preserve">
+    <value>Поиск по названию группы:</value>
   </data>
   <data name="SearchForTeacher" xml:space="preserve">
     <value>Поис по ФИО:</value>
