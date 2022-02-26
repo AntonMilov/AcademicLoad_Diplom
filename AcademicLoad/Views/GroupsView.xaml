@@ -34,7 +34,7 @@
                 <Rectangle  Width="1" Margin="10,5,10,5" Stroke="{StaticResource BrandPrimary}" />
 
                 <Button Style="{StaticResource ButtonWithIcon}" 
-                        Command="{Binding AddTeacherCommand}"
+                        Command="{Binding AddGroupCommand}"
                         ToolTip="{x:Static prop:Resources.AddGroup}"
                         VerticalAlignment="Center">
                     <Path Style="{StaticResource AddGroupIcon}" />
@@ -54,6 +54,82 @@
             </StackPanel>
         </StackPanel>
 
+        <ListView Grid.Row="1"
+                  HorizontalAlignment="Center"
+                  ItemsSource="{Binding Items}" 
+                  BorderThickness="0">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Width="{Binding RelativeSource={ RelativeSource FindAncestor, AncestorType={x:Type Window}}, Path=ActualWidth}"
+                               HorizontalAlignment="Stretch"
+                               Orientation="Horizontal" />
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
 
-</Grid>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="{x:Type ListBoxItem}">
+                    <Setter Property="Margin" Value="5,5"/>
+                    <Setter Property="Padding" Value="16"/>
+                    <Setter Property="BorderThickness" Value="0"/>
+                    <Setter Property="Background" Value="Transparent"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                                <Border Background="{TemplateBinding Background}" 
+                                        BorderBrush="{TemplateBinding BorderBrush}" 
+                                        BorderThickness="{TemplateBinding BorderThickness}">
+                                    <ContentPresenter Margin="{TemplateBinding Padding}"/>
+                                </Border>
+
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter Property="Background" Value="{StaticResource Tint80}"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </ListView.ItemContainerStyle>
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Path Grid.Column="0"
+                              Style="{StaticResource GroupsIcon}" 
+                              HorizontalAlignment="Center"
+                              VerticalAlignment="Bottom"
+                              Margin="0,0,20,0"/>
+
+                        <Grid Grid.Column="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="10" />
+                                <ColumnDefinition Width="50" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <TextBlock Grid.Column="0" Grid.Row="0"
+                                       Text="{x:Static prop:Resources.GroupName}"/>
+                            <TextBlock Grid.Column="2" Grid.Row="0"
+                                       TextTrimming="CharacterEllipsis"
+                                       Text="{Binding Name}"/>
+
+                            <TextBlock Grid.Column="0" Grid.Row="1"
+                                       Text="{x:Static prop:Resources.Students}"/>
+                            <TextBlock Grid.Column="2" Grid.Row="1"
+                                       TextTrimming="CharacterEllipsis"
+                                       Text="{Binding Students}"/>
+                        </Grid>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
 </UserControl>

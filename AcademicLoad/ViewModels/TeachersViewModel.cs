@@ -10,6 +10,7 @@ namespace AcademicLoadModule.ViewModels
     public class TeachersViewModel : BindableBase
     {
         private readonly ITeacherController teacherController;
+        private ObservableCollection<Teacher> items;
 
         /// <summary>
         /// .ctor
@@ -17,14 +18,11 @@ namespace AcademicLoadModule.ViewModels
         public TeachersViewModel(ITeacherController teacherController)
         {
             this.teacherController = teacherController;
-            AddTeacherCommand = new DelegateCommand(addTeacher);
+            AddTeacherCommand = new DelegateCommand(AddTeacher);
             Items = teacherController.Items;
 
 
         }
-
-        private ObservableCollection<Teacher> items;
-
 
         public ObservableCollection<Teacher> Items
         {
@@ -37,7 +35,7 @@ namespace AcademicLoadModule.ViewModels
         /// </summary>
         public DelegateCommand AddTeacherCommand { get; private set; }
 
-        private void addTeacher()
+        private void AddTeacher()
         {
             teacherController.AddTeacher();
         }

@@ -207,6 +207,9 @@
   <data name="StudyGroups" xml:space="preserve">
     <value>Учебные группы</value>
   </data>
+  <data name="SuccessAddGroup" xml:space="preserve">
+    <value>Учебная группа успешно добавлена.</value>
+  </data>
   <data name="SuccessAddTeahcer" xml:space="preserve">
     <value>Преподаватель успешно добавлен.</value>
   </data>

@@ -63,7 +63,7 @@ namespace AcademicLoadModule.Controllers
                 {
                     items.Add(model.CreateGroup());
                     eventAggregator.GetEvent<GroupsCountChangeEvent>().Publish(Items.Count);
-                    notificationDialogController.OpenNotificationDialog(Properties.Resources.Notification, Properties.Resources.SuccessAddTeahcer);
+                    notificationDialogController.OpenNotificationDialog(Properties.Resources.Notification, Properties.Resources.SuccessAddGroup);
                 }
                 if (r.Result == ButtonResult.Cancel)
                 {

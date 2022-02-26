@@ -18,9 +18,12 @@ namespace AcademicLoadModule
         {
             var regionManager = containerProvider.Resolve<IRegionManager>();
             regionManager.RegisterViewWithRegion("MainRegion", typeof(TabsView));
+
             regionManager.RegisterViewWithRegion("TeachersRegion", typeof(TeachersEmptyView));
             regionManager.RegisterViewWithRegion("TeachersRegion", typeof(TeachersView));
+
             regionManager.RegisterViewWithRegion("GroupsRegion", typeof(GroupsEmptyView));
+            regionManager.RegisterViewWithRegion("GroupsRegion", typeof(GroupsView));
         }
 
         /// <inheritdoc/>
@@ -30,6 +33,7 @@ namespace AcademicLoadModule
 
             containerRegistry.RegisterSingleton<ITeacherController, TeacherController>();
             containerRegistry.RegisterSingleton<ITeacherService, TeacherService>();
+
             containerRegistry.RegisterSingleton<IGroupController, GroupController>();
         }
     }

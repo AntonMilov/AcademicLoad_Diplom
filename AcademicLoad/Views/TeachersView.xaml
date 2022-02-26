@@ -54,7 +54,6 @@
                   HorizontalAlignment="Center"
                   AlternationCount="2"
                   ScrollViewer.VerticalScrollBarVisibility="Auto"
-             
                   ItemsSource="{Binding Items}" 
                   BorderThickness="0">
             <ListView.ItemContainerStyle>
@@ -66,7 +65,7 @@
                     <Setter Property="Template">
                         <Setter.Value>
                             <ControlTemplate TargetType="{x:Type ListBoxItem}">
-                                <Border x:Name="brd" Background="{TemplateBinding Background}" 
+                                <Border Background="{TemplateBinding Background}" 
                                         BorderBrush="{TemplateBinding BorderBrush}" 
                                         BorderThickness="{TemplateBinding BorderThickness}">
                                     <ContentPresenter Margin="{TemplateBinding Padding}"/>
@@ -104,7 +103,7 @@
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto" />
                                 <ColumnDefinition Width="10" />
-                                <ColumnDefinition Width="150" />
+                                <ColumnDefinition Width="100" />
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="*" />

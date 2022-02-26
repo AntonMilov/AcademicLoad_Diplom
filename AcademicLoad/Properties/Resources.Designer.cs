@@ -331,6 +331,15 @@ namespace AcademicLoadModule.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Учебная группа успешно добавлена..
+        /// </summary>
+        public static string SuccessAddGroup {
+            get {
+                return ResourceManager.GetString("SuccessAddGroup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Преподаватель успешно добавлен..
         /// </summary>
         public static string SuccessAddTeahcer {
