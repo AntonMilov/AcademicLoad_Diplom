@@ -1,9 +1,11 @@
 ﻿using AcademicLoadModule.Controllers;
 using AcademicLoadModule.Controllers.Interfaces;
 using AcademicLoadModule.Views;
+using AcademicLoadModule.Views.EmptyViews;
 using Core.Services;
 using Core.Services.Interfaces;
 using Infrastructure.NotificationDialog.Controller;
+using Microsoft.Win32;
 using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Regions;
@@ -24,17 +26,24 @@ namespace AcademicLoadModule
 
             regionManager.RegisterViewWithRegion("GroupsRegion", typeof(GroupsEmptyView));
             regionManager.RegisterViewWithRegion("GroupsRegion", typeof(GroupsView));
+
+            regionManager.RegisterViewWithRegion("CalculationSheetsRegion", typeof(CalculationSheetsEmpty));
         }
 
         /// <inheritdoc/>
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.Register<INotificationDialogController, NotificationDialogController>();
+            containerRegistry.Register<OpenFileDialog>();
+
 
             containerRegistry.RegisterSingleton<ITeacherController, TeacherController>();
             containerRegistry.RegisterSingleton<ITeacherService, TeacherService>();
 
             containerRegistry.RegisterSingleton<IGroupController, GroupController>();
+
+
+            containerRegistry.RegisterSingleton<ICalculationSheetController, CalculationSheetController>();
         }
     }
 }
