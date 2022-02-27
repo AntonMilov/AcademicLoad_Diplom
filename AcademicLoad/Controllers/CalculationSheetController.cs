@@ -28,12 +28,12 @@ namespace AcademicLoadModule.Controllers
         /// <inheritdoc/>
         public string AskExcelFile()
         {
-            string pfxExtensions = "*.pfx";
-            openFileDialog.Filter = $"PFX-файлы ({pfxExtensions})|{pfxExtensions}";
+            string path = string.Empty;
+            string excelExtensions = "*.xls;*.xlsx";
+            openFileDialog.Filter = $"XLS и XLSX-файлы ({excelExtensions})|{excelExtensions}";
 
-            openFileDialog.ShowDialog();
-            
-            string path = openFileDialog.FileName;
+            if (openFileDialog.ShowDialog() == true)
+                return path = openFileDialog.FileName;
 
             return path;
         }
