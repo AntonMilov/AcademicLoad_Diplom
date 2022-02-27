@@ -151,6 +151,15 @@ namespace AcademicLoadModule.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Расчетный листы кафедральной нагрузки отсутсвует, выберите файл в формате Excel..
+        /// </summary>
+        public static string CalculationSheetsEmpty {
+            get {
+                return ResourceManager.GetString("CalculationSheetsEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Отмена.
         /// </summary>
         public static string Cancel {
@@ -300,6 +309,15 @@ namespace AcademicLoadModule.Properties {
         public static string SearchForTeacher {
             get {
                 return ResourceManager.GetString("SearchForTeacher", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Выбрать файл.
+        /// </summary>
+        public static string SelectFile {
+            get {
+                return ResourceManager.GetString("SelectFile", resourceCulture);
             }
         }
         

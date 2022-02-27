@@ -147,6 +147,9 @@
   <data name="CalculationSheets" xml:space="preserve">
     <value>Расчетные листы кафедральной нагрузки</value>
   </data>
+  <data name="CalculationSheetsEmpty" xml:space="preserve">
+    <value>Расчетный листы кафедральной нагрузки отсутсвует, выберите файл в формате Excel.</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Отмена</value>
   </data>
@@ -197,6 +200,9 @@
   </data>
   <data name="SearchForTeacher" xml:space="preserve">
     <value>Поис по ФИО:</value>
+  </data>
+  <data name="SelectFile" xml:space="preserve">
+    <value>Выбрать файл</value>
   </data>
   <data name="Students" xml:space="preserve">
     <value>Количество студентов:</value>
