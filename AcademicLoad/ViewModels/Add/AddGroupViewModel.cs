@@ -1,7 +1,7 @@
 ﻿using Data.Models;
 using Prism.Mvvm;
 
-namespace AcademicLoadModule.ViewModels
+namespace AcademicLoadModule.ViewModels.Add
 {
     /// <inheritdoc/>
     public class AddGroupViewModel : BindableBase

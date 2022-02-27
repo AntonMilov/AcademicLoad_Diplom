@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace AcademicLoadModule.Views
+namespace AcademicLoadModule.Views.Add
 {
     /// <summary>
     /// Interaction logic for AddTeacherView

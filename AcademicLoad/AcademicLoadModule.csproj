@@ -73,24 +73,24 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="ViewModels\AddGroupViewModel.cs" />
-    <Compile Include="ViewModels\AddTeacherViewModel.cs" />
-    <Compile Include="ViewModels\CalculationSheetsEmptyViewModel.cs" />
-    <Compile Include="ViewModels\GroupsEmptyViewModel.cs" />
+    <Compile Include="ViewModels\Add\AddGroupViewModel.cs" />
+    <Compile Include="ViewModels\Add\AddTeacherViewModel.cs" />
+    <Compile Include="ViewModels\Empty\CalculationSheetsEmptyViewModel.cs" />
+    <Compile Include="ViewModels\Empty\GroupsEmptyViewModel.cs" />
     <Compile Include="ViewModels\GroupsViewModel.cs" />
     <Compile Include="ViewModels\TabsViewModel.cs" />
-    <Compile Include="ViewModels\TeachersEmptyViewModel.cs" />
+    <Compile Include="ViewModels\Empty\TeachersEmptyViewModel.cs" />
     <Compile Include="ViewModels\TeachersViewModel.cs" />
-    <Compile Include="Views\AddGroupView.xaml.cs">
+    <Compile Include="Views\Add\AddGroupView.xaml.cs">
       <DependentUpon>AddGroupView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\AddTeacherView.xaml.cs">
+    <Compile Include="Views\Add\AddTeacherView.xaml.cs">
       <DependentUpon>AddTeacherView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\CalculationSheetsEmptyView.xaml.cs">
+    <Compile Include="Views\Empty\CalculationSheetsEmptyView.xaml.cs">
       <DependentUpon>CalculationSheetsEmptyView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\GroupsEmptyView.xaml.cs">
+    <Compile Include="Views\Empty\GroupsEmptyView.xaml.cs">
       <DependentUpon>GroupsEmptyView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\GroupsView.xaml.cs">
@@ -99,7 +99,7 @@
     <Compile Include="Views\TabsView.xaml.cs">
       <DependentUpon>TabsView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\TeachersEmptyView.xaml.cs">
+    <Compile Include="Views\Empty\TeachersEmptyView.xaml.cs">
       <DependentUpon>TeachersEmptyView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\TeachersView.xaml.cs">
@@ -130,19 +130,19 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Views\AddGroupView.xaml">
+    <Page Include="Views\Add\AddGroupView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\AddTeacherView.xaml">
+    <Page Include="Views\Add\AddTeacherView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\CalculationSheetsEmptyView.xaml">
+    <Page Include="Views\Empty\CalculationSheetsEmptyView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\GroupsEmptyView.xaml">
+    <Page Include="Views\Empty\GroupsEmptyView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -154,7 +154,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\TeachersEmptyView.xaml">
+    <Page Include="Views\Empty\TeachersEmptyView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -168,11 +168,6 @@
       <Version>7.2.0.1422</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModels\AddViewModels\" />
-    <Folder Include="ViewModels\EmptyViewModels\" />
-    <Folder Include="Views\AddViews\" />
-    <Folder Include="Views\EmptyViews\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace AcademicLoadModule.Views
+namespace AcademicLoadModule.Views.Empty
 {
     /// <summary>
     /// Interaction logic for CalculationSheetsEmpty

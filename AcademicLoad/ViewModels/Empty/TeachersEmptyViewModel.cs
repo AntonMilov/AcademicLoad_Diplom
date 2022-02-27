@@ -2,7 +2,7 @@
 using Prism.Commands;
 using Prism.Mvvm;
 
-namespace AcademicLoadModule.ViewModels
+namespace AcademicLoadModule.ViewModels.Empty
 {
     /// <summary>
     /// 
