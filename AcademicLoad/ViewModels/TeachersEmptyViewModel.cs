@@ -1,11 +1,6 @@
 ﻿using AcademicLoadModule.Controllers.Interfaces;
-using AcademicLoadModule.Views;
 using Prism.Commands;
 using Prism.Mvvm;
-using Prism.Services.Dialogs;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace AcademicLoadModule.ViewModels
 {
@@ -22,7 +17,7 @@ namespace AcademicLoadModule.ViewModels
         public TeachersEmptyViewModel(ITeacherController teacherController)
         {
             this.teacherController = teacherController;
-            AddTeacherCommand = new DelegateCommand(addTeacher);
+            AddTeacherCommand = new DelegateCommand(AddTeacher);
         }
 
         /// <summary>
@@ -30,7 +25,7 @@ namespace AcademicLoadModule.ViewModels
         /// </summary>
         public DelegateCommand AddTeacherCommand { get; private set; }
 
-        private void addTeacher()
+        private void AddTeacher()
         {
             teacherController.AddTeacher();
         }

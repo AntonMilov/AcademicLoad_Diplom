@@ -1,9 +1,5 @@
-﻿using Prism.Commands;
+﻿using Data.Models;
 using Prism.Mvvm;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using Data.Models;
 
 namespace AcademicLoadModule.ViewModels
 {

@@ -1,7 +1,6 @@
 ﻿using AcademicLoadModule.Controllers;
 using AcademicLoadModule.Controllers.Interfaces;
 using AcademicLoadModule.Views;
-using AcademicLoadModule.Views.EmptyViews;
 using Core.Services;
 using Core.Services.Interfaces;
 using Infrastructure.NotificationDialog.Controller;

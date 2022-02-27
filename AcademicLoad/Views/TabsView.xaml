@@ -15,14 +15,14 @@
 
     <Grid>
         <TabControl>
-            <TabItem  Header="{x:Static prop:Resources.CalculationSheets}" Width="250" >
-                <Button Style="{StaticResource LinkButton}" Content="azaza"
-                     
-                        Height="100"></Button>
+            <TabItem Header="{x:Static prop:Resources.CalculationSheets}">
+                <ContentControl  prism:RegionManager.RegionName="CalculationSheetsRegion"></ContentControl>
             </TabItem>
+
             <TabItem Header="{x:Static prop:Resources.Teachers}">
                 <ContentControl  prism:RegionManager.RegionName="TeachersRegion"></ContentControl>
             </TabItem>
+
             <TabItem Header="{x:Static prop:Resources.StudyGroups}">
                 <ContentControl  prism:RegionManager.RegionName="GroupsRegion"></ContentControl>
             </TabItem>

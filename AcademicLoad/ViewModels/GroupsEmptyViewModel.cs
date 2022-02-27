@@ -1,9 +1,6 @@
-﻿using Prism.Commands;
+﻿using AcademicLoadModule.Controllers.Interfaces;
+using Prism.Commands;
 using Prism.Mvvm;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using AcademicLoadModule.Controllers.Interfaces;
 
 namespace AcademicLoadModule.ViewModels
 {
@@ -17,7 +14,7 @@ namespace AcademicLoadModule.ViewModels
         public GroupsEmptyViewModel(IGroupController groupController)
         {
             this.groupController = groupController;
-            AddGroupCommand = new DelegateCommand(addGroup);
+            AddGroupCommand = new DelegateCommand(AddGroup);
         }
 
         /// <summary>
@@ -25,7 +22,7 @@ namespace AcademicLoadModule.ViewModels
         /// </summary>
         public DelegateCommand AddGroupCommand { get; private set; }
 
-        private void addGroup()
+        private void AddGroup()
         {
             groupController.AddGroup();
         }
