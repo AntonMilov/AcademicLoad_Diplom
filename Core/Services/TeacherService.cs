@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Core.Services.Interfaces;
 using Data.Models;
-using Prism.Events;
+
 
 namespace Core.Services
 {

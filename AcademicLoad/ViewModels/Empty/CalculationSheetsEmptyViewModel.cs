@@ -25,7 +25,8 @@ namespace AcademicLoadModule.ViewModels.Empty
 
         private void AddCalculationSheet()
         {
-            calculationSheetController.AskExcelFile();
+            string path = calculationSheetController.AskExcelFile();
+            calculationSheetController.AddCalculationSheet(path);
         }
     }
 }

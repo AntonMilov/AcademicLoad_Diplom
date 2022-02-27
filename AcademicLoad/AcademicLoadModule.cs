@@ -2,6 +2,8 @@
 using AcademicLoadModule.Controllers.Interfaces;
 using AcademicLoadModule.Views;
 using AcademicLoadModule.Views.Empty;
+using Core.Excel;
+using Core.Excel.Interfaces;
 using Core.Services;
 using Core.Services.Interfaces;
 using Infrastructure.NotificationDialog.Controller;
@@ -35,6 +37,7 @@ namespace AcademicLoadModule
         {
             containerRegistry.Register<INotificationDialogController, NotificationDialogController>();
             containerRegistry.Register<OpenFileDialog>();
+            containerRegistry.Register<IExcelExporter,ExcelExporter>();
 
 
             containerRegistry.RegisterSingleton<ITeacherController, TeacherController>();
@@ -44,6 +47,7 @@ namespace AcademicLoadModule
 
 
             containerRegistry.RegisterSingleton<ICalculationSheetController, CalculationSheetController>();
+            containerRegistry.RegisterSingleton<ICalculationSheetService, CalculationSheetService>();
         }
     }
 }

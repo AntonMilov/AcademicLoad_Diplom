@@ -16,5 +16,10 @@ namespace AcademicLoadModule.Controllers.Interfaces
         /// </summary>
         /// <returns>Путь к выбранному файлу.</returns>
         string AskExcelFile();
+
+        /// <summary>
+        /// Добавит расчетный лист кафедральной нагрузки.
+        /// </summary>
+        void AddCalculationSheet(string path);
     }
 }

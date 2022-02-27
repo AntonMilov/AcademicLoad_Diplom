@@ -32,11 +32,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Prism, Version=7.2.0.1422, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
-      <HintPath>..\packages\Prism.Core.7.2.0.1422\lib\net45\Prism.dll</HintPath>
+    <Reference Include="ExcelDataReader, Version=3.6.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelDataReader.3.6.0\lib\net45\ExcelDataReader.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelDataReader.DataSet, Version=3.6.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelDataReader.DataSet.3.6.0\lib\net35\ExcelDataReader.DataSet.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
     <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ValueTuple.4.5.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
     </Reference>
@@ -52,11 +56,14 @@
     <Compile Include="Excel\ExcelImporter.cs" />
     <Compile Include="Excel\Interfaces\IExcelExporter.cs" />
     <Compile Include="Excel\Interfaces\IExcelImporter.cs" />
+    <Compile Include="Excel\RowColumnConstants.cs" />
     <Compile Include="Json\Interfaces\IJsonExporter.cs" />
     <Compile Include="Json\Interfaces\IJsonImporter.cs" />
     <Compile Include="Json\JsonExporter.cs" />
     <Compile Include="Json\JsonImporter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\CalculationSheetService.cs" />
+    <Compile Include="Services\Interfaces\ICalculationSheetService.cs" />
     <Compile Include="Services\Interfaces\ITeacherService.cs" />
     <Compile Include="Services\TeacherService.cs" />
   </ItemGroup>
