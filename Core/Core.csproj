@@ -56,7 +56,7 @@
     <Compile Include="Excel\ExcelImporter.cs" />
     <Compile Include="Excel\Interfaces\IExcelExporter.cs" />
     <Compile Include="Excel\Interfaces\IExcelImporter.cs" />
-    <Compile Include="Excel\ExportRowColumnConstants.cs" />
+    <Compile Include="Excel\Constants\ExportRowColumnConstants.cs" />
     <Compile Include="Json\Interfaces\IJsonExporter.cs" />
     <Compile Include="Json\Interfaces\IJsonImporter.cs" />
     <Compile Include="Json\JsonExporter.cs" />
@@ -76,5 +76,6 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

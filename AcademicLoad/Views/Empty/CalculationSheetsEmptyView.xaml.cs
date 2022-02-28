@@ -3,11 +3,11 @@
 namespace AcademicLoadModule.Views.Empty
 {
     /// <summary>
-    /// Interaction logic for CalculationSheetsEmpty
+    /// Interaction logic for CalculationSheetsEmptyView
     /// </summary>
-    public partial class CalculationSheetsEmpty : UserControl
+    public partial class CalculationSheetsEmptyView : UserControl
     {
-        public CalculationSheetsEmpty()
+        public CalculationSheetsEmptyView()
         {
             InitializeComponent();
         }

@@ -28,18 +28,24 @@ namespace NavigationModule
 
             eventAggregator.GetEvent<TeachersCountChangeEvent>().Subscribe(TeachersCountChangeHandler);
             eventAggregator.GetEvent<GroupsCountChangeEvent>().Subscribe(GroupsCountChangeHandler);
+            eventAggregator.GetEvent<CalculationSheetAddedEvent>().Subscribe(CalculationSheetAddedHandler);
         }
 
         private void TeachersCountChangeHandler(int countTeachers)
         {
-          if (countTeachers>0)
-            regionManager.RequestNavigate("TeachersRegion","TeachersView");
+            if (countTeachers > 0)
+                regionManager.RequestNavigate("TeachersRegion", "TeachersView");
         }
 
         private void GroupsCountChangeHandler(int countTeachers)
         {
             if (countTeachers > 0)
                 regionManager.RequestNavigate("GroupsRegion", "GroupsView");
+        }
+
+        private void CalculationSheetAddedHandler()
+        {
+            regionManager.RequestNavigate("CalculationSheetsRegion", "CalculationSheetView");
         }
     }
 }

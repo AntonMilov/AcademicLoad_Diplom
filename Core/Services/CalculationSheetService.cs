@@ -11,7 +11,6 @@ namespace Core.Services
 {
     public class CalculationSheetService : ICalculationSheetService
     {
-        private ICollection<CalculationSheetDiscipline> disciplineAcademicPlans;
         private readonly IExcelExporter excelExporter;
 
         /// <summary>
@@ -20,21 +19,15 @@ namespace Core.Services
         public CalculationSheetService(IExcelExporter excelExporter)
         {
             this.excelExporter = excelExporter;
-            disciplineAcademicPlans = new List<CalculationSheetDiscipline>();
+           
         }
 
         /// <summary>
         /// 
         /// </summary>
-        public ICollection<CalculationSheetDiscipline> DisciplineAcademicPlans
+        public CalculationSheet AddCalculationSheet(string path)
         {
-            get => disciplineAcademicPlans;
-            set => disciplineAcademicPlans = value;
-        }
-
-        public void AddCalculationSheet(string path)
-        {
-            excelExporter.ExportCalculationSheet(path);
+            return excelExporter.ExportCalculationSheet(path);
         }
     }
 }

@@ -58,6 +58,7 @@
     <Compile Include="Controllers\Interfaces\IGroupController.cs" />
     <Compile Include="Controllers\Interfaces\ITeacherController.cs" />
     <Compile Include="Controllers\TeacherController.cs" />
+    <Compile Include="Events\CalculationSheetAddedEvent.cs" />
     <Compile Include="Events\GroupsCountChangeEvent.cs" />
     <Compile Include="Events\TeachersCountChangeEvent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -75,6 +76,7 @@
     </Compile>
     <Compile Include="ViewModels\Add\AddGroupViewModel.cs" />
     <Compile Include="ViewModels\Add\AddTeacherViewModel.cs" />
+    <Compile Include="ViewModels\CalculationSheetViewModel.cs" />
     <Compile Include="ViewModels\Empty\CalculationSheetsEmptyViewModel.cs" />
     <Compile Include="ViewModels\Empty\GroupsEmptyViewModel.cs" />
     <Compile Include="ViewModels\GroupsViewModel.cs" />
@@ -86,6 +88,9 @@
     </Compile>
     <Compile Include="Views\Add\AddTeacherView.xaml.cs">
       <DependentUpon>AddTeacherView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CalculationSheetView.xaml.cs">
+      <DependentUpon>CalculationSheetView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Empty\CalculationSheetsEmptyView.xaml.cs">
       <DependentUpon>CalculationSheetsEmptyView.xaml</DependentUpon>
@@ -135,6 +140,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Add\AddTeacherView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CalculationSheetView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

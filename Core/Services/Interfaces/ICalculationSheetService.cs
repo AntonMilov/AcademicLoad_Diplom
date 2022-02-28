@@ -7,16 +7,14 @@ using Data.Models;
 
 namespace Core.Services.Interfaces
 {
+    /// <summary>
+    /// Интерфейс для сервиса расчетных листов кафедральной нагрузки.
+    /// </summary>
     public interface ICalculationSheetService
     {
         /// <summary>
-        /// Добавит расчетный лист кафедральной нагрузки.
+        /// Добавить расчетный лист кафедральной нагрузки.
         /// </summary>
-        void AddCalculationSheet(string path);
-
-        /// <summary>
-        /// Преподаватели.
-        /// </summary>
-        ICollection<CalculationSheetDiscipline> DisciplineAcademicPlans { get; set; }
+        CalculationSheet AddCalculationSheet(string path);
     }
 }

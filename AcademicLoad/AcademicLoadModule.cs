@@ -29,7 +29,8 @@ namespace AcademicLoadModule
             regionManager.RegisterViewWithRegion("GroupsRegion", typeof(GroupsEmptyView));
             regionManager.RegisterViewWithRegion("GroupsRegion", typeof(GroupsView));
 
-            regionManager.RegisterViewWithRegion("CalculationSheetsRegion", typeof(CalculationSheetsEmpty));
+            regionManager.RegisterViewWithRegion("CalculationSheetsRegion", typeof(CalculationSheetsEmptyView));
+            regionManager.RegisterViewWithRegion("CalculationSheetsRegion", typeof(CalculationSheetView));
         }
 
         /// <inheritdoc/>

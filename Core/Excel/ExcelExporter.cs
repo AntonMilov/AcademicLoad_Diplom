@@ -28,7 +28,7 @@ namespace Core.Excel
 
             LoadMainInformation(calculationSheet, table);
            calculationSheet.CalculationSheetDisciplines=LoadDisciplineAcademicPlan(table);
-            return null;
+            return calculationSheet;
         }
 
         private void LoadMainInformation(CalculationSheet calculationSheet, DataTable table)

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Data.Models;
 
 namespace AcademicLoadModule.Controllers.Interfaces
 {
@@ -21,5 +22,10 @@ namespace AcademicLoadModule.Controllers.Interfaces
         /// Добавит расчетный лист кафедральной нагрузки.
         /// </summary>
         void AddCalculationSheet(string path);
+
+        /// <summary>
+        /// Добавит расчетный лист кафедральной нагрузки.
+        /// </summary>
+        CalculationSheet CalculationSheet { get; set; }
     }
 }

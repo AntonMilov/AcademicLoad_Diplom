@@ -1,6 +1,4 @@
-﻿
-
-using Prism.Events;
+﻿using Prism.Events;
 
 namespace AcademicLoadModule.Events
 {

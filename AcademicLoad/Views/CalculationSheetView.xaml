@@ -1,0 +1,28 @@
+﻿<UserControl x:Class="AcademicLoadModule.Views.CalculationSheetView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d" 
+             d:DesignHeight="640" d:DesignWidth="640"
+             xmlns:prism="http://prismlibrary.com/"
+             xmlns:prop="clr-namespace:AcademicLoadModule.Properties"
+             xmlns:models="clr-namespace:Data.Models;assembly=Data"
+             xmlns:viewModels="clr-namespace:AcademicLoadModule.ViewModels"
+             prism:ViewModelLocator.AutoWireViewModel="True">
+
+
+    <Grid>
+            <Grid.RowDefinitions>
+               <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+     
+            <TextBlock Grid.Row="1" Text="{Binding CalculationSheet.Faculty }"></TextBlock>
+            <TextBlock Text="баба"/>
+
+        
+
+
+    </Grid>
+</UserControl>
