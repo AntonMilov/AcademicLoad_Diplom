@@ -17,6 +17,6 @@ namespace Core.Services.Interfaces
         /// <summary>
         /// Преподаватели.
         /// </summary>
-        ICollection<DisciplineAcademicPlan> DisciplineAcademicPlans { get; set; }
+        ICollection<CalculationSheetDiscipline> DisciplineAcademicPlans { get; set; }
     }
 }

@@ -1,20 +1,38 @@
 ﻿namespace Data.Models
 {
     /// <summary>
-    /// Сущности для строк в таблице по плану учебной нагрузки
+    /// Сущности для строк в таблице расчетного листа кафедральной нагрузки
     /// </summary>
-    public class DisciplineAcademicPlan
+    public class CalculationSheetDiscipline
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public string Index { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public string Name { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public int Semester { get; set; }
 
-        public int Length { get; set; }
+        /// <summary>
+        /// Длительность семестр.
+        /// </summary>
+        public string LengthSemester { get; set; }
 
-        public int NumberGroups { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public int CountGroups { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public string Groups { get; set; }
 
         /// <summary>
@@ -22,13 +40,30 @@
         /// </summary>
         public string Stream { get; set; }
 
+        /// <summary>
+        /// Поток практические + лабораторные.
+        /// </summary>
+        public string StreamPracticumLabrotory { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public int StudentsBudget { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public int StudentsContract { get; set; }
 
         #region CountLessons
+        /// <summary>
+        /// 
+        /// </summary>
         public int CountLecture { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public int CountLaboratoryWork { get; set; }
 
         /// <summary>
@@ -51,62 +86,77 @@
         /// </summary>
         public int CountСontrolWork { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public int CountExam { get; set; }
 
         /// <summary>
         /// Количество зачетов.
         /// </summary>
         public int CountTest { get; set; }
-        #endregion
+
+        /// <summary>
+        /// Количество зачетов с оценкой.
+        /// </summary>
+        public int CountDifferentiatedTest { get; set; }
+
 
         /// <summary>
         /// Прочее.
         /// </summary>
-        public int Etc { get; set; }
+        public int CountEtc { get; set; }
+        #endregion
 
         #region Hours
-        public int HoursLecture { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public double HoursLecture { get; set; }
 
-        public int HoursLaboratoryWork { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public double HoursLaboratoryWork { get; set; }
 
         /// <summary>
         /// Часы отведенные для практических занятий.
         /// </summary>
-        public int HoursPracticumLesson { get; set; }
+        public double HoursPracticumLesson { get; set; }
 
         /// <summary>
         /// КП, КР (так называется в таблице).
         /// </summary>
-        public int HoursKpKr { get; set; }
+        public double HoursKpKr { get; set; }
 
         /// <summary>
         /// Часы отведенные для контрольных работ.
         /// </summary>
-        public int HoursСontrolWork { get; set; }
+        public double HoursСontrolWork { get; set; }
 
-        public int HoursExam { get; set; }
+        public double HoursExam { get; set; }
 
         /// <summary>
         /// Часы отведенные для зачета.
         /// </summary>
-        public int HoursTest { get; set; }
+        public double HoursTest { get; set; }
 
-        public int HoursConsultation { get; set; }
+        public double HoursConsultation { get; set; }
 
         /// <summary>
         /// Часы отведенные для Гиа.
         /// </summary>
-        public int HoursGia { get; set; }
+        public double HoursGia { get; set; }
 
         /// <summary>
         /// Часы отведенные для Практики.
         /// </summary>
-        public int HoursPracticum { get; set; }
+        public double HoursPracticum { get; set; }
 
         /// <summary>
         /// Всего часов.
         /// </summary>
-        public int HoursTotal { get; set; }
+        public double HoursTotal { get; set; }
         #endregion
     }
 }

@@ -1,4 +1,6 @@
 ﻿
+using System.Collections.Generic;
+
 namespace Data.Models
 {
     /// <summary>
@@ -29,67 +31,69 @@ namespace Data.Models
         /// <summary>
         /// Всего бюджетников.
         /// </summary>
-        public int TotalStudentsBudget { get; set; }
+        public double TotalStudentsBudget { get; set; }
         /// <summary>
         /// Всего договорников.
         /// </summary>
-        public int TotalStudentsContract { get; set; }
+        public double TotalStudentsContract { get; set; }
         
         /// <summary>
         /// Всегоа часов.
         /// </summary>
-         public int TotalHours { get; set; }
+         public double TotalHours { get; set; }
 
         #region TotalHours
         /// <summary>
         /// Всего часов лекций.
         /// </summary>
-        public int TotalHoursLecture { get; set; }
+        public double TotalHoursLecture { get; set; }
 
         /// <summary>
         /// Всего часов лабораторных.
         /// </summary>
-        public int TotalHoursLaboratory { get; set; }
+        public double TotalHoursLaboratory { get; set; }
 
         /// <summary>
         /// Всего часов практических занятий.
         /// </summary>
-        public int TotalHoursPracticalWorks { get; set; }
+        public double TotalHoursPracticalWorks { get; set; }
        
         /// <summary>
         /// Всего часов КП,КР.
         /// </summary>
-        public int TotalHoursKpKr { get; set; }
+        public double TotalHoursKpKr { get; set; }
        
         /// <summary>
         /// Всего часов контрольных работ.
         /// </summary>
-        public int TotalHoursControlWorks { get; set; }
+        public double TotalHoursControlWorks { get; set; }
        
         /// <summary>
         /// Всего часов экзаменов.
         /// </summary>
-        public int TotalHoursExam { get; set; }
+        public double TotalHoursExam { get; set; }
        
         /// <summary>
         /// Всего засов зачетов.
         /// </summary>
-        public int TotalHoursTest { get; set; }
+        public double TotalHoursTest { get; set; }
         
         /// <summary>
         /// Всего часов консультаций.
         /// </summary>
-        public int TotalHoursСonsultation { get; set; }
+        public double TotalHoursСonsultation { get; set; }
        
         /// <summary>
         /// Всего часов пратики
         /// </summary>
-        public int TotalHoursPracticum { get; set; }
+        public double TotalHoursPracticum { get; set; }
        
         /// <summary>
         /// Всего часов ГИА
         /// </summary>
-        public int TotalHoursGia { get; set; }
+        public double TotalHoursGia { get; set; }
         #endregion
+
+        public List<CalculationSheetDiscipline> CalculationSheetDisciplines { get; set; }
     }
 }

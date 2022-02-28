@@ -11,7 +11,7 @@ namespace Core.Services
 {
     public class CalculationSheetService : ICalculationSheetService
     {
-        private ICollection<DisciplineAcademicPlan> disciplineAcademicPlans;
+        private ICollection<CalculationSheetDiscipline> disciplineAcademicPlans;
         private readonly IExcelExporter excelExporter;
 
         /// <summary>
@@ -20,13 +20,13 @@ namespace Core.Services
         public CalculationSheetService(IExcelExporter excelExporter)
         {
             this.excelExporter = excelExporter;
-            disciplineAcademicPlans = new List<DisciplineAcademicPlan>();
+            disciplineAcademicPlans = new List<CalculationSheetDiscipline>();
         }
 
         /// <summary>
         /// 
         /// </summary>
-        public ICollection<DisciplineAcademicPlan> DisciplineAcademicPlans
+        public ICollection<CalculationSheetDiscipline> DisciplineAcademicPlans
         {
             get => disciplineAcademicPlans;
             set => disciplineAcademicPlans = value;

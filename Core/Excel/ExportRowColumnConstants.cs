@@ -9,7 +9,7 @@ namespace Core.Excel
     /// <summary>
     /// Расположение ячеек в таблице.
     /// </summary>
-    public class RowColumnConstants
+    public class ExportRowColumnConstants
     {
         public const int DepartmentRow = 1;
         public const int DepartmentColumn = 1;
@@ -31,6 +31,9 @@ namespace Core.Excel
 
         public const int TotalHoursStartRow = 3;
         public const int TotalHoursStartColumn = 20;
+
+        public const int CalculationSheetDisciplineStartRow = 5;
+        public const int CalculationSheetDisciplineStartColumn = 0;
 
     }
 }

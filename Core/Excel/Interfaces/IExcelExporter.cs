@@ -17,6 +17,6 @@ namespace Core.Excel.Interfaces
         /// </summary>
         /// <param name="path"></param>
         /// <returns></returns>
-        ICollection<DisciplineAcademicPlan> ExportCalculationSheet(string path);
+        CalculationSheet ExportCalculationSheet(string path);
     }
 }
