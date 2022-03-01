@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d" 
-             d:DesignHeight="640" d:DesignWidth="640"
+             d:DesignHeight="1080" d:DesignWidth="1080"
              xmlns:prism="http://prismlibrary.com/"
              xmlns:prop="clr-namespace:AcademicLoadModule.Properties"
              xmlns:models="clr-namespace:Data.Models;assembly=Data"
@@ -12,17 +12,260 @@
              prism:ViewModelLocator.AutoWireViewModel="True">
 
 
-    <Grid>
-            <Grid.RowDefinitions>
-               <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
+    <UserControl.Resources>
+        <ResourceDictionary Source="/Infrastructure;component/Themes/Generic.xaml"/>
+    </UserControl.Resources>
+
+
+    <Grid DataContext="{Binding CalculationSheet}">
+        <Grid.Resources>
+            <Style TargetType="TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}">
+                <Setter Property="Margin" Value="0,0,0,8"></Setter>
+                <Setter Property="Foreground" Value="{StaticResource White}"></Setter>
+            </Style>
+        </Grid.Resources>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-     
-            <TextBlock Grid.Row="1" Text="{Binding CalculationSheet.Faculty }"></TextBlock>
-            <TextBlock Text="баба"/>
 
-        
+        <Border Grid.Row="0" Background="{StaticResource Tint95}" Padding="16">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Orientation="Horizontal"
+                            Margin="0,0,20,0"
+                            Grid.Row="1" Grid.Column="0">
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Text="Факультет:" />
+                        <TextBlock Text="Кафедра:" />
+                        <TextBlock Text="Учебный год:" />
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical"
+                            Margin="10,0">
+                        <TextBlock Text="{ Binding Path=Department}" />
+                        <TextBlock Text="{ Binding Path=Faculty}" />
+                        <TextBlock Text="{ Binding Path=AcademicYear}" />
+                    </StackPanel>
 
+                    <StackPanel Orientation="Vertical" 
+                                Margin="15,0,0,0">
+                        <TextBlock Text="Всего бюд.:" />
+                        <TextBlock Text="Всего бюд.:" />
+                        <TextBlock Text="Всего часов:" />
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical"
+                            Margin="10,0">
+                        <TextBlock  Text="{ Binding Path=TotalStudentsBudget}" 
+                                    Foreground="{StaticResource YellowText}" />
+                        <TextBlock Text="{ Binding Path=TotalStudentsContract}"
+                                   Foreground="{StaticResource YellowText}"/>
+                        <TextBlock Text="{ Binding Path=TotalHours}"
+                                   Foreground="{StaticResource YellowText}"/>
+                    </StackPanel>
+                </StackPanel >
+
+                <TextBlock Grid.Row="0" Grid.Column="1"
+                           Text="Итого по расчету часов" 
+                           Margin="0,0,0,10"
+                           Foreground="{StaticResource YellowText}"
+                           Style="{StaticResource HeaderH2}" />
+
+                <StackPanel Orientation="Horizontal"
+                            Grid.Row="1" Grid.Column="1">
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Text="Лекции:" />
+                        <TextBlock Text="Лабораторные:" />
+                        <TextBlock Text="Практические занятия:" />
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical"
+                            Margin="10,0">
+                        <TextBlock Text="{ Binding Path=TotalHoursLecture}"
+                               Foreground="{StaticResource YellowText}" />
+                        <TextBlock Text="{ Binding Path=TotalHoursLaboratory}"
+                               Foreground="{StaticResource YellowText}" />
+                        <TextBlock Text="{ Binding Path=TotalHoursPracticalWorks}"
+                               Foreground="{StaticResource YellowText}"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Vertical"
+                                Margin="15,0,0,0">
+                        <TextBlock Text="КП, КР:" />
+                        <TextBlock Text="к/р:" />
+                        <TextBlock Text="Экзамены:" />
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical"
+                                Margin="10,0">
+                        <TextBlock Text="{ Binding Path=TotalHoursKpKr}"
+                               Foreground="{StaticResource YellowText}"/>
+                        <TextBlock Text="{ Binding Path=TotalHoursControlWorks}"
+                               Foreground="{StaticResource YellowText}"/>
+                        <TextBlock Text="{ Binding Path=TotalHoursExam}"
+                               Foreground="{StaticResource YellowText}"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Vertical"
+                                Margin="15,0,0,0">
+                        <TextBlock Text="Зач,зач. с оцн.:" />
+                        <TextBlock Text="Консультации:" />
+                        <TextBlock Text="Практика, рук-во:" />
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical"
+                            Margin="10,0">
+                        <TextBlock Text="{ Binding Path=TotalHoursTest}"
+                               Foreground="{StaticResource YellowText}" />
+                        <TextBlock Text="{ Binding Path=TotalHoursСonsultation}"
+                               Foreground="{StaticResource YellowText}" />
+                        <TextBlock Text="{ Binding Path=TotalHoursPracticum}"
+                               Foreground="{StaticResource YellowText}" />
+                    </StackPanel>
+
+                    <StackPanel Orientation="Vertical"
+                                Margin="15,0,0,0">
+                        <TextBlock Text="ГИА:" />
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical"
+                            Margin="10,0">
+                        <TextBlock Text="{ Binding Path=TotalHoursGia}"
+                                   Foreground="{StaticResource YellowText}" />
+                    </StackPanel>
+
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <DataGrid Grid.Row="1" HorizontalScrollBarVisibility="Visible"
+                  ScrollViewer.CanContentScroll="True" 
+                  ItemsSource="{Binding CalculationSheetDisciplines}"
+                  Background="{StaticResource White}" >
+            <DataGrid.Resources>
+                <Style TargetType="DataGrid">
+                    <Setter Property="BorderThickness" Value="0" />
+                    <Setter Property="SelectionMode" Value="Single" />
+                    <Setter Property="CanUserAddRows" Value="False" />
+                    <Setter Property="GridLinesVisibility" Value="None" />
+                    <Setter Property="HeadersVisibility" Value="Column" />
+                    <Setter Property="AutoGenerateColumns" Value="False" />
+                    <Setter Property="CanUserResizeRows" Value="False" />
+                    <Setter Property="CanUserReorderColumns" Value="False" />
+                    <Setter Property="RowDetailsVisibilityMode" Value="Collapsed" />
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                    <Setter Property="IsSynchronizedWithCurrentItem" Value="True" />
+                    <Setter Property="VerticalScrollBarVisibility" Value="Visible" />
+                    <Setter Property="HorizontalScrollBarVisibility" Value="Visible" />
+                    <Setter Property="AlternationCount" Value="2" />
+                </Style>
+            </DataGrid.Resources>
+
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="DataGridColumnHeader">
+                    <Setter Property="Padding" Value="10,5" />
+                    <Setter Property="BorderThickness" Value="0,0,0,1" />
+                    <Setter Property="BorderBrush" Value="{StaticResource BrandPrimary}" />
+                    <Setter Property="Background" Value="White" />
+                    <Setter Property="VerticalContentAlignment" Value="Center" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type DataGridColumnHeader}">
+                                <Grid>
+                                    <Border Padding="{TemplateBinding Padding}"
+                                        BorderThickness="{TemplateBinding BorderThickness}"
+                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                        Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                          SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+
+                                    </Border>
+                                </Grid>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="ContentTemplate">
+                        <Setter.Value>
+                            <DataTemplate>
+                                <TextBlock TextWrapping="Wrap" VerticalAlignment="Center" 
+                                           Text="{Binding}"></TextBlock>
+                            </DataTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="индекс"
+                                    Binding="{Binding Index}"/>
+                <DataGridTextColumn Header="ДИСЦИПЛИНЫ, практика, дипломное проектирование и др."
+                                    MaxWidth="210"
+                                    Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Семестр"
+                                    Binding="{Binding Semester}"/>
+                <DataGridTextColumn Header="Дли-тельн. (сем.)"
+                                    Binding="{Binding LengthSemester}"/>
+
+                <DataGridTextColumn Header="Кол. групп"
+                                    Binding="{Binding CountGroups}"/>
+                <DataGridTextColumn Header="Группы"
+                                    Binding="{Binding Groups}"/>
+
+                <DataGridTextColumn Header="Поток"
+                                    Binding="{Binding Stream}"/>
+                <DataGridTextColumn Header="Поток практ+лаб"
+                                    Binding="{Binding StreamPracticumLabrotory}"/>
+
+                <DataGridTextColumn Header="Студ. (бюд.)"
+                                    Binding="{Binding StudentsBudget}"/>
+                <DataGridTextColumn Header="Студ. (дог.)"
+                                    Binding="{Binding StudentsContract}"/>
+
+                <DataGridTextColumn Header="Лекции" 
+                                    Binding="{Binding CountLecture}"/>
+                <DataGridTextColumn Header="Лабор"
+                                    Binding="{Binding CountLaboratoryWork}"/>
+                <DataGridTextColumn Header="КП" 
+                                    Binding="{Binding CountKp}"/>
+                <DataGridTextColumn Header="КР"
+                                    Binding="{Binding CountKr}"/>
+                <DataGridTextColumn Header="к/р"
+                                    Binding="{Binding CountСontrolWork}"/>
+                <DataGridTextColumn Header="Экз" 
+                                    Binding="{Binding CountExam}"/>
+                <DataGridTextColumn Header="Зач"
+                                    Binding="{Binding CountTest}"/>
+                <DataGridTextColumn Header="Зач с оц"
+                                    Binding="{Binding CountDifferentiatedTest}"/>
+
+                <DataGridTextColumn Header="Про-чее (нед)"
+                                    Binding="{Binding CountEtc}"/>
+                <DataGridTextColumn Header="Лекции"
+                                    Binding="{Binding HoursLecture}"/>
+                <DataGridTextColumn Header="Лабор"
+                                    Binding="{Binding HoursLaboratoryWork}"/>
+                <DataGridTextColumn Header="Практ занятия"
+                                    Binding="{Binding HoursPracticumLesson}"/>
+                <DataGridTextColumn Header="КП, КР"
+                                    Binding="{Binding HoursKpKr}"/>
+                <DataGridTextColumn Header="Экз" 
+                                    Binding="{Binding HoursExam}"/>
+                <DataGridTextColumn Header="Зач, зач с оц"
+                                    Binding="{Binding HoursTest}"/>
+                <DataGridTextColumn Header="Конс"
+                                    Binding="{Binding HoursConsultation}"/>
+                <DataGridTextColumn Header="Практика, рук-во" 
+                                    Binding="{Binding HoursPracticum}"/>
+                <DataGridTextColumn Header="ГИА"
+                                    Binding="{Binding HoursGia}"/>
+                <DataGridTextColumn Header="Всего"
+                                    Binding="{Binding HoursTotal}"/>
+            </DataGrid.Columns>
+        </DataGrid>
 
     </Grid>
 </UserControl>

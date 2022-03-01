@@ -11,5 +11,7 @@ namespace AcademicLoadModule.Views
         {
             InitializeComponent();
         }
+
+       
     }
 }

@@ -134,13 +134,19 @@
         /// </summary>
         public double HoursСontrolWork { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public double HoursExam { get; set; }
 
         /// <summary>
-        /// Часы отведенные для зачета.
+        /// Часы отведенные для зачета, зачета с оценкой.
         /// </summary>
         public double HoursTest { get; set; }
 
+        /// <summary>
+        ///  Часы отведенные для консультации.
+        /// </summary>
         public double HoursConsultation { get; set; }
 
         /// <summary>
@@ -149,7 +155,7 @@
         public double HoursGia { get; set; }
 
         /// <summary>
-        /// Часы отведенные для Практики.
+        /// Часы отведенные для Практики (Рук-водитель).
         /// </summary>
         public double HoursPracticum { get; set; }
 
