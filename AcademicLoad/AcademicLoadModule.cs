@@ -4,6 +4,8 @@ using AcademicLoadModule.Views;
 using AcademicLoadModule.Views.Empty;
 using Core.Excel;
 using Core.Excel.Interfaces;
+using Core.Json;
+using Core.Json.Interfaces;
 using Core.Services;
 using Core.Services.Interfaces;
 using Infrastructure.NotificationDialog.Controller;
@@ -28,7 +30,7 @@ namespace AcademicLoadModule
 
             regionManager.RegisterViewWithRegion("GroupsRegion", typeof(GroupsEmptyView));
             regionManager.RegisterViewWithRegion("GroupsRegion", typeof(GroupsView));
-
+            
             regionManager.RegisterViewWithRegion("CalculationSheetsRegion", typeof(CalculationSheetsEmptyView));
             regionManager.RegisterViewWithRegion("CalculationSheetsRegion", typeof(CalculationSheetView));
         }
@@ -39,10 +41,13 @@ namespace AcademicLoadModule
             containerRegistry.Register<INotificationDialogController, NotificationDialogController>();
             containerRegistry.Register<OpenFileDialog>();
             containerRegistry.Register<IExcelExporter,ExcelExporter>();
+            containerRegistry.Register<IJsonImporter, JsonImporter>();
+            containerRegistry.Register<IJsonExporter, JsonExporter>();
 
 
             containerRegistry.RegisterSingleton<ITeacherController, TeacherController>();
             containerRegistry.RegisterSingleton<ITeacherService, TeacherService>();
+            containerRegistry.RegisterSingleton<IGroupService, GroupService>();
 
             containerRegistry.RegisterSingleton<IGroupController, GroupController>();
 

@@ -21,6 +21,6 @@ namespace Core.Services.Interfaces
         /// <summary>
         /// Преподаватели.
         /// </summary>
-        ICollection<Teacher> Teachers { get; set; }
+        List<Teacher> Teachers { get; set; }
     }
 }

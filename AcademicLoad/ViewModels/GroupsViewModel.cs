@@ -19,7 +19,6 @@ namespace AcademicLoadModule.ViewModels
             this.groupController = groupController;
             items = this.groupController.Items;
             AddGroupCommand = new DelegateCommand(AddGroup);
-
         }
 
         public ObservableCollection<Group> Items

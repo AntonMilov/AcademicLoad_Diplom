@@ -20,8 +20,6 @@ namespace AcademicLoadModule.ViewModels
             this.teacherController = teacherController;
             AddTeacherCommand = new DelegateCommand(AddTeacher);
             Items = teacherController.Items;
-
-
         }
 
         public ObservableCollection<Teacher> Items

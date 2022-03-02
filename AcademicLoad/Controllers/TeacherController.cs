@@ -38,7 +38,7 @@ namespace AcademicLoadModule.Controllers
             this.eventAggregator = eventAggregator;
             this.teacherService = teacherService;
 
-            items = new ObservableCollection<Teacher>();
+            items = new ObservableCollection<Teacher>(teacherService.Teachers);
         }
 
         public void AddTeacher()
@@ -56,21 +56,29 @@ namespace AcademicLoadModule.Controllers
 
             DialogParameters dialogParameters = new DialogParameters();
             dialogParameters.Add("confirmDialogParameters", confirmDialogParameters);
-            //using the dialog service as-is
+         
             dialogService.Show("ConfirmDialog", dialogParameters, r =>
             {
                 if (r.Result == ButtonResult.OK)
                 {
                     items.Add(model.CreateTeacher());
                     teacherService.AddTeacher(model.CreateTeacher());
+
                     eventAggregator.GetEvent<TeachersCountChangeEvent>().Publish(teacherService.Teachers.Count);
+
                     notificationDialogController.OpenNotificationDialog(Properties.Resources.Notification, Properties.Resources.SuccessAddTeahcer);
                 }
+
                 if (r.Result == ButtonResult.Cancel)
                 {
                   
                 }
             });
+        }
+
+        public void CheckTeacherCount()
+        {
+            eventAggregator.GetEvent<TeachersCountChangeEvent>().Publish(teacherService.Teachers.Count);
         }
 
         public ObservableCollection<Teacher> Items

@@ -14,13 +14,18 @@ namespace AcademicLoadModule.Controllers.Interfaces
     public interface IGroupController
     {
         /// <summary>
-        /// Добавление преподователя.
+        /// Добавление учебной группы.
         /// </summary>
         void AddGroup();
 
         /// <summary>
-        /// Преподователи.
+        /// Учебные группы.
         /// </summary>
         ObservableCollection<Group> Items { get; set; }
+
+        /// <summary>
+        /// Проверка кол-ва учебных групп.
+        /// </summary>
+        void CheckGroupsCount();
     }
 }

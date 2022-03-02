@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Core.Json.Interfaces;
 using Core.Services.Interfaces;
 using Data.Models;
 
@@ -12,32 +13,32 @@ namespace Core.Services
     /// </summary>
     public class TeacherService : ITeacherService
     {
-        private ICollection<Teacher> teachers;
+        private readonly IJsonImporter jsonImporter;
+        private readonly IJsonExporter jsonExporter;
+        private List<Teacher> teachers;
 
         /// <summary>
         /// .ctor
         /// </summary>
-        public TeacherService()
+        public TeacherService(IJsonImporter jsonImporter, IJsonExporter jsonExporter)
         {
-            teachers = new List<Teacher>();
+            Teachers = jsonImporter.LoadTeachers();
+
+            this.jsonImporter = jsonImporter;
+            this.jsonExporter = jsonExporter;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        public ICollection<Teacher> Teachers
+        public List<Teacher> Teachers
         {
             get => teachers;
             set => teachers = value;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="teacher"></param>
         public void AddTeacher(Teacher teacher)
         {
             Teachers.Add(teacher);
+
+            jsonExporter.SaveTeachers(Teachers);
         }
     }
 }

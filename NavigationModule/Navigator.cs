@@ -35,12 +35,19 @@ namespace NavigationModule
         {
             if (countTeachers > 0)
                 regionManager.RequestNavigate("TeachersRegion", "TeachersView");
+
+            if (countTeachers < 1)
+                regionManager.RequestNavigate("TeachersRegion", "TeachersEmptyView");
         }
 
-        private void GroupsCountChangeHandler(int countTeachers)
+        private void GroupsCountChangeHandler(int countGroups)
         {
-            if (countTeachers > 0)
+            if (countGroups > 0)
                 regionManager.RequestNavigate("GroupsRegion", "GroupsView");
+
+            if (countGroups < 1)
+                regionManager.RequestNavigate("GroupsRegion", "GroupsEmptyView");
+
         }
 
         private void CalculationSheetAddedHandler()

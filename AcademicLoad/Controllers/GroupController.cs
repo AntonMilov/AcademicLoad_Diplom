@@ -25,6 +25,7 @@ namespace AcademicLoadModule.Controllers
         private readonly INotificationDialogController notificationDialogController;
         private readonly IDialogService dialogService;
         private readonly IEventAggregator eventAggregator;
+        private readonly IGroupService groupService;
         private ObservableCollection<Group> items;
 
         /// <summary>
@@ -34,13 +35,17 @@ namespace AcademicLoadModule.Controllers
         /// <param name="eventAggregator"></param>
         /// <param name="teacherService"></param>
         /// <param name="notificationDialogController"></param>
-        public GroupController(IDialogService dialogService, IEventAggregator eventAggregator, ITeacherService teacherService, INotificationDialogController notificationDialogController)
+        public GroupController(IDialogService dialogService, 
+            IEventAggregator eventAggregator,
+            IGroupService groupService, 
+            INotificationDialogController notificationDialogController)
         {
             this.notificationDialogController = notificationDialogController;
             this.dialogService = dialogService;
             this.eventAggregator = eventAggregator;
+            this.groupService = groupService;
 
-            items = new ObservableCollection<Group>();
+            items = new ObservableCollection<Group>(groupService.Groups);
         }
 
         public void AddGroup()
@@ -58,20 +63,29 @@ namespace AcademicLoadModule.Controllers
 
             DialogParameters dialogParameters = new DialogParameters();
             dialogParameters.Add("confirmDialogParameters", confirmDialogParameters);
-            //using the dialog service as-is
+          
             dialogService.Show("ConfirmDialog", dialogParameters, r =>
             {
                 if (r.Result == ButtonResult.OK)
                 {
                     items.Add(model.CreateGroup());
+                    groupService.AddGroup(model.CreateGroup());
+
                     eventAggregator.GetEvent<GroupsCountChangeEvent>().Publish(Items.Count);
+
                     notificationDialogController.OpenNotificationDialog(Properties.Resources.Notification, Properties.Resources.SuccessAddGroup);
                 }
+
                 if (r.Result == ButtonResult.Cancel)
                 {
 
                 }
             });
+        }
+
+        public void CheckGroupsCount()
+        {
+            eventAggregator.GetEvent<GroupsCountChangeEvent>().Publish(groupService.Groups.Count);
         }
 
         public ObservableCollection<Group> Items

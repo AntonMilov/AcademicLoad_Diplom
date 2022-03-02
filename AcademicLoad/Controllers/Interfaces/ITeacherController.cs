@@ -23,5 +23,10 @@ namespace AcademicLoadModule.Controllers.Interfaces
         /// </summary>
         ObservableCollection<Teacher> Items { get; set; }
 
+        /// <summary>
+        /// Проверка кол-ва учебных групп.
+        /// </summary>
+        void CheckTeacherCount();
+
     }
 }
