@@ -23,8 +23,6 @@ namespace AcademicLoadModule
         public void OnInitialized(IContainerProvider containerProvider)
         {
             var regionManager = containerProvider.Resolve<IRegionManager>();
-            regionManager.RegisterViewWithRegion("MainRegion", typeof(TabsView));
-
             regionManager.RegisterViewWithRegion("TeachersRegion", typeof(TeachersEmptyView));
             regionManager.RegisterViewWithRegion("TeachersRegion", typeof(TeachersView));
 
@@ -33,6 +31,9 @@ namespace AcademicLoadModule
             
             regionManager.RegisterViewWithRegion("CalculationSheetsRegion", typeof(CalculationSheetsEmptyView));
             regionManager.RegisterViewWithRegion("CalculationSheetsRegion", typeof(CalculationSheetView));
+
+            //TODO  TabsView Создается в конце, и проверяет по контроллерам
+            regionManager.RegisterViewWithRegion("MainRegion", typeof(TabsView));
         }
 
         /// <inheritdoc/>
