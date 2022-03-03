@@ -13,6 +13,7 @@ using AcademicLoadModule.Views.Add;
 using Core.Services.Interfaces;
 using Data.Models;
 using Infrastructure.AddDialog;
+using Infrastructure.ConfirmDialog;
 using Infrastructure.NotificationDialog.Controller;
 using Prism.Events;
 using Prism.Services.Dialogs;
@@ -35,9 +36,9 @@ namespace AcademicLoadModule.Controllers
         /// <param name="eventAggregator"></param>
         /// <param name="teacherService"></param>
         /// <param name="notificationDialogController"></param>
-        public GroupController(IDialogService dialogService, 
+        public GroupController(IDialogService dialogService,
             IEventAggregator eventAggregator,
-            IGroupService groupService, 
+            IGroupService groupService,
             INotificationDialogController notificationDialogController)
         {
             this.notificationDialogController = notificationDialogController;
@@ -69,8 +70,8 @@ namespace AcademicLoadModule.Controllers
 
             DialogParameters dialogParameters = new DialogParameters();
             dialogParameters.Add(nameof(AddDialogParameters), addDialogParameters);
-          
-            dialogService.Show("ConfirmDialog", dialogParameters, r =>
+
+            dialogService.Show("AddDialog", dialogParameters, r =>
             {
                 if (r.Result == ButtonResult.OK)
                 {
@@ -80,6 +81,33 @@ namespace AcademicLoadModule.Controllers
                     eventAggregator.GetEvent<GroupsCountChangeEvent>().Publish(Items.Count);
 
                     notificationDialogController.OpenNotificationDialog(Properties.Resources.Notification, Properties.Resources.SuccessAddGroup);
+                }
+
+                if (r.Result == ButtonResult.Cancel)
+                {
+
+                }
+            });
+        }
+
+        public void DeleteGroup(Group group)
+        {
+            var confirmDialogParameters = new ConfirmDialogParameters();
+            confirmDialogParameters.Message = Properties.Resources.MessageDeleteGroup;
+
+            DialogParameters dialogParameters = new DialogParameters();
+            dialogParameters.Add(nameof(ConfirmDialogParameters), confirmDialogParameters);
+            dialogService.Show("ConfirmDialog", dialogParameters, r =>
+            {
+                if (r.Result == ButtonResult.OK)
+                {
+                    items.Remove(group);
+                    groupService.DeleteGroup(group);
+
+                    eventAggregator.GetEvent<GroupsCountChangeEvent>().Publish(Items.Count);
+
+                    notificationDialogController.OpenNotificationDialog(Properties.Resources.Notification,
+                        Properties.Resources.SuccessDeleteGroup);
                 }
 
                 if (r.Result == ButtonResult.Cancel)

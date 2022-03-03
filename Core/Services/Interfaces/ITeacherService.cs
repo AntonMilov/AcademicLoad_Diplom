@@ -19,6 +19,11 @@ namespace Core.Services.Interfaces
         void AddTeacher(Teacher teacher);
 
         /// <summary>
+        /// Удаление преподователя.
+        /// </summary>
+        void DeleteTeacher(Teacher teacher);
+
+        /// <summary>
         /// Преподаватели.
         /// </summary>
         List<Teacher> Teachers { get; set; }

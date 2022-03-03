@@ -180,6 +180,12 @@
   <data name="LectionLoad" xml:space="preserve">
     <value>Лекционная нагрузка:</value>
   </data>
+  <data name="MessageDeleteGroup" xml:space="preserve">
+    <value>Данные о данной учебной группе будут удалены</value>
+  </data>
+  <data name="MessageDeleteTeacher" xml:space="preserve">
+    <value>Данные о данном преподавателе будут удалены</value>
+  </data>
   <data name="MiddleName" xml:space="preserve">
     <value>Отчество:</value>
   </data>
@@ -216,8 +222,14 @@
   <data name="SuccessAddGroup" xml:space="preserve">
     <value>Учебная группа успешно добавлена.</value>
   </data>
-  <data name="SuccessAddTeahcer" xml:space="preserve">
+  <data name="SuccessAddTeacher" xml:space="preserve">
     <value>Преподаватель успешно добавлен.</value>
+  </data>
+  <data name="SuccessDeleteGroup" xml:space="preserve">
+    <value>Группа успешно удалена.</value>
+  </data>
+  <data name="SuccessDeleteTeacher" xml:space="preserve">
+    <value>Преподаватель успешно удален.</value>
   </data>
   <data name="Teachers" xml:space="preserve">
     <value>Преподаватели</value>

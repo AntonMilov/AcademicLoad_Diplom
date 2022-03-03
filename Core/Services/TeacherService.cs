@@ -40,5 +40,12 @@ namespace Core.Services
 
             jsonExporter.SaveTeachers(Teachers);
         }
+
+        public void DeleteTeacher(Teacher teacher)
+        {
+            Teachers.Remove(teacher);
+
+            jsonExporter.SaveTeachers(Teachers);
+        }
     }
 }

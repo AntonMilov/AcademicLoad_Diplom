@@ -11,6 +11,7 @@ namespace AcademicLoadModule.ViewModels
     {
         private readonly ITeacherController teacherController;
         private ObservableCollection<Teacher> items;
+        private Teacher selectedTeacher;
 
         /// <summary>
         /// .ctor
@@ -19,9 +20,13 @@ namespace AcademicLoadModule.ViewModels
         {
             this.teacherController = teacherController;
             AddTeacherCommand = new DelegateCommand(AddTeacher);
+            DeleteTeacherCommand = new DelegateCommand(DeleteTeacher);
             Items = teacherController.Items;
         }
 
+        /// <summary>
+        /// Преподаватели.
+        /// </summary>
         public ObservableCollection<Teacher> Items
         {
             get => items;
@@ -29,13 +34,35 @@ namespace AcademicLoadModule.ViewModels
         }
 
         /// <summary>
+        /// Выбранная учебная группа.
+        /// </summary>
+        public Teacher SelectedTeacher
+        {
+            get => selectedTeacher;
+            set => SetProperty(ref selectedTeacher, value);
+        }
+
+        /// <summary>
         /// Команда для добавения преподавателя.
         /// </summary>
-        public DelegateCommand AddTeacherCommand { get; private set; }
+        public DelegateCommand AddTeacherCommand { get; }
+
+        /// <summary>
+        /// Команда для удаления преподавателя.
+        /// </summary>
+        public DelegateCommand DeleteTeacherCommand { get; }
 
         private void AddTeacher()
         {
             teacherController.AddTeacher();
+        }
+
+        private void DeleteTeacher()
+        {
+            if (SelectedTeacher != null)
+            {
+                teacherController.DeleteTeacher(SelectedTeacher);
+            }
         }
 
     }

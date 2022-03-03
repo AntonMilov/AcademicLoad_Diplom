@@ -83,11 +83,6 @@ namespace Infrastructure.AddDialog
 
         public event Action<IDialogResult> RequestClose;
 
-        public virtual void RaiseRequestClose(IDialogResult dialogResult)
-        {
-            RequestClose?.Invoke(dialogResult);
-        }
-
         /// <summary>
         /// Может ли окно закрыться.
         /// </summary>
@@ -100,6 +95,11 @@ namespace Infrastructure.AddDialog
         public void OnDialogClosed()
         {
 
+        }
+
+        public virtual void RaiseRequestClose(IDialogResult dialogResult)
+        {
+            RequestClose?.Invoke(dialogResult);
         }
 
         public void OnDialogOpened(IDialogParameters parameters)

@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using Infrastructure.AddDialog;
+using Infrastructure.ConfirmDialog;
 using NavigationModule;
 using Prism.Ioc;
 using Prism.Modularity;
@@ -19,7 +20,8 @@ namespace Shell
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.RegisterDialog<AddDialogView, AddDialogViewModel>("ConfirmDialog");
+            containerRegistry.RegisterDialog<AddDialogView, AddDialogViewModel>("AddDialog");
+            containerRegistry.RegisterDialog<ConfirmDialogView, ConfirmDialogViewModel>("ConfirmDialog");
             containerRegistry.RegisterDialog<Infrastructure.NotificationDialog.NotificationDialogView, Infrastructure.NotificationDialog.NotificationDialogViewModel>("NotificationDialog");
         }
 

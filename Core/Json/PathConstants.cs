@@ -14,11 +14,11 @@ namespace Core.Json
         /// <summary>
         /// Путь к файла групп.
         /// </summary>
-        public string PathJsonGroups = $"{Environment.CurrentDirectory}/JsonGroups";
+        public string PathJsonGroups = $"{Environment.CurrentDirectory}/JsonGroups.json";
 
         /// <summary>
         /// Путь к файле преподавателей.
         /// </summary>
-        public string PathJsonTeachers= $"{Environment.CurrentDirectory}/JsonTeachers";
+        public string PathJsonTeachers= $"{Environment.CurrentDirectory}/JsonTeachers.json";
     }
 }

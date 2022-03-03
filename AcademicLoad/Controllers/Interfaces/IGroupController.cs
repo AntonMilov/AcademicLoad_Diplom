@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using Data.Models;
 
 namespace AcademicLoadModule.Controllers.Interfaces
@@ -17,6 +18,11 @@ namespace AcademicLoadModule.Controllers.Interfaces
         /// Добавление учебной группы.
         /// </summary>
         void AddGroup();
+
+        /// <summary>
+        /// Удаление учебной группы.
+        /// </summary>
+        void DeleteGroup(Group group);
 
         /// <summary>
         /// Учебные группы.

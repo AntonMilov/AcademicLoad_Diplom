@@ -41,6 +41,7 @@
                 </Button>
 
                 <Button Style="{StaticResource ButtonWithIcon}"
+                        Command="{Binding DeleteGroupCommand}"
                         ToolTip="{x:Static prop:Resources.DeleteGroup}"
                         VerticalAlignment="Center" Click="Button_Click">
                     <Path Style="{StaticResource DeleteGroupIcon}" />
@@ -55,8 +56,10 @@
         </StackPanel>
 
         <ListView Grid.Row="1"
+                  Name="ListView"
                   HorizontalAlignment="Center"
-                  ItemsSource="{Binding Items}" 
+                  ItemsSource="{Binding Items}"
+                  SelectedItem="{Binding SelectedGroup}"
                   ScrollViewer.CanContentScroll="False"
                   ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
                   BorderThickness="0">

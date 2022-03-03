@@ -32,6 +32,12 @@ namespace Core.Services
             jsonExporter.SaveGroups(Groups);
         }
 
+        public void DeleteGroup(Group group)
+        {
+            groups.Remove(group);
+
+            jsonExporter.SaveGroups(Groups);
+        }
 
         public List<Group> Groups
         {

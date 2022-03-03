@@ -43,6 +43,7 @@
                 </Button>
 
                 <Button Style="{StaticResource ButtonWithIcon}"
+                        Command="{Binding DeleteTeacherCommand}"
                         ToolTip="{x:Static prop:Resources.DeleteTeacher}"
                         VerticalAlignment="Center">
                     <Path Style="{StaticResource DeleteTeacherIcon}"></Path>
@@ -53,6 +54,7 @@
         <ListView Grid.Row="1" 
                   HorizontalAlignment="Center"
                   AlternationCount="2"
+                  SelectedItem="{Binding SelectedTeacher}"
                   ScrollViewer.VerticalScrollBarVisibility="Auto"
                   ItemsSource="{Binding Items}" 
                   BorderThickness="0">

@@ -10,6 +10,7 @@ using AcademicLoadModule.Views.Add;
 using Core.Services.Interfaces;
 using Data.Models;
 using Infrastructure.AddDialog;
+using Infrastructure.ConfirmDialog;
 using Infrastructure.NotificationDialog.Controller;
 using Prism.Events;
 using Prism.Services.Dialogs;
@@ -27,10 +28,10 @@ namespace AcademicLoadModule.Controllers
         /// <summary>
         /// .ctor
         /// </summary>
-        /// <param name="dialogService"></param>
-        /// <param name="eventAggregator"></param>
-        /// <param name="teacherService"></param>
-        /// <param name="notificationDialogController"></param>
+        /// <param name="dialogService">.</param>
+        /// <param name="eventAggregator">.</param>
+        /// <param name="teacherService">.</param>
+        /// <param name="notificationDialogController">.</param>
         public TeacherController(IDialogService dialogService, IEventAggregator eventAggregator, ITeacherService teacherService, INotificationDialogController notificationDialogController)
         {
             this.notificationDialogController = notificationDialogController;
@@ -63,7 +64,7 @@ namespace AcademicLoadModule.Controllers
             DialogParameters dialogParameters = new DialogParameters();
             dialogParameters.Add(nameof(AddDialogParameters), addDialogParameters);
          
-            dialogService.Show("ConfirmDialog", dialogParameters, r =>
+            dialogService.Show("AddDialog", dialogParameters, r =>
             {
                 if (r.Result == ButtonResult.OK)
                 {
@@ -72,7 +73,7 @@ namespace AcademicLoadModule.Controllers
 
                     eventAggregator.GetEvent<TeachersCountChangeEvent>().Publish(teacherService.Teachers.Count);
 
-                    notificationDialogController.OpenNotificationDialog(Properties.Resources.Notification, Properties.Resources.SuccessAddTeahcer);
+                    notificationDialogController.OpenNotificationDialog(Properties.Resources.Notification, Properties.Resources.SuccessAddTeacher);
                 }
 
                 if (r.Result == ButtonResult.Cancel)
@@ -82,10 +83,38 @@ namespace AcademicLoadModule.Controllers
             });
         }
 
+        public void DeleteTeacher(Teacher teacher)
+        {
+            var confirmDialogParameters = new ConfirmDialogParameters();
+            confirmDialogParameters.Message = Properties.Resources.MessageDeleteTeacher;
+
+            DialogParameters dialogParameters = new DialogParameters();
+            dialogParameters.Add(nameof(ConfirmDialogParameters), confirmDialogParameters);
+            dialogService.Show("ConfirmDialog", dialogParameters, r =>
+            {
+                if (r.Result == ButtonResult.OK)
+                {
+                    items.Remove(teacher);
+                    teacherService.DeleteTeacher(teacher);
+
+                    eventAggregator.GetEvent<TeachersCountChangeEvent>().Publish(Items.Count);
+
+                    notificationDialogController.OpenNotificationDialog(Properties.Resources.Notification,
+                        Properties.Resources.SuccessDeleteTeacher);
+                }
+
+                if (r.Result == ButtonResult.Cancel)
+                {
+
+                }
+            });
+        }
+
         public void CheckTeacherCount()
         {
             eventAggregator.GetEvent<TeachersCountChangeEvent>().Publish(teacherService.Teachers.Count);
         }
 
+       
     }
 }

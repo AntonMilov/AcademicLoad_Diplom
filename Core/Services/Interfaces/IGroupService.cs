@@ -15,6 +15,11 @@ namespace Core.Services.Interfaces
         void AddGroup(Group group);
 
         /// <summary>
+        /// Удаление учебной группы.
+        /// </summary>
+        void DeleteGroup(Group group);
+
+        /// <summary>
         /// Учебные группы.
         /// </summary>
         List<Group> Groups { get; set; }

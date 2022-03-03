@@ -30,7 +30,6 @@ namespace Infrastructure.ConfirmDialog
             set => SetProperty(ref message, value);
         }
 
-
         public event Action<IDialogResult> RequestClose;
 
         /// <summary>
@@ -38,10 +37,27 @@ namespace Infrastructure.ConfirmDialog
         /// </summary>
         public DelegateCommand<string> CloseDialogCommand => new DelegateCommand<string>(CloseDialog);
 
+        public void OnDialogClosed()
+        {
+
+        }
+
+        public bool CanCloseDialog()
+        {
+            return true;
+        }
+
+        public void OnDialogOpened(IDialogParameters parameters)
+        {
+            var parameter = parameters.GetValue<ConfirmDialogParameters>(nameof(ConfirmDialogParameters));
+            Message = parameter.Message;
+        }
+
         public virtual void RaiseRequestClose(IDialogResult dialogResult)
         {
             RequestClose?.Invoke(dialogResult);
         }
+
         private void CloseDialog(string parameter)
         {
             ButtonResult result = ButtonResult.None;
@@ -58,22 +74,6 @@ namespace Infrastructure.ConfirmDialog
             {
                 RaiseRequestClose(new DialogResult(result));
             }
-        }
-
-        public void OnDialogClosed()
-        {
-           
-        }
-
-        public bool CanCloseDialog()
-        {
-            return true;
-        }
-
-        public void OnDialogOpened(IDialogParameters parameters)
-        {
-            var parameter = parameters.GetValue<ConfirmDialogParameters>("addDialogParameters");
-
         }
     }
 }

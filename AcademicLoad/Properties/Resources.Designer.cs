@@ -250,6 +250,24 @@ namespace AcademicLoadModule.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Данные о данной учебной группе будут удалены.
+        /// </summary>
+        public static string MessageDeleteGroup {
+            get {
+                return ResourceManager.GetString("MessageDeleteGroup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Данные о данном преподавателе будут удалены.
+        /// </summary>
+        public static string MessageDeleteTeacher {
+            get {
+                return ResourceManager.GetString("MessageDeleteTeacher", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Отчество:.
         /// </summary>
         public static string MiddleName {
@@ -360,9 +378,27 @@ namespace AcademicLoadModule.Properties {
         /// <summary>
         ///   Ищет локализованную строку, похожую на Преподаватель успешно добавлен..
         /// </summary>
-        public static string SuccessAddTeahcer {
+        public static string SuccessAddTeacher {
             get {
-                return ResourceManager.GetString("SuccessAddTeahcer", resourceCulture);
+                return ResourceManager.GetString("SuccessAddTeacher", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Группа успешно удалена..
+        /// </summary>
+        public static string SuccessDeleteGroup {
+            get {
+                return ResourceManager.GetString("SuccessDeleteGroup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Преподаватель успешно удален..
+        /// </summary>
+        public static string SuccessDeleteTeacher {
+            get {
+                return ResourceManager.GetString("SuccessDeleteTeacher", resourceCulture);
             }
         }
         
