@@ -41,21 +41,27 @@ namespace AcademicLoadModule.Controllers
             items = new ObservableCollection<Teacher>(teacherService.Teachers);
         }
 
+        public ObservableCollection<Teacher> Items
+        {
+            get => items;
+            set => items = value;
+        }
+
         public void AddTeacher()
         {
             AddTeacherViewModel model = new AddTeacherViewModel();
             AddTeacherView view = new AddTeacherView(){DataContext = model};
 
-            var confirmDialogParameters = new AddDialogParameters();
-            confirmDialogParameters.CloseButtonText = Properties.Resources.Cancel;
-            confirmDialogParameters.ConfirmButtonText = Properties.Resources.Add;
-            confirmDialogParameters.Header = Properties.Resources.AddingTeacher;
-            confirmDialogParameters.Title = Properties.Resources.AddingTeacher;
-            confirmDialogParameters.Content = view;
-            confirmDialogParameters.CanCloseWindow = model.CanAddTeacher;
+            var addDialogParameters = new AddDialogParameters();
+            addDialogParameters.CloseButtonText = Properties.Resources.Cancel;
+            addDialogParameters.ConfirmButtonText = Properties.Resources.Add;
+            addDialogParameters.Header = Properties.Resources.AddingTeacher;
+            addDialogParameters.Title = Properties.Resources.AddingTeacher;
+            addDialogParameters.Content = view;
+            addDialogParameters.CanCloseWindow = model.CanAddTeacher;
 
             DialogParameters dialogParameters = new DialogParameters();
-            dialogParameters.Add("confirmDialogParameters", confirmDialogParameters);
+            dialogParameters.Add(nameof(AddDialogParameters), addDialogParameters);
          
             dialogService.Show("ConfirmDialog", dialogParameters, r =>
             {
@@ -79,12 +85,6 @@ namespace AcademicLoadModule.Controllers
         public void CheckTeacherCount()
         {
             eventAggregator.GetEvent<TeachersCountChangeEvent>().Publish(teacherService.Teachers.Count);
-        }
-
-        public ObservableCollection<Teacher> Items
-        {
-            get => items;
-            set => items = value;
         }
 
     }

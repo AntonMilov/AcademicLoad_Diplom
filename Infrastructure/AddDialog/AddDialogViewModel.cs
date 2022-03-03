@@ -7,7 +7,7 @@ using Prism.Services.Dialogs;
 namespace Infrastructure.AddDialog
 {
     /// <summary>
-    /// ViewModel для окна потверждения.
+    /// ViewModel для окна добавления.
     /// </summary>
     public class AddDialogViewModel : BindableBase, IDialogAware
     {
@@ -104,7 +104,7 @@ namespace Infrastructure.AddDialog
 
         public void OnDialogOpened(IDialogParameters parameters)
         {
-            var parameter = parameters.GetValue<AddDialogParameters>("confirmDialogParameters");
+            var parameter = parameters.GetValue<AddDialogParameters>(nameof(AddDialogParameters));
 
             Header = parameter.Header;
             Title = parameter.Title;

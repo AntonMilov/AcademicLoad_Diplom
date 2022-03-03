@@ -48,21 +48,27 @@ namespace AcademicLoadModule.Controllers
             items = new ObservableCollection<Group>(groupService.Groups);
         }
 
+        public ObservableCollection<Group> Items
+        {
+            get => items;
+            set => items = value;
+        }
+
         public void AddGroup()
         {
             AddGroupViewModel model = new AddGroupViewModel();
             AddGroupView view = new AddGroupView() { DataContext = model };
 
-            var confirmDialogParameters = new AddDialogParameters();
-            confirmDialogParameters.CloseButtonText = Properties.Resources.Cancel;
-            confirmDialogParameters.ConfirmButtonText = Properties.Resources.Add;
-            confirmDialogParameters.Header = Properties.Resources.AddingGroup;
-            confirmDialogParameters.Title = Properties.Resources.AddingGroup;
-            confirmDialogParameters.Content = view;
-            confirmDialogParameters.CanCloseWindow = model.CanAddGroup;
+            var addDialogParameters = new AddDialogParameters();
+            addDialogParameters.CloseButtonText = Properties.Resources.Cancel;
+            addDialogParameters.ConfirmButtonText = Properties.Resources.Add;
+            addDialogParameters.Header = Properties.Resources.AddingGroup;
+            addDialogParameters.Title = Properties.Resources.AddingGroup;
+            addDialogParameters.Content = view;
+            addDialogParameters.CanCloseWindow = model.CanAddGroup;
 
             DialogParameters dialogParameters = new DialogParameters();
-            dialogParameters.Add("confirmDialogParameters", confirmDialogParameters);
+            dialogParameters.Add(nameof(AddDialogParameters), addDialogParameters);
           
             dialogService.Show("ConfirmDialog", dialogParameters, r =>
             {
@@ -86,12 +92,6 @@ namespace AcademicLoadModule.Controllers
         public void CheckGroupsCount()
         {
             eventAggregator.GetEvent<GroupsCountChangeEvent>().Publish(groupService.Groups.Count);
-        }
-
-        public ObservableCollection<Group> Items
-        {
-            get => items;
-            set => items = value;
         }
     }
 }

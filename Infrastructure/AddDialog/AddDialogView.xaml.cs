@@ -7,6 +7,9 @@ namespace Infrastructure.AddDialog
     /// </summary>
     public partial class AddDialogView : UserControl
     {
+        /// <summary>
+        /// .ctor
+        /// </summary>
         public AddDialogView()
         {
             InitializeComponent();

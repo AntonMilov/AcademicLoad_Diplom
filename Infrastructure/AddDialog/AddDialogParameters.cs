@@ -3,7 +3,7 @@
 namespace Infrastructure.AddDialog
 {
     /// <summary>
-    /// Параметры для передачи в ConfirgmDialog.
+    /// Параметры для передачи в AddDialog.
     /// </summary>
     public class AddDialogParameters
     {
@@ -22,12 +22,10 @@ namespace Infrastructure.AddDialog
         /// </summary>
         public string CloseButtonText { get; set; }
 
-
         /// <summary>
         /// Текст для кнопки потверждения.
         /// </summary>
         public string ConfirmButtonText { get; set; }
-
 
         /// <summary>
         /// Контент.

@@ -71,6 +71,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ConfirmDialog\ConfirmDialogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="NotificationDialog\NotificationDialogView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -123,6 +127,11 @@
       <DependentUpon>AddDialogView.xaml</DependentUpon>
     </Compile>
     <Compile Include="AddDialog\AddDialogViewModel.cs" />
+    <Compile Include="ConfirmDialog\ConfirmDialogParameters.cs" />
+    <Compile Include="ConfirmDialog\ConfirmDialogView.xaml.cs">
+      <DependentUpon>ConfirmDialogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ConfirmDialog\ConfirmDialogViewModel.cs" />
     <Compile Include="Converters\AcademicTitleToNameConverter.cs" />
     <Compile Include="Converters\RateConverter.cs" />
     <Compile Include="Converters\RateToDoubleConverter.cs" />
