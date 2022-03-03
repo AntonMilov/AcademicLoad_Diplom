@@ -10,10 +10,9 @@ namespace AcademicLoadModule.ViewModels
     public class TabsViewModel : BindableBase
     {
 
-        public TabsViewModel(IGroupController groupController, ITeacherController teacherController)
+        public TabsViewModel()
         {
-            groupController.CheckGroupsCount();
-            teacherController.CheckTeacherCount();
+           
         }
     }
 }

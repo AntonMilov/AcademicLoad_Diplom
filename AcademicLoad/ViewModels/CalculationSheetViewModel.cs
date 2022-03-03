@@ -10,7 +10,7 @@ using Prism.Events;
 
 namespace AcademicLoadModule.ViewModels
 {
-  
+
     public class CalculationSheetViewModel : BindableBase
     {
         private CalculationSheet calculationSheet;
@@ -19,13 +19,20 @@ namespace AcademicLoadModule.ViewModels
         /// <summary>
         /// ctor.
         /// </summary>
-        public CalculationSheetViewModel(ICalculationSheetController calculationSheetController,IEventAggregator eventAggregator)
+        public CalculationSheetViewModel(ICalculationSheetController calculationSheetController, IEventAggregator eventAggregator,
+            IGroupController groupController,
+            ITeacherController teacherController)
         {
-           this.calculationSheetController = calculationSheetController;
+            this.calculationSheetController = calculationSheetController;
             CalculationSheet = calculationSheetController.CalculationSheet;
             eventAggregator.GetEvent<CalculationSheetAddedEvent>().Subscribe(CalculationSheetAddedHandler);
+
+
+            //TODO Рефакторить
+            groupController.CheckGroupsCount();
+            teacherController.CheckTeacherCount();
         }
-      
+
 
         /// <summary>
         /// Расчетный лист кафедральной нагрузки

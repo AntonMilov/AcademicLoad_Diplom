@@ -12,7 +12,7 @@ using AcademicLoadModule.Views;
 using AcademicLoadModule.Views.Add;
 using Core.Services.Interfaces;
 using Data.Models;
-using Infrastructure.ConfirmDialog;
+using Infrastructure.AddDialog;
 using Infrastructure.NotificationDialog.Controller;
 using Prism.Events;
 using Prism.Services.Dialogs;
@@ -53,7 +53,7 @@ namespace AcademicLoadModule.Controllers
             AddGroupViewModel model = new AddGroupViewModel();
             AddGroupView view = new AddGroupView() { DataContext = model };
 
-            var confirmDialogParameters = new ConfirmDialogParameters();
+            var confirmDialogParameters = new AddDialogParameters();
             confirmDialogParameters.CloseButtonText = Properties.Resources.Cancel;
             confirmDialogParameters.ConfirmButtonText = Properties.Resources.Add;
             confirmDialogParameters.Header = Properties.Resources.AddingGroup;

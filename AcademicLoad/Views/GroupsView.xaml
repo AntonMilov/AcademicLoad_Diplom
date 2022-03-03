@@ -57,11 +57,13 @@
         <ListView Grid.Row="1"
                   HorizontalAlignment="Center"
                   ItemsSource="{Binding Items}" 
+                  ScrollViewer.CanContentScroll="False"
+                  ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
                   BorderThickness="0">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <WrapPanel Width="{Binding RelativeSource={ RelativeSource FindAncestor, AncestorType={x:Type Window}}, Path=ActualWidth}"
-                               HorizontalAlignment="Stretch"
+                    <WrapPanel Width="{Binding RelativeSource={ RelativeSource FindAncestor, AncestorType={x:Type ListView}}, Path=ActualWidth}"
+                               ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
                                Orientation="Horizontal" />
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>

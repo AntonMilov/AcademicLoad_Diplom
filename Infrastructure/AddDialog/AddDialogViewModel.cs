@@ -1,18 +1,15 @@
-﻿using Prism.Commands;
+﻿using System;
+using Infrastructure.NotificationDialog.Controller;
+using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Services.Dialogs;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Windows.Controls;
-using Infrastructure.NotificationDialog.Controller;
 
-namespace Infrastructure.ConfirmDialog
+namespace Infrastructure.AddDialog
 {
     /// <summary>
     /// ViewModel для окна потверждения.
     /// </summary>
-    public class ConfirmDialogViewModel : BindableBase, IDialogAware
+    public class AddDialogViewModel : BindableBase, IDialogAware
     {
         private readonly INotificationDialogController notificationDialogController;
         private object content;
@@ -24,7 +21,7 @@ namespace Infrastructure.ConfirmDialog
         /// <summary>
         /// .ctor
         /// </summary>
-        public ConfirmDialogViewModel(INotificationDialogController notificationDialogController)
+        public AddDialogViewModel(INotificationDialogController notificationDialogController)
         {
             this.notificationDialogController = notificationDialogController;
         }
@@ -107,7 +104,7 @@ namespace Infrastructure.ConfirmDialog
 
         public void OnDialogOpened(IDialogParameters parameters)
         {
-            var parameter = parameters.GetValue<ConfirmDialogParameters>("confirmDialogParameters");
+            var parameter = parameters.GetValue<AddDialogParameters>("confirmDialogParameters");
 
             Header = parameter.Header;
             Title = parameter.Title;

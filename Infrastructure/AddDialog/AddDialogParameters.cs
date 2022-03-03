@@ -1,13 +1,11 @@
-﻿
+﻿using System;
 
-using System;
-
-namespace Infrastructure.ConfirmDialog
+namespace Infrastructure.AddDialog
 {
     /// <summary>
     /// Параметры для передачи в ConfirgmDialog.
     /// </summary>
-    public class ConfirmDialogParameters
+    public class AddDialogParameters
     {
         /// <summary>
         /// Заголовок окна.

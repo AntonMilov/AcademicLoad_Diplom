@@ -67,7 +67,7 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="ConfirmDialog\ConfirmDialogView.xaml">
+    <Page Include="AddDialog\AddDialogView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -118,11 +118,11 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConfirmDialog\ConfirmDialogParameters.cs" />
-    <Compile Include="ConfirmDialog\ConfirmDialogView.xaml.cs">
-      <DependentUpon>ConfirmDialogView.xaml</DependentUpon>
+    <Compile Include="AddDialog\AddDialogParameters.cs" />
+    <Compile Include="AddDialog\AddDialogView.xaml.cs">
+      <DependentUpon>AddDialogView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ConfirmDialog\ConfirmDialogViewModel.cs" />
+    <Compile Include="AddDialog\AddDialogViewModel.cs" />
     <Compile Include="Converters\AcademicTitleToNameConverter.cs" />
     <Compile Include="Converters\RateConverter.cs" />
     <Compile Include="Converters\RateToDoubleConverter.cs" />
