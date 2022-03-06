@@ -43,9 +43,11 @@ namespace AcademicLoadModule.Controllers
             Items = this.teacherLoadDisciplineService.TeacherLoadDisciplines;
         }
 
-        public void AddTeacherLoadDiscipline()
+        public void AddTeacherLoadDiscipline(CalculationSheetDiscipline calculationSheetDiscipline)
         {
-            AddTeacherLoadDisciplineViewModel model = new AddTeacherLoadDisciplineViewModel(teacherController,groupController);
+            AddTeacherLoadDisciplineViewModel model = new AddTeacherLoadDisciplineViewModel(teacherController, 
+                groupController,
+                calculationSheetDiscipline);
             AddTeacherLoadDisciplineView view = new AddTeacherLoadDisciplineView() { DataContext = model };
 
             var addDialogParameters = new AddDialogParameters();

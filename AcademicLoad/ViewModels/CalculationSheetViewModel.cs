@@ -39,7 +39,7 @@ namespace AcademicLoadModule.ViewModels
         /// <summary>
         /// Команда для дисциплины учебной нагрузки.
         /// </summary>
-        public DelegateCommand AddTeacherLoadDisciplineCommand => new DelegateCommand(AddTeacherLoadDiscipline);
+        public DelegateCommand<CalculationSheetDiscipline> AddTeacherLoadDisciplineCommand => new DelegateCommand<CalculationSheetDiscipline>(AddTeacherLoadDiscipline);
 
 
         /// <summary>
@@ -56,9 +56,9 @@ namespace AcademicLoadModule.ViewModels
             CalculationSheet = calculationSheetController.CalculationSheet;
         }
 
-        private void AddTeacherLoadDiscipline()
+        private void AddTeacherLoadDiscipline(CalculationSheetDiscipline calculationSheetDiscipline)
         {
-            teacherLoadDisciplineController.AddTeacherLoadDiscipline();
+            teacherLoadDisciplineController.AddTeacherLoadDiscipline(calculationSheetDiscipline);
         }
     }
 }

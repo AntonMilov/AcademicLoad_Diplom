@@ -7,6 +7,7 @@ using AcademicLoadModule.Controllers.Interfaces;
 using AcademicLoadModule.Events;
 using Core.Services.Interfaces;
 using Data.Models;
+using Infrastructure.NotificationDialog.Controller;
 using Microsoft.Win32;
 using Prism.Events;
 using Prism.Services.Dialogs;
@@ -20,6 +21,7 @@ namespace AcademicLoadModule.Controllers
         private readonly OpenFileDialog openFileDialog;
         private readonly ICalculationSheetService calculationSheetService;
         private readonly IEventAggregator eventAggregator;
+        private readonly INotificationDialogController notificationDialogController;
         private CalculationSheet calculationSheet;
 
         /// <summary>
@@ -28,11 +30,13 @@ namespace AcademicLoadModule.Controllers
         /// <param name="openFileDialog"></param>
         public CalculationSheetController(OpenFileDialog openFileDialog, 
             ICalculationSheetService calculationSheetService, 
-            IEventAggregator eventAggregator)
+            IEventAggregator eventAggregator,
+            INotificationDialogController notificationDialogController)
         {
             this.openFileDialog = openFileDialog;
             this.calculationSheetService = calculationSheetService;
             this.eventAggregator = eventAggregator;
+            this.notificationDialogController = notificationDialogController;
 
         }
 
@@ -40,8 +44,16 @@ namespace AcademicLoadModule.Controllers
 
         public void AddCalculationSheet(string path)
         {
-            CalculationSheet=calculationSheetService.AddCalculationSheet(path);
-            eventAggregator.GetEvent<CalculationSheetAddedEvent>().Publish();
+            //Todo перенсти Try Catch на уровень сервича
+            try
+            {
+                CalculationSheet = calculationSheetService.AddCalculationSheet(path);
+                eventAggregator.GetEvent<CalculationSheetAddedEvent>().Publish();
+            }
+            catch (Exception e)
+            {
+                notificationDialogController.OpenNotificationDialog(Properties.Resources.Notification,"Не удалось импортировать данный файл.");
+            }
         }
 
         /// <inheritdoc/>

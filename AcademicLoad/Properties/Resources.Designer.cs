@@ -151,7 +151,7 @@ namespace AcademicLoadModule.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Расчетный листы кафедральной нагрузки отсутсвует, выберите файл в формате Excel..
+        ///   Ищет локализованную строку, похожую на Расчетный листы кафедральной нагрузки отсутсвует, выберите файл в формате xls или xlsx..
         /// </summary>
         public static string CalculationSheetsEmpty {
             get {

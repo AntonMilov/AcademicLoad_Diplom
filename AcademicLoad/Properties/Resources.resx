@@ -148,7 +148,7 @@
     <value>Расчетные листы кафедральной нагрузки</value>
   </data>
   <data name="CalculationSheetsEmpty" xml:space="preserve">
-    <value>Расчетный листы кафедральной нагрузки отсутсвует, выберите файл в формате Excel.</value>
+    <value>Расчетный листы кафедральной нагрузки отсутсвует, выберите файл в формате xls или xlsx.</value>
   </data>
   <data name="Cancel" xml:space="preserve">
     <value>Отмена</value>

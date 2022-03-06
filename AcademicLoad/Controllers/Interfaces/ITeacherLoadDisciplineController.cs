@@ -16,7 +16,7 @@ namespace AcademicLoadModule.Controllers.Interfaces
         /// <summary>
         /// Добавление дисциплины преподовательской нагрузки.
         /// </summary>
-        void AddTeacherLoadDiscipline();
+        void AddTeacherLoadDiscipline(CalculationSheetDiscipline calculationSheetDiscipline);
 
         /// <summary>
         /// Удаление дисциплины преподовательской нагрузки.

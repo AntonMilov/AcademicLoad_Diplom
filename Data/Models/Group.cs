@@ -11,10 +11,17 @@ namespace Data.Models
     /// </summary>
     public class Group
     {
+        private string name;
+
         /// <summary>
         /// Название группы.
         /// </summary>
-        public string Name {get; set;}
+        public string Name
+        {
+            get => name;
+            set => name = value.ToUpper();
+
+        }
 
         /// <summary>
         /// Кол-во студентов.

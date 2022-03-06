@@ -23,10 +23,11 @@ namespace AcademicLoadModule.ViewModels
         /// ctor.
         /// </summary>
         public AddTeacherLoadDisciplineViewModel(ITeacherController teacherController,
-            IGroupController groupController)
+            IGroupController groupController,
+            CalculationSheetDiscipline calculationSheetDiscipline)
         {
             Teachers = teacherController.Items;
-            Groups = new ObservableCollection<Group>(groupController.Items);
+            Groups = new ObservableCollection<Group>(groupController.Items.Where(x => Filter(calculationSheetDiscipline, x)));
             SelectedGroups = new ObservableCollection<Group>();
         }
 
@@ -125,7 +126,7 @@ namespace AcademicLoadModule.ViewModels
         /// Команда для удаления учебной группы
         /// </summary>
         public DelegateCommand<Group> DeleteGroupCommand => new DelegateCommand<Group>(DeleteGroup);
-      
+
         ///<summary>
         /// Проверка на заполнение всех полей.
         /// </summary>
@@ -144,6 +145,11 @@ namespace AcademicLoadModule.ViewModels
         {
             SelectedGroups.Remove(group);
             Groups.Add(group);
+        }
+
+        private bool Filter(CalculationSheetDiscipline calculationSheetDiscipline, Group group)
+        {
+            return calculationSheetDiscipline.Groups.ToUpper().Contains(group.Name.Substring(0, group.Name.Length - 1));
         }
     }
 }
