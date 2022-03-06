@@ -61,7 +61,6 @@ namespace AcademicLoadModule.ViewModels
             set => SetProperty(ref selectedCalculationSheetDiscipline, value);
         }
 
-
         private void CalculationSheetAddedHandler()
         {
             CalculationSheet = calculationSheetController.CalculationSheet;

@@ -174,7 +174,7 @@
                                 <Button Style="{StaticResource ButtonWithIcon}" 
                                         Command="{Binding  Path=DataContext.AddTeacherLoadDisciplineCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
                                         CommandParameter="{Binding DataContext, RelativeSource={RelativeSource AncestorType={x:Type DataGridRow}}}"
-                                        ToolTip="{x:Static prop:Resources.AddTeacher}"
+                                        ToolTip="Назначить нового преподавателя к данной дисциплине"
                                         VerticalAlignment="Center">
                                     <Path Style="{StaticResource AddTeacherIcon}"></Path>
                                 </Button>
