@@ -11,5 +11,6 @@
     <converters:BooleanToInverseVisibilityConverter x:Key="BooleanToInverseVisibilityConverter" />
     <converters:GroupInfoConverter x:Key="GroupInfoConverter" />
     <converters:RadioButtonCheckedConverter x:Key="RadioButtonCheckedConverter" />
+    <converters:BooleanToHiddenConverter x:Key="BooleanToHiddenConverter" />
 
 </ResourceDictionary>

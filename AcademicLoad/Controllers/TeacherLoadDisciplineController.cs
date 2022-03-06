@@ -65,7 +65,8 @@ namespace AcademicLoadModule.Controllers
             {
                 if (r.Result == ButtonResult.OK)
                 {
-                
+
+                    teacherLoadDisciplineService.AddTeacherLoadDiscipline(model.CreateTeacherLoadDiscipline(), calculationSheetDiscipline);
                 }
 
                 if (r.Result == ButtonResult.Cancel)

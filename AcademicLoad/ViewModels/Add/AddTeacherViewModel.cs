@@ -120,7 +120,6 @@ namespace AcademicLoadModule.ViewModels.Add
         /// <summary>
         /// Создание нового учителя.
         /// </summary>
-        /// <returns></returns>
         public Teacher CreateTeacher()
         {
             return new Teacher()

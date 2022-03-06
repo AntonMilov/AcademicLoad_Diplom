@@ -24,30 +24,31 @@
                 <Thickness x:Key="MarginTextBox" Left="0" Top="0" Right="0" Bottom="8" />
             </StackPanel.Resources>
             <StackPanel Orientation="Vertical" MinHeight="90">
-                <StackPanel Orientation="Horizontal" Margin="0,0,0,4">
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
                     <TextBlock Style="{StaticResource HeaderH2}"
                                x:Name="TextBlockTeacher"
                                Margin="{StaticResource MarginH2}"
                                VerticalAlignment="Center"
-                               Text="Преподователь" />
+                               Text="Преподаватель" />
 
                     <Button Style="{StaticResource ButtonWithIcon}"
                             ToolTip="{x:Static prop:Resources.AddTeacher}"
                             PreviewMouseLeftButtonUp="UIElement_OnMouseLeftButtonDown"
                             MouseRightButtonUp="UIElement_OnMouseRightButtonUp"
                             VerticalAlignment="Center"
-                            Visibility="{Binding ShowAddTeacherButton,Converter={StaticResource BooleanToVisibilityConverter}}">
+                            Visibility="{Binding ShowAddTeacherButton,Converter={StaticResource BooleanToHiddenConverter}}">
+                       
                         <Path Style="{StaticResource AddTeacherIcon}" />
                         <Button.ContextMenu>
                             <ContextMenu x:Name="ContextMenu"
                                          Placement="Bottom">
                                 <ContextMenu.Template>
                                     <ControlTemplate>
-                                        <ComboBox Width="150" 
-                                                  MaxDropDownHeight="100"
-                                                  ItemsSource="{Binding Teachers}"
-                                                  SelectedItem="{Binding SelectedTeacher,UpdateSourceTrigger=PropertyChanged}"
-                                                  SelectionChanged="Selector_OnSelectionChanged">
+                                        <ComboBox  Width="180"  
+                                                   MaxDropDownHeight="100"
+                                                   ItemsSource="{Binding Teachers}"
+                                                   SelectedItem="{Binding SelectedTeacher,UpdateSourceTrigger=PropertyChanged}"
+                                                   SelectionChanged="Selector_OnSelectionChanged">
                                             <ComboBox.ItemTemplate>
                                                 <DataTemplate>
                                                     <TextBlock Style="{StaticResource {x:Type TextBlock}}" Text="{Binding ., Converter={StaticResource TeacherInitialsConverter}}" />
@@ -82,7 +83,7 @@
                     <RowDefinition Height="90" />
                 </Grid.RowDefinitions>
                 <StackPanel Grid.Row="0" Orientation="Horizontal"
-                            Margin="0,0,0,4">
+                            Margin="0,0,0,0">
                     <TextBlock x:Name="TextBlockGroup"
                                Style="{StaticResource HeaderH2}"
                                Margin="{StaticResource MarginH2}"
@@ -100,11 +101,11 @@
                                          Placement="Bottom">
                                 <ContextMenu.Template>
                                     <ControlTemplate>
-                                        <ComboBox Width="150" 
-                                                  MaxDropDownHeight="100"
-                                                  ItemsSource="{Binding Groups}"
-                                                  SelectedItem="{Binding SelectedGroup,UpdateSourceTrigger=PropertyChanged}"
-                                                  SelectionChanged="OnSelectionChangedComboBoxGroups">
+                                        <ComboBox  Width="180"  
+                                                   MaxDropDownHeight="100"
+                                                   ItemsSource="{Binding Groups}"
+                                                   SelectedItem="{Binding SelectedGroup,UpdateSourceTrigger=PropertyChanged}"
+                                                   SelectionChanged="OnSelectionChangedComboBoxGroups">
                                             <ComboBox.ItemTemplate>
                                                 <DataTemplate>
                                                     <TextBlock Style="{StaticResource {x:Type TextBlock}}" Text="{Binding ., Converter={StaticResource GroupInfoConverter}}" />

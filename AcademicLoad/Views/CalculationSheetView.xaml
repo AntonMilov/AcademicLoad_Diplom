@@ -143,133 +143,75 @@
 
         <DataGrid Grid.Row="1"
                   ScrollViewer.CanContentScroll="True" 
+                  SelectedItem="{Binding SelectedCalculationSheetDiscipline}"
                   ItemsSource="{Binding CalculationSheetDisciplines}"
-                  Background="{StaticResource White}" >
-            <DataGrid.Resources>
-                <Style TargetType="DataGrid">
-                    <Setter Property="BorderThickness" Value="0" />
-                    <Setter Property="SelectionMode" Value="Single" />
-                    <Setter Property="CanUserAddRows" Value="False" />
-                    <Setter Property="GridLinesVisibility" Value="None" />
-                    <Setter Property="HeadersVisibility" Value="Column" />
-                    <Setter Property="AutoGenerateColumns" Value="False" />
-                    <Setter Property="CanUserResizeRows" Value="False" />
-                    <Setter Property="CanUserReorderColumns" Value="False" />
-                    <Setter Property="RowDetailsVisibilityMode" Value="VisibleWhenSelected" />
-                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
-                    <Setter Property="IsSynchronizedWithCurrentItem" Value="True" />
-                    <Setter Property="VerticalScrollBarVisibility" Value="Auto" />
-                    <Setter Property="HorizontalScrollBarVisibility" Value="Auto" />
-                    <Setter Property="AlternationCount" Value="2" />
-                </Style>
-            </DataGrid.Resources>
-
-            <DataGrid.ColumnHeaderStyle>
-                <Style TargetType="DataGridColumnHeader">
-                    <Setter Property="Padding" Value="0,5,20,5" />
-                    <Setter Property="BorderThickness" Value="0,0,0,1" />
-                    <Setter Property="BorderBrush" Value="{StaticResource BrandPrimary}" />
-                    <Setter Property="Background" Value="White" />
-                    <Setter Property="VerticalContentAlignment" Value="Center" />
-                    <Setter Property="Template">
-                        <Setter.Value>
-                            <ControlTemplate TargetType="{x:Type DataGridColumnHeader}">
-                                <Grid>
-                                    <Border Padding="{TemplateBinding Padding}"
-                                            BorderThickness="{TemplateBinding BorderThickness}"
-                                            BorderBrush="{TemplateBinding BorderBrush}"
-                                            Background="{TemplateBinding Background}">
-                                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                                          SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-                                    </Border>
-                                </Grid>
-                            </ControlTemplate>
-                        </Setter.Value>
-                    </Setter>
-                    <Setter Property="ContentTemplate">
-                        <Setter.Value>
-                            <DataTemplate>
-                                <TextBlock TextWrapping="Wrap" VerticalAlignment="Center" 
-                                           Text="{Binding}"></TextBlock>
-                            </DataTemplate>
-                        </Setter.Value>
-                    </Setter>
-                </Style>
-            </DataGrid.ColumnHeaderStyle>
-            <DataGrid.RowStyle>
-                <Style TargetType="DataGridRow">
-                    <Setter Property="Padding" Value="0,5,10,5" />
-                    <Setter Property="VerticalContentAlignment" Value="Bottom" />
-                    <Setter Property="MinHeight" Value="60" />
-                    <Style.Triggers>
-                        <Trigger Property="ItemsControl.AlternationIndex" Value="1">
-                            <Setter Property="Background" Value="{StaticResource Tint65}"/>
-                        </Trigger>
-                        <Trigger Property="IsSelected" Value="True">
-                            <Setter Property="Foreground" Value="{StaticResource BlackText}"></Setter>
-                            <Setter Property="Background" Value="{StaticResource Tint80}"/>
-                        </Trigger>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Cursor" Value="Hand"/>
-                        </Trigger>
-                    </Style.Triggers>
-                </Style>
-
-            </DataGrid.RowStyle>
-            <DataGrid.CellStyle>
-                <Style TargetType="{x:Type DataGridCell}">
-                    <Setter Property="Padding" Value="0" />
-                    <Setter Property="BorderThickness" Value="0" />
-                    <Setter Property="BorderBrush" Value="Transparent" />
-                    <Setter Property="Background" Value="Transparent" />
-                    <Setter Property="VerticalContentAlignment" Value="Center" />
-                    <Setter Property="Template">
-                        <Setter.Value>
-                            <ControlTemplate TargetType="{x:Type DataGridCell}">
-                                <Grid>
-                                    <Border Padding="{TemplateBinding Padding}" 
-                                            BorderThickness="{TemplateBinding BorderThickness}"
-                                            BorderBrush="{TemplateBinding BorderBrush}"
-                                            Background="{TemplateBinding Background}">
-                                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                                          SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-
-                                    </Border>
-                                </Grid>
-                            </ControlTemplate>
-                        </Setter.Value>
-                    </Setter>
-                </Style>
-            </DataGrid.CellStyle>
-
+                  Background="{StaticResource White}"
+                  Style="{StaticResource DataGridBaseStyle}"
+                  ColumnHeaderStyle="{StaticResource DataGridColumnHeaderBaseStyle}"
+                  RowStyle="{StaticResource DataGridRowBaseStyle}"
+                  CellStyle="{StaticResource DataGridCellBaseStyle}">
             <DataGrid.RowDetailsTemplate>
                 <DataTemplate>
-                    <Border Padding="2"
+                    <Border Padding="20,2,2,2"
                             Margin="0,10"
                             Background="White"
                             BorderBrush="{StaticResource BrandPrimary}" 
                             BorderThickness="1"
                             CornerRadius="4">
-                        <StackPanel Orientation="Horizontal"
-                                    Margin="2,2"
-                                    HorizontalAlignment="Left">
-                            <TextBlock Text="Список преподователей"
-                                       Style="{StaticResource HeaderH2}"
-                                       Margin="0,0,10,0"
-                                       VerticalAlignment="Center"/>
-                            <Button Style="{StaticResource ButtonWithIcon}" 
-                                    Command="{Binding  Path=DataContext.AddTeacherLoadDisciplineCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
-                                    CommandParameter="{Binding DataContext, RelativeSource={RelativeSource AncestorType={x:Type DataGridRow}}}"
-                                    ToolTip="{x:Static prop:Resources.AddTeacher}"
-                                    VerticalAlignment="Center">
-                                <Path Style="{StaticResource AddTeacherIcon}"></Path>
-                            </Button>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition MaxHeight="300" />
+                            </Grid.RowDefinitions>
+                            <StackPanel Grid.Row="0"
+                                        Orientation="Horizontal"
+                                        Margin="2,2"
+                                        HorizontalAlignment="Left">
+                                <TextBlock Text="Список преподователей"
+                                           Style="{StaticResource HeaderH2}"
+                                           Margin="0,0,10,0"
+                                           VerticalAlignment="Center"/>
+                                <Button Style="{StaticResource ButtonWithIcon}" 
+                                        Command="{Binding  Path=DataContext.AddTeacherLoadDisciplineCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+                                        CommandParameter="{Binding DataContext, RelativeSource={RelativeSource AncestorType={x:Type DataGridRow}}}"
+                                        ToolTip="{x:Static prop:Resources.AddTeacher}"
+                                        VerticalAlignment="Center">
+                                    <Path Style="{StaticResource AddTeacherIcon}"></Path>
+                                </Button>
+                            </StackPanel>
+                            <DataGrid Grid.Row="1"
+                                      ScrollViewer.CanContentScroll="True" 
+                                      AlternationCount="1"
+                                      RowDetailsVisibilityMode="Collapsed"
+                                      ItemsSource="{Binding TeacherLoadDisciplines}"
+                                      Background="{StaticResource White}"
+                                      Style="{StaticResource DataGridBaseStyle}"
+                                      ColumnHeaderStyle="{StaticResource DataGridColumnHeaderBaseStyle}"
+                                      RowStyle="{StaticResource DataGridRowStyleWithoutSelected}"
+                                      CellStyle="{StaticResource DataGridCellBaseStyle}">
+                                <DataGrid.Columns>
+                                    <DataGridTemplateColumn>
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <Button Style="{StaticResource ButtonWithIcon}" 
+                                                        ToolTip="Удалить назначение для данного преподавателя"
+                                                        Command="{Binding DeleteTeacherCommand}"
+                                                        VerticalAlignment="Center"
+                                                        Margin="0,0,8,0">
+                                                    <Path Style="{StaticResource DeleteIcon}" />
+                                                </Button>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
 
-                        </StackPanel>
-                    
+                                    <DataGridTextColumn Header="Преподаватель"
+                                                        MaxWidth="150"
+                                                        Binding="{Binding Teacher,Converter={StaticResource TeacherInitialsConverter}}"/>
 
+                                </DataGrid.Columns>
+
+                            </DataGrid>
+                        </Grid>
 
                     </Border>
                 </DataTemplate>

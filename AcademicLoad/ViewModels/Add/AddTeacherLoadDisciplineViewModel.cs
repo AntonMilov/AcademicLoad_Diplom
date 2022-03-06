@@ -136,6 +136,14 @@ namespace AcademicLoadModule.ViewModels
                    SelectedGroups.Any();
         }
 
+        /// <summary>
+        /// Создание нового учителя.
+        /// </summary>
+        public TeacherLoadDiscipline CreateTeacherLoadDiscipline()
+        {
+            return new TeacherLoadDiscipline() {Teacher = SelectedTeacher,Semester = 7};
+        }
+
         private void DeleteTeacher()
         {
             SelectedTeacher = null;

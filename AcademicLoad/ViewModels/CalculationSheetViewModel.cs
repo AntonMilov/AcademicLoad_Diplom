@@ -16,6 +16,7 @@ namespace AcademicLoadModule.ViewModels
         private CalculationSheet calculationSheet;
         private readonly ICalculationSheetController calculationSheetController;
         private readonly ITeacherLoadDisciplineController teacherLoadDisciplineController;
+        private CalculationSheetDiscipline selectedCalculationSheetDiscipline;
 
         /// <summary>
         /// ctor.
@@ -50,6 +51,16 @@ namespace AcademicLoadModule.ViewModels
             get => calculationSheet;
             set => SetProperty(ref calculationSheet, value);
         }
+
+        /// <summary>
+        /// Выбранная дисциплина
+        /// </summary>
+        public CalculationSheetDiscipline SelectedCalculationSheetDiscipline
+        {
+            get => selectedCalculationSheetDiscipline;
+            set => SetProperty(ref selectedCalculationSheetDiscipline, value);
+        }
+
 
         private void CalculationSheetAddedHandler()
         {
