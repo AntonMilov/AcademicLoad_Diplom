@@ -48,13 +48,15 @@ namespace AcademicLoadModule
 
             containerRegistry.RegisterSingleton<ITeacherController, TeacherController>();
             containerRegistry.RegisterSingleton<ITeacherService, TeacherService>();
-            containerRegistry.RegisterSingleton<IGroupService, GroupService>();
 
             containerRegistry.RegisterSingleton<IGroupController, GroupController>();
-
+            containerRegistry.RegisterSingleton<IGroupService, GroupService>();
 
             containerRegistry.RegisterSingleton<ICalculationSheetController, CalculationSheetController>();
             containerRegistry.RegisterSingleton<ICalculationSheetService, CalculationSheetService>();
+
+            containerRegistry.RegisterSingleton<ITeacherLoadDisciplineController, TeacherLoadDisciplineController>();
+            containerRegistry.RegisterSingleton<ITeacherLoadDisciplineService, TeacherLoadDisciplineService>();
         }
     }
 }

@@ -16,7 +16,7 @@
             <Border x:Name="Border" 
                     Grid.ColumnSpan="2" 
                     CornerRadius="4" 
-                    Background="Transparent" 
+                    Background="{StaticResource White}" 
                     BorderBrush="{StaticResource ComboBox}" 
                     BorderThickness="1" />
             <Path x:Name="Arrow"
@@ -52,7 +52,6 @@
                     <Grid>
                         <ToggleButton Name="ToggleButton" 
                                       Template="{StaticResource ComboBoxToggleButton}" 
-                                      Grid.Column="2" 
                                       Focusable="false"
                                       IsChecked="{Binding Path=IsDropDownOpen,Mode=TwoWay,RelativeSource={RelativeSource TemplatedParent}}"
                                       ClickMode="Press">
@@ -78,6 +77,7 @@
                                  IsReadOnly="{TemplateBinding IsReadOnly}"/>
 
                         <Popup  Name="Popup"
+
                                 Placement="Bottom"
                                 IsOpen="{TemplateBinding IsDropDownOpen}"
                                 AllowsTransparency="True" 

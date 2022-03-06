@@ -133,8 +133,12 @@
     </Compile>
     <Compile Include="ConfirmDialog\ConfirmDialogViewModel.cs" />
     <Compile Include="Converters\AcademicTitleToNameConverter.cs" />
+    <Compile Include="Converters\BooleanToInverseVisibilityConverter.cs" />
+    <Compile Include="Converters\GroupInfoConverter.cs" />
+    <Compile Include="Converters\RadioButtonCheckedConverter.cs" />
     <Compile Include="Converters\RateConverter.cs" />
     <Compile Include="Converters\RateToDoubleConverter.cs" />
+    <Compile Include="Converters\TeacherInitialsConverter.cs" />
     <Compile Include="NotificationDialog\Controller\INotificationDialogController.cs" />
     <Compile Include="NotificationDialog\Controller\NotificationDialogController.cs" />
     <Compile Include="NotificationDialog\NotificationDialogParameters.cs" />

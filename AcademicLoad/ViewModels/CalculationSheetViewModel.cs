@@ -15,23 +15,31 @@ namespace AcademicLoadModule.ViewModels
     {
         private CalculationSheet calculationSheet;
         private readonly ICalculationSheetController calculationSheetController;
+        private readonly ITeacherLoadDisciplineController teacherLoadDisciplineController;
 
         /// <summary>
         /// ctor.
         /// </summary>
         public CalculationSheetViewModel(ICalculationSheetController calculationSheetController, IEventAggregator eventAggregator,
             IGroupController groupController,
-            ITeacherController teacherController)
+            ITeacherController teacherController,
+            ITeacherLoadDisciplineController teacherLoadDisciplineController)
         {
             this.calculationSheetController = calculationSheetController;
+            this.teacherLoadDisciplineController = teacherLoadDisciplineController;
+
             CalculationSheet = calculationSheetController.CalculationSheet;
             eventAggregator.GetEvent<CalculationSheetAddedEvent>().Subscribe(CalculationSheetAddedHandler);
-
 
             //TODO Рефакторить
             groupController.CheckGroupsCount();
             teacherController.CheckTeacherCount();
         }
+
+        /// <summary>
+        /// Команда для дисциплины учебной нагрузки.
+        /// </summary>
+        public DelegateCommand AddTeacherLoadDisciplineCommand => new DelegateCommand(AddTeacherLoadDiscipline);
 
 
         /// <summary>
@@ -46,6 +54,11 @@ namespace AcademicLoadModule.ViewModels
         private void CalculationSheetAddedHandler()
         {
             CalculationSheet = calculationSheetController.CalculationSheet;
+        }
+
+        private void AddTeacherLoadDiscipline()
+        {
+            teacherLoadDisciplineController.AddTeacherLoadDiscipline();
         }
     }
 }

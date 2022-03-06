@@ -70,7 +70,9 @@
     <Compile Include="Services\GroupService.cs" />
     <Compile Include="Services\Interfaces\ICalculationSheetService.cs" />
     <Compile Include="Services\Interfaces\IGroupService.cs" />
+    <Compile Include="Services\Interfaces\ITeacherLoadDisciplineService.cs" />
     <Compile Include="Services\Interfaces\ITeacherService.cs" />
+    <Compile Include="Services\TeacherLoadDisciplineService.cs" />
     <Compile Include="Services\TeacherService.cs" />
   </ItemGroup>
   <ItemGroup>

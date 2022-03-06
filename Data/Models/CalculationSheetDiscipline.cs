@@ -1,9 +1,9 @@
 ﻿namespace Data.Models
 {
     /// <summary>
-    /// Сущности для строк в таблице расчетного листа кафедральной нагрузки
+    /// Сущности для строк в таблице расчетного листа кафедральной нагрузки.
     /// </summary>
-    public class CalculationSheetDiscipline
+    public partial class CalculationSheetDiscipline
     {
         /// <summary>
         /// 

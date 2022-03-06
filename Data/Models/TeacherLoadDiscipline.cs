@@ -3,19 +3,42 @@
     /// <summary>
     /// Сущности дисциплины преподовательской нагрузки.
     /// </summary>
-    public class DisiplineTeacherLoad
+    public class TeacherLoadDiscipline
     {
+        /// <summary>
+        /// Преподавтель.
+        /// </summary>
+        public Teacher Teacher { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public int Semester { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public string Groups { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public int StudentsBudget { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public int StudentsContract { get; set; }
 
         #region Hours
+        /// <summary>
+        /// 
+        /// </summary>
         public int HoursLecture { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public int HoursLaboratoryWork { get; set; }
 
         /// <summary>
@@ -38,6 +61,9 @@
         /// </summary>
         public int HoursTest { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public int HoursConsultation { get; set; }
 
         /// <summary>

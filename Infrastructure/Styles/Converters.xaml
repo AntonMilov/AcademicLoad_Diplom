@@ -6,5 +6,10 @@
     <converters:AcademicTitleToNameConverter x:Key="AcademicTitleToNameConverter" />
     <converters:RateConverter x:Key="RateConverter" />
     <converters:RateToDoubleConverter x:Key="RateToDoubleConverter" />
+    <converters:TeacherInitialsConverter x:Key="TeacherInitialsConverter" />
+    <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+    <converters:BooleanToInverseVisibilityConverter x:Key="BooleanToInverseVisibilityConverter" />
+    <converters:GroupInfoConverter x:Key="GroupInfoConverter" />
+    <converters:RadioButtonCheckedConverter x:Key="RadioButtonCheckedConverter" />
 
 </ResourceDictionary>
