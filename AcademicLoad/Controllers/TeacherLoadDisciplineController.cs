@@ -11,7 +11,7 @@ using AcademicLoadModule.Views.Add;
 using Core.Services.Interfaces;
 using Data.Models;
 using Infrastructure.AddDialog;
-using Infrastructure.NotificationDialog.Controller;
+using Infrastructure.DialogControllers.Interfaces;
 using Prism.Services.Dialogs;
 
 namespace AcademicLoadModule.Controllers
@@ -21,7 +21,7 @@ namespace AcademicLoadModule.Controllers
     {
         private readonly ITeacherLoadDisciplineService teacherLoadDisciplineService;
         private readonly INotificationDialogController notificationDialogController;
-        private readonly IDialogService dialogService;
+        private readonly IAddDialogController addDialogController;
         private readonly ITeacherController teacherController;
         private readonly IGroupController groupController;
 
@@ -30,22 +30,23 @@ namespace AcademicLoadModule.Controllers
         /// </summary>
         public TeacherLoadDisciplineController(ITeacherLoadDisciplineService teacherLoadDisciplineService,
             INotificationDialogController notificationDialogController,
-            IDialogService dialogService,
             ITeacherController teacherController,
-            IGroupController groupController)
+            IGroupController groupController,
+            IAddDialogController addDialogController)
         {
             this.teacherLoadDisciplineService = teacherLoadDisciplineService;
             this.notificationDialogController = notificationDialogController;
-            this.dialogService = dialogService;
             this.teacherController = teacherController;
             this.groupController = groupController;
+            this.addDialogController = addDialogController;
 
             Items = this.teacherLoadDisciplineService.TeacherLoadDisciplines;
         }
 
+        /// <inheritdoc/>
         public void AddTeacherLoadDiscipline(CalculationSheetDiscipline calculationSheetDiscipline)
         {
-            AddTeacherLoadDisciplineViewModel model = new AddTeacherLoadDisciplineViewModel(teacherController, 
+            AddTeacherLoadDisciplineViewModel model = new AddTeacherLoadDisciplineViewModel(teacherController,
                 groupController,
                 calculationSheetDiscipline);
             AddTeacherLoadDisciplineView view = new AddTeacherLoadDisciplineView() { DataContext = model };
@@ -58,10 +59,7 @@ namespace AcademicLoadModule.Controllers
             addDialogParameters.Content = view;
             addDialogParameters.CanCloseWindow = model.CanAddTeacherLoadDiscipline;
 
-            DialogParameters dialogParameters = new DialogParameters();
-            dialogParameters.Add(nameof(AddDialogParameters), addDialogParameters);
-
-            dialogService.Show("AddDialog", dialogParameters, r =>
+            addDialogController.OpenAddDialog(addDialogParameters, r =>
             {
                 if (r.Result == ButtonResult.OK)
                 {
@@ -75,12 +73,14 @@ namespace AcademicLoadModule.Controllers
             });
         }
 
+        /// <inheritdoc/>
         public void DeleteTeacherLoadDiscipline(TeacherLoadDiscipline teacherLoadDiscipline,
             CalculationSheetDiscipline calculationSheetDiscipline)
         {
             teacherLoadDisciplineService.DeleteTeacherLoadDiscipline(teacherLoadDiscipline, calculationSheetDiscipline);
         }
 
+        /// <inheritdoc/>
         public List<TeacherLoadDiscipline> Items { get; set; }
     }
 }

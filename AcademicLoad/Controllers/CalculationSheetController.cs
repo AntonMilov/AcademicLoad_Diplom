@@ -7,7 +7,7 @@ using AcademicLoadModule.Controllers.Interfaces;
 using AcademicLoadModule.Events;
 using Core.Services.Interfaces;
 using Data.Models;
-using Infrastructure.NotificationDialog.Controller;
+using Infrastructure.DialogControllers.Interfaces;
 using Microsoft.Win32;
 using Prism.Events;
 using Prism.Services.Dialogs;
@@ -40,8 +40,10 @@ namespace AcademicLoadModule.Controllers
 
         }
 
+        /// <inheritdoc/>
         public CalculationSheet CalculationSheet { get; set; }
 
+        /// <inheritdoc/>
         public void AddCalculationSheet(string path)
         {
             //Todo перенсти Try Catch на уровень сервича

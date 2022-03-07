@@ -129,8 +129,13 @@
     <Compile Include="Converters\RateConverter.cs" />
     <Compile Include="Converters\RateToDoubleConverter.cs" />
     <Compile Include="Converters\TeacherInitialsConverter.cs" />
-    <Compile Include="NotificationDialog\Controller\INotificationDialogController.cs" />
-    <Compile Include="NotificationDialog\Controller\NotificationDialogController.cs" />
+    <Compile Include="DialogControllers\AddDialogController.cs" />
+    <Compile Include="DialogControllers\ConfirmDialogController.cs" />
+    <Compile Include="DialogControllers\Interfaces\IAddDialogController.cs" />
+    <Compile Include="DialogControllers\Interfaces\IConfirmDialogController.cs" />
+    <Compile Include="DialogControllers\Interfaces\INotificationDialogController.cs" />
+    <Compile Include="DialogControllers\NotificationDialogController.cs" />
+    <Compile Include="InfrastructureContainerExtensions.cs" />
     <Compile Include="NotificationDialog\NotificationDialogParameters.cs" />
     <Compile Include="NotificationDialog\NotificationDialogView.xaml.cs">
       <DependentUpon>NotificationDialogView.xaml</DependentUpon>
@@ -169,5 +174,6 @@
       <Name>Data</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

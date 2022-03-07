@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Infrastructure.NotificationDialog.Controller
+﻿namespace Infrastructure.DialogControllers.Interfaces
 {
     /// <summary>
     /// Интерфейс для взаимодействия с диалоговым окном Notification.
     /// </summary>
     public interface INotificationDialogController
     {
+        /// <summary>
+        /// Открыть окно Notification.
+        /// </summary>
         void OpenNotificationDialog(string title, string message);
     }
 }

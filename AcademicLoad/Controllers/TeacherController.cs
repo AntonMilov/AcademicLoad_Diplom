@@ -11,16 +11,20 @@ using Core.Services.Interfaces;
 using Data.Models;
 using Infrastructure.AddDialog;
 using Infrastructure.ConfirmDialog;
-using Infrastructure.NotificationDialog.Controller;
+using Infrastructure.DialogControllers.Interfaces;
 using Prism.Events;
 using Prism.Services.Dialogs;
 
 namespace AcademicLoadModule.Controllers
 {
+    /// <summary>
+    /// <inheritdoc cref="ITeacherController"/>
+    /// </summary>
     public class TeacherController : ITeacherController
     {
         private readonly INotificationDialogController notificationDialogController;
-        private readonly IDialogService dialogService;
+        private readonly IAddDialogController addDialogController;
+        private readonly IConfirmDialogController confirmDialogController;
         private readonly IEventAggregator eventAggregator;
         private readonly ITeacherService teacherService;
         private ObservableCollection<Teacher> items;
@@ -32,26 +36,33 @@ namespace AcademicLoadModule.Controllers
         /// <param name="eventAggregator">.</param>
         /// <param name="teacherService">.</param>
         /// <param name="notificationDialogController">.</param>
-        public TeacherController(IDialogService dialogService, IEventAggregator eventAggregator, ITeacherService teacherService, INotificationDialogController notificationDialogController)
+        public TeacherController(IEventAggregator eventAggregator,
+            ITeacherService teacherService,
+            INotificationDialogController notificationDialogController,
+            IAddDialogController addDialogController,
+            IConfirmDialogController confirmDialogController)
         {
             this.notificationDialogController = notificationDialogController;
-            this.dialogService = dialogService;
+            this.addDialogController = addDialogController;
+            this.confirmDialogController = confirmDialogController;
             this.eventAggregator = eventAggregator;
             this.teacherService = teacherService;
 
             items = new ObservableCollection<Teacher>(teacherService.Teachers);
         }
 
+        /// <inheritdoc/>
         public ObservableCollection<Teacher> Items
         {
             get => items;
             set => items = value;
         }
 
+        /// <inheritdoc/>
         public void AddTeacher()
         {
             AddTeacherViewModel model = new AddTeacherViewModel();
-            AddTeacherView view = new AddTeacherView(){DataContext = model};
+            AddTeacherView view = new AddTeacherView() { DataContext = model };
 
             var addDialogParameters = new AddDialogParameters();
             addDialogParameters.CloseButtonText = Properties.Resources.Cancel;
@@ -61,60 +72,55 @@ namespace AcademicLoadModule.Controllers
             addDialogParameters.Content = view;
             addDialogParameters.CanCloseWindow = model.CanAddTeacher;
 
-            DialogParameters dialogParameters = new DialogParameters();
-            dialogParameters.Add(nameof(AddDialogParameters), addDialogParameters);
-         
-            dialogService.Show("AddDialog", dialogParameters, r =>
-            {
-                if (r.Result == ButtonResult.OK)
-                {
-                    items.Add(model.CreateTeacher());
-                    teacherService.AddTeacher(model.CreateTeacher());
+            addDialogController.OpenAddDialog(addDialogParameters, r =>
+             {
+                 if (r.Result == ButtonResult.OK)
+                 {
+                     items.Add(model.CreateTeacher());
+                     teacherService.AddTeacher(model.CreateTeacher());
 
-                    eventAggregator.GetEvent<TeachersCountChangeEvent>().Publish(teacherService.Teachers.Count);
+                     eventAggregator.GetEvent<TeachersCountChangeEvent>().Publish(teacherService.Teachers.Count);
 
-                    notificationDialogController.OpenNotificationDialog(Properties.Resources.Notification, Properties.Resources.SuccessAddTeacher);
-                }
+                     notificationDialogController.OpenNotificationDialog(Properties.Resources.Notification, Properties.Resources.SuccessAddTeacher);
+                 }
 
-                if (r.Result == ButtonResult.Cancel)
-                {
-                  
-                }
-            });
+                 if (r.Result == ButtonResult.Cancel)
+                 {
+
+                 }
+             });
         }
 
+        /// <inheritdoc/>
         public void DeleteTeacher(Teacher teacher)
         {
             var confirmDialogParameters = new ConfirmDialogParameters();
             confirmDialogParameters.Message = Properties.Resources.MessageDeleteTeacher;
 
-            DialogParameters dialogParameters = new DialogParameters();
-            dialogParameters.Add(nameof(ConfirmDialogParameters), confirmDialogParameters);
-            dialogService.Show("ConfirmDialog", dialogParameters, r =>
-            {
-                if (r.Result == ButtonResult.OK)
-                {
-                    items.Remove(teacher);
-                    teacherService.DeleteTeacher(teacher);
+            confirmDialogController.OpenConfirmDialog(confirmDialogParameters, r =>
+             {
+                 if (r.Result == ButtonResult.OK)
+                 {
+                     items.Remove(teacher);
+                     teacherService.DeleteTeacher(teacher);
 
-                    eventAggregator.GetEvent<TeachersCountChangeEvent>().Publish(Items.Count);
+                     eventAggregator.GetEvent<TeachersCountChangeEvent>().Publish(Items.Count);
 
-                    notificationDialogController.OpenNotificationDialog(Properties.Resources.Notification,
-                        Properties.Resources.SuccessDeleteTeacher);
-                }
+                     notificationDialogController.OpenNotificationDialog(Properties.Resources.Notification,
+                         Properties.Resources.SuccessDeleteTeacher);
+                 }
 
-                if (r.Result == ButtonResult.Cancel)
-                {
+                 if (r.Result == ButtonResult.Cancel)
+                 {
 
-                }
-            });
+                 }
+             });
         }
 
+        /// <inheritdoc/>
         public void CheckTeacherCount()
         {
             eventAggregator.GetEvent<TeachersCountChangeEvent>().Publish(teacherService.Teachers.Count);
         }
-
-       
     }
 }

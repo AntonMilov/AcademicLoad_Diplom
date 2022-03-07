@@ -14,7 +14,7 @@ using Core.Services.Interfaces;
 using Data.Models;
 using Infrastructure.AddDialog;
 using Infrastructure.ConfirmDialog;
-using Infrastructure.NotificationDialog.Controller;
+using Infrastructure.DialogControllers.Interfaces;
 using Prism.Events;
 using Prism.Services.Dialogs;
 
@@ -24,7 +24,8 @@ namespace AcademicLoadModule.Controllers
     public class GroupController : IGroupController
     {
         private readonly INotificationDialogController notificationDialogController;
-        private readonly IDialogService dialogService;
+        private readonly IAddDialogController addDialogController;
+        private readonly IConfirmDialogController confirmDialogController;
         private readonly IEventAggregator eventAggregator;
         private readonly IGroupService groupService;
         private ObservableCollection<Group> items;
@@ -36,25 +37,29 @@ namespace AcademicLoadModule.Controllers
         /// <param name="eventAggregator"></param>
         /// <param name="teacherService"></param>
         /// <param name="notificationDialogController"></param>
-        public GroupController(IDialogService dialogService,
-            IEventAggregator eventAggregator,
+        public GroupController(IEventAggregator eventAggregator,
             IGroupService groupService,
-            INotificationDialogController notificationDialogController)
+            INotificationDialogController notificationDialogController,
+            IAddDialogController addDialogController,
+            IConfirmDialogController confirmDialogController)
         {
             this.notificationDialogController = notificationDialogController;
-            this.dialogService = dialogService;
             this.eventAggregator = eventAggregator;
             this.groupService = groupService;
+            this.addDialogController = addDialogController;
+            this.confirmDialogController = confirmDialogController;
 
             items = new ObservableCollection<Group>(groupService.Groups);
         }
 
+        /// <inheritdoc/>
         public ObservableCollection<Group> Items
         {
             get => items;
             set => items = value;
         }
 
+        /// <inheritdoc/>
         public void AddGroup()
         {
             AddGroupViewModel model = new AddGroupViewModel();
@@ -68,10 +73,7 @@ namespace AcademicLoadModule.Controllers
             addDialogParameters.Content = view;
             addDialogParameters.CanCloseWindow = model.CanAddGroup;
 
-            DialogParameters dialogParameters = new DialogParameters();
-            dialogParameters.Add(nameof(AddDialogParameters), addDialogParameters);
-
-            dialogService.Show("AddDialog", dialogParameters, r =>
+            addDialogController.OpenAddDialog(addDialogParameters, r =>
             {
                 if (r.Result == ButtonResult.OK)
                 {
@@ -85,19 +87,17 @@ namespace AcademicLoadModule.Controllers
 
                 if (r.Result == ButtonResult.Cancel)
                 {
-
                 }
             });
         }
 
+        /// <inheritdoc/>
         public void DeleteGroup(Group group)
         {
             var confirmDialogParameters = new ConfirmDialogParameters();
             confirmDialogParameters.Message = Properties.Resources.MessageDeleteGroup;
 
-            DialogParameters dialogParameters = new DialogParameters();
-            dialogParameters.Add(nameof(ConfirmDialogParameters), confirmDialogParameters);
-            dialogService.Show("ConfirmDialog", dialogParameters, r =>
+            confirmDialogController.OpenConfirmDialog(confirmDialogParameters, r =>
             {
                 if (r.Result == ButtonResult.OK)
                 {
@@ -117,6 +117,7 @@ namespace AcademicLoadModule.Controllers
             });
         }
 
+        /// <inheritdoc/>
         public void CheckGroupsCount()
         {
             eventAggregator.GetEvent<GroupsCountChangeEvent>().Publish(groupService.Groups.Count);

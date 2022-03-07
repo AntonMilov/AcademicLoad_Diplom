@@ -1,8 +1,8 @@
-﻿using System.Diagnostics;
-using Prism.Interactivity.InteractionRequest;
+﻿using Infrastructure.DialogControllers.Interfaces;
+using Infrastructure.NotificationDialog;
 using Prism.Services.Dialogs;
 
-namespace Infrastructure.NotificationDialog.Controller
+namespace Infrastructure.DialogControllers
 {
     /// <summary>
     /// <see cref="INotificationDialogController"/>
