@@ -22,9 +22,7 @@ namespace AcademicLoadModule.Controllers
     /// </summary>
     public class TeacherController : ITeacherController
     {
-        private readonly INotificationDialogController notificationDialogController;
-        private readonly IAddDialogController addDialogController;
-        private readonly IConfirmDialogController confirmDialogController;
+        private readonly IDialogController dialogController;
         private readonly IEventAggregator eventAggregator;
         private readonly ITeacherService teacherService;
         private ObservableCollection<Teacher> items;
@@ -38,13 +36,9 @@ namespace AcademicLoadModule.Controllers
         /// <param name="notificationDialogController">.</param>
         public TeacherController(IEventAggregator eventAggregator,
             ITeacherService teacherService,
-            INotificationDialogController notificationDialogController,
-            IAddDialogController addDialogController,
-            IConfirmDialogController confirmDialogController)
+            IDialogController dialogController)
         {
-            this.notificationDialogController = notificationDialogController;
-            this.addDialogController = addDialogController;
-            this.confirmDialogController = confirmDialogController;
+            this.dialogController = dialogController;
             this.eventAggregator = eventAggregator;
             this.teacherService = teacherService;
 
@@ -72,7 +66,7 @@ namespace AcademicLoadModule.Controllers
             addDialogParameters.Content = view;
             addDialogParameters.CanCloseWindow = model.CanAddTeacher;
 
-            addDialogController.OpenAddDialog(addDialogParameters, r =>
+            dialogController.OpenAddDialog(addDialogParameters, r =>
              {
                  if (r.Result == ButtonResult.OK)
                  {
@@ -81,7 +75,7 @@ namespace AcademicLoadModule.Controllers
 
                      eventAggregator.GetEvent<TeachersCountChangeEvent>().Publish(teacherService.Teachers.Count);
 
-                     notificationDialogController.OpenNotificationDialog(Properties.Resources.Notification, Properties.Resources.SuccessAddTeacher);
+                     dialogController.OpenNotificationDialog(Properties.Resources.Notification, Properties.Resources.SuccessAddTeacher);
                  }
 
                  if (r.Result == ButtonResult.Cancel)
@@ -97,7 +91,7 @@ namespace AcademicLoadModule.Controllers
             var confirmDialogParameters = new ConfirmDialogParameters();
             confirmDialogParameters.Message = Properties.Resources.MessageDeleteTeacher;
 
-            confirmDialogController.OpenConfirmDialog(confirmDialogParameters, r =>
+            dialogController.OpenConfirmDialog(confirmDialogParameters, r =>
              {
                  if (r.Result == ButtonResult.OK)
                  {
@@ -106,8 +100,7 @@ namespace AcademicLoadModule.Controllers
 
                      eventAggregator.GetEvent<TeachersCountChangeEvent>().Publish(Items.Count);
 
-                     notificationDialogController.OpenNotificationDialog(Properties.Resources.Notification,
-                         Properties.Resources.SuccessDeleteTeacher);
+                     dialogController.OpenNotificationDialog(Properties.Resources.Notification, Properties.Resources.SuccessDeleteTeacher);
                  }
 
                  if (r.Result == ButtonResult.Cancel)

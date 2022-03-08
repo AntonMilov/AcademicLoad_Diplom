@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Data.Models
 {
     /// <summary>
-    /// Модель группы.
+    /// Модель учебной группы.
     /// </summary>
     public class Group
     {

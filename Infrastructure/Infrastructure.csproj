@@ -129,12 +129,8 @@
     <Compile Include="Converters\RateConverter.cs" />
     <Compile Include="Converters\RateToDoubleConverter.cs" />
     <Compile Include="Converters\TeacherInitialsConverter.cs" />
-    <Compile Include="DialogControllers\AddDialogController.cs" />
-    <Compile Include="DialogControllers\ConfirmDialogController.cs" />
-    <Compile Include="DialogControllers\Interfaces\IAddDialogController.cs" />
-    <Compile Include="DialogControllers\Interfaces\IConfirmDialogController.cs" />
-    <Compile Include="DialogControllers\Interfaces\INotificationDialogController.cs" />
-    <Compile Include="DialogControllers\NotificationDialogController.cs" />
+    <Compile Include="DialogControllers\DialogController.cs" />
+    <Compile Include="DialogControllers\Interfaces\IDialogController.cs" />
     <Compile Include="InfrastructureContainerExtensions.cs" />
     <Compile Include="NotificationDialog\NotificationDialogParameters.cs" />
     <Compile Include="NotificationDialog\NotificationDialogView.xaml.cs">

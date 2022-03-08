@@ -23,9 +23,7 @@ namespace Infrastructure
         /// <param name="containerRegistry"></param>
         public static void RegisterInfrastructure(this IContainerRegistry containerRegistry)
         {
-            containerRegistry.Register<INotificationDialogController, NotificationDialogController>();
-            containerRegistry.Register<IAddDialogController, AddDialogController>();
-            containerRegistry.Register<IConfirmDialogController, ConfirmDialogController>();
+            containerRegistry.Register<IDialogController, DialogController>();
             containerRegistry.Register<OpenFileDialog>();
 
             containerRegistry.RegisterDialog<AddDialogView, AddDialogViewModel>("AddDialog");

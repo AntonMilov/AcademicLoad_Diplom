@@ -21,7 +21,7 @@ namespace AcademicLoadModule.Controllers
         private readonly OpenFileDialog openFileDialog;
         private readonly ICalculationSheetService calculationSheetService;
         private readonly IEventAggregator eventAggregator;
-        private readonly INotificationDialogController notificationDialogController;
+        private readonly IDialogController dialogController;
         private CalculationSheet calculationSheet;
 
         /// <summary>
@@ -31,12 +31,12 @@ namespace AcademicLoadModule.Controllers
         public CalculationSheetController(OpenFileDialog openFileDialog, 
             ICalculationSheetService calculationSheetService, 
             IEventAggregator eventAggregator,
-            INotificationDialogController notificationDialogController)
+            IDialogController dialogController)
         {
             this.openFileDialog = openFileDialog;
             this.calculationSheetService = calculationSheetService;
             this.eventAggregator = eventAggregator;
-            this.notificationDialogController = notificationDialogController;
+            this.dialogController = dialogController;
 
         }
 
@@ -54,7 +54,7 @@ namespace AcademicLoadModule.Controllers
             }
             catch (Exception e)
             {
-                notificationDialogController.OpenNotificationDialog(Properties.Resources.Notification,"Не удалось импортировать данный файл.");
+                dialogController.OpenNotificationDialog(Properties.Resources.Notification,"Не удалось импортировать данный файл.");
             }
         }
 

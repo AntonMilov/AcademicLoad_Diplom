@@ -4,7 +4,7 @@ using Data.Enums;
 namespace Data.Models
 {
     /// <summary>
-    /// Сущность преподователя.
+    /// Модель преподователя.
     /// </summary>
     public class Teacher
     {

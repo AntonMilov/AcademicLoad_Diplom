@@ -1,7 +1,7 @@
 ﻿namespace Data.Models
 {
     /// <summary>
-    /// Сущности дисциплины преподовательской нагрузки.
+    /// Модель дисциплины преподовательской нагрузки.
     /// </summary>
     public class TeacherLoadDiscipline
     {
@@ -34,62 +34,64 @@
         /// <summary>
         /// 
         /// </summary>
-        public int HoursLecture { get; set; }
+        public double HoursLecture { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
-        public int HoursLaboratoryWork { get; set; }
+        public double HoursLaboratoryWork { get; set; }
 
         /// <summary>
         /// Часы отведенные для практики.
         /// </summary>
-        public int HoursPracticum { get; set; }
+        public double HoursPracticum { get; set; }
 
-        // КП, КР (так называется в таблице).
-        public int HoursKpKr { get; set; }
+        /// <summary>
+        /// КП, КР (так называется в таблице).
+        /// </summary>
+        public double HoursKpKr { get; set; }
 
         /// <summary>
         /// Часы отведенные для  контрольных работ.
         /// </summary>
-        public int HoursСontrolWork { get; set; }
+        public double HoursСontrolWork { get; set; }
 
-        public int HoursExam { get; set; }
+        public double HoursExam { get; set; }
 
         /// <summary>
         /// Часы отведенные для зачета.
         /// </summary>
-        public int HoursTest { get; set; }
+        public double HoursTest { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
-        public int HoursConsultation { get; set; }
+        public double HoursConsultation { get; set; }
 
         /// <summary>
         /// Часы под прочую нагрузку по ВПО.
         /// </summary>
-        public int HoursOtherLoadVpO { get; set; }
+        public double HoursOtherLoadVpo { get; set; }
 
         /// <summary>
         /// Часы отведенные для подготовки аспирантов, интернов, ординаторов.
         /// </summary>
-        public int HoursTraining { get; set; }
+        public double HoursTraining { get; set; }
 
         /// <summary>
         /// Всего осенний семестр.
         /// </summary>
-        public int HoursTotalFallSemester { get; set; }
+        public double HoursTotalFallSemester { get; set; }
 
         /// <summary>
         /// Всего весенний семестр.
         /// </summary>
-        public int HoursTotalSpringSemester { get; set; }
+        public double HoursTotalSpringSemester { get; set; }
 
         /// <summary>
         /// Всего за год нагрузка.
         /// </summary>
-        public int HoursTotalYearLoad { get; set; }
+        public double HoursTotalYearLoad { get; set; }
         #endregion
     }
 }

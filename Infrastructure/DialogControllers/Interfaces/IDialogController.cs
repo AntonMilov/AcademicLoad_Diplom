@@ -10,10 +10,20 @@ using Prism.Services.Dialogs;
 namespace Infrastructure.DialogControllers.Interfaces
 {
     /// <summary>
-    /// Интерфейс для взаимодействия с диалоговым окном Confirm.
+    /// Интерфейс для взаимодействия с диалоговыми окнами
     /// </summary>
-    public interface IConfirmDialogController
+    public interface IDialogController
     {
+        /// <summary>
+        /// Открыть окно Add.
+        /// </summary>
+        void OpenAddDialog(AddDialogParameters addDialogParameters, System.Action<IDialogResult> callback);
+
+        /// <summary>
+        /// Открыть окно Notification.
+        /// </summary>
+        void OpenNotificationDialog(string title, string message);
+
         /// <summary>
         /// Открыть окно Confirm.
         /// </summary>

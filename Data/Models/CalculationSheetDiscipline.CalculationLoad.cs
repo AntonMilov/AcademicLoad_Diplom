@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Data.Models
 {
     /// <summary>
-    /// Сущности для строк в таблице расчетного листа кафедральной нагрузки.
+    /// Модель для строк в таблице расчетного листа кафедральной нагрузки.
     /// </summary>
     public partial class CalculationSheetDiscipline
     {

@@ -38,7 +38,7 @@ namespace Data.Models
         public double TotalStudentsContract { get; set; }
         
         /// <summary>
-        /// Всегоа часов.
+        /// Всего часов.
         /// </summary>
          public double TotalHours { get; set; }
 

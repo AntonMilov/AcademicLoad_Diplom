@@ -23,9 +23,7 @@ namespace AcademicLoadModule.Controllers
     /// <inheritdoc cref="IGroupController"/>
     public class GroupController : IGroupController
     {
-        private readonly INotificationDialogController notificationDialogController;
-        private readonly IAddDialogController addDialogController;
-        private readonly IConfirmDialogController confirmDialogController;
+        private readonly IDialogController dialogController;
         private readonly IEventAggregator eventAggregator;
         private readonly IGroupService groupService;
         private ObservableCollection<Group> items;
@@ -39,15 +37,11 @@ namespace AcademicLoadModule.Controllers
         /// <param name="notificationDialogController"></param>
         public GroupController(IEventAggregator eventAggregator,
             IGroupService groupService,
-            INotificationDialogController notificationDialogController,
-            IAddDialogController addDialogController,
-            IConfirmDialogController confirmDialogController)
+            IDialogController dialogController)
         {
-            this.notificationDialogController = notificationDialogController;
             this.eventAggregator = eventAggregator;
             this.groupService = groupService;
-            this.addDialogController = addDialogController;
-            this.confirmDialogController = confirmDialogController;
+            this.dialogController = dialogController;
 
             items = new ObservableCollection<Group>(groupService.Groups);
         }
@@ -73,7 +67,7 @@ namespace AcademicLoadModule.Controllers
             addDialogParameters.Content = view;
             addDialogParameters.CanCloseWindow = model.CanAddGroup;
 
-            addDialogController.OpenAddDialog(addDialogParameters, r =>
+            dialogController.OpenAddDialog(addDialogParameters, r =>
             {
                 if (r.Result == ButtonResult.OK)
                 {
@@ -82,7 +76,7 @@ namespace AcademicLoadModule.Controllers
 
                     eventAggregator.GetEvent<GroupsCountChangeEvent>().Publish(Items.Count);
 
-                    notificationDialogController.OpenNotificationDialog(Properties.Resources.Notification, Properties.Resources.SuccessAddGroup);
+                    dialogController.OpenNotificationDialog(Properties.Resources.Notification, Properties.Resources.SuccessAddGroup);
                 }
 
                 if (r.Result == ButtonResult.Cancel)
@@ -97,7 +91,7 @@ namespace AcademicLoadModule.Controllers
             var confirmDialogParameters = new ConfirmDialogParameters();
             confirmDialogParameters.Message = Properties.Resources.MessageDeleteGroup;
 
-            confirmDialogController.OpenConfirmDialog(confirmDialogParameters, r =>
+            dialogController.OpenConfirmDialog(confirmDialogParameters, r =>
             {
                 if (r.Result == ButtonResult.OK)
                 {
@@ -106,8 +100,7 @@ namespace AcademicLoadModule.Controllers
 
                     eventAggregator.GetEvent<GroupsCountChangeEvent>().Publish(Items.Count);
 
-                    notificationDialogController.OpenNotificationDialog(Properties.Resources.Notification,
-                        Properties.Resources.SuccessDeleteGroup);
+                    dialogController.OpenNotificationDialog(Properties.Resources.Notification, Properties.Resources.SuccessDeleteGroup);
                 }
 
                 if (r.Result == ButtonResult.Cancel)

@@ -20,8 +20,7 @@ namespace AcademicLoadModule.Controllers
     public class TeacherLoadDisciplineController : ITeacherLoadDisciplineController
     {
         private readonly ITeacherLoadDisciplineService teacherLoadDisciplineService;
-        private readonly INotificationDialogController notificationDialogController;
-        private readonly IAddDialogController addDialogController;
+        private readonly IDialogController dialogController;
         private readonly ITeacherController teacherController;
         private readonly IGroupController groupController;
 
@@ -29,16 +28,14 @@ namespace AcademicLoadModule.Controllers
         /// ctor.
         /// </summary>
         public TeacherLoadDisciplineController(ITeacherLoadDisciplineService teacherLoadDisciplineService,
-            INotificationDialogController notificationDialogController,
             ITeacherController teacherController,
             IGroupController groupController,
-            IAddDialogController addDialogController)
+            IDialogController dialogController)
         {
             this.teacherLoadDisciplineService = teacherLoadDisciplineService;
-            this.notificationDialogController = notificationDialogController;
+            this.dialogController = dialogController;
             this.teacherController = teacherController;
             this.groupController = groupController;
-            this.addDialogController = addDialogController;
 
             Items = this.teacherLoadDisciplineService.TeacherLoadDisciplines;
         }
@@ -59,7 +56,7 @@ namespace AcademicLoadModule.Controllers
             addDialogParameters.Content = view;
             addDialogParameters.CanCloseWindow = model.CanAddTeacherLoadDiscipline;
 
-            addDialogController.OpenAddDialog(addDialogParameters, r =>
+            dialogController.OpenAddDialog(addDialogParameters, r =>
             {
                 if (r.Result == ButtonResult.OK)
                 {
