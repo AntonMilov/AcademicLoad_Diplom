@@ -171,19 +171,19 @@
                                        TextWrapping="Wrap"
                                        Text="{x:Static prop:Resources.AcademicLoad}"/>
                             <TextBlock Grid.Column="2" Grid.Row="0"
-                                       Text="{Binding FirstName}"/>
+                                       Text=""/>
 
                             <TextBlock Grid.Column="0" Grid.Row="1"
                                        TextWrapping="Wrap"
                                        Text="{x:Static prop:Resources.LectionLoad}"/>
                             <TextBlock Grid.Column="2" Grid.Row="1"
-                                       Text="{Binding FirstName}"/>
+                                       Text=""/>
 
                             <TextBlock Grid.Column="0" Grid.Row="2"
                                        TextWrapping="Wrap"
                                        Text="{x:Static prop:Resources.HourlyFond}"/>
                             <TextBlock Grid.Column="2" Grid.Row="1"
-                                       Text="{Binding FirstName}"/>
+                                       Text=""/>
                         </Grid>
                     </Grid>
                  

@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Linq;
-using System.Net.Http.Headers;
-using System.Text;
-using System.Threading.Tasks;
 using Core.Excel.Interfaces;
 using Data.Models;
 using ExcelDataReader;
@@ -27,7 +24,7 @@ namespace Core.Excel
             var table = result.Tables.Cast<DataTable>().ToList().First();
 
             LoadMainInformation(calculationSheet, table);
-           calculationSheet.CalculationSheetDisciplines=LoadDisciplineAcademicPlan(table);
+            calculationSheet.CalculationSheetDisciplines = LoadDisciplineAcademicPlan(table);
             return calculationSheet;
         }
 
