@@ -268,6 +268,15 @@ namespace AcademicLoadModule.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Назначение преподавателя к дисциплине будет отменено.
+        /// </summary>
+        public static string MessageDeleteTeacherLoadDiscipline {
+            get {
+                return ResourceManager.GetString("MessageDeleteTeacherLoadDiscipline", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Отчество:.
         /// </summary>
         public static string MiddleName {
@@ -399,6 +408,15 @@ namespace AcademicLoadModule.Properties {
         public static string SuccessDeleteTeacher {
             get {
                 return ResourceManager.GetString("SuccessDeleteTeacher", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Назначение преподавателя к дисциплине успешно отменено..
+        /// </summary>
+        public static string SuccessDeleteTeacherLoadDiscipline {
+            get {
+                return ResourceManager.GetString("SuccessDeleteTeacherLoadDiscipline", resourceCulture);
             }
         }
         

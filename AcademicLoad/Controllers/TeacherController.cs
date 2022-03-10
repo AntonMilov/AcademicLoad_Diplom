@@ -77,11 +77,6 @@ namespace AcademicLoadModule.Controllers
 
                      dialogController.OpenNotificationDialog(Properties.Resources.Notification, Properties.Resources.SuccessAddTeacher);
                  }
-
-                 if (r.Result == ButtonResult.Cancel)
-                 {
-
-                 }
              });
         }
 
@@ -101,11 +96,6 @@ namespace AcademicLoadModule.Controllers
                      eventAggregator.GetEvent<TeachersCountChangeEvent>().Publish(Items.Count);
 
                      dialogController.OpenNotificationDialog(Properties.Resources.Notification, Properties.Resources.SuccessDeleteTeacher);
-                 }
-
-                 if (r.Result == ButtonResult.Cancel)
-                 {
-
                  }
              });
         }

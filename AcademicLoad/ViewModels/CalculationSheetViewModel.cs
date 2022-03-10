@@ -38,10 +38,14 @@ namespace AcademicLoadModule.ViewModels
         }
 
         /// <summary>
-        /// Команда для дисциплины учебной нагрузки.
+        /// Команда для назначения преподавателя к дисциплине.
         /// </summary>
         public DelegateCommand<CalculationSheetDiscipline> AddTeacherLoadDisciplineCommand => new DelegateCommand<CalculationSheetDiscipline>(AddTeacherLoadDiscipline);
 
+        /// <summary>
+        /// Команда для удаления назначения преподавателя к дисциплине.
+        /// </summary>
+        public DelegateCommand<TeacherLoadDiscipline> DeletTeacherLoadDisciplineCommand => new DelegateCommand<TeacherLoadDiscipline>(DeleteTeacherLoadDiscipline);
 
         /// <summary>
         /// Расчетный лист кафедральной нагрузки
@@ -69,6 +73,11 @@ namespace AcademicLoadModule.ViewModels
         private void AddTeacherLoadDiscipline(CalculationSheetDiscipline calculationSheetDiscipline)
         {
             teacherLoadDisciplineController.AddTeacherLoadDiscipline(calculationSheetDiscipline);
+        }
+
+        private void DeleteTeacherLoadDiscipline(TeacherLoadDiscipline teacherLoadDiscipline)
+        {
+            teacherLoadDisciplineController.DeleteTeacherLoadDiscipline(teacherLoadDiscipline, SelectedCalculationSheetDiscipline);
         }
     }
 }

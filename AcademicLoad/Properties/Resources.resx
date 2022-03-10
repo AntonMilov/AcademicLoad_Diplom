@@ -186,6 +186,9 @@
   <data name="MessageDeleteTeacher" xml:space="preserve">
     <value>Данные о данном преподавателе будут удалены</value>
   </data>
+  <data name="MessageDeleteTeacherLoadDiscipline" xml:space="preserve">
+    <value>Назначение преподавателя к дисциплине будет отменено</value>
+  </data>
   <data name="MiddleName" xml:space="preserve">
     <value>Отчество:</value>
   </data>
@@ -230,6 +233,9 @@
   </data>
   <data name="SuccessDeleteTeacher" xml:space="preserve">
     <value>Преподаватель успешно удален.</value>
+  </data>
+  <data name="SuccessDeleteTeacherLoadDiscipline" xml:space="preserve">
+    <value>Назначение преподавателя к дисциплине успешно отменено.</value>
   </data>
   <data name="Teachers" xml:space="preserve">
     <value>Преподаватели</value>

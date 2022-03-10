@@ -102,11 +102,6 @@ namespace AcademicLoadModule.Controllers
 
                     dialogController.OpenNotificationDialog(Properties.Resources.Notification, Properties.Resources.SuccessDeleteGroup);
                 }
-
-                if (r.Result == ButtonResult.Cancel)
-                {
-
-                }
             });
         }
 

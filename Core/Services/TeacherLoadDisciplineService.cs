@@ -33,6 +33,8 @@ namespace Core.Services
         {
             TeacherLoadDisciplines.Add(teacherLoadDiscipline);
 
+            AddInfromation(teacherLoadDiscipline, calculationSheetDiscipline);
+
             calculationSheetDiscipline.TeacherLoadDisciplines.Add(teacherLoadDiscipline);
         }
 
@@ -41,6 +43,20 @@ namespace Core.Services
             TeacherLoadDisciplines.Remove(teacherLoadDiscipline);
 
             calculationSheetDiscipline.TeacherLoadDisciplines.Remove(teacherLoadDiscipline);
+        }
+
+        private void AddInfromation(TeacherLoadDiscipline teacherLoadDiscipline, CalculationSheetDiscipline calculationSheetDiscipline)
+        {
+            teacherLoadDiscipline.Semester = calculationSheetDiscipline.Semester;
+
+            teacherLoadDiscipline.HoursLecture = calculationSheetDiscipline.HoursLecture;
+            teacherLoadDiscipline.HoursLaboratoryWork = calculationSheetDiscipline.HoursLaboratoryWork;
+            teacherLoadDiscipline.HoursPracticum = calculationSheetDiscipline.HoursPracticum;
+            teacherLoadDiscipline.HoursKpKr = calculationSheetDiscipline.HoursKpKr;
+            teacherLoadDiscipline.HoursСontrolWork = calculationSheetDiscipline.HoursСontrolWork;
+            teacherLoadDiscipline.HoursExam = calculationSheetDiscipline.HoursExam;
+            teacherLoadDiscipline.HoursTest = calculationSheetDiscipline.HoursTest;
+            teacherLoadDiscipline.HoursConsultation = calculationSheetDiscipline.HoursConsultation;
         }
     }
 }

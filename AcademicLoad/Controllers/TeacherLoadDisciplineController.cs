@@ -11,6 +11,7 @@ using AcademicLoadModule.Views.Add;
 using Core.Services.Interfaces;
 using Data.Models;
 using Infrastructure.AddDialog;
+using Infrastructure.ConfirmDialog;
 using Infrastructure.DialogControllers.Interfaces;
 using Prism.Services.Dialogs;
 
@@ -74,6 +75,18 @@ namespace AcademicLoadModule.Controllers
         public void DeleteTeacherLoadDiscipline(TeacherLoadDiscipline teacherLoadDiscipline,
             CalculationSheetDiscipline calculationSheetDiscipline)
         {
+            var confirmDialogParameters = new ConfirmDialogParameters();
+            confirmDialogParameters.Message = Properties.Resources.MessageDeleteTeacherLoadDiscipline;
+
+            dialogController.OpenConfirmDialog(confirmDialogParameters, r =>
+            {
+                if (r.Result == ButtonResult.OK)
+                {
+                    teacherLoadDisciplineService.DeleteTeacherLoadDiscipline(teacherLoadDiscipline, calculationSheetDiscipline);
+                    dialogController.OpenNotificationDialog(Properties.Resources.Notification, Properties.Resources.SuccessDeleteTeacherLoadDiscipline);
+                }
+            });
+
             teacherLoadDisciplineService.DeleteTeacherLoadDiscipline(teacherLoadDiscipline, calculationSheetDiscipline);
         }
 

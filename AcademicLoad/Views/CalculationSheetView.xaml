@@ -189,13 +189,45 @@
                                       ColumnHeaderStyle="{StaticResource DataGridColumnHeaderBaseStyle}"
                                       RowStyle="{StaticResource DataGridRowStyleWithoutSelected}"
                                       CellStyle="{StaticResource DataGridCellBaseStyle}">
+                                <DataGrid.Resources>
+                                    <ControlTemplate x:Key="validationFailed">
+                                        <StackPanel Orientation="Horizontal">
+                                            <Border BorderBrush="Red" BorderThickness="2">
+                                                <AdornedElementPlaceholder />
+                                            </Border>
+                                            <TextBlock Foreground="Red" FontSize="18" FontWeight="Bold">!</TextBlock>
+                                        </StackPanel>
+                                    </ControlTemplate>
+
+
+                                    <Style x:Key="EditCellStyleError" TargetType="{x:Type TextBox}">
+                                        <Setter Property="Validation.ErrorTemplate" Value="{StaticResource validationFailed}"></Setter>
+                                        <Style.Triggers>
+                                            <Trigger Property="Validation.HasError" Value="true">
+                                                <Setter Property="ToolTip" Value="{Binding RelativeSource={RelativeSource Self}, Path=(Validation.Errors)[0].ErrorContent}"/>
+                                                <Setter Property="Background" Value="Red"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                    
+                                    <Style x:Key="CellStyleError" TargetType="{x:Type TextBlock}">
+                                        <Setter Property="Validation.ErrorTemplate" Value="{StaticResource validationFailed}"></Setter>
+                                        <Style.Triggers>
+                                            <Trigger Property="Validation.HasError" Value="true">
+                                                <Setter Property="ToolTip" Value="{Binding RelativeSource={RelativeSource Self}, Path=(Validation.Errors)[0].ErrorContent}"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+
+
+                                </DataGrid.Resources>
                                 <DataGrid.Columns>
                                     <DataGridTemplateColumn>
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
                                                 <Button Style="{StaticResource ButtonWithIcon}" 
                                                         ToolTip="Удалить назначение для данного преподавателя"
-                                                        Command="{Binding DeleteTeacherCommand}"
+                                                        Command="{Binding DeletTeacherLoadDisciplineCommand}"
                                                         VerticalAlignment="Center"
                                                         Margin="0,0,8,0">
                                                     <Path Style="{StaticResource DeleteIcon}" />
@@ -206,7 +238,67 @@
 
                                     <DataGridTextColumn Header="Преподаватель"
                                                         MaxWidth="150"
-                                                        Binding="{Binding Teacher,Converter={StaticResource TeacherInitialsConverter}}"/>
+                                                        Binding="{Binding Teacher,Converter={StaticResource TeacherInitialsConverter}}">
+                                        <DataGridTextColumn.ElementStyle>
+                                            <Style>
+                                                <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                            </Style>
+                                        </DataGridTextColumn.ElementStyle>
+                                    </DataGridTextColumn>
+
+                                    <DataGridTextColumn Header="Семестр"
+                                                        MaxWidth="150"
+                                                        Binding="{Binding Semester}"/>
+
+                                    <DataGridTextColumn Header="Группы"
+                                                        Binding="{Binding Groups}"/>
+                                    <DataGridTextColumn Header="Студ.(бюд.)"
+                                                        Binding="{Binding StudentsBudget}"/>
+                                    <DataGridTextColumn Header="Студ.(дог.)"
+                                                        Binding="{Binding StudentsContract}"/>
+
+                                    <DataGridTextColumn Header="Лекции"  
+                                                        Binding="{Binding HoursLecture, ValidatesOnDataErrors=True}"
+                                                        Validation.ErrorTemplate="{StaticResource validationFailed}"
+                                                        EditingElementStyle="{StaticResource EditCellStyleError}" 
+                                                        ElementStyle="{StaticResource CellStyleError}" />
+
+
+                                    <DataGridTextColumn Header="Лабор"
+                                                        Binding="{Binding HoursLaboratoryWork, ValidatesOnDataErrors=True}"
+                                                        EditingElementStyle="{StaticResource EditCellStyleError}" ElementStyle="{StaticResource CellStyleError}"/>
+                                    <DataGridTextColumn Header="Практич."
+                                                        Binding="{Binding HoursPracticum}"/>
+                                    <DataGridTextColumn Header="КП/КР"
+                                                        Binding="{Binding HoursKpKr}"/>
+                                    <DataGridTextColumn Header="контр./раб. (ЗФ)" 
+                                                        Binding="{Binding HoursСontrolWork}"/>
+                                    <DataGridTextColumn Header="Экзамены"
+                                                        Binding="{Binding HoursExam}"/>
+                                    <DataGridTextColumn Header="Зачеты"
+                                                        Binding="{Binding HoursTest}"/>
+                                    <DataGridTextColumn Header="Консультации" 
+                                                        Binding="{Binding HoursConsultation}"/>
+                                    <DataGridTextColumn Header="Прочая нагрузка по ВПО"
+                                                        Binding="{Binding HoursOtherLoadVpo}"/>
+                                    <DataGridTextColumn Header="Подготовка аспирантов, интернов, ординаторов"
+                                                        MaxWidth="150"
+                                                        Binding="{Binding HoursTraining}">
+                                        <DataGridTextColumn.ElementStyle>
+                                            <Style>
+                                                <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                            </Style>
+                                        </DataGridTextColumn.ElementStyle>
+                                    </DataGridTextColumn>
+
+                                    <DataGridTextColumn Header="Всего осенний семестр"
+                                                        Binding="{Binding HoursTotalFallSemester}"/>
+                                    <DataGridTextColumn Header="Всего весенний семестр"
+                                                        Binding="{Binding HoursTotalSpringSemester}"/>
+                                    <DataGridTextColumn Header="Всего за год нагрузка"
+                                                        Binding="{Binding HoursTotalYearLoad}"/>
+
+
 
                                 </DataGrid.Columns>
 

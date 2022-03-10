@@ -1,32 +1,38 @@
-﻿namespace Data.Models
+﻿using System;
+using System.ComponentModel;
+using Prism.Mvvm;
+
+namespace Data.Models
 {
     /// <summary>
-    /// Модель дисциплины преподовательской нагрузки.
+    /// Модель назначения преподавателя к  дисциплине.
     /// </summary>
-    public class TeacherLoadDiscipline
+    public partial class TeacherLoadDiscipline : BindableBase, IDataErrorInfo
     {
+        private double hoursLecture;
+
         /// <summary>
         /// Преподавтель.
         /// </summary>
         public Teacher Teacher { get; set; }
 
         /// <summary>
-        /// 
+        /// Семестр.
         /// </summary>
         public int Semester { get; set; }
 
         /// <summary>
-        /// 
+        /// Группы.
         /// </summary>
         public string Groups { get; set; }
 
         /// <summary>
-        /// 
+        /// Студенты на бюджетной основе.
         /// </summary>
         public int StudentsBudget { get; set; }
 
         /// <summary>
-        /// 
+        /// Студенты на договорной основе.
         /// </summary>
         public int StudentsContract { get; set; }
 
@@ -34,7 +40,11 @@
         /// <summary>
         /// 
         /// </summary>
-        public double HoursLecture { get; set; }
+        public double HoursLecture
+        {
+            get => hoursLecture;
+            set => SetProperty(ref hoursLecture, value);
+        }
 
         /// <summary>
         /// 
@@ -42,7 +52,7 @@
         public double HoursLaboratoryWork { get; set; }
 
         /// <summary>
-        /// Часы отведенные для практики.
+        /// Часы отведенные для практики (рукводитель).
         /// </summary>
         public double HoursPracticum { get; set; }
 
@@ -79,12 +89,12 @@
         public double HoursTraining { get; set; }
 
         /// <summary>
-        /// Всего осенний семестр.
+        /// Всего часов за осенний семестр.
         /// </summary>
         public double HoursTotalFallSemester { get; set; }
 
         /// <summary>
-        /// Всего весенний семестр.
+        /// Всего часов за весенний семестр.
         /// </summary>
         public double HoursTotalSpringSemester { get; set; }
 
@@ -92,6 +102,10 @@
         /// Всего за год нагрузка.
         /// </summary>
         public double HoursTotalYearLoad { get; set; }
+
+        public string Error => throw new System.NotImplementedException();
+
+       
         #endregion
     }
 }
