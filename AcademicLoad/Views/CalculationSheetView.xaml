@@ -198,7 +198,7 @@
                                             <TextBlock Foreground="Red" FontSize="18" FontWeight="Bold">!</TextBlock>
                                         </StackPanel>
                                     </ControlTemplate>
-
+                                    
 
                                     <Style x:Key="EditCellStyleError" TargetType="{x:Type TextBox}">
                                         <Setter Property="Validation.ErrorTemplate" Value="{StaticResource validationFailed}"></Setter>

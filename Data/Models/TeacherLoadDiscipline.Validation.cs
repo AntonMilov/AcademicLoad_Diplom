@@ -9,32 +9,153 @@ namespace Data.Models
     /// <summary>
     /// Модель назначения преподавателя к  дисциплине.
     /// </summary>
-    public partial class TeacherLoadDiscipline 
+    public partial class TeacherLoadDiscipline
     {
-        public string this[string columnName]
-        {
-            get
-            {
-                string error = String.Empty;
-                switch (columnName)
-                {
-                    case "HoursLecture":
-                        if ((HoursLecture < 0) || (HoursLecture > 100))
-                        {
-                            error = "Значение больше 100";
-                        }
-                        break;
-                    case "HoursLaboratoryWork":
-                        if ((HoursLaboratoryWork < 0) || (HoursLaboratoryWork > 100))
-                        {
-                            error = "Возраст должен бытьjjjj больше 0 и меньше 100";
-                        }
-                        break;
+        private Dictionary<string, string> errors = new Dictionary<string, string>();
 
+        /// <summary>
+        /// Cообщение о ошибки валидации <inheritdoc/>.
+        /// </summary>
+        public string this[string columnName] => errors.ContainsKey(columnName) ? errors[columnName] : null;
+
+        /// <inheritdoc/>
+        public string Error => throw new System.NotImplementedException();
+
+        #region Hours
+        /// <summary>
+        /// 
+        /// </summary>
+        public double HoursLecture
+        {
+            get => hoursLecture;
+            set
+            {
+
+                if (value > hoursLecture)
+                {
+                    errors[nameof(HoursLecture)] = "Нельзя установить кол-во времени больше";
                 }
-                return error;
+                else
+                {
+                    errors[nameof(HoursLecture)] = null;
+                    hoursLecture = value;
+                }
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        public double HoursLaboratoryWork
+        {
+            get => hoursLaboratoryWork;
+            set => SetProperty(ref hoursLaboratoryWork, value);
+        }
+
+        /// <summary>
+        /// Часы отведенные для практики (рукводитель).
+        /// </summary>
+        public double HoursPracticum
+        {
+            get => hoursPracticum;
+            set => SetProperty(ref hoursPracticum, value);
+        }
+
+        /// <summary>
+        /// КП, КР (так называется в таблице).
+        /// </summary>
+        public double HoursKpKr
+        {
+            get => hoursKpKr;
+            set => SetProperty(ref hoursKpKr, value);
+        }
+
+        /// <summary>
+        /// Часы отведенные для  контрольных работ.
+        /// </summary>
+        public double HoursСontrolWork
+        {
+            get => hoursСontrolWork;
+            set => SetProperty(ref hoursСontrolWork, value);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public double HoursExam
+        {
+            get => hoursExam;
+            set => SetProperty(ref hoursExam, value);
+        }
+
+
+        /// <summary>
+        /// Часы отведенные для зачета.
+        /// </summary>
+        public double HoursTest
+        {
+            get => hoursTest;
+            set => SetProperty(ref hoursTest, value);
+        }
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public double HoursConsultation
+        {
+            get => hoursConsultation;
+            set => SetProperty(ref hoursConsultation, value);
+        }
+
+
+        /// <summary>
+        /// Часы под прочую нагрузку по ВПО.
+        /// </summary>
+        public double HoursOtherLoadVpo
+        {
+            get => hoursOtherLoadVpo;
+            set => SetProperty(ref hoursOtherLoadVpo, value);
+        }
+
+
+        /// <summary>
+        /// Часы отведенные для подготовки аспирантов, интернов, ординаторов.
+        /// </summary>
+        public double HoursTraining
+        {
+            get => hoursTraining;
+            set => SetProperty(ref hoursTraining, value);
+        }
+
+
+        /// <summary>
+        /// Всего часов за осенний семестр.
+        /// </summary>
+        public double HoursTotalFallSemester
+        {
+            get => hoursTotalFallSemester;
+            set => SetProperty(ref hoursTotalFallSemester, value);
+        }
+
+        /// <summary>
+        /// Всего часов за весенний семестр.
+        /// </summary>
+        public double HoursTotalSpringSemester
+        {
+            get => hoursTotalSpringSemester;
+            set => SetProperty(ref hoursTotalSpringSemester, value);
+        }
+
+
+        /// <summary>
+        /// Всего за год нагрузка.
+        /// </summary>
+        public double HoursTotalYearLoad
+        {
+            get => hoursTotalYearLoad;
+            set => SetProperty(ref hoursTotalYearLoad, value);
+        }
+        #endregion
     }
 }
