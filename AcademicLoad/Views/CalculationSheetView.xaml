@@ -143,7 +143,7 @@
 
         <DataGrid Grid.Row="1"
                   ScrollViewer.CanContentScroll="True" 
-                  SelectedItem="{Binding SelectedCalculationSheetDiscipline}"
+                  SelectedItem="{Binding  Path=DataContext.SelectedCalculationSheetDiscipline, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
                   ItemsSource="{Binding CalculationSheetDisciplines}"
                   Background="{StaticResource White}"
                   Style="{StaticResource DataGridBaseStyle}"
@@ -227,7 +227,8 @@
                                             <DataTemplate>
                                                 <Button Style="{StaticResource ButtonWithIcon}" 
                                                         ToolTip="Удалить назначение для данного преподавателя"
-                                                        Command="{Binding DeletTeacherLoadDisciplineCommand}"
+                                                        Command="{Binding  Path=DataContext.DeleteTeacherLoadDisciplineCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+                                                        CommandParameter="{Binding .}"
                                                         VerticalAlignment="Center"
                                                         Margin="0,0,8,0">
                                                     <Path Style="{StaticResource DeleteIcon}" />

@@ -86,8 +86,6 @@ namespace AcademicLoadModule.Controllers
                     dialogController.OpenNotificationDialog(Properties.Resources.Notification, Properties.Resources.SuccessDeleteTeacherLoadDiscipline);
                 }
             });
-
-            teacherLoadDisciplineService.DeleteTeacherLoadDiscipline(teacherLoadDiscipline, calculationSheetDiscipline);
         }
 
         /// <inheritdoc/>
