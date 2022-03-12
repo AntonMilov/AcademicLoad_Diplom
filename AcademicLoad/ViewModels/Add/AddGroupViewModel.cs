@@ -7,7 +7,8 @@ namespace AcademicLoadModule.ViewModels.Add
     public class AddGroupViewModel : BindableBase
     {
         private string name;
-        private int students = 0;
+        private int studentsBudget = 0;
+        private int studentsContract = 0;
 
         /// <summary>
         /// .ctor
@@ -27,12 +28,21 @@ namespace AcademicLoadModule.ViewModels.Add
         }
 
         /// <summary>
-        /// Количество студентов.
+        /// Количество студентов на бюджетной основе.
         /// </summary>
-        public int Students
+        public int StudentsBudget
         {
-            get => students;
-            set => SetProperty(ref students, value);
+            get => studentsBudget;
+            set => SetProperty(ref studentsBudget, value);
+        }
+
+        /// <summary>
+        /// Количество студентов на договорной основе.
+        /// </summary>
+        public int StudentsContract
+        {
+            get => studentsContract;
+            set => SetProperty(ref studentsContract, value);
         }
 
         /// <summary>
@@ -44,7 +54,8 @@ namespace AcademicLoadModule.ViewModels.Add
             return new Group()
             {
               Name = Name,
-              Students = Students
+              StudentsBudget = StudentsBudget,
+              StudentsContract = StudentsContract
             };
         }
 
@@ -55,7 +66,8 @@ namespace AcademicLoadModule.ViewModels.Add
         public bool CanAddGroup()
         {
             return !string.IsNullOrEmpty(Name) &&
-                   Students != 0;
+                   StudentsBudget != 0 &&
+                   StudentsContract !=0;
         }
 
 

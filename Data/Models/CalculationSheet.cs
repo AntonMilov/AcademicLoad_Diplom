@@ -31,6 +31,7 @@ namespace Data.Models
         /// Всего бюджетников.
         /// </summary>
         public double TotalStudentsBudget { get; set; }
+
         /// <summary>
         /// Всего договорников.
         /// </summary>

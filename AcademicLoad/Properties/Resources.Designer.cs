@@ -358,6 +358,24 @@ namespace AcademicLoadModule.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Количество студентов на бюджетной основе:.
+        /// </summary>
+        public static string StudentsBudget {
+            get {
+                return ResourceManager.GetString("StudentsBudget", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Количество студентов на договорной основе:.
+        /// </summary>
+        public static string StudentsContract {
+            get {
+                return ResourceManager.GetString("StudentsContract", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Количество человек:.
         /// </summary>
         public static string StudentsNumber {

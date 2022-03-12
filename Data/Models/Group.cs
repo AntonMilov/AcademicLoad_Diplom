@@ -19,8 +19,18 @@ namespace Data.Models
         }
 
         /// <summary>
-        /// Кол-во студентов.
+        /// Всего студентов.
         /// </summary>
-        public int Students { get; set; }
+        public int Students => StudentsBudget + StudentsContract;
+
+        /// <summary>
+        /// Количество студентов на бюджетной основе.
+        /// </summary>
+        public int StudentsBudget { get; set; }
+
+        /// <summary>
+        /// Количество студентов на договорной основе.
+        /// </summary>
+        public int StudentsContract { get; set; }
     }
 }

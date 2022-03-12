@@ -216,6 +216,12 @@
   <data name="Students" xml:space="preserve">
     <value>Количество студентов:</value>
   </data>
+  <data name="StudentsBudget" xml:space="preserve">
+    <value>Количество студентов на бюджетной основе:</value>
+  </data>
+  <data name="StudentsContract" xml:space="preserve">
+    <value>Количество студентов на договорной основе:</value>
+  </data>
   <data name="StudentsNumber" xml:space="preserve">
     <value>Количество человек:</value>
   </data>
