@@ -16,19 +16,19 @@ namespace Data.Models
         private string groups;
         private int studentsBudget;
         private int studentsContract;
-        private double hoursLecture;
-        private double hoursLaboratoryWork;
-        private double hoursPracticum;
-        private double hoursKpKr;
-        private double hoursСontrolWork;
-        private double hoursExam;
-        private double hoursTest;
-        private double hoursConsultation;
-        private double hoursOtherLoadVpo;
-        private double hoursTraining;
-        private double hoursTotalFallSemester;
-        private double hoursTotalSpringSemester;
-        private double hoursTotalYearLoad;
+        private double hoursLecture = maxValue;
+        private double hoursLaboratoryWork = maxValue;
+        private double hoursPracticum = maxValue;
+        private double hoursKpKr = maxValue;
+        private double hoursСontrolWork = maxValue;
+        private double hoursExam = maxValue;
+        private double hoursTest = maxValue;
+        private double hoursConsultation = maxValue;
+        private double hoursOtherLoadVpo = maxValue;
+        private double hoursTraining = maxValue;
+        private double hoursTotalFallSemester = maxValue;
+        private double hoursTotalSpringSemester = maxValue;
+        private double hoursTotalYearLoad = maxValue;
 
         /// <summary>
         /// Преподавтель.

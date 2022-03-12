@@ -30,16 +30,17 @@ namespace Data.Models
             get => hoursLecture;
             set
             {
-                SetProperty(ref hoursLecture, value);
-                if (hoursLecture > 50)
+            
+                if (value > HoursLecture)
                 {
-                    errors[nameof(HoursLecture)] = "Нельзя установить кол-во времени больше";
+                    errors[nameof(HoursLecture)] = "Нельзя установить значение больше предыдущего";
+
                 }
                 else
                 {
                     errors[nameof(HoursLecture)] = null;
-                    hoursLecture = value;
                 }
+                SetProperty(ref hoursLecture, value);
             }
         }
 
