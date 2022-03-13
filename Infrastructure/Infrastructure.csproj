@@ -125,6 +125,7 @@
     <Compile Include="Converters\BooleanToHiddenConverter.cs" />
     <Compile Include="Converters\BooleanToInverseVisibilityConverter.cs" />
     <Compile Include="Converters\GroupInfoConverter.cs" />
+    <Compile Include="Converters\GroupsNamesToInfoConverter.cs" />
     <Compile Include="Converters\RadioButtonCheckedConverter.cs" />
     <Compile Include="Converters\RateConverter.cs" />
     <Compile Include="Converters\RateToDoubleConverter.cs" />

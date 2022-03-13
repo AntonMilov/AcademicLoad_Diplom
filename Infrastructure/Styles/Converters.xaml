@@ -12,5 +12,6 @@
     <converters:GroupInfoConverter x:Key="GroupInfoConverter" />
     <converters:RadioButtonCheckedConverter x:Key="RadioButtonCheckedConverter" />
     <converters:BooleanToHiddenConverter x:Key="BooleanToHiddenConverter" />
+    <converters:GroupsNamesToInfoConverter x:Key="GroupsNamesToInfoConverter" />
 
 </ResourceDictionary>

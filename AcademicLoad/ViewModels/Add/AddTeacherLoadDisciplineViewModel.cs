@@ -6,6 +6,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using AcademicLoadModule.Controllers.Interfaces;
 using Data.Models;
+using Data.Enums;
 
 namespace AcademicLoadModule.ViewModels
 {
@@ -18,6 +19,7 @@ namespace AcademicLoadModule.ViewModels
         private ObservableCollection<Group> selectedGroups;
         private bool showAddTeacherButton = true;
         private bool isMainLecture;
+        private bool isAdditionalLecture;
 
         /// <summary>
         /// ctor.
@@ -29,6 +31,8 @@ namespace AcademicLoadModule.ViewModels
             Teachers = teacherController.Items;
             Groups = new ObservableCollection<Group>(groupController.Items.Where(x => Filter(calculationSheetDiscipline, x)));
             SelectedGroups = new ObservableCollection<Group>();
+
+            IsMainLecture = true;
         }
 
         /// <summary>
@@ -114,7 +118,23 @@ namespace AcademicLoadModule.ViewModels
         public bool IsMainLecture
         {
             get => isMainLecture;
-            set => SetProperty(ref isMainLecture, value);
+            set
+            {
+                if (value)
+                    IsAdditionalLecture = false;
+
+                SetProperty(ref isMainLecture, value);
+            }
+
+        }
+
+        /// <summary>
+        /// Является ли преподаватель допольнительным  лектором.
+        /// </summary>
+        public bool IsAdditionalLecture
+        {
+            get => isAdditionalLecture;
+            set => SetProperty(ref isAdditionalLecture, value);
         }
 
         /// <summary>
@@ -137,11 +157,33 @@ namespace AcademicLoadModule.ViewModels
         }
 
         /// <summary>
-        /// Создание нового учителя.
+        /// Создание нового назначения преподавателя к  дисциплине.
         /// </summary>
         public TeacherLoadDiscipline CreateTeacherLoadDiscipline()
         {
-            return new TeacherLoadDiscipline() {Teacher = SelectedTeacher,Semester = 7};
+            TeacherLoadDisciplineFlags teacherLoadDisciplineFlags = new TeacherLoadDisciplineFlags();
+
+            if (IsMainLecture)
+            {
+                teacherLoadDisciplineFlags = teacherLoadDisciplineFlags & TeacherLoadDisciplineFlags.IsMainLecture;
+            }
+
+            if (IsAdditionalLecture)
+            {
+                teacherLoadDisciplineFlags = teacherLoadDisciplineFlags & TeacherLoadDisciplineFlags.IsAdditionalLecture;
+            }
+
+            if (!IsAdditionalLecture && !IsMainLecture)
+            {
+                teacherLoadDisciplineFlags = teacherLoadDisciplineFlags & TeacherLoadDisciplineFlags.IsNotLecture;
+            }
+
+            return new TeacherLoadDiscipline()
+            {
+                Teacher = SelectedTeacher,
+                Groups = SelectedGroups.ToList(),
+                TeacherLoadDisciplineFlags = teacherLoadDisciplineFlags
+            };
         }
 
         private void DeleteTeacher()

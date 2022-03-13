@@ -67,6 +67,7 @@
     <Compile Include="Services\Interfaces\ITeacherService.cs" />
     <Compile Include="Services\TeacherLoadDisciplineService.cs" />
     <Compile Include="Services\TeacherService.cs" />
+    <Compile Include="СalculatorTeacherLoadDiscipline.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Data\Data.csproj">

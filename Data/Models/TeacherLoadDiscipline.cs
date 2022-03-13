@@ -1,5 +1,6 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
+using Data.Enums;
 using Prism.Mvvm;
 
 namespace Data.Models
@@ -9,26 +10,52 @@ namespace Data.Models
     /// </summary>
     public partial class TeacherLoadDiscipline : BindableBase, IDataErrorInfo
     {
-        private const double  maxValue = 400;
+        private const double maxValue = 400;
 
+        private TeacherLoadDisciplineFlags teacherLoadDisciplineFlags;
         private Teacher teacher;
         private int semester;
-        private string groups;
+        private List<Group> groups;
         private int studentsBudget;
         private int studentsContract;
-        private double hoursLecture = maxValue;
-        private double hoursLaboratoryWork = maxValue;
-        private double hoursPracticum = maxValue;
-        private double hoursKpKr = maxValue;
-        private double hoursСontrolWork = maxValue;
-        private double hoursExam = maxValue;
-        private double hoursTest = maxValue;
-        private double hoursConsultation = maxValue;
-        private double hoursOtherLoadVpo = maxValue;
-        private double hoursTraining = maxValue;
-        private double hoursTotalFallSemester = maxValue;
-        private double hoursTotalSpringSemester = maxValue;
-        private double hoursTotalYearLoad = maxValue;
+        private double hoursLecture ;
+        private double hoursLaboratoryWork ;
+        private double hoursPracticum ;
+        private double hoursKpKr ;
+        private double hoursСontrolWork ;
+        private double hoursExam ;
+        private double hoursTest ;
+        private double hoursConsultation ;
+        private double hoursOtherLoadVpo ;
+        private double hoursTraining ;
+        private double hoursTotalFallSemester ;
+        private double hoursTotalSpringSemester ;
+        private double hoursTotalYearLoad ;
+
+        private double hoursLectureMaxValue= maxValue;
+        private double hoursLaboratoryWorkMaxValue = maxValue;
+        private double hoursPracticumMaxValue = maxValue;
+        private double hoursKpKrMaxValue = maxValue;
+        private double hoursСontrolWorkMaxValue = maxValue;
+        private double hoursExamMaxValue = maxValue;
+        private double hoursTestMaxValue = maxValue;
+
+        /// <summary>
+        /// ctor.
+        /// </summary>
+        public TeacherLoadDiscipline()
+        {
+            PropertyChanged += new PropertyChangedEventHandler(PropertyChangedHandler);
+        }
+
+        /// <summary>
+        /// Флаги.
+        /// </summary>
+        public TeacherLoadDisciplineFlags TeacherLoadDisciplineFlags
+        {
+            get => teacherLoadDisciplineFlags;
+            set => SetProperty(ref teacherLoadDisciplineFlags, value);
+        }
 
         /// <summary>
         /// Преподавтель.
@@ -51,7 +78,7 @@ namespace Data.Models
         /// <summary>
         /// Группы.
         /// </summary>
-        public string Groups
+        public List<Group> Groups
         {
             get => groups;
             set => SetProperty(ref groups, value);
@@ -73,6 +100,56 @@ namespace Data.Models
         {
             get => studentsContract;
             set => SetProperty(ref studentsContract, value);
+        }
+
+        private void PropertyChangedHandler(object sender, PropertyChangedEventArgs e)
+        {
+            СalculationHoursTotalFallSemester();
+            СalculationHoursTotalSpringSemester();
+            СalculationHoursTotalYearLoad();
+        }
+
+        private void СalculationHoursTotalFallSemester()
+        {
+            if (Semester % 2 == 1)
+            {
+                HoursTotalFallSemester = HoursLecture +
+                     HoursLaboratoryWork +
+                     HoursPracticum + HoursKpKr +
+                     HoursСontrolWork +
+                     HoursExam +
+                     HoursTest +
+                     HoursConsultation +
+                     HoursOtherLoadVpo +
+                     HoursTraining;
+                return;
+            }
+
+            HoursTotalFallSemester = 0;
+        }
+
+        private void СalculationHoursTotalSpringSemester()
+        {
+            if (Semester % 2 == 0)
+            {
+                HoursTotalSpringSemester = HoursLecture +
+                     HoursLaboratoryWork +
+                     HoursPracticum + HoursKpKr +
+                     HoursСontrolWork +
+                     HoursExam +
+                     HoursTest +
+                     HoursConsultation +
+                     HoursOtherLoadVpo +
+                     HoursTraining;
+                return;
+            }
+
+            HoursTotalSpringSemester = 0;
+        }
+
+        private void СalculationHoursTotalYearLoad()
+        {
+            HoursTotalYearLoad = HoursTotalFallSemester + HoursTotalSpringSemester;
         }
     }
 }
