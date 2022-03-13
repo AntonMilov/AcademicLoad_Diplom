@@ -25,6 +25,7 @@ namespace Infrastructure
         {
             containerRegistry.Register<IDialogController, DialogController>();
             containerRegistry.Register<OpenFileDialog>();
+            containerRegistry.Register<SaveFileDialog>();
 
             containerRegistry.RegisterDialog<AddDialogView, AddDialogViewModel>("AddDialog");
             containerRegistry.RegisterDialog<ConfirmDialogView, ConfirmDialogViewModel>("ConfirmDialog");

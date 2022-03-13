@@ -19,6 +19,7 @@ namespace AcademicLoadModule.Controllers
     public class CalculationSheetController : ICalculationSheetController
     {
         private readonly OpenFileDialog openFileDialog;
+        private readonly SaveFileDialog saveFileDialog;
         private readonly ICalculationSheetService calculationSheetService;
         private readonly IEventAggregator eventAggregator;
         private readonly IDialogController dialogController;
@@ -28,12 +29,14 @@ namespace AcademicLoadModule.Controllers
         /// ctor.
         /// </summary>
         /// <param name="openFileDialog"></param>
-        public CalculationSheetController(OpenFileDialog openFileDialog, 
+        public CalculationSheetController(OpenFileDialog openFileDialog,
+            SaveFileDialog saveFileDialog,
             ICalculationSheetService calculationSheetService, 
             IEventAggregator eventAggregator,
             IDialogController dialogController)
         {
             this.openFileDialog = openFileDialog;
+            this.saveFileDialog = saveFileDialog;
             this.calculationSheetService = calculationSheetService;
             this.eventAggregator = eventAggregator;
             this.dialogController = dialogController;
@@ -59,7 +62,22 @@ namespace AcademicLoadModule.Controllers
         }
 
         /// <inheritdoc/>
-        public string AskExcelFile()
+        public string AskExportExcelFile()
+        {
+            string path = string.Empty;
+            string xlsExtensions = "(*.xls)|*.xls";
+            string xlsxExtensions = "(*.xlsx)|*.xlsx";
+
+            saveFileDialog.Filter = $"XLS файл{xlsExtensions}|XLSX файл{xlsxExtensions}";
+
+            if (saveFileDialog.ShowDialog() == true)
+                return path = saveFileDialog.FileName;
+
+            return path;
+        }
+
+        /// <inheritdoc/>
+        public string AskImportExcelFile()
         {
             string path = string.Empty;
             string excelExtensions = "*.xls;*.xlsx";
@@ -69,6 +87,12 @@ namespace AcademicLoadModule.Controllers
                 return path = openFileDialog.FileName;
 
             return path;
+        }
+
+        /// <inheritdoc/>
+        public void ExportTeacherLoad(string path)
+        {
+            throw new NotImplementedException();
         }
     }
 }

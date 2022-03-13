@@ -40,14 +40,14 @@
             
             <Button Style="{StaticResource ButtonWithIcon}"  
                     Margin="20,0,10,0"
-                    Command="{Binding DeleteCalculationSheetCommand}"
+                    Command="{Binding DataContext.DeleteCalculationSheetCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
                     ToolTip="{x:Static prop:Resources.DeleteCalculationSheet}"
                     VerticalAlignment="Center">
                 <Path Style="{StaticResource DeleteCaclulationSheetsIcon}" />
             </Button>
             
             <Button Style="{StaticResource ButtonWithIcon}" 
-                    Command="{Binding ExportTeacherLoadCommand}"
+                    Command="{Binding DataContext.ExportTeacherLoadCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
                     ToolTip="{x:Static prop:Resources.ExportTeacherLoad}"
                     VerticalAlignment="Center">
                 <Path Style="{StaticResource ExportTeacherLoadIcon}" />
