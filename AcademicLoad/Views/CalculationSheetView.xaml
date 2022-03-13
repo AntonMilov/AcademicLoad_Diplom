@@ -27,10 +27,34 @@
 
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Border Grid.Row="0" Background="{StaticResource Tint95}" Padding="16">
+        <StackPanel Grid.Row="0"
+                    Margin="10,5"
+                    Orientation="Horizontal">
+            <TextBlock Style="{StaticResource HeaderH1}"
+                       VerticalAlignment="Center"
+                       Text="{Binding FileName}" />
+            
+            <Button Style="{StaticResource ButtonWithIcon}"  
+                    Margin="20,0,10,0"
+                    Command="{Binding DeleteCalculationSheetCommand}"
+                    ToolTip="{x:Static prop:Resources.DeleteCalculationSheet}"
+                    VerticalAlignment="Center">
+                <Path Style="{StaticResource DeleteCaclulationSheetsIcon}" />
+            </Button>
+            
+            <Button Style="{StaticResource ButtonWithIcon}" 
+                    Command="{Binding ExportTeacherLoadCommand}"
+                    ToolTip="{x:Static prop:Resources.ExportTeacherLoad}"
+                    VerticalAlignment="Center">
+                <Path Style="{StaticResource ExportTeacherLoadIcon}" />
+            </Button>
+        </StackPanel>
+
+        <Border Grid.Row="1" Background="{StaticResource Tint95}" Padding="16">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
@@ -141,7 +165,7 @@
             </Grid>
         </Border>
 
-        <DataGrid Grid.Row="1"
+        <DataGrid Grid.Row="2"
                   ScrollViewer.CanContentScroll="True" 
                   SelectedItem="{Binding  Path=DataContext.SelectedCalculationSheetDiscipline, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
                   ItemsSource="{Binding CalculationSheetDisciplines}"

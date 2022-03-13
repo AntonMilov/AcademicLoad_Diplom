@@ -48,6 +48,16 @@ namespace AcademicLoadModule.ViewModels
         public DelegateCommand<TeacherLoadDiscipline> DeleteTeacherLoadDisciplineCommand => new DelegateCommand<TeacherLoadDiscipline>(DeleteTeacherLoadDiscipline);
 
         /// <summary>
+        /// Команда для удаления расчетного листа кафедральной нагрузки.
+        /// </summary>
+        public DelegateCommand DeleteCalculationSheetCommand => new DelegateCommand(DeleteCalculationSheet);
+
+        /// <summary>
+        /// Команда для экспорта рассчитанной преподавательской нагрузки в файл .xls или .xlsx.
+        /// </summary>
+        public DelegateCommand ExportTeacherLoadCommand => new DelegateCommand(ExportTeacherLoad);
+
+        /// <summary>
         /// Расчетный лист кафедральной нагрузки.
         /// </summary>
         public CalculationSheet CalculationSheet
@@ -78,6 +88,16 @@ namespace AcademicLoadModule.ViewModels
         private void DeleteTeacherLoadDiscipline(TeacherLoadDiscipline teacherLoadDiscipline)
         {
             teacherLoadDisciplineController.DeleteTeacherLoadDiscipline(teacherLoadDiscipline, SelectedCalculationSheetDiscipline);
+        }
+
+        private void DeleteCalculationSheet()
+        {
+
+        }
+
+        private void ExportTeacherLoad()
+        {
+
         }
     }
 }

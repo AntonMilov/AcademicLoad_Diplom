@@ -153,6 +153,9 @@
   <data name="Cancel" xml:space="preserve">
     <value>Отмена</value>
   </data>
+  <data name="DeleteCalculationSheet" xml:space="preserve">
+    <value>Удалить расчетный лист кафедральной нагрузки</value>
+  </data>
   <data name="DeleteGroup" xml:space="preserve">
     <value>Удалить учебную группу</value>
   </data>
@@ -161,6 +164,9 @@
   </data>
   <data name="EditGroup" xml:space="preserve">
     <value>Редактировать учебную группу</value>
+  </data>
+  <data name="ExportTeacherLoad" xml:space="preserve">
+    <value>Экспортировать преподавательскую нагрузку в файл .xls или .xlsx</value>
   </data>
   <data name="GroupName" xml:space="preserve">
     <value>Название группы:</value>

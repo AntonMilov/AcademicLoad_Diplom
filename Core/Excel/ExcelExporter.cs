@@ -18,6 +18,8 @@ namespace Core.Excel
         {
             CalculationSheet calculationSheet = new CalculationSheet();
 
+           calculationSheet.FileName = path.Substring(path.LastIndexOf("\\")+2);
+
             var stream = File.Open(path, FileMode.Open, FileAccess.Read);
             var reader = ExcelReaderFactory.CreateReader(stream);
             var result = reader.AsDataSet();

@@ -169,6 +169,15 @@ namespace AcademicLoadModule.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Удалить расчетный лист кафедральной нагрузки.
+        /// </summary>
+        public static string DeleteCalculationSheet {
+            get {
+                return ResourceManager.GetString("DeleteCalculationSheet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Удалить учебную группу.
         /// </summary>
         public static string DeleteGroup {
@@ -192,6 +201,15 @@ namespace AcademicLoadModule.Properties {
         public static string EditGroup {
             get {
                 return ResourceManager.GetString("EditGroup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Экспортировать преподавательскую нагрузку в файл .xls или .xlsx.
+        /// </summary>
+        public static string ExportTeacherLoad {
+            get {
+                return ResourceManager.GetString("ExportTeacherLoad", resourceCulture);
             }
         }
         
