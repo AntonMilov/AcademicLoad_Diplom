@@ -151,7 +151,7 @@ namespace AcademicLoadModule.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Расчетный листы кафедральной нагрузки отсутсвует, выберите файл в формате Excel..
+        ///   Ищет локализованную строку, похожую на Расчетный листы кафедральной нагрузки отсутсвует, выберите файл в формате xls или xlsx..
         /// </summary>
         public static string CalculationSheetsEmpty {
             get {
@@ -165,6 +165,15 @@ namespace AcademicLoadModule.Properties {
         public static string Cancel {
             get {
                 return ResourceManager.GetString("Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Удалить расчетный лист кафедральной нагрузки.
+        /// </summary>
+        public static string DeleteCalculationSheet {
+            get {
+                return ResourceManager.GetString("DeleteCalculationSheet", resourceCulture);
             }
         }
         
@@ -192,6 +201,15 @@ namespace AcademicLoadModule.Properties {
         public static string EditGroup {
             get {
                 return ResourceManager.GetString("EditGroup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Экспортировать преподавательскую нагрузку в файл .xls или .xlsx.
+        /// </summary>
+        public static string ExportTeacherLoad {
+            get {
+                return ResourceManager.GetString("ExportTeacherLoad", resourceCulture);
             }
         }
         
@@ -264,6 +282,15 @@ namespace AcademicLoadModule.Properties {
         public static string MessageDeleteTeacher {
             get {
                 return ResourceManager.GetString("MessageDeleteTeacher", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Назначение преподавателя к дисциплине будет отменено.
+        /// </summary>
+        public static string MessageDeleteTeacherLoadDiscipline {
+            get {
+                return ResourceManager.GetString("MessageDeleteTeacherLoadDiscipline", resourceCulture);
             }
         }
         
@@ -349,6 +376,24 @@ namespace AcademicLoadModule.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Количество студентов на бюджетной основе:.
+        /// </summary>
+        public static string StudentsBudget {
+            get {
+                return ResourceManager.GetString("StudentsBudget", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Количество студентов на договорной основе:.
+        /// </summary>
+        public static string StudentsContract {
+            get {
+                return ResourceManager.GetString("StudentsContract", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Количество человек:.
         /// </summary>
         public static string StudentsNumber {
@@ -399,6 +444,15 @@ namespace AcademicLoadModule.Properties {
         public static string SuccessDeleteTeacher {
             get {
                 return ResourceManager.GetString("SuccessDeleteTeacher", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Назначение преподавателя к дисциплине успешно отменено..
+        /// </summary>
+        public static string SuccessDeleteTeacherLoadDiscipline {
+            get {
+                return ResourceManager.GetString("SuccessDeleteTeacherLoadDiscipline", resourceCulture);
             }
         }
         

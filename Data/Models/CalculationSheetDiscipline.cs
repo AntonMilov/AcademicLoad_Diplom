@@ -1,9 +1,9 @@
 ﻿namespace Data.Models
 {
     /// <summary>
-    /// Сущности для строк в таблице расчетного листа кафедральной нагрузки
+    /// Модель для строк в таблице расчетного листа кафедральной нагрузки.
     /// </summary>
-    public class CalculationSheetDiscipline
+    public partial class CalculationSheetDiscipline
     {
         /// <summary>
         /// 
@@ -100,7 +100,6 @@
         /// Количество зачетов с оценкой.
         /// </summary>
         public int CountDifferentiatedTest { get; set; }
-
 
         /// <summary>
         /// Прочее.

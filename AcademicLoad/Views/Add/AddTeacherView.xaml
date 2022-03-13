@@ -6,7 +6,7 @@
              mc:Ignorable="d" 
              xmlns:prism="http://prismlibrary.com/"
              xmlns:prop="clr-namespace:AcademicLoadModule.Properties" xmlns:viewmodels="clr-namespace:AcademicLoadModule.ViewModels"
-              prism:ViewModelLocator.AutoWireViewModel="True">
+             prism:ViewModelLocator.AutoWireViewModel="True">
 
     <UserControl.Resources>
         <ResourceDictionary Source="/Infrastructure;component/Themes/Generic.xaml"/>

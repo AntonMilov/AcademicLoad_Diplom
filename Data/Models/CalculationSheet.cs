@@ -1,5 +1,4 @@
-﻿
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Data.Models
 {
@@ -32,13 +31,14 @@ namespace Data.Models
         /// Всего бюджетников.
         /// </summary>
         public double TotalStudentsBudget { get; set; }
+
         /// <summary>
         /// Всего договорников.
         /// </summary>
         public double TotalStudentsContract { get; set; }
         
         /// <summary>
-        /// Всегоа часов.
+        /// Всего часов.
         /// </summary>
          public double TotalHours { get; set; }
 

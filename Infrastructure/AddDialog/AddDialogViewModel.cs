@@ -1,5 +1,5 @@
 ﻿using System;
-using Infrastructure.NotificationDialog.Controller;
+using Infrastructure.DialogControllers.Interfaces;
 using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Services.Dialogs;
@@ -11,7 +11,7 @@ namespace Infrastructure.AddDialog
     /// </summary>
     public class AddDialogViewModel : BindableBase, IDialogAware
     {
-        private readonly INotificationDialogController notificationDialogController;
+        private readonly IDialogController dialogController;
         private object content;
         private string title;
         private string header;
@@ -21,9 +21,9 @@ namespace Infrastructure.AddDialog
         /// <summary>
         /// .ctor
         /// </summary>
-        public AddDialogViewModel(INotificationDialogController notificationDialogController)
+        public AddDialogViewModel(IDialogController dialogController)
         {
-            this.notificationDialogController = notificationDialogController;
+            this.dialogController = dialogController;
         }
 
         /// <summary>
@@ -122,7 +122,7 @@ namespace Infrastructure.AddDialog
             {
                 if (!CanCloseWindow())
                 {
-                    notificationDialogController.OpenNotificationDialog(Properties.Resources.Error, Properties.Resources.ErrorConfirm);
+                    dialogController.OpenNotificationDialog(Properties.Resources.Error, Properties.Resources.ErrorConfirm);
                 }
                 else
                 {

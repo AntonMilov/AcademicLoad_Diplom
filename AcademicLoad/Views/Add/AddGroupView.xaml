@@ -31,9 +31,18 @@
 
             <TextBlock Style="{StaticResource HeaderH2}"
                        Margin="{StaticResource MarginH2}"
-                       Text="{x:Static prop:Resources.Students}" />
+                       TextWrapping="Wrap"
+                       Text="{x:Static prop:Resources.StudentsBudget}" />
             <TextBox Margin="{StaticResource MarginTextBox}"
-                     Text="{Binding Students}"
+                     Text="{Binding StudentsBudget}"
+                     Style="{StaticResource EditTextBox}" />
+
+            <TextBlock Style="{StaticResource HeaderH2}"
+                       Margin="{StaticResource MarginH2}"
+                       TextWrapping="Wrap"
+                       Text="{x:Static prop:Resources.StudentsContract}" />
+            <TextBox Margin="{StaticResource MarginTextBox}"
+                     Text="{Binding StudentsContract}"
                      Style="{StaticResource EditTextBox}" />
 
         </StackPanel>

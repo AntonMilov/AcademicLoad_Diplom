@@ -2,13 +2,16 @@
 using AcademicLoadModule.Controllers.Interfaces;
 using AcademicLoadModule.Views;
 using AcademicLoadModule.Views.Empty;
+using Core;
 using Core.Excel;
 using Core.Excel.Interfaces;
 using Core.Json;
 using Core.Json.Interfaces;
 using Core.Services;
 using Core.Services.Interfaces;
-using Infrastructure.NotificationDialog.Controller;
+using Infrastructure;
+using Infrastructure.DialogControllers;
+using Infrastructure.DialogControllers.Interfaces;
 using Microsoft.Win32;
 using Prism.Ioc;
 using Prism.Modularity;
@@ -39,22 +42,13 @@ namespace AcademicLoadModule
         /// <inheritdoc/>
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.Register<INotificationDialogController, NotificationDialogController>();
-            containerRegistry.Register<OpenFileDialog>();
-            containerRegistry.Register<IExcelExporter,ExcelExporter>();
-            containerRegistry.Register<IJsonImporter, JsonImporter>();
-            containerRegistry.Register<IJsonExporter, JsonExporter>();
-
+            containerRegistry.RegisterInfrastructure();
+            containerRegistry.RegisterCore();
 
             containerRegistry.RegisterSingleton<ITeacherController, TeacherController>();
-            containerRegistry.RegisterSingleton<ITeacherService, TeacherService>();
-            containerRegistry.RegisterSingleton<IGroupService, GroupService>();
-
             containerRegistry.RegisterSingleton<IGroupController, GroupController>();
-
-
             containerRegistry.RegisterSingleton<ICalculationSheetController, CalculationSheetController>();
-            containerRegistry.RegisterSingleton<ICalculationSheetService, CalculationSheetService>();
+            containerRegistry.RegisterSingleton<ITeacherLoadDisciplineController, TeacherLoadDisciplineController>();
         }
     }
 }

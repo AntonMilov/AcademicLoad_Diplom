@@ -32,6 +32,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Prism, Version=7.2.0.1422, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Users\антон\.nuget\packages\prism.core\7.2.0.1422\lib\net45\Prism.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -44,13 +48,15 @@
   <ItemGroup>
     <Compile Include="Enums\AcademicTitle.cs" />
     <Compile Include="Enums\Rate.cs" />
+    <Compile Include="Enums\TeacherLoadDisciplineFlags.cs" />
     <Compile Include="Models\CalculationSheet.cs" />
+    <Compile Include="Models\CalculationSheetDiscipline.CalculationLoad.cs" />
     <Compile Include="Models\CalculationSheetDiscipline.cs" />
-    <Compile Include="Models\DisiplineTeacherLoad.cs" />
+    <Compile Include="Models\TeacherLoadDiscipline.cs" />
     <Compile Include="Models\Group.cs" />
     <Compile Include="Models\Teacher.cs" />
+    <Compile Include="Models\TeacherLoadDiscipline.Validation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

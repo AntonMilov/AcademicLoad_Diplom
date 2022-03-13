@@ -57,7 +57,9 @@
     <Compile Include="Controllers\Interfaces\ICalculationSheetController.cs" />
     <Compile Include="Controllers\Interfaces\IGroupController.cs" />
     <Compile Include="Controllers\Interfaces\ITeacherController.cs" />
+    <Compile Include="Controllers\Interfaces\ITeacherLoadDisciplineController.cs" />
     <Compile Include="Controllers\TeacherController.cs" />
+    <Compile Include="Controllers\TeacherLoadDisciplineController.cs" />
     <Compile Include="Events\CalculationSheetAddedEvent.cs" />
     <Compile Include="Events\GroupsCountChangeEvent.cs" />
     <Compile Include="Events\TeachersCountChangeEvent.cs" />
@@ -74,6 +76,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="ViewModels\Add\AddTeacherLoadDisciplineViewModel.cs" />
     <Compile Include="ViewModels\Add\AddGroupViewModel.cs" />
     <Compile Include="ViewModels\Add\AddTeacherViewModel.cs" />
     <Compile Include="ViewModels\CalculationSheetViewModel.cs" />
@@ -85,6 +88,9 @@
     <Compile Include="ViewModels\TeachersViewModel.cs" />
     <Compile Include="Views\Add\AddGroupView.xaml.cs">
       <DependentUpon>AddGroupView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Add\AddTeacherLoadDisciplineView.xaml.cs">
+      <DependentUpon>AddTeacherLoadDisciplineView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Add\AddTeacherView.xaml.cs">
       <DependentUpon>AddTeacherView.xaml</DependentUpon>
@@ -136,6 +142,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="Views\Add\AddGroupView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Add\AddTeacherLoadDisciplineView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

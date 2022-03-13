@@ -1,24 +1,36 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace Data.Models
 {
     /// <summary>
-    /// Модель группы.
+    /// Модель учебной группы.
     /// </summary>
     public class Group
     {
+        private string name;
+
         /// <summary>
         /// Название группы.
         /// </summary>
-        public string Name {get; set;}
+        public string Name
+        {
+            get => name;
+            set => name = value.ToUpper();
+
+        }
 
         /// <summary>
-        /// Кол-во студентов.
+        /// Всего студентов.
         /// </summary>
-        public int Students { get; set; }
+        public int Students => StudentsBudget + StudentsContract;
+
+        /// <summary>
+        /// Количество студентов на бюджетной основе.
+        /// </summary>
+        public int StudentsBudget { get; set; }
+
+        /// <summary>
+        /// Количество студентов на договорной основе.
+        /// </summary>
+        public int StudentsContract { get; set; }
     }
 }
