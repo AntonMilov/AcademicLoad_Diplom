@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Core.Services.Interfaces;
+using Data.Enums;
 using Data.Models;
 
 namespace Core.Services
@@ -11,9 +12,10 @@ namespace Core.Services
     /// <summary>
     /// <see cref="ITeacherLoadDisciplineService"/>
     /// </summary>
-    public class TeacherLoadDisciplineService: ITeacherLoadDisciplineService
+    public class TeacherLoadDisciplineService : ITeacherLoadDisciplineService
     {
         private List<TeacherLoadDiscipline> teacherLoadDisciplines;
+        private readonly СalculatorTeacherLoadDiscipline сalculatorTeacherLoadDiscipline = new СalculatorTeacherLoadDiscipline();
 
         /// <summary>
         /// ctor.
@@ -23,40 +25,53 @@ namespace Core.Services
             teacherLoadDisciplines = new List<TeacherLoadDiscipline>();
         }
 
+        /// <inheritdoc/>
         public List<TeacherLoadDiscipline> TeacherLoadDisciplines
         {
             get => teacherLoadDisciplines;
             set => teacherLoadDisciplines = value;
         }
 
+        /// <inheritdoc/>
         public void AddTeacherLoadDiscipline(TeacherLoadDiscipline teacherLoadDiscipline, CalculationSheetDiscipline calculationSheetDiscipline)
         {
             TeacherLoadDisciplines.Add(teacherLoadDiscipline);
 
-            AddInfromation(teacherLoadDiscipline, calculationSheetDiscipline);
+            switch (teacherLoadDiscipline.TeacherLoadDisciplineFlags)
+            {
+                case TeacherLoadDisciplineFlags.IsMainLecture:
+                    сalculatorTeacherLoadDiscipline.CalculateForMainLecture(teacherLoadDiscipline, calculationSheetDiscipline);
+                    break;
+                case TeacherLoadDisciplineFlags.IsAdditionalLecture:
+                    сalculatorTeacherLoadDiscipline.CalculateForAdditionalLecture(teacherLoadDiscipline, calculationSheetDiscipline);
+                    break;
+                case TeacherLoadDisciplineFlags.IsNotLecture:
+                    сalculatorTeacherLoadDiscipline.CalculateForNotLecture(teacherLoadDiscipline, calculationSheetDiscipline);
+                    break;
+            }
+
+            сalculatorTeacherLoadDiscipline.CalculateDividerGroups(teacherLoadDiscipline, calculationSheetDiscipline);
 
             calculationSheetDiscipline.TeacherLoadDisciplines.Add(teacherLoadDiscipline);
+            teacherLoadDiscipline.DividerGroups = calculationSheetDiscipline.DividerGroups;
+
+            foreach (var variable in calculationSheetDiscipline.TeacherLoadDisciplines)
+            {
+                variable.Update();
+            }
         }
 
+        /// <inheritdoc/>
         public void DeleteTeacherLoadDiscipline(TeacherLoadDiscipline teacherLoadDiscipline, CalculationSheetDiscipline calculationSheetDiscipline)
         {
             TeacherLoadDisciplines.Remove(teacherLoadDiscipline);
 
             calculationSheetDiscipline.TeacherLoadDisciplines.Remove(teacherLoadDiscipline);
-        }
 
-        private void AddInfromation(TeacherLoadDiscipline teacherLoadDiscipline, CalculationSheetDiscipline calculationSheetDiscipline)
-        {
-            teacherLoadDiscipline.Semester = calculationSheetDiscipline.Semester;
-
-            teacherLoadDiscipline.HoursLecture = calculationSheetDiscipline.HoursLecture;
-            teacherLoadDiscipline.HoursLaboratoryWork = calculationSheetDiscipline.HoursLaboratoryWork;
-            teacherLoadDiscipline.HoursPracticum = calculationSheetDiscipline.HoursPracticum;
-            teacherLoadDiscipline.HoursKpKr = calculationSheetDiscipline.HoursKpKr;
-            teacherLoadDiscipline.HoursСontrolWork = calculationSheetDiscipline.HoursСontrolWork;
-            teacherLoadDiscipline.HoursExam = calculationSheetDiscipline.HoursExam;
-            teacherLoadDiscipline.HoursTest = calculationSheetDiscipline.HoursTest;
-            teacherLoadDiscipline.HoursConsultation = calculationSheetDiscipline.HoursConsultation;
+            foreach (var group in teacherLoadDiscipline.Groups)
+            {
+                calculationSheetDiscipline.DividerGroups[group.Name]--;
+            }
         }
     }
 }

@@ -28,12 +28,14 @@ namespace Core.Services
             this.jsonExporter = jsonExporter;
         }
 
+        /// <inheritdoc/>
         public List<Teacher> Teachers
         {
             get => teachers;
             set => teachers = value;
         }
 
+        /// <inheritdoc/>
         public void AddTeacher(Teacher teacher)
         {
             Teachers.Add(teacher);
@@ -41,6 +43,7 @@ namespace Core.Services
             jsonExporter.SaveTeachers(Teachers);
         }
 
+        /// <inheritdoc/>
         public void DeleteTeacher(Teacher teacher)
         {
             Teachers.Remove(teacher);

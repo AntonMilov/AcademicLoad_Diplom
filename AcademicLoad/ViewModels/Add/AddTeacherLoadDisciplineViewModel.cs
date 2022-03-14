@@ -165,17 +165,17 @@ namespace AcademicLoadModule.ViewModels
 
             if (IsMainLecture)
             {
-                teacherLoadDisciplineFlags = teacherLoadDisciplineFlags & TeacherLoadDisciplineFlags.IsMainLecture;
+                teacherLoadDisciplineFlags = teacherLoadDisciplineFlags | TeacherLoadDisciplineFlags.IsMainLecture;
             }
 
             if (IsAdditionalLecture)
             {
-                teacherLoadDisciplineFlags = teacherLoadDisciplineFlags & TeacherLoadDisciplineFlags.IsAdditionalLecture;
+                teacherLoadDisciplineFlags = teacherLoadDisciplineFlags | TeacherLoadDisciplineFlags.IsAdditionalLecture;
             }
 
             if (!IsAdditionalLecture && !IsMainLecture)
             {
-                teacherLoadDisciplineFlags = teacherLoadDisciplineFlags & TeacherLoadDisciplineFlags.IsNotLecture;
+                teacherLoadDisciplineFlags = teacherLoadDisciplineFlags | TeacherLoadDisciplineFlags.IsNotLecture;
             }
 
             return new TeacherLoadDiscipline()

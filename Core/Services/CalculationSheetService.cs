@@ -9,6 +9,9 @@ using Data.Models;
 
 namespace Core.Services
 {
+    /// <summary>
+    /// <see cref="ICalculationSheetService"/>
+    /// </summary>
     public class CalculationSheetService : ICalculationSheetService
     {
         private readonly IExcelExporter excelExporter;
@@ -22,9 +25,7 @@ namespace Core.Services
            
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
+        /// <inheritdoc/>
         public CalculationSheet AddCalculationSheet(string path)
         {
             return excelExporter.ExportCalculationSheet(path);

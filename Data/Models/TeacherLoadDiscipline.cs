@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using Data.Enums;
 using Prism.Mvvm;
@@ -18,21 +19,21 @@ namespace Data.Models
         private List<Group> groups;
         private int studentsBudget;
         private int studentsContract;
-        private double hoursLecture ;
-        private double hoursLaboratoryWork ;
-        private double hoursPracticum ;
-        private double hoursKpKr ;
-        private double hoursСontrolWork ;
-        private double hoursExam ;
-        private double hoursTest ;
-        private double hoursConsultation ;
-        private double hoursOtherLoadVpo ;
-        private double hoursTraining ;
-        private double hoursTotalFallSemester ;
-        private double hoursTotalSpringSemester ;
-        private double hoursTotalYearLoad ;
+        private double hoursLecture;
+        private double hoursLaboratoryWork;
+        private double hoursPracticum;
+        private double hoursKpKr;
+        private double hoursСontrolWork;
+        private double hoursExam;
+        private double hoursTest;
+        private double hoursConsultation;
+        private double hoursOtherLoadVpo;
+        private double hoursTraining;
+        private double hoursTotalFallSemester;
+        private double hoursTotalSpringSemester;
+        private double hoursTotalYearLoad;
 
-        private double hoursLectureMaxValue= maxValue;
+        private double hoursLectureMaxValue = maxValue;
         private double hoursLaboratoryWorkMaxValue = maxValue;
         private double hoursPracticumMaxValue = maxValue;
         private double hoursKpKrMaxValue = maxValue;
@@ -47,6 +48,8 @@ namespace Data.Models
         {
             PropertyChanged += new PropertyChangedEventHandler(PropertyChangedHandler);
         }
+
+        public Dictionary<string, int> DividerGroups;
 
         /// <summary>
         /// Флаги.
@@ -102,12 +105,46 @@ namespace Data.Models
             set => SetProperty(ref studentsContract, value);
         }
 
-        private void PropertyChangedHandler(object sender, PropertyChangedEventArgs e)
+        /// <summary>
+        /// Функция обновления
+        /// </summary>
+        public void Update()
         {
+            HoursTest = 0;
+            foreach (var group in groups)
+            {
+                int students = 0;
+                double calculateStudents = (double)group.Students / DividerGroups[group.Name];
+
+                if (TeacherLoadDisciplineFlags.HasFlag(TeacherLoadDisciplineFlags.IsMainLecture))
+                {
+                    students = (int)Math.Ceiling(calculateStudents);
+                }
+                else
+                {
+                    students = (int)calculateStudents;
+                }
+
+                HoursTest = HoursTest + students * 0.25;
+            }
+
             СalculationHoursTotalFallSemester();
             СalculationHoursTotalSpringSemester();
             СalculationHoursTotalYearLoad();
         }
+
+        private void PropertyChangedHandler(object sender, PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == nameof(HoursTest))
+            {
+                return;
+            }
+
+            СalculationHoursTotalFallSemester();
+            СalculationHoursTotalSpringSemester();
+            СalculationHoursTotalYearLoad();
+        }
+
 
         private void СalculationHoursTotalFallSemester()
         {

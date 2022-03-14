@@ -24,7 +24,8 @@ namespace Core.Services
             this.jsonImporter = jsonImporter;
             this.jsonExporter = jsonExporter;
         }
-      
+
+        /// <inheritdoc/>
         public void AddGroup(Group group)
         {
             Groups.Add(group);
@@ -32,6 +33,7 @@ namespace Core.Services
             jsonExporter.SaveGroups(Groups);
         }
 
+        /// <inheritdoc/>
         public void DeleteGroup(Group group)
         {
             groups.Remove(group);
@@ -39,6 +41,7 @@ namespace Core.Services
             jsonExporter.SaveGroups(Groups);
         }
 
+        /// <inheritdoc/>
         public List<Group> Groups
         {
             get => groups;
