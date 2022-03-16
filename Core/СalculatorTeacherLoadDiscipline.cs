@@ -1,5 +1,6 @@
 ﻿
 
+using Data.Enums;
 using Data.Models;
 using System.Collections.Generic;
 using System.Linq;
@@ -83,6 +84,33 @@ namespace Core
                 }
 
                 calculationSheetDiscipline.DividerGroups[group.Name]++;
+            }
+        }
+
+        public void CheckFlags(TeacherLoadDiscipline teacherLoadDiscipline, CalculationSheetDiscipline calculationSheetDiscipline)
+        {
+            if (calculationSheetDiscipline.CountExam == 1)
+            {
+                teacherLoadDiscipline.TeacherLoadDisciplineFlags = teacherLoadDiscipline.TeacherLoadDisciplineFlags |
+                    TeacherLoadDisciplineFlags.NasExam;
+            }
+
+            if (calculationSheetDiscipline.CountTest == 1 || calculationSheetDiscipline.CountDifferentiatedTest == 1)
+            {
+                teacherLoadDiscipline.TeacherLoadDisciplineFlags = teacherLoadDiscipline.TeacherLoadDisciplineFlags |
+                    TeacherLoadDisciplineFlags.NasTest;
+            }
+
+            if (calculationSheetDiscipline.CountKp == 1)
+            {
+                teacherLoadDiscipline.TeacherLoadDisciplineFlags = teacherLoadDiscipline.TeacherLoadDisciplineFlags |
+                    TeacherLoadDisciplineFlags.NasKp;
+            }
+
+            if (calculationSheetDiscipline.CountKr == 1)
+            {
+                teacherLoadDiscipline.TeacherLoadDisciplineFlags = teacherLoadDiscipline.TeacherLoadDisciplineFlags |
+                    TeacherLoadDisciplineFlags.NasKr;
             }
         }
     }

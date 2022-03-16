@@ -54,7 +54,24 @@ namespace Data.Models
         public double HoursLaboratoryWork
         {
             get => hoursLaboratoryWork;
-            set => SetProperty(ref hoursLaboratoryWork, value);
+            set
+            {
+                if (hoursLaboratoryWorkMaxValue == maxValue)
+                {
+                    hoursLaboratoryWorkMaxValue = value;
+                }
+
+                if (value > hoursLaboratoryWorkMaxValue)
+                {
+                    SetProperty(ref hoursLaboratoryWork, value);
+                    return;
+                }
+                else
+                {
+                    errors[nameof(HoursLaboratoryWork)] = null;
+                }
+                SetProperty(ref hoursLaboratoryWork, value);
+            }
         }
 
         /// <summary>
@@ -63,7 +80,24 @@ namespace Data.Models
         public double HoursPracticum
         {
             get => hoursPracticum;
-            set => SetProperty(ref hoursPracticum, value);
+            set
+            {
+                if (hoursPracticumMaxValue == maxValue)
+                {
+                    hoursPracticumMaxValue = value;
+                }
+
+                if (value > hoursPracticumMaxValue)
+                {
+                    SetProperty(ref hoursPracticum, value);
+                    return;
+                }
+                else
+                {
+                    errors[nameof(HoursPracticum)] = null;
+                }
+                SetProperty(ref hoursPracticum, value);
+            }
         }
 
         /// <summary>
@@ -72,7 +106,24 @@ namespace Data.Models
         public double HoursKpKr
         {
             get => hoursKpKr;
-            set => SetProperty(ref hoursKpKr, value);
+            set
+            {
+                if (hoursKpKrMaxValue == maxValue)
+                {
+                    hoursKpKrMaxValue = value;
+                }
+
+                if (value > hoursKpKrMaxValue)
+                {
+                    SetProperty(ref hoursKpKr, value);
+                    return;
+                }
+                else
+                {
+                    errors[nameof(HoursKpKr)] = null;
+                }
+                SetProperty(ref hoursKpKr, value);
+            }
         }
 
         /// <summary>
@@ -81,7 +132,24 @@ namespace Data.Models
         public double HoursСontrolWork
         {
             get => hoursСontrolWork;
-            set => SetProperty(ref hoursСontrolWork, value);
+            set
+            {
+                if (hoursСontrolWorkMaxValue == maxValue)
+                {
+                    hoursСontrolWorkMaxValue = value;
+                }
+
+                if (value > hoursСontrolWorkMaxValue)
+                {
+                    SetProperty(ref hoursСontrolWork, value);
+                    return;
+                }
+                else
+                {
+                    errors[nameof(HoursСontrolWork)] = null;
+                }
+                SetProperty(ref hoursСontrolWork, value);
+            }
         }
 
         /// <summary>
@@ -90,9 +158,25 @@ namespace Data.Models
         public double HoursExam
         {
             get => hoursExam;
-            set => SetProperty(ref hoursExam, value);
-        }
+            set
+            {
+                if (hoursExamMaxValue == maxValue)
+                {
+                    hoursExamMaxValue = value;
+                }
 
+                if (value > hoursExamMaxValue)
+                {
+                    SetProperty(ref hoursExam, value);
+                    return;
+                }
+                else
+                {
+                    errors[nameof(HoursExam)] = null;
+                }
+                SetProperty(ref hoursExam, value);
+            }
+        }
 
         /// <summary>
         /// Часы отведенные для зачета.
@@ -100,7 +184,24 @@ namespace Data.Models
         public double HoursTest
         {
             get => hoursTest;
-            set => SetProperty(ref hoursTest, value);
+            set
+            {
+                if (hoursTestMaxValue == maxValue)
+                {
+                    hoursTestMaxValue = value;
+                }
+
+                if (value > hoursTestMaxValue)
+                {
+                    SetProperty(ref hoursTest, value);
+                    return;
+                }
+                else
+                {
+                    errors[nameof(HoursTest)] = null;
+                }
+                SetProperty(ref hoursTest, value);
+            }
         }
 
 
@@ -110,9 +211,25 @@ namespace Data.Models
         public double HoursConsultation
         {
             get => hoursConsultation;
-            set => SetProperty(ref hoursConsultation, value);
-        }
+            set
+            {
+                if (hoursConsultationMaxValue == maxValue)
+                {
+                    hoursConsultationMaxValue = value;
+                }
 
+                if (value > hoursConsultationMaxValue)
+                {
+                    SetProperty(ref hoursConsultation, value);
+                    return;
+                }
+                else
+                {
+                    errors[nameof(HoursConsultation)] = null;
+                }
+                SetProperty(ref hoursConsultation, value);
+            }
+        }
 
         /// <summary>
         /// Часы под прочую нагрузку по ВПО.
@@ -123,7 +240,6 @@ namespace Data.Models
             set => SetProperty(ref hoursOtherLoadVpo, value);
         }
 
-
         /// <summary>
         /// Часы отведенные для подготовки аспирантов, интернов, ординаторов.
         /// </summary>
@@ -132,7 +248,6 @@ namespace Data.Models
             get => hoursTraining;
             set => SetProperty(ref hoursTraining, value);
         }
-
 
         /// <summary>
         /// Всего часов за осенний семестр.
@@ -151,7 +266,6 @@ namespace Data.Models
             get => hoursTotalSpringSemester;
             set => SetProperty(ref hoursTotalSpringSemester, value);
         }
-
 
         /// <summary>
         /// Всего за год нагрузка.

@@ -40,6 +40,9 @@ namespace Data.Models
         private double hoursСontrolWorkMaxValue = maxValue;
         private double hoursExamMaxValue = maxValue;
         private double hoursTestMaxValue = maxValue;
+        private double hoursConsultationMaxValue = maxValue;
+
+        private List<String> ignoredProperty = new List<string> { nameof(hoursTotalYearLoad), nameof(hoursTotalSpringSemester), nameof(hoursTotalFallSemester) };
 
         /// <summary>
         /// ctor.
@@ -105,37 +108,9 @@ namespace Data.Models
             set => SetProperty(ref studentsContract, value);
         }
 
-        /// <summary>
-        /// Функция обновления
-        /// </summary>
-        public void Update()
-        {
-            HoursTest = 0;
-            foreach (var group in groups)
-            {
-                int students = 0;
-                double calculateStudents = (double)group.Students / DividerGroups[group.Name];
-
-                if (TeacherLoadDisciplineFlags.HasFlag(TeacherLoadDisciplineFlags.IsMainLecture))
-                {
-                    students = (int)Math.Ceiling(calculateStudents);
-                }
-                else
-                {
-                    students = (int)calculateStudents;
-                }
-
-                HoursTest = HoursTest + students * 0.25;
-            }
-
-            СalculationHoursTotalFallSemester();
-            СalculationHoursTotalSpringSemester();
-            СalculationHoursTotalYearLoad();
-        }
-
         private void PropertyChangedHandler(object sender, PropertyChangedEventArgs e)
         {
-            if (e.PropertyName == nameof(HoursTest))
+            if (ignoredProperty.Contains(e.PropertyName))
             {
                 return;
             }
@@ -145,48 +120,5 @@ namespace Data.Models
             СalculationHoursTotalYearLoad();
         }
 
-
-        private void СalculationHoursTotalFallSemester()
-        {
-            if (Semester % 2 == 1)
-            {
-                HoursTotalFallSemester = HoursLecture +
-                     HoursLaboratoryWork +
-                     HoursPracticum + HoursKpKr +
-                     HoursСontrolWork +
-                     HoursExam +
-                     HoursTest +
-                     HoursConsultation +
-                     HoursOtherLoadVpo +
-                     HoursTraining;
-                return;
-            }
-
-            HoursTotalFallSemester = 0;
-        }
-
-        private void СalculationHoursTotalSpringSemester()
-        {
-            if (Semester % 2 == 0)
-            {
-                HoursTotalSpringSemester = HoursLecture +
-                     HoursLaboratoryWork +
-                     HoursPracticum + HoursKpKr +
-                     HoursСontrolWork +
-                     HoursExam +
-                     HoursTest +
-                     HoursConsultation +
-                     HoursOtherLoadVpo +
-                     HoursTraining;
-                return;
-            }
-
-            HoursTotalSpringSemester = 0;
-        }
-
-        private void СalculationHoursTotalYearLoad()
-        {
-            HoursTotalYearLoad = HoursTotalFallSemester + HoursTotalSpringSemester;
-        }
     }
 }

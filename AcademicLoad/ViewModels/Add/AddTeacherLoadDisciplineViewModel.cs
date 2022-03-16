@@ -28,8 +28,12 @@ namespace AcademicLoadModule.ViewModels
             IGroupController groupController,
             CalculationSheetDiscipline calculationSheetDiscipline)
         {
-            Teachers = teacherController.Items;
-            Groups = new ObservableCollection<Group>(groupController.Items.Where(x => Filter(calculationSheetDiscipline, x)));
+            Teachers = new ObservableCollection<Teacher>(teacherController.Items
+                .Where(x => !calculationSheetDiscipline.TeacherLoadDisciplines
+                .Select(y => y.Teacher)
+                .Contains(x)));
+            Groups = new ObservableCollection<Group>(groupController.Items
+                .Where(x => Filter(calculationSheetDiscipline, x)));
             SelectedGroups = new ObservableCollection<Group>();
 
             IsMainLecture = true;

@@ -50,6 +50,8 @@ namespace Core.Services
                     break;
             }
 
+            сalculatorTeacherLoadDiscipline.CheckFlags(teacherLoadDiscipline, calculationSheetDiscipline);
+
             сalculatorTeacherLoadDiscipline.CalculateDividerGroups(teacherLoadDiscipline, calculationSheetDiscipline);
 
             calculationSheetDiscipline.TeacherLoadDisciplines.Add(teacherLoadDiscipline);
