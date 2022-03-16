@@ -3,20 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Data.Models;
 
 namespace Core.Excel.Interfaces
 {
     /// <summary>
-    /// Интерфейс для экспорта Excel.
+    /// Интерфейс для импорта  Excel.
     /// </summary>
     public interface IExcelExporter
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="path"></param>
-        /// <returns></returns>
-        CalculationSheet ExportCalculationSheet(string path);
     }
 }
