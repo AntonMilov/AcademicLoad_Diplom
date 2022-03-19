@@ -26,5 +26,12 @@ namespace Core.Services.Interfaces
         /// Дисциплины преподовательской нагрузки.
         /// </summary>
         List<TeacherLoadDiscipline> TeacherLoadDisciplines { get; set; }
+
+        /// <summary>
+        /// Экспорт расччитаной преподавательской нагрузки.
+        /// </summary>
+        void ExportTeacherLoadDisciplines(string path,
+            CalculationSheet calculationSheet,
+            List<Teacher> teachers);
     }
 }

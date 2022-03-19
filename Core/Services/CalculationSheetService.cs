@@ -22,7 +22,6 @@ namespace Core.Services
         public CalculationSheetService(IExcelImporter excelExporter)
         {
             this.excelExporter = excelExporter;
-           
         }
 
         /// <inheritdoc/>

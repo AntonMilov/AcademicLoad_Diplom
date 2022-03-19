@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Core.Excel.Interfaces;
 using Core.Services.Interfaces;
 using Data.Enums;
 using Data.Models;
@@ -14,14 +15,18 @@ namespace Core.Services
     /// </summary>
     public class TeacherLoadDisciplineService : ITeacherLoadDisciplineService
     {
+        private readonly СalculatorTeacherLoadDiscipline сalculatorTeacherLoadDiscipline;
+        private readonly IExcelExporter excelExporter;
         private List<TeacherLoadDiscipline> teacherLoadDisciplines;
-        private readonly СalculatorTeacherLoadDiscipline сalculatorTeacherLoadDiscipline = new СalculatorTeacherLoadDiscipline();
 
         /// <summary>
         /// ctor.
         /// </summary>
-        public TeacherLoadDisciplineService()
+        public TeacherLoadDisciplineService(IExcelExporter excelExporter)
         {
+            this.excelExporter = excelExporter;
+            сalculatorTeacherLoadDiscipline = new СalculatorTeacherLoadDiscipline();
+
             teacherLoadDisciplines = new List<TeacherLoadDiscipline>();
         }
 
@@ -74,6 +79,14 @@ namespace Core.Services
             {
                 calculationSheetDiscipline.DividerGroups[group.Name]--;
             }
+        }
+
+        /// <inheritdoc/>
+        public void ExportTeacherLoadDisciplines(string path, 
+            CalculationSheet calculationSheet, 
+            List<Teacher> teachers)
+        {
+            excelExporter.ExportTeacherLoadDiscipline(path, calculationSheet, teachers, TeacherLoadDisciplines);
         }
     }
 }

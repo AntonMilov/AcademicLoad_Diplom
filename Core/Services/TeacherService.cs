@@ -5,7 +5,6 @@ using Core.Json.Interfaces;
 using Core.Services.Interfaces;
 using Data.Models;
 
-
 namespace Core.Services
 {
     /// <summary>
@@ -22,10 +21,10 @@ namespace Core.Services
         /// </summary>
         public TeacherService(IJsonImporter jsonImporter, IJsonExporter jsonExporter)
         {
-            Teachers = jsonImporter.LoadTeachers();
-
             this.jsonImporter = jsonImporter;
             this.jsonExporter = jsonExporter;
+
+            Teachers = jsonImporter.LoadTeachers();
         }
 
         /// <inheritdoc/>

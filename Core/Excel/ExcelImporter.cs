@@ -18,7 +18,7 @@ namespace Core.Excel
         {
             CalculationSheet calculationSheet = new CalculationSheet();
 
-           calculationSheet.FileName = path.Substring(path.LastIndexOf("\\")+2);
+            calculationSheet.FileName = path.Substring(path.LastIndexOf("\\")+2);
 
             var stream = File.Open(path, FileMode.Open, FileAccess.Read);
             var reader = ExcelReaderFactory.CreateReader(stream);
@@ -32,17 +32,16 @@ namespace Core.Excel
 
         private void LoadMainInformation(CalculationSheet calculationSheet, DataTable table)
         {
-            calculationSheet.Department = table.Rows[ExportRowColumnConstants.DepartmentRow][ExportRowColumnConstants.DepartmentColumn].ToString();
-            calculationSheet.Faculty = table.Rows[ExportRowColumnConstants.FacultyRow][ExportRowColumnConstants.FacultyColumn].ToString();
-            calculationSheet.AcademicYear = table.Rows[ExportRowColumnConstants.AcademicYearRow][ExportRowColumnConstants.AcademicYearColumn].ToString();
+            calculationSheet.Department = table.Rows[ImportRowColumnConstants.DepartmentRow][ImportRowColumnConstants.DepartmentColumn].ToString();
+            calculationSheet.Faculty = table.Rows[ImportRowColumnConstants.FacultyRow][ImportRowColumnConstants.FacultyColumn].ToString();
+            calculationSheet.AcademicYear = table.Rows[ImportRowColumnConstants.AcademicYearRow][ImportRowColumnConstants.AcademicYearColumn].ToString();
 
+            calculationSheet.TotalStudentsBudget = Convert.ToDouble(table.Rows[ImportRowColumnConstants.TotalStudentsBudgetRow][ImportRowColumnConstants.TotalStudentsBudgetColumn]);
+            calculationSheet.TotalStudentsContract = Convert.ToDouble(table.Rows[ImportRowColumnConstants.TotalStudentsContractRow][ImportRowColumnConstants.TotalStudentsContractColumn]);
+            calculationSheet.TotalHours = Convert.ToDouble(table.Rows[ImportRowColumnConstants.TotalHoursRow][ImportRowColumnConstants.TotalHoursColumn]);
 
-            calculationSheet.TotalStudentsBudget = Convert.ToDouble(table.Rows[ExportRowColumnConstants.TotalStudentsBudgetRow][ExportRowColumnConstants.TotalStudentsBudgetColumn]);
-            calculationSheet.TotalStudentsContract = Convert.ToDouble(table.Rows[ExportRowColumnConstants.TotalStudentsContractRow][ExportRowColumnConstants.TotalStudentsContractColumn]);
-            calculationSheet.TotalHours = Convert.ToDouble(table.Rows[ExportRowColumnConstants.TotalHoursRow][ExportRowColumnConstants.TotalHoursColumn]);
-
-            int row = ExportRowColumnConstants.TotalHoursStartRow;
-            int column = ExportRowColumnConstants.TotalHoursStartColumn;
+            int row = ImportRowColumnConstants.TotalHoursStartRow;
+            int column = ImportRowColumnConstants.TotalHoursStartColumn;
             calculationSheet.TotalHoursLecture = Convert.ToDouble(table.Rows[row][column]);
             calculationSheet.TotalHoursLaboratory = Convert.ToDouble(table.Rows[row][column + 1]);
             calculationSheet.TotalHoursPracticalWorks = Convert.ToDouble(table.Rows[row][column + 2]);
@@ -59,10 +58,10 @@ namespace Core.Excel
         {
             List<CalculationSheetDiscipline> calculationSheetDisciplines = new List<CalculationSheetDiscipline>();
 
-            for (int i = ExportRowColumnConstants.CalculationSheetDisciplineStartRow; i < table.Rows.Count; i++)
+            for (int i = ImportRowColumnConstants.CalculationSheetDisciplineStartRow; i < table.Rows.Count; i++)
             {
                 CalculationSheetDiscipline calculationSheetDiscipline = new CalculationSheetDiscipline();
-                int column = ExportRowColumnConstants.CalculationSheetDisciplineStartColumn;
+                int column = ImportRowColumnConstants.CalculationSheetDisciplineStartColumn;
 
                 calculationSheetDiscipline.Index = table.Rows[i][column].ToString();
                 calculationSheetDiscipline.Name = table.Rows[i][column + 1].ToString();
@@ -89,8 +88,7 @@ namespace Core.Excel
                 calculationSheetDiscipline.CountTest = ToInt32(table.Rows[i][column + 17]);
                 calculationSheetDiscipline.CountDifferentiatedTest = ToInt32(table.Rows[i][column + 18]);
                 calculationSheetDiscipline.CountEtc = ToInt32(table.Rows[i][column + 19]);
-
-
+   
                 calculationSheetDiscipline.HoursLecture = Convert.ToDouble(table.Rows[i][column + 20]);
                 calculationSheetDiscipline.HoursLaboratoryWork = Convert.ToDouble(table.Rows[i][column + 21]);
                 calculationSheetDiscipline.HoursPracticumLesson = Convert.ToDouble(table.Rows[i][column + 22]);

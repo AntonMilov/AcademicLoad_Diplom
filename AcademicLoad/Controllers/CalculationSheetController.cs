@@ -21,9 +21,10 @@ namespace AcademicLoadModule.Controllers
         private readonly OpenFileDialog openFileDialog;
         private readonly SaveFileDialog saveFileDialog;
         private readonly ICalculationSheetService calculationSheetService;
+        private readonly ITeacherLoadDisciplineService teacherLoadDisciplineService;
+        private readonly ITeacherService teacherService;
         private readonly IEventAggregator eventAggregator;
         private readonly IDialogController dialogController;
-        private CalculationSheet calculationSheet;
 
         /// <summary>
         /// ctor.
@@ -31,16 +32,19 @@ namespace AcademicLoadModule.Controllers
         /// <param name="openFileDialog"></param>
         public CalculationSheetController(OpenFileDialog openFileDialog,
             SaveFileDialog saveFileDialog,
-            ICalculationSheetService calculationSheetService, 
+            ICalculationSheetService calculationSheetService,
+            ITeacherLoadDisciplineService teacherLoadDisciplineService,
+            ITeacherService teacherService,
             IEventAggregator eventAggregator,
             IDialogController dialogController)
         {
             this.openFileDialog = openFileDialog;
             this.saveFileDialog = saveFileDialog;
             this.calculationSheetService = calculationSheetService;
+            this.teacherService = teacherService;
+            this.teacherLoadDisciplineService = teacherLoadDisciplineService;
             this.eventAggregator = eventAggregator;
             this.dialogController = dialogController;
-
         }
 
         /// <inheritdoc/>
@@ -57,7 +61,7 @@ namespace AcademicLoadModule.Controllers
             }
             catch (Exception e)
             {
-                dialogController.OpenNotificationDialog(Properties.Resources.Notification,"Не удалось импортировать данный файл.");
+                dialogController.OpenNotificationDialog(Properties.Resources.Notification, "Не удалось импортировать данный файл.");
             }
         }
 
@@ -92,7 +96,7 @@ namespace AcademicLoadModule.Controllers
         /// <inheritdoc/>
         public void ExportTeacherLoad(string path)
         {
-            throw new NotImplementedException();
+            teacherLoadDisciplineService.ExportTeacherLoadDisciplines(path, CalculationSheet, teacherService.Teachers);
         }
     }
 }

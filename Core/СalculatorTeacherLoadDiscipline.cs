@@ -59,7 +59,6 @@ namespace Core
         {
             teacherLoadDiscipline.Semester = calculationSheetDiscipline.Semester;
 
-
             teacherLoadDiscipline.HoursLaboratoryWork = calculationSheetDiscipline.HoursLaboratoryWork;
             teacherLoadDiscipline.HoursPracticum = calculationSheetDiscipline.HoursPracticum;
             teacherLoadDiscipline.HoursKpKr = calculationSheetDiscipline.HoursKpKr;

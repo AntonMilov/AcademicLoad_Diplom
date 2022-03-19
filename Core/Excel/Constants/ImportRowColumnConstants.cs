@@ -8,8 +8,9 @@ namespace Core.Excel
 {
     /// <summary>
     /// Расположение ячеек в таблице.
+    /// Со смещением -1.
     /// </summary>
-    public class ExportRowColumnConstants
+    public class ImportRowColumnConstants
     {
         public const int DepartmentRow = 1;
         public const int DepartmentColumn = 1;

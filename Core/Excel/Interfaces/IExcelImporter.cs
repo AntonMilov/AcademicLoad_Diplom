@@ -8,12 +8,12 @@ using Data.Models;
 namespace Core.Excel.Interfaces
 {
     /// <summary>
-    /// Интерфейс для экспорта Excel.
+    /// Интерфейс для импорта Excel.
     /// </summary>
     public interface IExcelImporter
     {
         /// <summary>
-        /// 
+        /// Импортиовать расчетный лист кафедральной нагрузки.
         /// </summary>
         /// <param name="path"></param>
         /// <returns></returns>
