@@ -20,5 +20,7 @@ namespace Data.Models
             get => teacherLoadDisciplines;
             set => teacherLoadDisciplines = value;
         }
+
+        public Dictionary<string, int> DividerGroups = new Dictionary<string, int>();
     }
 }

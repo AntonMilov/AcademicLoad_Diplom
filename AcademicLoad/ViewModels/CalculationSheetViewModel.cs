@@ -97,7 +97,8 @@ namespace AcademicLoadModule.ViewModels
 
         private void ExportTeacherLoad()
         {
-            calculationSheetController.AskExportExcelFile();
+            string path = calculationSheetController.AskExportExcelFile();
+            calculationSheetController.ExportTeacherLoad(path);
         }
     }
 }

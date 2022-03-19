@@ -52,10 +52,12 @@
     <Compile Include="Models\CalculationSheet.cs" />
     <Compile Include="Models\CalculationSheetDiscipline.CalculationLoad.cs" />
     <Compile Include="Models\CalculationSheetDiscipline.cs" />
+    <Compile Include="Models\TeacherLoadDiscipline.Calculation.cs" />
     <Compile Include="Models\TeacherLoadDiscipline.cs" />
     <Compile Include="Models\Group.cs" />
     <Compile Include="Models\Teacher.cs" />
     <Compile Include="Models\TeacherLoadDiscipline.Validation.cs" />
+    <Compile Include="NormsOfTime.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

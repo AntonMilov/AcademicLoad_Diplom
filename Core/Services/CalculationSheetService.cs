@@ -9,25 +9,25 @@ using Data.Models;
 
 namespace Core.Services
 {
+    /// <summary>
+    /// <see cref="ICalculationSheetService"/>
+    /// </summary>
     public class CalculationSheetService : ICalculationSheetService
     {
-        private readonly IExcelExporter excelExporter;
+        private readonly IExcelImporter excelExporter;
 
         /// <summary>
         /// .ctor
         /// </summary>
-        public CalculationSheetService(IExcelExporter excelExporter)
+        public CalculationSheetService(IExcelImporter excelExporter)
         {
             this.excelExporter = excelExporter;
-           
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
+        /// <inheritdoc/>
         public CalculationSheet AddCalculationSheet(string path)
         {
-            return excelExporter.ExportCalculationSheet(path);
+            return excelExporter.ImportCalculationSheet(path);
         }
     }
 }

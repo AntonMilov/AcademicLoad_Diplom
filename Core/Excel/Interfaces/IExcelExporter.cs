@@ -1,9 +1,9 @@
-﻿using System;
+﻿using Data.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Data.Models;
 
 namespace Core.Excel.Interfaces
 {
@@ -13,10 +13,13 @@ namespace Core.Excel.Interfaces
     public interface IExcelExporter
     {
         /// <summary>
-        /// 
+        /// Экспортировать.
         /// </summary>
         /// <param name="path"></param>
         /// <returns></returns>
-        CalculationSheet ExportCalculationSheet(string path);
+        void ExportTeacherLoadDiscipline(string path,
+            CalculationSheet calculationSheet,
+            List<Teacher> teachers,
+            List<TeacherLoadDiscipline> teacherLoadDisciplines);
     }
 }

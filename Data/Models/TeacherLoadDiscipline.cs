@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using Data.Enums;
 using Prism.Mvvm;
@@ -18,27 +19,30 @@ namespace Data.Models
         private List<Group> groups;
         private int studentsBudget;
         private int studentsContract;
-        private double hoursLecture ;
-        private double hoursLaboratoryWork ;
-        private double hoursPracticum ;
-        private double hoursKpKr ;
-        private double hoursСontrolWork ;
-        private double hoursExam ;
-        private double hoursTest ;
-        private double hoursConsultation ;
-        private double hoursOtherLoadVpo ;
-        private double hoursTraining ;
-        private double hoursTotalFallSemester ;
-        private double hoursTotalSpringSemester ;
-        private double hoursTotalYearLoad ;
+        private double hoursLecture;
+        private double hoursLaboratoryWork;
+        private double hoursPracticum;
+        private double hoursKpKr;
+        private double hoursСontrolWork;
+        private double hoursExam;
+        private double hoursTest;
+        private double hoursConsultation;
+        private double hoursOtherLoadVpo;
+        private double hoursTraining;
+        private double hoursTotalFallSemester;
+        private double hoursTotalSpringSemester;
+        private double hoursTotalYearLoad;
 
-        private double hoursLectureMaxValue= maxValue;
+        private double hoursLectureMaxValue = maxValue;
         private double hoursLaboratoryWorkMaxValue = maxValue;
         private double hoursPracticumMaxValue = maxValue;
         private double hoursKpKrMaxValue = maxValue;
         private double hoursСontrolWorkMaxValue = maxValue;
         private double hoursExamMaxValue = maxValue;
         private double hoursTestMaxValue = maxValue;
+        private double hoursConsultationMaxValue = maxValue;
+
+        private List<String> ignoredProperty = new List<string> { nameof(hoursTotalYearLoad), nameof(hoursTotalSpringSemester), nameof(hoursTotalFallSemester) };
 
         /// <summary>
         /// ctor.
@@ -47,6 +51,8 @@ namespace Data.Models
         {
             PropertyChanged += new PropertyChangedEventHandler(PropertyChangedHandler);
         }
+
+        public Dictionary<string, int> DividerGroups;
 
         /// <summary>
         /// Флаги.
@@ -104,52 +110,15 @@ namespace Data.Models
 
         private void PropertyChangedHandler(object sender, PropertyChangedEventArgs e)
         {
+            if (ignoredProperty.Contains(e.PropertyName))
+            {
+                return;
+            }
+
             СalculationHoursTotalFallSemester();
             СalculationHoursTotalSpringSemester();
             СalculationHoursTotalYearLoad();
         }
 
-        private void СalculationHoursTotalFallSemester()
-        {
-            if (Semester % 2 == 1)
-            {
-                HoursTotalFallSemester = HoursLecture +
-                     HoursLaboratoryWork +
-                     HoursPracticum + HoursKpKr +
-                     HoursСontrolWork +
-                     HoursExam +
-                     HoursTest +
-                     HoursConsultation +
-                     HoursOtherLoadVpo +
-                     HoursTraining;
-                return;
-            }
-
-            HoursTotalFallSemester = 0;
-        }
-
-        private void СalculationHoursTotalSpringSemester()
-        {
-            if (Semester % 2 == 0)
-            {
-                HoursTotalSpringSemester = HoursLecture +
-                     HoursLaboratoryWork +
-                     HoursPracticum + HoursKpKr +
-                     HoursСontrolWork +
-                     HoursExam +
-                     HoursTest +
-                     HoursConsultation +
-                     HoursOtherLoadVpo +
-                     HoursTraining;
-                return;
-            }
-
-            HoursTotalSpringSemester = 0;
-        }
-
-        private void СalculationHoursTotalYearLoad()
-        {
-            HoursTotalYearLoad = HoursTotalFallSemester + HoursTotalSpringSemester;
-        }
     }
 }

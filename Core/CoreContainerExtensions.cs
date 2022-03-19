@@ -20,6 +20,7 @@ namespace Core
         public static void RegisterCore(this IContainerRegistry containerRegistry)
         {
             containerRegistry.Register<IExcelExporter, ExcelExporter>();
+            containerRegistry.Register<IExcelImporter, ExcelImporter>();
             containerRegistry.Register<IJsonImporter, JsonImporter>();
             containerRegistry.Register<IJsonExporter, JsonExporter>();
 

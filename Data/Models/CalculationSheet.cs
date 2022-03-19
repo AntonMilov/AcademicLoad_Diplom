@@ -23,9 +23,9 @@ namespace Data.Models
         public string Faculty { get; set; }
 
         /// <summary>
-        /// Учебный год
+        /// Учебный год.
         /// </summary>
-         public string AcademicYear { get; set; }
+        public string AcademicYear { get; set; }
 
         /// <summary>
         /// Всего бюджетников.
@@ -36,11 +36,11 @@ namespace Data.Models
         /// Всего договорников.
         /// </summary>
         public double TotalStudentsContract { get; set; }
-        
+
         /// <summary>
         /// Всего часов.
         /// </summary>
-         public double TotalHours { get; set; }
+        public double TotalHours { get; set; }
 
         #region TotalHours
         /// <summary>
@@ -57,37 +57,37 @@ namespace Data.Models
         /// Всего часов практических занятий.
         /// </summary>
         public double TotalHoursPracticalWorks { get; set; }
-       
+
         /// <summary>
         /// Всего часов КП,КР.
         /// </summary>
         public double TotalHoursKpKr { get; set; }
-       
+
         /// <summary>
         /// Всего часов контрольных работ.
         /// </summary>
         public double TotalHoursControlWorks { get; set; }
-       
+
         /// <summary>
         /// Всего часов экзаменов.
         /// </summary>
         public double TotalHoursExam { get; set; }
-       
+
         /// <summary>
         /// Всего засов зачетов.
         /// </summary>
         public double TotalHoursTest { get; set; }
-        
+
         /// <summary>
         /// Всего часов консультаций.
         /// </summary>
         public double TotalHoursСonsultation { get; set; }
-       
+
         /// <summary>
         /// Всего часов пратики
         /// </summary>
         public double TotalHoursPracticum { get; set; }
-       
+
         /// <summary>
         /// Всего часов ГИА
         /// </summary>
@@ -95,5 +95,6 @@ namespace Data.Models
         #endregion
 
         public List<CalculationSheetDiscipline> CalculationSheetDisciplines { get; set; }
+
     }
 }

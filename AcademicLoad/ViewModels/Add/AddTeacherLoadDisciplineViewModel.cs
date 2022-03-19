@@ -28,8 +28,12 @@ namespace AcademicLoadModule.ViewModels
             IGroupController groupController,
             CalculationSheetDiscipline calculationSheetDiscipline)
         {
-            Teachers = teacherController.Items;
-            Groups = new ObservableCollection<Group>(groupController.Items.Where(x => Filter(calculationSheetDiscipline, x)));
+            Teachers = new ObservableCollection<Teacher>(teacherController.Items
+                .Where(x => !calculationSheetDiscipline.TeacherLoadDisciplines
+                .Select(y => y.Teacher)
+                .Contains(x)));
+            Groups = new ObservableCollection<Group>(groupController.Items
+                .Where(x => Filter(calculationSheetDiscipline, x)));
             SelectedGroups = new ObservableCollection<Group>();
 
             IsMainLecture = true;
@@ -165,17 +169,17 @@ namespace AcademicLoadModule.ViewModels
 
             if (IsMainLecture)
             {
-                teacherLoadDisciplineFlags = teacherLoadDisciplineFlags & TeacherLoadDisciplineFlags.IsMainLecture;
+                teacherLoadDisciplineFlags = teacherLoadDisciplineFlags | TeacherLoadDisciplineFlags.IsMainLecture;
             }
 
             if (IsAdditionalLecture)
             {
-                teacherLoadDisciplineFlags = teacherLoadDisciplineFlags & TeacherLoadDisciplineFlags.IsAdditionalLecture;
+                teacherLoadDisciplineFlags = teacherLoadDisciplineFlags | TeacherLoadDisciplineFlags.IsAdditionalLecture;
             }
 
             if (!IsAdditionalLecture && !IsMainLecture)
             {
-                teacherLoadDisciplineFlags = teacherLoadDisciplineFlags & TeacherLoadDisciplineFlags.IsNotLecture;
+                teacherLoadDisciplineFlags = teacherLoadDisciplineFlags | TeacherLoadDisciplineFlags.IsNotLecture;
             }
 
             return new TeacherLoadDiscipline()

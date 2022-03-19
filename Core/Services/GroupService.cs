@@ -13,25 +13,27 @@ namespace Core.Services
         private readonly IJsonImporter jsonImporter;
         private readonly IJsonExporter jsonExporter;
         private List<Group> groups;
-        
+
         /// <summary>
         /// ctor.
         /// </summary>
         public GroupService(IJsonImporter jsonImporter, IJsonExporter jsonExporter)
         {
-            Groups = jsonImporter.LoadGroups();
-
             this.jsonImporter = jsonImporter;
             this.jsonExporter = jsonExporter;
+
+            Groups = jsonImporter.LoadGroups();
         }
-      
+
+        /// <inheritdoc/>
         public void AddGroup(Group group)
         {
             Groups.Add(group);
-            
+
             jsonExporter.SaveGroups(Groups);
         }
 
+        /// <inheritdoc/>
         public void DeleteGroup(Group group)
         {
             groups.Remove(group);
@@ -39,6 +41,7 @@ namespace Core.Services
             jsonExporter.SaveGroups(Groups);
         }
 
+        /// <inheritdoc/>
         public List<Group> Groups
         {
             get => groups;
