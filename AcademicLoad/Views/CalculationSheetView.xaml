@@ -310,7 +310,7 @@
                                     <DataGridTextColumn Header="Прочая нагрузка по ВПО"
                                                         Binding="{Binding HoursOtherLoadVpo}"/>
                                     <DataGridTextColumn Header="Подготовка аспирантов, интернов, ординаторов"
-                                                        MaxWidth="150"
+                                                        MaxWidth="200"
                                                         Binding="{Binding HoursTraining}">
                                         <DataGridTextColumn.ElementStyle>
                                             <Style>

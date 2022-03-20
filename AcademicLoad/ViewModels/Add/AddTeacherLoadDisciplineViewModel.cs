@@ -12,6 +12,7 @@ namespace AcademicLoadModule.ViewModels
 {
     public class AddTeacherLoadDisciplineViewModel : BindableBase
     {
+        private string nameDiscilpline;
         private Teacher selectedTeacher;
         private ObservableCollection<Teacher> teachers;
         private Group selectedGroup;
@@ -37,6 +38,7 @@ namespace AcademicLoadModule.ViewModels
             SelectedGroups = new ObservableCollection<Group>();
 
             IsMainLecture = true;
+            nameDiscilpline = calculationSheetDiscipline.Name;
         }
 
         /// <summary>
@@ -185,6 +187,7 @@ namespace AcademicLoadModule.ViewModels
             return new TeacherLoadDiscipline()
             {
                 Teacher = SelectedTeacher,
+                NameDiscipine= nameDiscilpline,
                 Groups = SelectedGroups.ToList(),
                 TeacherLoadDisciplineFlags = teacherLoadDisciplineFlags
             };

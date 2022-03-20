@@ -52,6 +52,9 @@ namespace Data.Models
             PropertyChanged += new PropertyChangedEventHandler(PropertyChangedHandler);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public Dictionary<string, int> DividerGroups;
 
         /// <summary>
@@ -62,6 +65,11 @@ namespace Data.Models
             get => teacherLoadDisciplineFlags;
             set => SetProperty(ref teacherLoadDisciplineFlags, value);
         }
+
+        /// <summary>
+        /// Наименование дисциплины.
+        /// </summary>
+        public string NameDiscipine { get; set; }
 
         /// <summary>
         /// Преподавтель.

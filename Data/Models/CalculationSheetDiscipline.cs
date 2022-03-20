@@ -6,17 +6,17 @@
     public partial class CalculationSheetDiscipline
     {
         /// <summary>
-        /// 
+        /// Индекс.
         /// </summary>
         public string Index { get; set; }
 
         /// <summary>
-        /// 
+        /// Название.
         /// </summary>
         public string Name { get; set; }
 
         /// <summary>
-        /// 
+        /// Семестр.
         /// </summary>
         public int Semester { get; set; }
 
