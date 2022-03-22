@@ -19,16 +19,16 @@ namespace Infrastructure.Converters
             switch (rate)
             {
                 case Rate.Rate25:
-                    return "25";
+                    return "0,25";
 
                 case Rate.Rate50:
-                    return "50";
+                    return "0,5";
 
                 case Rate.Rate75:
-                    return "75";
+                    return "0,75";
 
                 case Rate.Rate100:
-                    return "100";
+                    return "0,1";
 
                 case Rate.RateHourly:
                     return "Почасовая";

@@ -54,6 +54,7 @@
     <Compile Include="Excel\Converters\GroupsNamesToInfoExcelConverter.cs" />
     <Compile Include="Excel\Converters\RateExcelConverter.cs" />
     <Compile Include="Excel\Converters\TeacherInitialsExcelConverter.cs" />
+    <Compile Include="Excel\ExcelExporter.TeacherSheet.cs" />
     <Compile Include="Excel\ExcelImporter.cs" />
     <Compile Include="Excel\ExcelExporter.cs" />
     <Compile Include="Excel\Interfaces\IExcelImporter.cs" />
@@ -98,6 +99,5 @@
       <Version>4.5.0</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

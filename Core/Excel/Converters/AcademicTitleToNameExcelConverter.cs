@@ -47,6 +47,43 @@ namespace Core.Excel.Converters
             }
         }
 
+       /// <summary>
+       /// Конвертация должности в номер колонки.
+       /// </summary>
+       /// <param name="value">Значение</param>
+       /// <returns>Номер колонки</returns>
+        public int ConvertToColumn(object value)
+        {
+            AcademicTitle academicTitle = (AcademicTitle)value;
+
+            switch (academicTitle)
+            {
+                case AcademicTitle.Dekan:
+                    return 3;
+
+                case AcademicTitle.HeadDepartment:
+                    return 4 ;
+
+                case AcademicTitle.Professor:
+                    return 5 ;
+
+                case AcademicTitle.Docent:
+                    return 6 ;
+
+                case AcademicTitle.SeniorLecturer:
+                    return 7;
+
+                case AcademicTitle.Lecturer:
+                    return 8;
+
+                case AcademicTitle.Assistant:
+                    return 9;
+
+                default:
+                    return 0;
+            }
+        }
+
         /// <inheritdoc/>
         public object ConvertBack(object value)
         {

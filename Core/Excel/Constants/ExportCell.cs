@@ -16,6 +16,7 @@ namespace Core.Excel.Constants
         /// "Пензенский государственный университет" начало объединения.
         /// </summary>
         public readonly CellRowColumn NamePzuStart = new CellRowColumn(2, 4);
+
         /// <summary>
         /// "Пензенский государственный университет" конец объединения.
         /// </summary>
@@ -31,47 +32,47 @@ namespace Core.Excel.Constants
         public readonly CellRowColumn DistributionTeacherLoadEnd = new CellRowColumn(4, 12);
 
         /// <summary>
-        /// "Кафедра"
+        /// "Кафедра".
         /// </summary>
         public readonly CellRowColumn Department = new CellRowColumn(6, 1);
 
         /// <summary>
-        /// "Учебный год"
+        /// "Учебный год".
         /// </summary>
         public readonly CellRowColumn AcademicYear = new CellRowColumn(8, 1);
 
         /// <summary>
-        /// "Cр. год. нагрузка"
+        /// "Cр. год. нагрузка".
         /// </summary>
         public readonly CellRowColumn СfYearLoad = new CellRowColumn(8, 4);
 
         /// <summary>
-        /// "Утверждаю"
+        /// "Утверждаю".
         /// </summary>
         public readonly CellRowColumn Approve = new CellRowColumn(3, 17);
 
         /// <summary>
-        /// "Проректор"
+        /// "Проректор".
         /// </summary>
         public readonly CellRowColumn Prorector = new CellRowColumn(4, 15);
 
         /// <summary>
-        /// "Ф.И.О."
+        /// "Ф.И.О.".
         /// </summary>
         public readonly CellRowColumn Initials = new CellRowColumn(10, 1);
 
         /// <summary>
-        /// "Должность"
+        /// "Должность".
         /// </summary>
         public readonly CellRowColumn AcademicTitle = new CellRowColumn(10, 9);
 
         /// <summary>
-        /// "Ставка"
+        /// "Ставка".
         /// </summary>
         public readonly CellRowColumn Rate = new CellRowColumn(10, 17);
 
         /// <summary>
-        /// "Итого"
+        /// "Итого".
         /// </summary>
         public readonly CellRowColumn Total = new CellRowColumn(12, 2);
 
@@ -81,14 +82,23 @@ namespace Core.Excel.Constants
         public readonly CellRowColumn TotalStartFormula = new CellRowColumn(12, 4);
 
         /// <summary>
-        /// Начальная позиция для ячеек шапки дисциплин
+        /// Начальная позиция для ячеек шапки дисциплин.
         /// </summary>
         public readonly CellRowColumn HeaderTeacherLoadDiscipline = new CellRowColumn(14, 1);
 
-
         /// <summary>
-        /// Начальная позиция для ячеек преподовательской нагрузки
+        /// Начальная позиция для ячеек преподовательской нагрузки.
         /// </summary>
         public readonly CellRowColumn TeacherLoadDiscipline = new CellRowColumn(15, 1);
+
+        /// <summary>
+        /// Начальная позиция для ячеек шапки списка преподавателей в итоговом листе.
+        /// </summary>
+        public readonly CellRowColumn MainSheetStartHeaderListTeacher = new CellRowColumn(12, 2);
+
+        /// <summary>
+        /// Начальная позиция для ячеек  списка преподавателей в итоговом листе.
+        /// </summary>
+        public readonly CellRowColumn MainSheetStartListTeacher = new CellRowColumn(13, 1);
     }
 }

@@ -11,9 +11,21 @@ namespace Core.Excel.Constants
     /// </summary>
     public struct CellRowColumn
     {
+        /// <summary>
+        /// Строка.
+        /// </summary>
         public int row;
+
+        /// <summary>
+        /// Колонка
+        /// </summary>
         public int column;
 
+        /// <summary>
+        /// ctor.
+        /// </summary>
+        /// <param name="row"></param>
+        /// <param name="column"></param>
         public CellRowColumn(int row, int column)
         {
             this.row = row;
