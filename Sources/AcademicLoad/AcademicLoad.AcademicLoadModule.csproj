@@ -20,19 +20,20 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\out\Debug\</OutputPath>
+    <OutputPath>..\..\out\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>..\out\Debug\AcademicLoadModule.xml</DocumentationFile>
+    <DocumentationFile>..\..\out\Debug\AcademicLoadModule.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>..\..\out\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\..\out\Release\AcademicLoadModule.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -127,17 +128,17 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Core\Core.csproj">
+    <ProjectReference Include="..\Core\AcademicLoad.Core.csproj">
       <Project>{8fcd3448-c6d4-4851-b237-ece92440a012}</Project>
-      <Name>Core</Name>
+      <Name>AcademicLoad.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Data\Data.csproj">
+    <ProjectReference Include="..\Data\AcademicLoad.Data.csproj">
       <Project>{14681132-8243-4ea5-9e7a-a8c340689478}</Project>
-      <Name>Data</Name>
+      <Name>AcademicLoad.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj">
+    <ProjectReference Include="..\Infrastructure\AcademicLoad.Infrastructure.csproj">
       <Project>{957e7bd3-ab9f-44d4-a0f4-2d68ef1b239d}</Project>
-      <Name>Infrastructure</Name>
+      <Name>AcademicLoad.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
