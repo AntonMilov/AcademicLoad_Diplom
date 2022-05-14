@@ -20,16 +20,16 @@ namespace Core.Excel.Converters
             switch (rate)
             {
                 case Rate.Rate25:
-                    return "0,25";
+                    return 0.25;
 
                 case Rate.Rate50:
-                    return "0,5";
+                    return 0.5;
 
                 case Rate.Rate75:
-                    return "0,75";
+                    return 0.75;
 
                 case Rate.Rate100:
-                    return "0,1";
+                    return 1;
 
                 case Rate.RateHourly:
                     return "Почасовая";

@@ -100,5 +100,15 @@ namespace Core.Excel.Constants
         /// Начальная позиция для ячеек  списка преподавателей в итоговом листе.
         /// </summary>
         public readonly CellRowColumn MainSheetStartListTeacher = new CellRowColumn(13, 1);
+
+        /// <summary>
+        /// Начальная позиция для ячеек информаици ставок по приказу.
+        /// </summary>
+        public readonly CellRowColumn MainSheetStartRateOrder= new CellRowColumn(10, 2);
+
+        /// <summary>
+        /// Начальная позиция для ячеек информаици ставок по факту.
+        /// </summary>
+        public readonly CellRowColumn MainSheetStartRateFact = new CellRowColumn(11, 2);
     }
 }

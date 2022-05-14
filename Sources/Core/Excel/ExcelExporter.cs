@@ -149,6 +149,65 @@ namespace Core.Excel
 
             ExcelRange rangeTeacherInitials = excelWorksheet.Cells[exportCell.MainSheetStartListTeacher.row, column + 1, row - 1, column + 1];
             SetBoldBorder(rangeTeacherInitials);
+
+            LoadHeaderRateFactInfo(excelWorksheet, row -1);
+            LoadHeaderRateOrderInfo(excelWorksheet, row - 1);
+            CreateSumForLectionStudyLoad(excelWorksheet, row - 1);
+        }
+
+        private void LoadHeaderRateFactInfo(ExcelWorksheet excelWorksheet, int endRow)
+        {
+            int row = exportCell.MainSheetStartRateOrder.row;
+            int column = exportCell.MainSheetStartRateOrder.column;
+
+            excelWorksheet.Cells[row, column].Value = "Ставки по приказу";
+
+            ExcelRange range = excelWorksheet.Cells[row, column, row, column + 8];
+            SetBorder(range);
+
+            int rowSum = exportCell.MainSheetStartHeaderListTeacher.row + 1;
+            int columSum = exportCell.MainSheetStartHeaderListTeacher.column + 1;
+            column += 1;
+
+            for (int i = 0; i < 8; i++)
+            {
+                excelWorksheet.Cells[row, column + i].Formula = CreateSumFormula(excelWorksheet, rowSum, columSum + i, endRow, columSum + i);
+            }
+        }
+
+        private void LoadHeaderRateOrderInfo(ExcelWorksheet excelWorksheet, int endRow)
+        {
+            int row = exportCell.MainSheetStartRateFact.row;
+            int column = exportCell.MainSheetStartRateFact.column;
+
+            excelWorksheet.Cells[row, column].Value = "Ставки по факту";
+
+            ExcelRange range = excelWorksheet.Cells[row, column, row, column + 8];
+            SetBorder(range);
+
+            int rowSum = exportCell.MainSheetStartHeaderListTeacher.row + 1;
+            int columSum = exportCell.MainSheetStartHeaderListTeacher.column + 1;
+            column += 1;
+
+            for (int i = 0; i < 8; i++)
+            {
+                excelWorksheet.Cells[row, column + i].Formula = excelWorksheet.Cells[row, column].Formula = CreateSumFormula(excelWorksheet, rowSum, columSum + i, endRow, columSum + i);
+            }
+        }
+
+        private void CreateSumForLectionStudyLoad(ExcelWorksheet excelWorksheet, int endRow)
+        {
+            //TODO вынести в переменную
+            ExcelRange range = excelWorksheet.Cells[11, 11, 11, 12];
+            SetBorder(range);
+
+            int row = 13;
+            int column = 11;
+            excelWorksheet.Cells[11, 11].Formula = CreateSumFormula(excelWorksheet, row, column, endRow, column);
+
+            row = 13;
+            column = 12;
+            excelWorksheet.Cells[11, 12].Formula = CreateSumFormula(excelWorksheet, row, column, endRow, column);
         }
 
         private string CreateSumFormula(ExcelWorksheet excelWorksheet, int startRow, int startColumn, int endRow, int endColumn)

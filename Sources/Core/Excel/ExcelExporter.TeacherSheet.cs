@@ -101,8 +101,8 @@ namespace Core.Excel
                 excelWorksheet.Cells[row, column + 13].Value = variable.HoursOtherLoadVpo;
                 excelWorksheet.Cells[row, column + 14].Value = variable.HoursTraining;
 
-                excelWorksheet.Cells[row, column + 15].Formula = $"IF(ISODD({excelWorksheet.Cells[row, column + 1].Address});SUM({excelWorksheet.Cells[row, column + 5].Address}:{excelWorksheet.Cells[row, column + 14].Address});0)";
-                excelWorksheet.Cells[row, column + 16].Formula = $"IF(ISEVEN({excelWorksheet.Cells[row, column + 1].Address});SUM({excelWorksheet.Cells[row, column + 5].Address}:{excelWorksheet.Cells[row, column + 14].Address});0)";
+                excelWorksheet.Cells[row, column + 15].Formula = $"IF(ISODD({excelWorksheet.Cells[row, column + 1].Address}),SUM({excelWorksheet.Cells[row, column + 5].Address}:{excelWorksheet.Cells[row, column + 14].Address}),0)";
+                excelWorksheet.Cells[row, column + 16].Formula = $"IF(ISEVEN({excelWorksheet.Cells[row, column + 1].Address}),SUM({excelWorksheet.Cells[row, column + 5].Address}:{excelWorksheet.Cells[row, column + 14].Address}),0)";
                 excelWorksheet.Cells[row, column + 17].Formula = $"SUM({excelWorksheet.Cells[row, column + 15].Address}:{excelWorksheet.Cells[row, column + 16].Address})";
 
                 row++;
