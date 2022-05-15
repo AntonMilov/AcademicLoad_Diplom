@@ -28,7 +28,7 @@ namespace Infrastructure.DialogControllers
             DialogParameters dialogParameters = new DialogParameters();
             dialogParameters.Add(nameof(AddDialogParameters), addDialogParameters);
 
-            dialogService.Show("AddDialog", dialogParameters, callback);
+            dialogService.ShowDialog("AddDialog", dialogParameters, callback);
         }
 
         /// <inheritdoc/>
@@ -37,7 +37,7 @@ namespace Infrastructure.DialogControllers
             DialogParameters dialogParameters = new DialogParameters();
             dialogParameters.Add(nameof(ConfirmDialogParameters), confirmDialogParameters);
 
-            dialogService.Show("ConfirmDialog", dialogParameters, callback);
+            dialogService.ShowDialog("ConfirmDialog", dialogParameters, callback);
         }
 
         /// <inheritdoc/>
@@ -50,7 +50,7 @@ namespace Infrastructure.DialogControllers
             DialogParameters dialogParameters = new DialogParameters();
             dialogParameters.Add("notificationDialogParameters", notificationDialogParameters);
 
-            dialogService.Show("NotificationDialog", dialogParameters, r =>
+            dialogService.ShowDialog("NotificationDialog", dialogParameters, r =>
             {
                 // callback
             });

@@ -6,7 +6,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="640" d:DesignWidth="640"
              xmlns:prop="clr-namespace:AcademicLoadModule.Properties"
-             xmlns:prism="http://prismlibrary.com/"
+             xmlns:prism="http://prismlibrary.com/" xmlns:customcontols="clr-namespace:Infrastructure.CustomContols;assembly=Infrastructure"
              prism:ViewModelLocator.AutoWireViewModel="True">
 
     <UserControl.Resources>
@@ -62,13 +62,17 @@
                   ItemsSource="{Binding Items}"
                   SelectedItem="{Binding SelectedGroup}"
                   ScrollViewer.CanContentScroll="False"
+                  Margin="20"
                   ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
                   BorderThickness="0">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <WrapPanel Width="{Binding RelativeSource={ RelativeSource FindAncestor, AncestorType={x:Type ListView}}, Path=ActualWidth}"
+               
+                    <customcontols:AlignableWrapPanel Width="{Binding RelativeSource={ RelativeSource FindAncestor, AncestorType={x:Type ListView}}, Path=ActualWidth}"
                                ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
-                               Orientation="Horizontal" />
+                                                      HorizontalAlignment="Center"
+                                                      HorizontalContentAlignment="Center"
+                               />
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>
 

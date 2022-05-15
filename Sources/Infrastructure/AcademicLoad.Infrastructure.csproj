@@ -131,6 +131,7 @@
     <Compile Include="Converters\RateConverter.cs" />
     <Compile Include="Converters\RateToDoubleConverter.cs" />
     <Compile Include="Converters\TeacherInitialsConverter.cs" />
+    <Compile Include="CustomControls\AlignableWrapPanel.cs" />
     <Compile Include="DialogControllers\DialogController.cs" />
     <Compile Include="DialogControllers\Interfaces\IDialogController.cs" />
     <Compile Include="InfrastructureContainerExtensions.cs" />

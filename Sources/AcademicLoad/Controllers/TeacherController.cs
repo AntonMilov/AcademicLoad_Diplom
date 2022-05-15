@@ -70,6 +70,8 @@ namespace AcademicLoadModule.Controllers
              {
                  if (r.Result == ButtonResult.OK)
                  {
+
+
                      items.Add(model.CreateTeacher());
                      teacherService.AddTeacher(model.CreateTeacher());
 
