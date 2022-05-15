@@ -31,10 +31,6 @@ namespace AcademicLoadModule.Controllers
         /// <summary>
         /// ctor.
         /// </summary>
-        /// <param name="dialogService"></param>
-        /// <param name="eventAggregator"></param>
-        /// <param name="teacherService"></param>
-        /// <param name="notificationDialogController"></param>
         public GroupController(IEventAggregator eventAggregator,
             IGroupService groupService,
             IDialogController dialogController)

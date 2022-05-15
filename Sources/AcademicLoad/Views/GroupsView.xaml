@@ -22,13 +22,14 @@
                     Orientation="Vertical"
                     Margin="0,0,0,30"
                     HorizontalAlignment="Center">
-            <TextBlock Text="{x:Static prop:Resources.SearchForTeacher}" 
+            <TextBlock Text="{x:Static prop:Resources.SearchForGroup}" 
                        Style="{StaticResource HeaderH2}"
                        Foreground="{StaticResource BrandPrimary}"
                        Margin="0,0,0,8"></TextBlock>
 
             <StackPanel Orientation="Horizontal">
                 <TextBox Style="{StaticResource SearchTextBox}" 
+                         Text="{Binding SearchFilter,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                          Width="200" />
 
                 <Rectangle  Width="1" Margin="10,5,10,5" Stroke="{StaticResource BrandPrimary}" />

@@ -31,6 +31,7 @@
 
             <StackPanel Orientation="Horizontal">
                 <TextBox Style="{StaticResource SearchTextBox}" 
+                         Text="{Binding SearchFilter, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                          Width="200" />
 
                 <Rectangle  Width="1" Margin="10,5,10,5" Stroke="{StaticResource BrandPrimary}" />

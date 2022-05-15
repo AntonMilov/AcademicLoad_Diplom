@@ -51,7 +51,7 @@
                             Padding="4,4">
                         <DockPanel>
                         <Path Style="{StaticResource SearchIcon}" />
-                        <TextBox ></TextBox>
+                            <TextBox Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Text, UpdateSourceTrigger=PropertyChanged}"></TextBox>
                     </DockPanel>
                     </Border>
                 </ControlTemplate>

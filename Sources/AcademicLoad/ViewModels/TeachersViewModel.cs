@@ -1,4 +1,7 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Windows.Data;
 using AcademicLoadModule.Controllers.Interfaces;
 using Data.Models;
 using Prism.Commands;
@@ -10,8 +13,9 @@ namespace AcademicLoadModule.ViewModels
     public class TeachersViewModel : BindableBase
     {
         private readonly ITeacherController teacherController;
-        private ObservableCollection<Teacher> items;
+        private ICollectionView items;
         private Teacher selectedTeacher;
+        private string searchFilter;
 
         /// <summary>
         /// .ctor
@@ -21,13 +25,13 @@ namespace AcademicLoadModule.ViewModels
             this.teacherController = teacherController;
             AddTeacherCommand = new DelegateCommand(AddTeacher);
             DeleteTeacherCommand = new DelegateCommand(DeleteTeacher);
-            Items = teacherController.Items;
+            Items = CollectionViewSource.GetDefaultView(teacherController.Items);
         }
 
         /// <summary>
         /// Преподаватели.
         /// </summary>
-        public ObservableCollection<Teacher> Items
+        public ICollectionView Items
         {
             get => items;
             set => SetProperty(ref items, value);
@@ -52,6 +56,21 @@ namespace AcademicLoadModule.ViewModels
         /// </summary>
         public DelegateCommand DeleteTeacherCommand { get; }
 
+        /// <summary>
+        /// Фильтр поиска.
+        /// </summary>
+        public string SearchFilter
+        {
+            get => searchFilter;
+            set
+            {
+                SetProperty(ref searchFilter, value.ToLower());
+
+                Predicate<object> filter = new Predicate<object>(x => Filter((Teacher)x));
+                Items.Filter = filter;
+            }
+        }
+
         private void AddTeacher()
         {
             teacherController.AddTeacher();
@@ -65,6 +84,22 @@ namespace AcademicLoadModule.ViewModels
             }
         }
 
-    }
+        private bool Filter(Teacher teacher) 
+        {
+            if ( teacher.FirstName.ToLower().Contains(SearchFilter))
+            {
+                return true;
+            }
+            if (teacher.LastName.ToLower().Contains(SearchFilter))
+            {
+                return true;
+            }
+            if (teacher.MiddleName.ToLower().Contains(SearchFilter))
+            {
+                return true;
+            }
 
+            return false;
+        }
+    }
 }

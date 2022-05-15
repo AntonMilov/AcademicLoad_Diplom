@@ -6,20 +6,30 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using AcademicLoadModule.Controllers.Interfaces;
 using Data.Models;
+using System.ComponentModel;
+using System.Windows.Data;
 
 namespace AcademicLoadModule.ViewModels
 {
+    /// <summary>
+    /// VM для учебных групп.
+    /// </summary>
     public class GroupsViewModel : BindableBase
     {
         private readonly IGroupController groupController;
-        private ObservableCollection<Group> items;
+        private ICollectionView items;
         private Group selectedGroup;
+        private string searchFilter;
 
+        /// <summary>
+        /// ctor.
+        /// </summary>
+        /// <param name="groupController"><see cref="IGroupController"/>.</param>
         public GroupsViewModel(IGroupController groupController)
         {
             this.groupController = groupController;
 
-            items = this.groupController.Items;
+            items = CollectionViewSource.GetDefaultView(groupController.Items);
             AddGroupCommand = new DelegateCommand(AddGroup);
             DeleteGroupCommand = new DelegateCommand(DeleteGroup);
         }
@@ -27,7 +37,7 @@ namespace AcademicLoadModule.ViewModels
         /// <summary>
         /// Учебные группы.
         /// </summary>
-        public ObservableCollection<Group> Items
+        public ICollectionView Items
         {
             get => items;
             set => SetProperty(ref items, value);
@@ -40,6 +50,20 @@ namespace AcademicLoadModule.ViewModels
         {
             get => selectedGroup;
             set => SetProperty(ref selectedGroup, value);
+        }
+
+        /// <summary>
+        /// Фильтр поиска.
+        /// </summary>
+        public string SearchFilter
+        {
+            get => searchFilter;
+            set
+            {
+                SetProperty(ref searchFilter, value.ToLower());
+                Predicate<object> filter = new Predicate<object>(x => Filter((Group)x));
+                Items.Filter = filter;
+            }
         }
 
         /// <summary>
@@ -63,6 +87,16 @@ namespace AcademicLoadModule.ViewModels
             {
                 groupController.DeleteGroup(SelectedGroup);
             }
+        }
+
+        private bool Filter(Group group)
+        {
+            if (group.Name.ToLower().Contains(SearchFilter))
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }
