@@ -81,6 +81,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Styles\CustomControls.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Styles\DataGrids.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -127,12 +131,15 @@
     <Compile Include="Converters\BooleanToInverseVisibilityConverter.cs" />
     <Compile Include="Converters\GroupInfoConverter.cs" />
     <Compile Include="Converters\GroupsNamesToInfoConverter.cs" />
+    <Compile Include="Converters\IsNullConverter.cs" />
     <Compile Include="Converters\RadioButtonCheckedConverter.cs" />
     <Compile Include="Converters\RateConverter.cs" />
     <Compile Include="Converters\RateToDoubleConverter.cs" />
     <Compile Include="Converters\StringToIntConverter.cs" />
     <Compile Include="Converters\TeacherInitialsConverter.cs" />
     <Compile Include="CustomControls\AlignableWrapPanel.cs" />
+    <Compile Include="CustomControls\CustomControl1.cs" />
+    <Compile Include="CustomControls\TeacherPhotoControl.cs" />
     <Compile Include="DialogControllers\DialogController.cs" />
     <Compile Include="DialogControllers\Interfaces\IDialogController.cs" />
     <Compile Include="InfrastructureContainerExtensions.cs" />

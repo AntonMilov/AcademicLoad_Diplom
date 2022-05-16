@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d" 
              xmlns:prism="http://prismlibrary.com/"
-             xmlns:prop="clr-namespace:AcademicLoadModule.Properties" xmlns:viewmodels="clr-namespace:AcademicLoadModule.ViewModels"
+             xmlns:prop="clr-namespace:AcademicLoadModule.Properties" xmlns:viewmodels="clr-namespace:AcademicLoadModule.ViewModels" xmlns:customcontrols="clr-namespace:Infrastructure.CustomControls;assembly=Infrastructure"
              prism:ViewModelLocator.AutoWireViewModel="True">
 
     <UserControl.Resources>
@@ -14,20 +14,32 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200" />
+            <ColumnDefinition Width="220" />
             <ColumnDefinition Width="180" />
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="0"
                     Orientation="Vertical"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Top">
-            <Path Style="{StaticResource TeacherIcon}" 
-                  HorizontalAlignment="Center"
-                  Margin="0,0,0,10"/>
+            <StackPanel.Resources>
+                <ControlTemplate x:Key="Icon">
+                    <Grid>
+                        <Path Style="{StaticResource TeacherIcon}" 
+                              HorizontalAlignment="Center"
+                              Margin="0,0,0,10"/>
+                        
+                        <Button Style="{StaticResource LinkButton}"
+                                Content="{x:Static prop:Resources.AddPhoto}"
+                                Width="170" />
+                    </Grid>
+                </ControlTemplate>
+            </StackPanel.Resources>
+            <customcontrols:TeacherPhotoControl PhotoPath="{Binding PhotoPath}">
+            </customcontrols:TeacherPhotoControl>
 
             <Button Style="{StaticResource LinkButton}"
                     Content="{x:Static prop:Resources.AddPhoto}"
-                    Width="160" />
+                    Width="170" />
         </StackPanel>
 
         <StackPanel Grid.Column="1" 

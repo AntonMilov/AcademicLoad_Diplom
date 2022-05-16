@@ -38,5 +38,10 @@ namespace Data.Models
         /// </summary>
         public DateTime Birthday { get; set; }
 
+        /// <summary>
+        /// Путь к фотографии.
+        /// </summary>
+        public string PhotoPath { get; set; } = null;
+
     }
 }

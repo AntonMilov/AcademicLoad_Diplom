@@ -13,6 +13,7 @@ namespace AcademicLoadModule.ViewModels.Add
         private string firstName;
         private string lastName;
         private string middleName;
+        private string photoPath = null;
         private Rate _selectedSelectedRate;
         private DateTime birthday;
         private AcademicTitle selectedAcademicTitle;
@@ -118,6 +119,15 @@ namespace AcademicLoadModule.ViewModels.Add
         }
 
         /// <summary>
+        /// Путь фотографии.
+        /// </summary>
+        public string PhotoPath
+        {
+            get => photoPath;
+            set => SetProperty(ref photoPath, value);
+        }
+
+        /// <summary>
         /// Создание нового учителя.
         /// </summary>
         public Teacher CreateTeacher()
@@ -129,7 +139,8 @@ namespace AcademicLoadModule.ViewModels.Add
                 LastName = LastName,
                 AcademicTitle = SelectedAcademicTitle,
                 Rate = SelectedRate,
-                Birthday = Birthday
+                Birthday = Birthday,
+                PhotoPath = PhotoPath
             };
         }
 

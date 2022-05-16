@@ -28,7 +28,7 @@ namespace Infrastructure.Converters
                     return "0,75";
 
                 case Rate.Rate100:
-                    return "0,1";
+                    return "1";
 
                 case Rate.RateHourly:
                     return "Почасовая";

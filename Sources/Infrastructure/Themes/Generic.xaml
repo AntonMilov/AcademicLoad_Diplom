@@ -12,6 +12,8 @@
         <ResourceDictionary Source="/Infrastructure;component/Styles/ToolTips.xaml"/>
         <ResourceDictionary Source="/Infrastructure;component/Styles/ComboBoxes.xaml"/>
         <ResourceDictionary Source="/Infrastructure;component/Styles/DataGrids.xaml"/>
+        <ResourceDictionary Source="/Infrastructure;component/Styles/CustomControls.xaml"/>
         <ResourceDictionary Source="/Infrastructure;component/Styles/Converters.xaml"/>
     </ResourceDictionary.MergedDictionaries>
+
 </ResourceDictionary>
