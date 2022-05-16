@@ -20,6 +20,11 @@ namespace Core.Services.Interfaces
         void DeleteGroup(Group group);
 
         /// <summary>
+        ///  Сохранение изменений  учебной группы.
+        /// </summary>
+        void SaveEditGroup( );
+
+        /// <summary>
         /// Учебные группы.
         /// </summary>
         List<Group> Groups { get; set; }

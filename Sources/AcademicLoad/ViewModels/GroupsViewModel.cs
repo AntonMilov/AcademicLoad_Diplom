@@ -32,6 +32,7 @@ namespace AcademicLoadModule.ViewModels
             items = CollectionViewSource.GetDefaultView(groupController.Items);
             AddGroupCommand = new DelegateCommand(AddGroup);
             DeleteGroupCommand = new DelegateCommand(DeleteGroup);
+            EditGroupCommand = new DelegateCommand(EditGroup);
         }
 
         /// <summary>
@@ -72,9 +73,14 @@ namespace AcademicLoadModule.ViewModels
         public DelegateCommand AddGroupCommand { get; }
 
         /// <summary>
-        /// Команда для удаления учебной группы
+        /// Команда для удаления учебной группы.
         /// </summary>
         public DelegateCommand DeleteGroupCommand { get; }
+
+        /// <summary>
+        /// Редактирование учебной группы.
+        /// </summary>
+        public DelegateCommand EditGroupCommand { get; }
 
         private void AddGroup()
         {
@@ -86,6 +92,14 @@ namespace AcademicLoadModule.ViewModels
             if (SelectedGroup != null)
             {
                 groupController.DeleteGroup(SelectedGroup);
+            }
+        }
+
+        private void EditGroup()
+        {
+            if (SelectedGroup != null)
+            {
+                groupController.EditGroup(SelectedGroup);
             }
         }
 

@@ -6,6 +6,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="640" d:DesignWidth="640"
              xmlns:prop="clr-namespace:AcademicLoadModule.Properties"
+           
              xmlns:prism="http://prismlibrary.com/" xmlns:customcontols="clr-namespace:Infrastructure.CustomContols;assembly=Infrastructure"
              prism:ViewModelLocator.AutoWireViewModel="True">
 
@@ -49,6 +50,7 @@
                 </Button>
 
                 <Button Style="{StaticResource ButtonWithIcon}"
+                        Command="{Binding EditGroupCommand}"
                         ToolTip="{x:Static prop:Resources.EditGroup}"
                         VerticalAlignment="Center" Click="Button_Click">
                     <Path Style="{StaticResource EditGroupIcon}" />
@@ -151,7 +153,8 @@
                                        Text="{x:Static prop:Resources.StudentsContract}"/>
                             <TextBlock Grid.Column="2" Grid.Row="3"
                                        TextTrimming="CharacterEllipsis"
-                                       Text="{Binding StudentsContract}"/>
+                                       Text="{Binding StudentsContract}">
+                            </TextBlock>
                         </Grid>
                     </Grid>
                 </DataTemplate>

@@ -8,8 +8,10 @@ using AcademicLoadModule.Controllers.Interfaces;
 using AcademicLoadModule.Events;
 using AcademicLoadModule.ViewModels;
 using AcademicLoadModule.ViewModels.Add;
+using AcademicLoadModule.ViewModels.Edit;
 using AcademicLoadModule.Views;
 using AcademicLoadModule.Views.Add;
+using AcademicLoadModule.Views.Edit;
 using Core.Services.Interfaces;
 using Data.Models;
 using Infrastructure.AddDialog;
@@ -67,8 +69,9 @@ namespace AcademicLoadModule.Controllers
             {
                 if (r.Result == ButtonResult.OK)
                 {
-                    items.Add(model.CreateGroup());
-                    groupService.AddGroup(model.CreateGroup());
+                    Group group = model.CreateGroup();
+                    items.Add(group);
+                    groupService.AddGroup(group);
 
                     eventAggregator.GetEvent<GroupsCountChangeEvent>().Publish(Items.Count);
 
@@ -105,6 +108,40 @@ namespace AcademicLoadModule.Controllers
         public void CheckGroupsCount()
         {
             eventAggregator.GetEvent<GroupsCountChangeEvent>().Publish(groupService.Groups.Count);
+        }
+
+        /// <inheritdoc/>
+        public void EditGroup(Group group)
+        {
+            EditGroupViewModel model = new EditGroupViewModel(group);
+            EditGroupView view = new EditGroupView() { DataContext = model };
+
+            var addDialogParameters = new AddDialogParameters();
+            addDialogParameters.CloseButtonText = Properties.Resources.Cancel;
+            addDialogParameters.ConfirmButtonText = "Сохранить";
+            addDialogParameters.Header = "Редактирование учебной группы";
+            addDialogParameters.Title = "Редактирование учебной группы";
+            addDialogParameters.Content = view;
+            addDialogParameters.CanCloseWindow = model.CanAddGroup;
+
+            dialogController.OpenAddDialog(addDialogParameters, r =>
+            {
+                if (r.Result == ButtonResult.OK)
+                {
+                    Group editGroup = model.CreateGroup();
+                    group.Name = editGroup.Name;
+                    group.StudentsBudget = editGroup.StudentsBudget;
+                    group.StudentsContract = editGroup.StudentsContract;
+
+                    groupService.SaveEditGroup();
+
+                    dialogController.OpenNotificationDialog(Properties.Resources.Notification, "Учебная группа успешно отредактирована");
+                }
+
+                if (r.Result == ButtonResult.Cancel)
+                {
+                }
+            });
         }
     }
 }

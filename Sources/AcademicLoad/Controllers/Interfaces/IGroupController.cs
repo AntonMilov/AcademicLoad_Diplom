@@ -25,6 +25,11 @@ namespace AcademicLoadModule.Controllers.Interfaces
         void DeleteGroup(Group group);
 
         /// <summary>
+        /// Редактирование учебной группы.
+        /// </summary>
+        void EditGroup(Group group);
+
+        /// <summary>
         /// Учебные группы.
         /// </summary>
         ObservableCollection<Group> Items { get; set; }

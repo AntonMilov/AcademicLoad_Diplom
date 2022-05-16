@@ -1,21 +1,31 @@
 ﻿using Data.Models;
 using Prism.Mvvm;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace AcademicLoadModule.ViewModels.Add
+namespace AcademicLoadModule.ViewModels.Edit
 {
-    /// <inheritdoc/>
-    public class AddGroupViewModel : BindableBase
+    /// <summary>
+    /// VM для редактирования учебной группы.
+    /// </summary>
+    public class EditGroupViewModel : BindableBase
     {
         private string name;
         private int studentsBudget = 0;
         private int studentsContract = 0;
 
         /// <summary>
-        /// .ctor
+        /// ctor.
         /// </summary>
-        public AddGroupViewModel()
+        public EditGroupViewModel(Group group)
         {
-
+            Name = group.Name;
+            StudentsBudget = group.StudentsBudget;
+            StudentsContract = group.StudentsContract;
         }
 
         /// <summary>
@@ -42,7 +52,11 @@ namespace AcademicLoadModule.ViewModels.Add
         public int StudentsContract
         {
             get => studentsContract;
-            set => SetProperty(ref studentsContract, value);
+            set
+            {
+                SetProperty(ref studentsContract, value);
+            }
+
         }
 
         /// <summary>
@@ -53,9 +67,9 @@ namespace AcademicLoadModule.ViewModels.Add
         {
             return new Group()
             {
-              Name = Name,
-              StudentsBudget = StudentsBudget,
-              StudentsContract = StudentsContract
+                Name = Name,
+                StudentsBudget = StudentsBudget,
+                StudentsContract = StudentsContract
             };
         }
 
@@ -67,7 +81,7 @@ namespace AcademicLoadModule.ViewModels.Add
         {
             return !string.IsNullOrEmpty(Name) &&
                    StudentsBudget != 0 &&
-                   StudentsContract !=0;
+                   StudentsContract != 0;
         }
     }
 }

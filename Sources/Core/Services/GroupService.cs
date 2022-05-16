@@ -42,6 +42,12 @@ namespace Core.Services
         }
 
         /// <inheritdoc/>
+        public void SaveEditGroup()
+        {
+            jsonExporter.SaveGroups(Groups);
+        }
+
+        /// <inheritdoc/>
         public List<Group> Groups
         {
             get => groups;

@@ -53,7 +53,11 @@ namespace AcademicLoadModule.Controllers
         /// <inheritdoc/>
         public void AddCalculationSheet(string path)
         {
-            //Todo перенсти Try Catch на уровень сервича
+            if (string.IsNullOrEmpty(path))
+            {
+                return;
+            }
+
             try
             {
                 CalculationSheet = calculationSheetService.AddCalculationSheet(path);

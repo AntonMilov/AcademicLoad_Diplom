@@ -1,12 +1,16 @@
 ﻿
+using Prism.Mvvm;
+
 namespace Data.Models
 {
     /// <summary>
     /// Модель учебной группы.
     /// </summary>
-    public class Group
+    public class Group : BindableBase
     {
         private string name;
+        private int studentsBudget;
+        private int studentsContract;
 
         /// <summary>
         /// Название группы.
@@ -14,8 +18,7 @@ namespace Data.Models
         public string Name
         {
             get => name;
-            set => name = value.ToUpper();
-
+            set => SetProperty(ref name, value.ToUpper());
         }
 
         /// <summary>
@@ -26,11 +29,19 @@ namespace Data.Models
         /// <summary>
         /// Количество студентов на бюджетной основе.
         /// </summary>
-        public int StudentsBudget { get; set; }
+        public int StudentsBudget
+        {
+            get => studentsBudget;
+            set => SetProperty(ref studentsBudget, value);
+        }
 
         /// <summary>
         /// Количество студентов на договорной основе.
         /// </summary>
-        public int StudentsContract { get; set; }
+        public int StudentsContract
+        {
+            get => studentsContract;
+            set => SetProperty(ref studentsContract, value);
+        }
     }
 }
