@@ -18,13 +18,12 @@
                         <Grid>
                             <Path x:Name="Icon"
                                 Style="{StaticResource TeacherIcon}" 
-                                  Visibility="Visible"
+                                
                   HorizontalAlignment="Center"
                   Margin="0,0,0,10"/>
 
                             <Image x:Name="Photo" 
-                                   Width="164" Height="164"
-                                   Visibility="Visible"
+                                   Width="128" Height="128"
                                     Margin="0,0,0,10"
                                     HorizontalAlignment="Center"
                                 Source="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=PhotoPath, Converter={StaticResource StringToImageSourceConverter}, UpdateSourceTrigger=PropertyChanged}"

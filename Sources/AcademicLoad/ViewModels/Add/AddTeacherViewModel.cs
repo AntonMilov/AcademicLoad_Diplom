@@ -189,10 +189,11 @@ namespace AcademicLoadModule.ViewModels.Add
             }
         }
 
-
         private void DeletePhoto()
         {
             photoService.DeletePhoto(PhotoPath);
+
+            PhotoPath = null;
         }
     }
 }

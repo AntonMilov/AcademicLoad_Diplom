@@ -23,10 +23,10 @@ namespace Infrastructure.Converters
             }
             try
             {
-                if (string.IsNullOrEmpty(valueString))
-                {
-                    return null;
-                }
+                //if (string.IsNullOrEmpty(valueString))
+                //{
+                //    return null;
+                //}
 
                 ImageSource image = BitmapFrame.Create(new Uri(valueString), BitmapCreateOptions.IgnoreImageCache, BitmapCacheOption.OnLoad);
                 return image;
