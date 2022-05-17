@@ -1,14 +1,21 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Threading;
+using System.Threading.Tasks;
+using Core.Photo;
 using Data.Enums;
 using Data.Models;
+using Microsoft.Win32;
+using Prism.Commands;
 using Prism.Mvvm;
 
 namespace AcademicLoadModule.ViewModels.Add
 {
     /// <inheritdoc/>
     public class AddTeacherViewModel : BindableBase
-    {
+    {   
+        private readonly IPhotoService photoService;
+        private readonly OpenFileDialog openFileDialog;
         private readonly DateTime StartDate = new DateTime(1940, 1, 1);
         private string firstName;
         private string lastName;
@@ -19,12 +26,15 @@ namespace AcademicLoadModule.ViewModels.Add
         private AcademicTitle selectedAcademicTitle;
         private ObservableCollection<AcademicTitle> academicTitles;
         private ObservableCollection<Rate> rates;
-
+     
         /// <summary>
         /// .ctor
         /// </summary>
-        public AddTeacherViewModel()
+        public AddTeacherViewModel(IPhotoService photoService, OpenFileDialog openFileDialog)
         {
+            this.photoService = photoService;
+            this.openFileDialog = openFileDialog;
+
             academicTitles = new ObservableCollection<AcademicTitle>();
             rates = new ObservableCollection<Rate>();
             birthday = StartDate;
@@ -45,6 +55,16 @@ namespace AcademicLoadModule.ViewModels.Add
                 }
             }
         }
+
+        /// <summary>
+        /// Команда для добавления фотографии.
+        /// </summary>
+        public DelegateCommand AddPhotoCommand => new DelegateCommand(AddPhoto);
+
+        /// <summary>
+        /// Команда для удаления фотографии.
+        /// </summary>
+        public DelegateCommand DeletePhotoCommand => new DelegateCommand(DeletePhoto);
 
         /// <summary>
         /// Должности.
@@ -156,6 +176,23 @@ namespace AcademicLoadModule.ViewModels.Add
                    SelectedAcademicTitle != AcademicTitle.None &&
                    SelectedRate != Rate.None &&
                    Birthday != StartDate;
+        }
+
+        private void AddPhoto()
+        {
+            string photoExtensions = "*.jpg;*.jpeg";
+            openFileDialog.Filter = $"JPG и JPEG-файлы ({photoExtensions})|{photoExtensions}";
+
+            if (openFileDialog.ShowDialog() == true)
+            {
+               PhotoPath = photoService.AddPhoto(openFileDialog.FileName);
+            }
+        }
+
+
+        private void DeletePhoto()
+        {
+            photoService.DeletePhoto(PhotoPath);
         }
     }
 }

@@ -66,6 +66,8 @@
     <Compile Include="Json\JsonExporter.cs" />
     <Compile Include="Json\JsonImporter.cs" />
     <Compile Include="Json\PathConstants.cs" />
+    <Compile Include="Photo\IPhotoService.cs" />
+    <Compile Include="Photo\PhotoService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CalculationSheetService.cs" />
     <Compile Include="Services\GroupService.cs" />

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
+
 namespace Infrastructure.CustomControls
 {
     /// <summary>
@@ -16,13 +17,18 @@ namespace Infrastructure.CustomControls
         public static readonly DependencyProperty PhotoPathProperty =
              DependencyProperty.Register(nameof(PhotoPath), typeof(string), typeof(TeacherPhotoControl), new PropertyMetadata(default(string)));
 
+
+
         /// <summary>
         /// Путь к фотографии.
         /// </summary>
         public string PhotoPath
         {
             get => (string)GetValue(PhotoPathProperty);
-            set => SetValue(PhotoPathProperty, value);
+            set
+            {
+                SetValue(PhotoPathProperty, value);
+            }
         }
     }
 }

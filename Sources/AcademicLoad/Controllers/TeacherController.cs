@@ -7,11 +7,13 @@ using AcademicLoadModule.ViewModels;
 using AcademicLoadModule.ViewModels.Add;
 using AcademicLoadModule.Views;
 using AcademicLoadModule.Views.Add;
+using Core.Photo;
 using Core.Services.Interfaces;
 using Data.Models;
 using Infrastructure.AddDialog;
 using Infrastructure.ConfirmDialog;
 using Infrastructure.DialogControllers.Interfaces;
+using Microsoft.Win32;
 using Prism.Events;
 using Prism.Services.Dialogs;
 
@@ -25,7 +27,10 @@ namespace AcademicLoadModule.Controllers
         private readonly IDialogController dialogController;
         private readonly IEventAggregator eventAggregator;
         private readonly ITeacherService teacherService;
+        private readonly OpenFileDialog openFileDialog;
+        private readonly IPhotoService photoService;
         private ObservableCollection<Teacher> items;
+      
 
         /// <summary>
         /// .ctor
@@ -36,11 +41,15 @@ namespace AcademicLoadModule.Controllers
         /// <param name="notificationDialogController">.</param>
         public TeacherController(IEventAggregator eventAggregator,
             ITeacherService teacherService,
-            IDialogController dialogController)
+            IDialogController dialogController,
+            IPhotoService photoService,
+            OpenFileDialog openFileDialog)
         {
             this.dialogController = dialogController;
             this.eventAggregator = eventAggregator;
             this.teacherService = teacherService;
+            this.photoService = photoService;
+            this.openFileDialog = openFileDialog;
 
             items = new ObservableCollection<Teacher>(teacherService.Teachers);
         }
@@ -55,7 +64,7 @@ namespace AcademicLoadModule.Controllers
         /// <inheritdoc/>
         public void AddTeacher()
         {
-            AddTeacherViewModel model = new AddTeacherViewModel();
+            AddTeacherViewModel model = new AddTeacherViewModel(photoService, openFileDialog);
             AddTeacherView view = new AddTeacherView() { DataContext = model };
 
             var addDialogParameters = new AddDialogParameters();

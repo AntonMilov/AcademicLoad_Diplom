@@ -22,17 +22,25 @@
                   HorizontalAlignment="Center"
                   Margin="0,0,0,10"/>
 
-                            <Image x:Name="Photo" Source="{TemplateBinding PhotoPath}"/>
+                            <Image x:Name="Photo" 
+                                   Width="164" Height="164"
+                                   Visibility="Visible"
+                                    Margin="0,0,0,10"
+                                    HorizontalAlignment="Center"
+                                Source="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=PhotoPath, Converter={StaticResource StringToImageSourceConverter}, UpdateSourceTrigger=PropertyChanged}"
+                                   />
                         </Grid>
                         <ControlTemplate.Triggers>
                             <DataTrigger Binding="{Binding PhotoPath, Converter={StaticResource IsNullConverter}}" Value="true">
                                 <Setter TargetName="Icon" Property="Visibility" Value="Visible"/>
                                 <Setter TargetName="Photo" Property="Visibility" Value="Collapsed"/>
-                            </DataTrigger>
+                            
+                        </DataTrigger>
                             <DataTrigger Binding="{Binding PhotoPath, Converter={StaticResource IsNullConverter}}" Value="false">
                                 <Setter TargetName="Icon" Property="Visibility" Value="Collapsed"/>
                                 <Setter TargetName="Photo" Property="Visibility" Value="Visible"/>
-                            </DataTrigger>
+                            <Setter TargetName="Photo" Property="Source" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=PhotoPath, UpdateSourceTrigger=PropertyChanged}"/>
+                        </DataTrigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>

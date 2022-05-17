@@ -34,12 +34,26 @@
                     </Grid>
                 </ControlTemplate>
             </StackPanel.Resources>
-            <customcontrols:TeacherPhotoControl PhotoPath="{Binding PhotoPath}">
+            <customcontrols:TeacherPhotoControl PhotoPath="{Binding PhotoPath,UpdateSourceTrigger=PropertyChanged}">
             </customcontrols:TeacherPhotoControl>
-
-            <Button Style="{StaticResource LinkButton}"
-                    Content="{x:Static prop:Resources.AddPhoto}"
-                    Width="170" />
+            <Button 
+                    Width="170" >
+                <Button.Resources>
+                    <Style TargetType="Button" BasedOn="{StaticResource LinkButton}">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding PhotoPath, Converter={StaticResource IsNullConverter}, UpdateSourceTrigger=PropertyChanged}" Value="true">
+                                <Setter  Property="Command" Value="{Binding AddPhotoCommand}" />
+                                <Setter  Property="Content" Value="{x:Static prop:Resources.AddPhoto}" />
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding PhotoPath, Converter={StaticResource IsNullConverter}, UpdateSourceTrigger=PropertyChanged}" Value="false">
+                                <Setter  Property="Command" Value="{Binding DeletePhotoCommand}" />
+                                <Setter  Property="Content" Value="Удалить фотографию" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                    
+                </Button.Resources>
+            </Button>
         </StackPanel>
 
         <StackPanel Grid.Column="1" 

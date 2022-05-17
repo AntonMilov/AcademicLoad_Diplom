@@ -15,5 +15,6 @@
     <converters:GroupsNamesToInfoConverter x:Key="GroupsNamesToInfoConverter" />
     <converters:StringToIntConverter x:Key="StringToIntConverter" />
     <converters:IsNullConverter x:Key="IsNullConverter" />
-    
+    <converters:StringToImageSourceConverter x:Key="StringToImageSourceConverter" />
+
 </ResourceDictionary>

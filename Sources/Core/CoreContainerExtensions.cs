@@ -2,6 +2,7 @@
 using Core.Excel.Interfaces;
 using Core.Json;
 using Core.Json.Interfaces;
+using Core.Photo;
 using Core.Services;
 using Core.Services.Interfaces;
 using Prism.Ioc;
@@ -23,6 +24,7 @@ namespace Core
             containerRegistry.Register<IExcelImporter, ExcelImporter>();
             containerRegistry.Register<IJsonImporter, JsonImporter>();
             containerRegistry.Register<IJsonExporter, JsonExporter>();
+            containerRegistry.Register<IPhotoService, PhotoService>();
 
             containerRegistry.RegisterSingleton<ITeacherService, TeacherService>();
             containerRegistry.RegisterSingleton<IGroupService, GroupService>();
