@@ -7,7 +7,7 @@
              d:DesignHeight="640" d:DesignWidth="640"
              xmlns:prop="clr-namespace:AcademicLoadModule.Properties"
            
-             xmlns:prism="http://prismlibrary.com/" xmlns:customcontols="clr-namespace:Infrastructure.CustomContols;assembly=Infrastructure"
+             xmlns:prism="http://prismlibrary.com/" xmlns:customcontols="clr-namespace:Infrastructure.CustomContols;assembly=Infrastructure" xmlns:customcontrols="clr-namespace:Infrastructure.CustomControls;assembly=Infrastructure"
              prism:ViewModelLocator.AutoWireViewModel="True">
 
     <UserControl.Resources>

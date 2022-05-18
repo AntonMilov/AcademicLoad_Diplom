@@ -5,8 +5,10 @@ using AcademicLoadModule.Controllers.Interfaces;
 using AcademicLoadModule.Events;
 using AcademicLoadModule.ViewModels;
 using AcademicLoadModule.ViewModels.Add;
+using AcademicLoadModule.ViewModels.Edit;
 using AcademicLoadModule.Views;
 using AcademicLoadModule.Views.Add;
+using AcademicLoadModule.Views.Edit;
 using Core.Photo;
 using Core.Services.Interfaces;
 using Data.Models;
@@ -115,6 +117,43 @@ namespace AcademicLoadModule.Controllers
         public void CheckTeacherCount()
         {
             eventAggregator.GetEvent<TeachersCountChangeEvent>().Publish(teacherService.Teachers.Count);
+        }
+
+        public void EditTeacher(Teacher teacher)
+        {
+            EditTeacherViewModel model = new EditTeacherViewModel(teacher, photoService, openFileDialog);
+            EditTeacherView view = new EditTeacherView() { DataContext = model };
+
+            var addDialogParameters = new AddDialogParameters();
+            addDialogParameters.CloseButtonText = Properties.Resources.Cancel;
+            addDialogParameters.ConfirmButtonText = "Сохранить";
+            addDialogParameters.Header = "Редактирование преподаветеля";
+            addDialogParameters.Title = "Редактирование преподавателя";
+            addDialogParameters.Content = view;
+            addDialogParameters.CanCloseWindow = model.CanAddTeacher;
+
+            dialogController.OpenAddDialog(addDialogParameters, r =>
+            {
+                if (r.Result == ButtonResult.OK)
+                {
+                    Teacher editTeacher = model.CreateTeacher();
+                    teacher.FirstName = editTeacher.FirstName;
+                    teacher.LastName = editTeacher.LastName;
+                    teacher.MiddleName = editTeacher.MiddleName;
+                    teacher.Rate = editTeacher.Rate;
+                    teacher.AcademicTitle= editTeacher.AcademicTitle;
+                    teacher.Birthday = editTeacher.Birthday;
+                    teacher.PhotoPath = editTeacher.PhotoPath;
+
+                    teacherService.SaveEditTeacher();
+
+                    dialogController.OpenNotificationDialog(Properties.Resources.Notification, "Преподаватель успешно отредактирован");
+                }
+
+                if (r.Result == ButtonResult.Cancel)
+                {
+                }
+            });
         }
     }
 }

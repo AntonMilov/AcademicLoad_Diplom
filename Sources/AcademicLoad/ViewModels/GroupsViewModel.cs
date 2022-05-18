@@ -33,6 +33,7 @@ namespace AcademicLoadModule.ViewModels
             AddGroupCommand = new DelegateCommand(AddGroup);
             DeleteGroupCommand = new DelegateCommand(DeleteGroup);
             EditGroupCommand = new DelegateCommand(EditGroup);
+          
         }
 
         /// <summary>
@@ -84,6 +85,7 @@ namespace AcademicLoadModule.ViewModels
 
         private void AddGroup()
         {
+            items.Refresh();
             groupController.AddGroup();
         }
 

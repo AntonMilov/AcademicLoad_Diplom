@@ -1,19 +1,23 @@
-﻿using System;
-using System.Collections.ObjectModel;
-using System.Threading;
-using System.Threading.Tasks;
-using Core.Photo;
+﻿using Core.Photo;
 using Data.Enums;
 using Data.Models;
 using Microsoft.Win32;
 using Prism.Commands;
 using Prism.Mvvm;
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace AcademicLoadModule.ViewModels.Add
+namespace AcademicLoadModule.ViewModels.Edit
 {
-    /// <inheritdoc/>
-    public class AddTeacherViewModel : BindableBase
-    {   
+    /// <summary>
+    /// VM для редактирования преподавателя.
+    /// </summary>
+    public class EditTeacherViewModel : BindableBase
+    {
         private readonly IPhotoService photoService;
         private readonly OpenFileDialog openFileDialog;
         private readonly DateTime StartDate = new DateTime(1940, 1, 1);
@@ -26,18 +30,26 @@ namespace AcademicLoadModule.ViewModels.Add
         private AcademicTitle selectedAcademicTitle;
         private ObservableCollection<AcademicTitle> academicTitles;
         private ObservableCollection<Rate> rates;
-     
+
         /// <summary>
         /// .ctor
         /// </summary>
-        public AddTeacherViewModel(IPhotoService photoService, OpenFileDialog openFileDialog)
+        public EditTeacherViewModel(Teacher teacher,IPhotoService photoService, OpenFileDialog openFileDialog)
         {
+            FirstName = teacher.FirstName;
+            MiddleName = teacher.MiddleName;
+            LastName = teacher.LastName;
+            PhotoPath = teacher.PhotoPath;
+            Birthday = teacher.Birthday;
+            SelectedAcademicTitle = teacher.AcademicTitle;
+            SelectedRate = teacher.Rate;
+
             this.photoService = photoService;
             this.openFileDialog = openFileDialog;
 
             academicTitles = new ObservableCollection<AcademicTitle>();
             rates = new ObservableCollection<Rate>();
-            birthday = StartDate;
+           
 
             foreach (AcademicTitle academicTitle in Enum.GetValues(typeof(AcademicTitle)))
             {
@@ -185,7 +197,7 @@ namespace AcademicLoadModule.ViewModels.Add
 
             if (openFileDialog.ShowDialog() == true)
             {
-               PhotoPath = photoService.AddPhoto(openFileDialog.FileName);
+                PhotoPath = photoService.AddPhoto(openFileDialog.FileName);
             }
         }
 
@@ -195,5 +207,6 @@ namespace AcademicLoadModule.ViewModels.Add
 
             PhotoPath = null;
         }
+
     }
 }

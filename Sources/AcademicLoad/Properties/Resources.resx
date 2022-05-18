@@ -165,6 +165,9 @@
   <data name="EditGroup" xml:space="preserve">
     <value>Редактировать учебную группу</value>
   </data>
+  <data name="EditTeacher" xml:space="preserve">
+    <value>Редактирование преподавателя</value>
+  </data>
   <data name="ExportTeacherLoad" xml:space="preserve">
     <value>Экспортировать преподавательскую нагрузку в файл .xls или .xlsx</value>
   </data>

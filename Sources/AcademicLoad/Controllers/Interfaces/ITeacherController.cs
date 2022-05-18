@@ -24,6 +24,11 @@ namespace AcademicLoadModule.Controllers.Interfaces
         void DeleteTeacher(Teacher teacher);
 
         /// <summary>
+        /// Редактирование преподавателя.
+        /// </summary>
+        void EditTeacher(Teacher teacher);
+
+        /// <summary>
         /// Преподователи.
         /// </summary>
         ObservableCollection<Teacher> Items { get; set; }

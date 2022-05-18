@@ -24,6 +24,11 @@ namespace Core.Services.Interfaces
         void DeleteTeacher(Teacher teacher);
 
         /// <summary>
+        /// Сохранение изменений  учебной группы.
+        /// </summary>
+        void SaveEditTeacher();
+
+        /// <summary>
         /// Преподаватели.
         /// </summary>
         List<Teacher> Teachers { get; set; }

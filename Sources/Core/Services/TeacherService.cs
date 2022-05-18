@@ -49,5 +49,11 @@ namespace Core.Services
 
             jsonExporter.SaveTeachers(Teachers);
         }
+
+        /// <inheritdoc/>
+        public void SaveEditTeacher()
+        {
+            jsonExporter.SaveTeachers(Teachers);
+        }
     }
 }

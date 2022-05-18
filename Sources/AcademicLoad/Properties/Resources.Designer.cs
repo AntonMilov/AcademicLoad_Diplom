@@ -205,6 +205,15 @@ namespace AcademicLoadModule.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Редактирование преподавателя.
+        /// </summary>
+        public static string EditTeacher {
+            get {
+                return ResourceManager.GetString("EditTeacher", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Экспортировать преподавательскую нагрузку в файл .xls или .xlsx.
         /// </summary>
         public static string ExportTeacherLoad {

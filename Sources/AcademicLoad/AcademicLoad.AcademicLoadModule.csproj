@@ -82,6 +82,7 @@
     <Compile Include="ViewModels\Add\AddTeacherViewModel.cs" />
     <Compile Include="ViewModels\CalculationSheetViewModel.cs" />
     <Compile Include="ViewModels\Edit\EditGroupViewModel.cs" />
+    <Compile Include="ViewModels\Edit\EditTeacherViewModel.cs" />
     <Compile Include="ViewModels\Empty\CalculationSheetsEmptyViewModel.cs" />
     <Compile Include="ViewModels\Empty\GroupsEmptyViewModel.cs" />
     <Compile Include="ViewModels\GroupsViewModel.cs" />
@@ -102,6 +103,9 @@
     </Compile>
     <Compile Include="Views\Edit\EditGroupView.xaml.cs">
       <DependentUpon>EditGroupView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Edit\EditTeacherView.xaml.cs">
+      <DependentUpon>EditTeacherView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Empty\CalculationSheetsEmptyView.xaml.cs">
       <DependentUpon>CalculationSheetsEmptyView.xaml</DependentUpon>
@@ -163,6 +167,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Edit\EditGroupView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Edit\EditTeacherView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

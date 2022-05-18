@@ -23,8 +23,11 @@ namespace AcademicLoadModule.ViewModels
         public TeachersViewModel(ITeacherController teacherController)
         {
             this.teacherController = teacherController;
+
             AddTeacherCommand = new DelegateCommand(AddTeacher);
             DeleteTeacherCommand = new DelegateCommand(DeleteTeacher);
+            EditTeacherCommand = new DelegateCommand(EditTeacher);
+
             Items = CollectionViewSource.GetDefaultView(teacherController.Items);
         }
 
@@ -55,6 +58,11 @@ namespace AcademicLoadModule.ViewModels
         /// Команда для удаления преподавателя.
         /// </summary>
         public DelegateCommand DeleteTeacherCommand { get; }
+
+        /// <summary>
+        /// Команда для редактирования преподавателя.
+        /// </summary>
+        public DelegateCommand EditTeacherCommand { get; }
 
         /// <summary>
         /// Фильтр поиска.
@@ -100,6 +108,14 @@ namespace AcademicLoadModule.ViewModels
             }
 
             return false;
+        }
+
+        private void EditTeacher()
+        {
+            if (SelectedTeacher != null)
+            {
+                teacherController.EditTeacher(SelectedTeacher);
+            }
         }
     }
 }
