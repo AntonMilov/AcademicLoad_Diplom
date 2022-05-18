@@ -25,6 +25,7 @@ namespace Core.Services
             this.jsonExporter = jsonExporter;
 
             Teachers = jsonImporter.LoadTeachers();
+            jsonImporter = null;
         }
 
         /// <inheritdoc/>

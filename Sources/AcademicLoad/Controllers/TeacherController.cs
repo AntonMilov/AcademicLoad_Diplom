@@ -124,6 +124,8 @@ namespace AcademicLoadModule.Controllers
             EditTeacherViewModel model = new EditTeacherViewModel(teacher, photoService, openFileDialog);
             EditTeacherView view = new EditTeacherView() { DataContext = model };
 
+            teacher.PhotoPath = null;
+
             var addDialogParameters = new AddDialogParameters();
             addDialogParameters.CloseButtonText = Properties.Resources.Cancel;
             addDialogParameters.ConfirmButtonText = "Сохранить";

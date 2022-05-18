@@ -83,11 +83,10 @@ namespace Data.Models
                 if (File.Exists(value))
                 {
                     SetProperty(ref photoPath, value);
+                    return;
                 }
-                else
-                {
-                    SetProperty(ref photoPath, null);
-                }
+
+                SetProperty(ref photoPath, null);
             }
         }
     }

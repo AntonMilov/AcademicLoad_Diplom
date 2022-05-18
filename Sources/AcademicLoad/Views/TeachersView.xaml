@@ -165,6 +165,7 @@
                                        Text="{Binding AcademicTitle, Converter={StaticResource AcademicTitleToNameConverter}}"/>
                         </Grid>
 
+                        <!--TODO add logic
                         <Grid Grid.Column="3" >
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="100" />
@@ -194,6 +195,7 @@
                             <TextBlock Grid.Column="2" Grid.Row="1"
                                        Text=""/>
                         </Grid>
+                        -->
                     </Grid>
                  
                 </DataTemplate>

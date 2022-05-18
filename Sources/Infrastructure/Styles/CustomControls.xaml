@@ -33,12 +33,13 @@
                             <DataTrigger Binding="{Binding PhotoPath, Converter={StaticResource IsNullConverter}}" Value="true">
                                 <Setter TargetName="Icon" Property="Visibility" Value="Visible"/>
                                 <Setter TargetName="Photo" Property="Visibility" Value="Collapsed"/>
-                            
+                        
+
                         </DataTrigger>
                             <DataTrigger Binding="{Binding PhotoPath, Converter={StaticResource IsNullConverter}}" Value="false">
                                 <Setter TargetName="Icon" Property="Visibility" Value="Collapsed"/>
                                 <Setter TargetName="Photo" Property="Visibility" Value="Visible"/>
-                            <Setter TargetName="Photo" Property="Source" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=PhotoPath, UpdateSourceTrigger=PropertyChanged}"/>
+                         
                         </DataTrigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>

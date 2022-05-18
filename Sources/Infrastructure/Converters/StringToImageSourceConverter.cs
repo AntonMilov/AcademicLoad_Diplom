@@ -28,7 +28,7 @@ namespace Infrastructure.Converters
                 //    return null;
                 //}
 
-                ImageSource image = BitmapFrame.Create(new Uri(valueString), BitmapCreateOptions.IgnoreImageCache, BitmapCacheOption.OnLoad);
+                ImageSource image = BitmapFrame.Create(new Uri(valueString), BitmapCreateOptions.None, BitmapCacheOption.OnLoad);
                 return image;
             }
             catch { return null; }
