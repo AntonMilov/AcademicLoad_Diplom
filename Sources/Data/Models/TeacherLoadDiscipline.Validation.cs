@@ -218,7 +218,7 @@ namespace Data.Models
                     hoursConsultationMaxValue = value;
                 }
 
-                if (value > hoursConsultationMaxValue)
+                if (value > hoursConsultationMaxValue || value < 0)
                 {
                     SetProperty(ref hoursConsultation, value);
                     return;

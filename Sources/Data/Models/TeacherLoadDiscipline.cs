@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using Data.Enums;
 using Prism.Mvvm;
 
@@ -77,7 +78,11 @@ namespace Data.Models
         public Teacher Teacher
         {
             get => teacher;
-            set => SetProperty(ref teacher, value);
+            set
+            {
+                SetProperty(ref teacher, value);
+                Teacher.PropertyChanged += new PropertyChangedEventHandler(PropertyChangedTeacherHandler);
+            }
         }
 
         /// <summary>
@@ -95,7 +100,18 @@ namespace Data.Models
         public List<Group> Groups
         {
             get => groups;
-            set => SetProperty(ref groups, value);
+            set
+            {
+                SetProperty(ref groups, value);
+
+                StudentsContract = Groups.Sum(x => x.StudentsContract);
+                StudentsBudget = Groups.Sum(x => x.StudentsBudget);
+
+                foreach (Group group in Groups)
+                {
+                    group.PropertyChanged += new PropertyChangedEventHandler(PropertyChangedGroupHandler);
+                }
+            }
         }
 
         /// <summary>
@@ -126,6 +142,19 @@ namespace Data.Models
             СalculationHoursTotalFallSemester();
             СalculationHoursTotalSpringSemester();
             СalculationHoursTotalYearLoad();
+        }
+
+        private void PropertyChangedGroupHandler(object sender, PropertyChangedEventArgs e)
+        {
+            StudentsContract = Groups.Sum(x => x.StudentsContract);
+            StudentsBudget = Groups.Sum(x => x.StudentsBudget);
+
+            RaisePropertyChanged(nameof(Groups));
+        }
+
+        private void PropertyChangedTeacherHandler(object sender, PropertyChangedEventArgs e)
+        {
+            RaisePropertyChanged(nameof(Teacher));
         }
 
     }

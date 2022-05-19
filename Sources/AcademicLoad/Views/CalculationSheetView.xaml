@@ -203,7 +203,8 @@
                                     <Path Style="{StaticResource AddTeacherIcon}"></Path>
                                 </Button>
                             </StackPanel>
-                            <DataGrid Grid.Row="1"
+                            <DataGrid Grid.Row="1" 
+                                      PreparingCellForEdit="MainDataGrid_PreparingCellForEdit"
                                       ScrollViewer.CanContentScroll="True" 
                                       AlternationCount="1"
                                       RowDetailsVisibilityMode="Collapsed"
@@ -222,7 +223,11 @@
                                             <TextBlock Foreground="Red" FontSize="18" FontWeight="Bold">!</TextBlock>
                                         </StackPanel>
                                     </ControlTemplate>
-                                    
+
+                                    <Style x:Key="EditCellStyle" TargetType="{x:Type TextBox}">
+                                        <Setter Property="FontSize" Value="20" />
+                                    </Style>
+
 
                                     <Style x:Key="EditCellStyleError" TargetType="{x:Type TextBox}">
                                         <Setter Property="Validation.ErrorTemplate" Value="{StaticResource validationFailed}"></Setter>
@@ -243,8 +248,7 @@
                                             </Trigger>
                                         </Style.Triggers>
                                     </Style>
-
-
+                                    
                                 </DataGrid.Resources>
                                 <DataGrid.Columns>
                                     <DataGridTemplateColumn>
@@ -288,13 +292,11 @@
                                     <DataGridTextColumn Header="Лекции"  
                                                         Binding="{Binding HoursLecture, ValidatesOnDataErrors=True}"
                                                         Validation.ErrorTemplate="{StaticResource validationFailed}"
-                                                      
-                                                        ElementStyle="{StaticResource CellStyleError}" />
-
-
+                                                        EditingElementStyle="{StaticResource EditCellStyle}" />
+                                    
                                     <DataGridTextColumn Header="Лабор"
                                                         Binding="{Binding HoursLaboratoryWork, ValidatesOnDataErrors=True}"
-                                                        EditingElementStyle="{StaticResource EditCellStyleError}" ElementStyle="{StaticResource CellStyleError}"/>
+                                                       />
                                     <DataGridTextColumn Header="Практич."
                                                         Binding="{Binding HoursPracticum}"/>
                                     <DataGridTextColumn Header="КП/КР"
