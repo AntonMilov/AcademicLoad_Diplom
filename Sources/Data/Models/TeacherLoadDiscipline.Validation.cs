@@ -11,16 +11,6 @@ namespace Data.Models
     /// </summary>
     public partial class TeacherLoadDiscipline
     {
-        private Dictionary<string, string> errors = new Dictionary<string, string>();
-
-        /// <summary>
-        /// Cообщение о ошибки валидации <inheritdoc/>.
-        /// </summary>
-        public string this[string columnName] => errors.ContainsKey(columnName) ? errors[columnName] : null;
-
-        /// <inheritdoc/>
-        public string Error => throw new System.NotImplementedException();
-
         #region Hours
         /// <summary>
         /// 
@@ -35,15 +25,12 @@ namespace Data.Models
                     hoursLectureMaxValue = value;
                 }
 
-                if (value > hoursLectureMaxValue)
+                if (value > hoursLectureMaxValue || value < 0)
                 {
                     SetProperty(ref hoursLecture, hoursLecture);
                     return;
                 }
-                else
-                {
-                    errors[nameof(HoursLecture)] = null;
-                }
+               
                 SetProperty(ref hoursLecture, value);
             }
         }
@@ -61,15 +48,12 @@ namespace Data.Models
                     hoursLaboratoryWorkMaxValue = value;
                 }
 
-                if (value > hoursLaboratoryWorkMaxValue)
+                if (value > hoursLaboratoryWorkMaxValue || value < 0)
                 {
-                    SetProperty(ref hoursLaboratoryWork, value);
+                    SetProperty(ref hoursLaboratoryWork, hoursLaboratoryWork);
                     return;
                 }
-                else
-                {
-                    errors[nameof(HoursLaboratoryWork)] = null;
-                }
+             
                 SetProperty(ref hoursLaboratoryWork, value);
             }
         }
@@ -87,15 +71,12 @@ namespace Data.Models
                     hoursPracticumMaxValue = value;
                 }
 
-                if (value > hoursPracticumMaxValue)
+                if (value > hoursPracticumMaxValue || value < 0)
                 {
-                    SetProperty(ref hoursPracticum, value);
+                    SetProperty(ref hoursPracticum, hoursPracticum);
                     return;
                 }
-                else
-                {
-                    errors[nameof(HoursPracticum)] = null;
-                }
+               
                 SetProperty(ref hoursPracticum, value);
             }
         }
@@ -113,15 +94,12 @@ namespace Data.Models
                     hoursKpKrMaxValue = value;
                 }
 
-                if (value > hoursKpKrMaxValue)
+                if (value > hoursKpKrMaxValue || value < 0)
                 {
-                    SetProperty(ref hoursKpKr, value);
+                    SetProperty(ref hoursKpKr, hoursKpKr);
                     return;
                 }
-                else
-                {
-                    errors[nameof(HoursKpKr)] = null;
-                }
+              
                 SetProperty(ref hoursKpKr, value);
             }
         }
@@ -139,15 +117,12 @@ namespace Data.Models
                     hoursСontrolWorkMaxValue = value;
                 }
 
-                if (value > hoursСontrolWorkMaxValue)
+                if (value > hoursСontrolWorkMaxValue || value < 0)
                 {
-                    SetProperty(ref hoursСontrolWork, value);
+                    SetProperty(ref hoursСontrolWork, hoursСontrolWork);
                     return;
                 }
-                else
-                {
-                    errors[nameof(HoursСontrolWork)] = null;
-                }
+              
                 SetProperty(ref hoursСontrolWork, value);
             }
         }
@@ -167,13 +142,10 @@ namespace Data.Models
 
                 if (value > hoursExamMaxValue)
                 {
-                    SetProperty(ref hoursExam, value);
+                    SetProperty(ref hoursExam, hoursExam);
                     return;
                 }
-                else
-                {
-                    errors[nameof(HoursExam)] = null;
-                }
+              
                 SetProperty(ref hoursExam, value);
             }
         }
@@ -191,15 +163,12 @@ namespace Data.Models
                     hoursTestMaxValue = value;
                 }
 
-                if (value > hoursTestMaxValue)
+                if (value > hoursTestMaxValue || value < 0)
                 {
-                    SetProperty(ref hoursTest, value);
+                    SetProperty(ref hoursTest, hoursTest);
                     return;
                 }
-                else
-                {
-                    errors[nameof(HoursTest)] = null;
-                }
+          
                 SetProperty(ref hoursTest, value);
             }
         }
@@ -220,13 +189,10 @@ namespace Data.Models
 
                 if (value > hoursConsultationMaxValue || value < 0)
                 {
-                    SetProperty(ref hoursConsultation, value);
+                    SetProperty(ref hoursConsultation, hoursConsultation);
                     return;
                 }
-                else
-                {
-                    errors[nameof(HoursConsultation)] = null;
-                }
+               
                 SetProperty(ref hoursConsultation, value);
             }
         }
@@ -237,7 +203,21 @@ namespace Data.Models
         public double HoursOtherLoadVpo
         {
             get => hoursOtherLoadVpo;
-            set => SetProperty(ref hoursOtherLoadVpo, value);
+            set
+            {
+                if (hoursOtherLoadVpoMaxValue == maxValue)
+                {
+                    hoursOtherLoadVpoMaxValue = value;
+                }
+
+                if (value > hoursOtherLoadVpoMaxValue || value < 0)
+                {
+                    SetProperty(ref hoursOtherLoadVpo, hoursOtherLoadVpo);
+                    return;
+                }
+               
+                SetProperty(ref hoursOtherLoadVpo, value);
+            }
         }
 
         /// <summary>
@@ -246,7 +226,21 @@ namespace Data.Models
         public double HoursTraining
         {
             get => hoursTraining;
-            set => SetProperty(ref hoursTraining, value);
+            set
+            {
+                if (hoursTrainingMaxValue == maxValue)
+                {
+                    hoursTrainingMaxValue = value;
+                }
+
+                if (value > hoursTrainingMaxValue || value < 0)
+                {
+                    SetProperty(ref hoursTraining, hoursTraining);
+                    return;
+                }
+              
+                SetProperty(ref hoursTraining, value);
+            }
         }
 
         /// <summary>

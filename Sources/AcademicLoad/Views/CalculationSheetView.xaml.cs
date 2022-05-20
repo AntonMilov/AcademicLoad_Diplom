@@ -22,8 +22,7 @@ namespace AcademicLoadModule.Views
         }
 
         private void textBox1_PreviewTextInput(object sender, TextCompositionEventArgs e)
-        {
-            Debug.WriteLine("azaza");
+        { 
             e.Handled = "0123456789 ,".IndexOf(e.Text) < 0;
         }
 

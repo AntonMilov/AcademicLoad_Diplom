@@ -1,11 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using Prism.Mvvm;
+using System.Collections.Generic;
 
 namespace Data.Models
 {
     /// <summary>
     /// Модель расчетного листа кафедральной нагрузки.
     /// </summary>
-    public class CalculationSheet
+    public class CalculationSheet : BindableBase
     {
         /// <summary>
         /// Имя файла.

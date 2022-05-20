@@ -60,6 +60,8 @@ namespace Core.Services
             сalculatorTeacherLoadDiscipline.CalculateDividerGroups(teacherLoadDiscipline, calculationSheetDiscipline);
 
             calculationSheetDiscipline.TeacherLoadDisciplines.Add(teacherLoadDiscipline);
+            calculationSheetDiscipline.HasTeacherLoadDisciplines = calculationSheetDiscipline.TeacherLoadDisciplines.Any();
+
             teacherLoadDiscipline.DividerGroups = calculationSheetDiscipline.DividerGroups;
 
             foreach (var variable in calculationSheetDiscipline.TeacherLoadDisciplines)
@@ -74,6 +76,7 @@ namespace Core.Services
             TeacherLoadDisciplines.Remove(teacherLoadDiscipline);
 
             calculationSheetDiscipline.TeacherLoadDisciplines.Remove(teacherLoadDiscipline);
+            calculationSheetDiscipline.HasTeacherLoadDisciplines = calculationSheetDiscipline.TeacherLoadDisciplines.Any();
 
             foreach (var group in teacherLoadDiscipline.Groups)
             {

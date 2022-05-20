@@ -10,7 +10,7 @@ namespace Data.Models
     /// <summary>
     /// Модель назначения преподавателя к  дисциплине.
     /// </summary>
-    public partial class TeacherLoadDiscipline : BindableBase, IDataErrorInfo
+    public partial class TeacherLoadDiscipline : BindableBase
     {
         private const double maxValue = 400;
 
@@ -42,6 +42,8 @@ namespace Data.Models
         private double hoursExamMaxValue = maxValue;
         private double hoursTestMaxValue = maxValue;
         private double hoursConsultationMaxValue = maxValue;
+        private double hoursOtherLoadVpoMaxValue = maxValue;
+        private double hoursTrainingMaxValue = maxValue;
 
         private List<String> ignoredProperty = new List<string> { nameof(hoursTotalYearLoad), nameof(hoursTotalSpringSemester), nameof(hoursTotalFallSemester) };
 

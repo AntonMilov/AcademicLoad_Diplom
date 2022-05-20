@@ -166,6 +166,7 @@
         </Border>
 
         <DataGrid Grid.Row="2"
+                  IsReadOnly="True"
                   ScrollViewer.CanContentScroll="True" 
                   SelectedItem="{Binding  Path=DataContext.SelectedCalculationSheetDiscipline, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
                   ItemsSource="{Binding CalculationSheetDisciplines}"
@@ -204,8 +205,10 @@
                                 </Button>
                             </StackPanel>
                             <DataGrid Grid.Row="1" 
+                                      Visibility="{Binding HasTeacherLoadDisciplines,Converter={StaticResource BooleanToVisibilityConverter}}"
                                       PreparingCellForEdit="MainDataGrid_PreparingCellForEdit"
                                       ScrollViewer.CanContentScroll="True" 
+                                      CanUserResizeColumns="True"
                                       AlternationCount="1"
                                       RowDetailsVisibilityMode="Collapsed"
                                       ItemsSource="{Binding TeacherLoadDisciplines}"
@@ -225,7 +228,9 @@
                                     </ControlTemplate>
 
                                     <Style x:Key="EditCellStyle" TargetType="{x:Type TextBox}">
-                                        <Setter Property="FontSize" Value="20" />
+                                        <Setter Property="FontSize" Value="24" />
+                                        <Setter Property="BorderThickness" Value="1" />
+                                        <Setter Property="BorderBrush" Value="{StaticResource BlueHeader}" />
                                     </Style>
 
 
@@ -248,6 +253,7 @@
                                             </Trigger>
                                         </Style.Triggers>
                                     </Style>
+                                   
                                     
                                 </DataGrid.Resources>
                                 <DataGrid.Columns>
@@ -268,6 +274,7 @@
 
                                     <DataGridTextColumn Header="Преподаватель"
                                                         MaxWidth="150"
+                                                        IsReadOnly="True"
                                                         Binding="{Binding Teacher,Converter={StaticResource TeacherInitialsConverter}}">
                                         <DataGridTextColumn.ElementStyle>
                                             <Style>
@@ -277,43 +284,56 @@
                                     </DataGridTextColumn>
 
                                     <DataGridTextColumn Header="Семестр"
+                                                          IsReadOnly="True"
                                                         MaxWidth="150"
                                                         Binding="{Binding Semester}"/>
 
                                     <DataGridTextColumn Header="Группы"
+                                                        IsReadOnly="True"
                                                         MaxWidth="70"
                                                         ElementStyle="{StaticResource CellStyleError}"
                                                         Binding="{Binding Groups,Converter={StaticResource GroupsNamesToInfoConverter}}"/>
                                     <DataGridTextColumn Header="Студ.(бюд.)"
+                                                        IsReadOnly="True"
                                                         Binding="{Binding StudentsBudget}"/>
                                     <DataGridTextColumn Header="Студ.(дог.)"
+                                                        IsReadOnly="True"
                                                         Binding="{Binding StudentsContract}"/>
 
                                     <DataGridTextColumn Header="Лекции"  
-                                                        Binding="{Binding HoursLecture, ValidatesOnDataErrors=True}"
+                                                        Binding="{Binding HoursLecture, ValidatesOnDataErrors=True,UpdateSourceTrigger=LostFocus}"
                                                         Validation.ErrorTemplate="{StaticResource validationFailed}"
                                                         EditingElementStyle="{StaticResource EditCellStyle}" />
                                     
                                     <DataGridTextColumn Header="Лабор"
-                                                        Binding="{Binding HoursLaboratoryWork, ValidatesOnDataErrors=True}"
+                                                        Binding="{Binding HoursLaboratoryWork, UpdateSourceTrigger=LostFocus}"
+                                                         EditingElementStyle="{StaticResource EditCellStyle}"
                                                        />
                                     <DataGridTextColumn Header="Практич."
-                                                        Binding="{Binding HoursPracticum}"/>
+                                                        Binding="{Binding HoursPracticum , UpdateSourceTrigger=LostFocus}"
+                                                         EditingElementStyle="{StaticResource EditCellStyle}"/>
                                     <DataGridTextColumn Header="КП/КР"
-                                                        Binding="{Binding HoursKpKr}"/>
+                                                        Binding="{Binding HoursKpKr, UpdateSourceTrigger=LostFocus}"
+                                                         EditingElementStyle="{StaticResource EditCellStyle}"/>
                                     <DataGridTextColumn Header="контр./раб. (ЗФ)" 
-                                                        Binding="{Binding HoursСontrolWork}"/>
+                                                        Binding="{Binding HoursСontrolWork, UpdateSourceTrigger=LostFocus}"
+                                                         EditingElementStyle="{StaticResource EditCellStyle}"/>
                                     <DataGridTextColumn Header="Экзамены"
-                                                        Binding="{Binding HoursExam}"/>
+                                                        Binding="{Binding HoursExam, UpdateSourceTrigger=LostFocus}"
+                                                         EditingElementStyle="{StaticResource EditCellStyle}"/>
                                     <DataGridTextColumn Header="Зачеты"
-                                                        Binding="{Binding HoursTest}"/>
+                                                        Binding="{Binding HoursTest, UpdateSourceTrigger=LostFocus}"
+                                                         EditingElementStyle="{StaticResource EditCellStyle}"/>
                                     <DataGridTextColumn Header="Консультации" 
-                                                        Binding="{Binding HoursConsultation}"/>
+                                                        Binding="{Binding HoursConsultation, UpdateSourceTrigger=LostFocus}"
+                                                         EditingElementStyle="{StaticResource EditCellStyle}"/>
                                     <DataGridTextColumn Header="Прочая нагрузка по ВПО"
-                                                        Binding="{Binding HoursOtherLoadVpo}"/>
+                                                        Binding="{Binding HoursOtherLoadVpo, UpdateSourceTrigger=LostFocus}"
+                                                         EditingElementStyle="{StaticResource EditCellStyle}"/>
                                     <DataGridTextColumn Header="Подготовка аспирантов, интернов, ординаторов"
                                                         MaxWidth="200"
-                                                        Binding="{Binding HoursTraining}">
+                                                        Binding="{Binding HoursTraining, UpdateSourceTrigger=LostFocus}"
+                                                         EditingElementStyle="{StaticResource EditCellStyle}">
                                         <DataGridTextColumn.ElementStyle>
                                             <Style>
                                                 <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
@@ -322,14 +342,14 @@
                                     </DataGridTextColumn>
 
                                     <DataGridTextColumn Header="Всего осенний семестр"
+                                                        IsReadOnly="True"
                                                         Binding="{Binding HoursTotalFallSemester}"/>
                                     <DataGridTextColumn Header="Всего весенний семестр"
+                                                        IsReadOnly="True"
                                                         Binding="{Binding HoursTotalSpringSemester}"/>
                                     <DataGridTextColumn Header="Всего за год нагрузка"
+                                                        IsReadOnly="True"
                                                         Binding="{Binding HoursTotalYearLoad}"/>
-
-
-
                                 </DataGrid.Columns>
 
                             </DataGrid>
@@ -361,6 +381,7 @@
                 <DataGridTextColumn Header="Кол. групп"
                                     MaxWidth="150"
                                     Binding="{Binding CountGroups}"/>
+                
                 <DataGridTextColumn Header="Группы"
                                     MaxWidth="150"
                                     Binding="{Binding Groups}"/>
@@ -391,10 +412,11 @@
                                     Binding="{Binding CountExam}"/>
                 <DataGridTextColumn Header="Зач"
                                     Binding="{Binding CountTest}"/>
-                <DataGridTextColumn Header="Зач с оц"
+                <DataGridTextColumn Header="Зач с оц" 
                                     Binding="{Binding CountDifferentiatedTest}"/>
 
                 <DataGridTextColumn Header="Про-чее (нед)"
+                                    
                                     Binding="{Binding CountEtc}"/>
                 <DataGridTextColumn Header="Лекции"
                                     Binding="{Binding HoursLecture}"/>
