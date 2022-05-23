@@ -148,7 +148,7 @@
     <value>Расчетные листы кафедральной нагрузки</value>
   </data>
   <data name="CalculationSheetsEmpty" xml:space="preserve">
-    <value>Расчетный листы кафедральной нагрузки отсутсвует, выберите файл в формате xls или xlsx.</value>
+    <value>Расчетный листы кафедральной нагрузки отсутсвует, выберите файл в формате xlsx.</value>
   </data>
   <data name="Cancel" xml:space="preserve">
     <value>Отмена</value>
@@ -169,7 +169,7 @@
     <value>Редактирование преподавателя</value>
   </data>
   <data name="ExportTeacherLoad" xml:space="preserve">
-    <value>Экспортировать преподавательскую нагрузку в файл .xls или .xlsx</value>
+    <value>Экспортировать преподавательскую нагрузку в файл .xlsx</value>
   </data>
   <data name="GroupName" xml:space="preserve">
     <value>Название группы:</value>

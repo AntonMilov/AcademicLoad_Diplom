@@ -26,6 +26,11 @@
             <TabItem Header="{x:Static prop:Resources.StudyGroups}">
                 <ContentControl  prism:RegionManager.RegionName="GroupsRegion"></ContentControl>
             </TabItem>
+
+
+            <TabItem Header="Нормы времени">
+                <ContentControl  prism:RegionManager.RegionName="NormsTimeRegion"></ContentControl>
+            </TabItem>
         </TabControl>
         
     </Grid>

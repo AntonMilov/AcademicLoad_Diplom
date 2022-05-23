@@ -53,6 +53,7 @@ namespace Data.Models
         public TeacherLoadDiscipline()
         {
             PropertyChanged += new PropertyChangedEventHandler(PropertyChangedHandler);
+            NormsOfTime.PropertyChanged += new PropertyChangedEventHandler(PropertyChangedNormsOfTimeHandler);
         }
 
         /// <summary>
@@ -157,6 +158,11 @@ namespace Data.Models
         private void PropertyChangedTeacherHandler(object sender, PropertyChangedEventArgs e)
         {
             RaisePropertyChanged(nameof(Teacher));
+        }
+
+        private void PropertyChangedNormsOfTimeHandler(object sender, PropertyChangedEventArgs e)
+        {
+            Update();
         }
 
     }

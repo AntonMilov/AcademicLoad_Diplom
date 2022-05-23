@@ -35,6 +35,8 @@ namespace AcademicLoadModule
             regionManager.RegisterViewWithRegion("CalculationSheetsRegion", typeof(CalculationSheetsEmptyView));
             regionManager.RegisterViewWithRegion("CalculationSheetsRegion", typeof(CalculationSheetView));
 
+            regionManager.RegisterViewWithRegion("NormsTimeRegion", typeof(NormsTimeView));
+
             //TODO  TabsView Создается в конце, и проверяет по контроллерам
             regionManager.RegisterViewWithRegion("MainRegion", typeof(TabsView));
         }

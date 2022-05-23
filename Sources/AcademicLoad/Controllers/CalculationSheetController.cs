@@ -73,10 +73,9 @@ namespace AcademicLoadModule.Controllers
         public string AskExportExcelFile()
         {
             string path = string.Empty;
-            string xlsExtensions = "(*.xls)|*.xls";
             string xlsxExtensions = "(*.xlsx)|*.xlsx";
 
-            saveFileDialog.Filter = $"XLS файл{xlsExtensions}|XLSX файл{xlsxExtensions}";
+            saveFileDialog.Filter = $"XLSX файл{xlsxExtensions}";
 
             if (saveFileDialog.ShowDialog() == true)
                 return path = saveFileDialog.FileName;
@@ -88,8 +87,8 @@ namespace AcademicLoadModule.Controllers
         public string AskImportExcelFile()
         {
             string path = string.Empty;
-            string excelExtensions = "*.xls;*.xlsx";
-            openFileDialog.Filter = $"XLS и XLSX-файлы ({excelExtensions})|{excelExtensions}";
+            string excelExtensions = "*.xlsx;";
+            openFileDialog.Filter = $"XLSX-файлы ({excelExtensions})|{excelExtensions}";
 
             if (openFileDialog.ShowDialog() == true)
                 return path = openFileDialog.FileName;

@@ -11,6 +11,8 @@ namespace Data.Models
     /// </summary>
     public partial class TeacherLoadDiscipline
     {
+        private NormsOfTime NormsOfTime = NormsOfTime.getInstance();
+
         /// <summary>
         /// Функция обновления
         /// </summary>

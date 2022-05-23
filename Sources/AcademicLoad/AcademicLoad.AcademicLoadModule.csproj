@@ -86,6 +86,7 @@
     <Compile Include="ViewModels\Empty\CalculationSheetsEmptyViewModel.cs" />
     <Compile Include="ViewModels\Empty\GroupsEmptyViewModel.cs" />
     <Compile Include="ViewModels\GroupsViewModel.cs" />
+    <Compile Include="ViewModels\NormsTimeViewModel.cs" />
     <Compile Include="ViewModels\TabsViewModel.cs" />
     <Compile Include="ViewModels\Empty\TeachersEmptyViewModel.cs" />
     <Compile Include="ViewModels\TeachersViewModel.cs" />
@@ -115,6 +116,9 @@
     </Compile>
     <Compile Include="Views\GroupsView.xaml.cs">
       <DependentUpon>GroupsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NormsTimeView.xaml.cs">
+      <DependentUpon>NormsTimeView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\TabsView.xaml.cs">
       <DependentUpon>TabsView.xaml</DependentUpon>
@@ -183,6 +187,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\GroupsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\NormsTimeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

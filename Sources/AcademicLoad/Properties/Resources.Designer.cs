@@ -151,7 +151,7 @@ namespace AcademicLoadModule.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Расчетный листы кафедральной нагрузки отсутсвует, выберите файл в формате xls или xlsx..
+        ///   Ищет локализованную строку, похожую на Расчетный листы кафедральной нагрузки отсутсвует, выберите файл в формате xlsx..
         /// </summary>
         public static string CalculationSheetsEmpty {
             get {
@@ -214,7 +214,7 @@ namespace AcademicLoadModule.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Экспортировать преподавательскую нагрузку в файл .xls или .xlsx.
+        ///   Ищет локализованную строку, похожую на Экспортировать преподавательскую нагрузку в файл .xlsx.
         /// </summary>
         public static string ExportTeacherLoad {
             get {
