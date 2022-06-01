@@ -153,6 +153,7 @@ namespace Data.Models
             StudentsBudget = Groups.Sum(x => x.StudentsBudget);
 
             RaisePropertyChanged(nameof(Groups));
+            Update();
         }
 
         private void PropertyChangedTeacherHandler(object sender, PropertyChangedEventArgs e)

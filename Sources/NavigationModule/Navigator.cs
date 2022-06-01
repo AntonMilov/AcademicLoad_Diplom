@@ -29,6 +29,7 @@ namespace NavigationModule
             eventAggregator.GetEvent<TeachersCountChangeEvent>().Subscribe(TeachersCountChangeHandler);
             eventAggregator.GetEvent<GroupsCountChangeEvent>().Subscribe(GroupsCountChangeHandler);
             eventAggregator.GetEvent<CalculationSheetAddedEvent>().Subscribe(CalculationSheetAddedHandler);
+            eventAggregator.GetEvent<CalculationSheetDeletedEvent>().Subscribe(CalculationSheetDeletedHandler);
         }
 
         private void TeachersCountChangeHandler(int countTeachers)
@@ -53,6 +54,11 @@ namespace NavigationModule
         private void CalculationSheetAddedHandler()
         {
             regionManager.RequestNavigate("CalculationSheetsRegion", "CalculationSheetView");
+        }
+
+        private void CalculationSheetDeletedHandler()
+        {
+            regionManager.RequestNavigate("CalculationSheetsRegion", "CalculationSheetsEmptyView");
         }
     }
 }

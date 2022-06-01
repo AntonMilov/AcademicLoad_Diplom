@@ -16,6 +16,7 @@ namespace Data
         private double studentsTest;
              private double kp;
              private double kr;
+        private double labrotoryWork;
 
 
         private static NormsOfTime instance;
@@ -25,6 +26,7 @@ namespace Data
             StudentsTest = 0.25;
             Kp = 2.5;
             Kr = 1.5;
+            LabrotoryWork = 1;
         }
 
         public static NormsOfTime getInstance()
@@ -64,6 +66,17 @@ namespace Data
         {
             get => kr;
             set => SetProperty(ref kr, value);
+
+        }
+
+
+        /// <summary>
+        /// Норма времени на лабораторную работу.
+        /// </summary>
+        public double LabrotoryWork
+        {
+            get => labrotoryWork;
+            set => SetProperty(ref labrotoryWork, value);
 
         }
 

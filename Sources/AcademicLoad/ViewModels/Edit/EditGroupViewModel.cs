@@ -80,8 +80,8 @@ namespace AcademicLoadModule.ViewModels.Edit
         public bool CanAddGroup()
         {
             return !string.IsNullOrEmpty(Name) &&
-                   StudentsBudget != 0 &&
-                   StudentsContract != 0;
+                   (StudentsBudget != 0 ||
+                   StudentsContract != 0);
         }
     }
 }

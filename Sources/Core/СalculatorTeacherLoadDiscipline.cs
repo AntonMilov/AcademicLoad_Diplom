@@ -22,7 +22,7 @@ namespace Core
             teacherLoadDiscipline.Semester = calculationSheetDiscipline.Semester;
 
             teacherLoadDiscipline.HoursLecture = calculationSheetDiscipline.HoursLecture;
-            teacherLoadDiscipline.HoursLaboratoryWork = calculationSheetDiscipline.HoursLaboratoryWork;
+            teacherLoadDiscipline.HoursLaboratoryWork = calculationSheetDiscipline.CountLaboratoryWork;
             teacherLoadDiscipline.HoursPracticum = calculationSheetDiscipline.HoursPracticum;
             teacherLoadDiscipline.HoursKpKr = calculationSheetDiscipline.HoursKpKr;
             teacherLoadDiscipline.HoursСontrolWork = calculationSheetDiscipline.HoursСontrolWork;
@@ -41,13 +41,12 @@ namespace Core
             teacherLoadDiscipline.Semester = calculationSheetDiscipline.Semester;
 
             teacherLoadDiscipline.HoursLecture = calculationSheetDiscipline.HoursLecture;
-            teacherLoadDiscipline.HoursLaboratoryWork = calculationSheetDiscipline.HoursLaboratoryWork;
+            teacherLoadDiscipline.HoursLaboratoryWork = calculationSheetDiscipline.CountLaboratoryWork;
             teacherLoadDiscipline.HoursPracticum = calculationSheetDiscipline.HoursPracticum;
             teacherLoadDiscipline.HoursKpKr = calculationSheetDiscipline.HoursKpKr;
             teacherLoadDiscipline.HoursСontrolWork = calculationSheetDiscipline.HoursСontrolWork;
 
             teacherLoadDiscipline.HoursTest = calculationSheetDiscipline.HoursTest;
-            teacherLoadDiscipline.HoursConsultation = calculationSheetDiscipline.HoursConsultation;
         }
 
         /// <summary>
@@ -59,13 +58,12 @@ namespace Core
         {
             teacherLoadDiscipline.Semester = calculationSheetDiscipline.Semester;
 
-            teacherLoadDiscipline.HoursLaboratoryWork = calculationSheetDiscipline.HoursLaboratoryWork;
+            teacherLoadDiscipline.HoursLaboratoryWork = calculationSheetDiscipline.CountLaboratoryWork;
             teacherLoadDiscipline.HoursPracticum = calculationSheetDiscipline.HoursPracticum;
             teacherLoadDiscipline.HoursKpKr = calculationSheetDiscipline.HoursKpKr;
             teacherLoadDiscipline.HoursСontrolWork = calculationSheetDiscipline.HoursСontrolWork;
 
             teacherLoadDiscipline.HoursTest = calculationSheetDiscipline.HoursTest;
-            teacherLoadDiscipline.HoursConsultation = calculationSheetDiscipline.HoursConsultation;
         }
 
         /// <summary>
@@ -110,6 +108,12 @@ namespace Core
             {
                 teacherLoadDiscipline.TeacherLoadDisciplineFlags = teacherLoadDiscipline.TeacherLoadDisciplineFlags |
                     TeacherLoadDisciplineFlags.NasKr;
+            }
+
+            if (calculationSheetDiscipline.CountLaboratoryWork >0 )
+            {
+                teacherLoadDiscipline.TeacherLoadDisciplineFlags = teacherLoadDiscipline.TeacherLoadDisciplineFlags |
+                    TeacherLoadDisciplineFlags.HasLab;
             }
         }
     }

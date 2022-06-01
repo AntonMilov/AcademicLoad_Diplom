@@ -62,6 +62,7 @@
     <Compile Include="Controllers\TeacherController.cs" />
     <Compile Include="Controllers\TeacherLoadDisciplineController.cs" />
     <Compile Include="Events\CalculationSheetAddedEvent.cs" />
+    <Compile Include="Events\CalculationSheetDeletedEvent.cs" />
     <Compile Include="Events\GroupsCountChangeEvent.cs" />
     <Compile Include="Events\TeachersCountChangeEvent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">

@@ -14,20 +14,20 @@ namespace Core.Services
     /// </summary>
     public class CalculationSheetService : ICalculationSheetService
     {
-        private readonly IExcelImporter excelExporter;
+        private readonly IExcelImporter excelImporter;
 
         /// <summary>
         /// .ctor
         /// </summary>
-        public CalculationSheetService(IExcelImporter excelExporter)
+        public CalculationSheetService(IExcelImporter excelImporter)
         {
-            this.excelExporter = excelExporter;
+            this.excelImporter = excelImporter;
         }
 
         /// <inheritdoc/>
         public CalculationSheet AddCalculationSheet(string path)
         {
-            return excelExporter.ImportCalculationSheet(path);
+            return excelImporter.ImportCalculationSheet(path);
         }
     }
 }

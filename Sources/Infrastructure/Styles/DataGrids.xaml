@@ -40,9 +40,27 @@
                                             BorderThickness="{TemplateBinding BorderThickness}"
                                             BorderBrush="{TemplateBinding BorderBrush}"
                                             Background="{TemplateBinding Background}">
-                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition>
+                                      
+                                    </ColumnDefinition>
+                                    <ColumnDefinition>
+                                        
+                                    </ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Thumb x:Name="PART_RightHeaderGripper" Grid.Column="1"
+                                        HorizontalAlignment="Right"
+                                     
+                                        Width="2" 
+                                    Opacity="0.0"
+                                        Cursor="SizeWE"/>
+                                <ContentPresenter Grid.Column="0" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                                           SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+
+                            </Grid>
                         </Border>
                     </Grid>
                 </ControlTemplate>

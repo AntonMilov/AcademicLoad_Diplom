@@ -167,6 +167,7 @@
 
         <DataGrid Grid.Row="2"
                   IsReadOnly="True"
+                  CanUserResizeColumns="True"
                   ScrollViewer.CanContentScroll="True" 
                   SelectedItem="{Binding  Path=DataContext.SelectedCalculationSheetDiscipline, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
                   ItemsSource="{Binding CalculationSheetDisciplines}"
@@ -363,7 +364,10 @@
                 <DataGridTextColumn Header="индекс"
                                     Binding="{Binding Index}"/>
                 <DataGridTextColumn Header="ДИСЦИПЛИНЫ, практика, дипломное проектирование и др."
-                                    MaxWidth="220"
+                                    Width="220"
+                                    MaxWidth="500"
+                                    MinWidth="220"
+                                    CanUserResize="True"
                                     Binding="{Binding Name}">
                     <DataGridTextColumn.ElementStyle>
                         <Style>

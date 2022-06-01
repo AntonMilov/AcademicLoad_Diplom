@@ -30,6 +30,12 @@ namespace AcademicLoadModule.Controllers.Interfaces
         void AddCalculationSheet(string path);
 
         /// <summary>
+        /// Удалить расчтный лист.
+        /// </summary>
+        void DeletedCalculationSheet();
+
+
+        /// <summary>
         /// Экспортировать рассчитанную преподавательскую нагрузку.
         /// </summary>
         void ExportTeacherLoad(string path);

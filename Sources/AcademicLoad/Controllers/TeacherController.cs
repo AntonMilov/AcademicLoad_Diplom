@@ -1,12 +1,8 @@
 ﻿using System.Collections.ObjectModel;
-using System.Diagnostics;
-using System.Linq;
 using AcademicLoadModule.Controllers.Interfaces;
 using AcademicLoadModule.Events;
-using AcademicLoadModule.ViewModels;
 using AcademicLoadModule.ViewModels.Add;
 using AcademicLoadModule.ViewModels.Edit;
-using AcademicLoadModule.Views;
 using AcademicLoadModule.Views.Add;
 using AcademicLoadModule.Views.Edit;
 using Core.Photo;
@@ -129,7 +125,7 @@ namespace AcademicLoadModule.Controllers
             var addDialogParameters = new AddDialogParameters();
             addDialogParameters.CloseButtonText = Properties.Resources.Cancel;
             addDialogParameters.ConfirmButtonText = "Сохранить";
-            addDialogParameters.Header = "Редактирование преподаветеля";
+            addDialogParameters.Header = "Редактирование преподавателя";
             addDialogParameters.Title = "Редактирование преподавателя";
             addDialogParameters.Content = view;
             addDialogParameters.CanCloseWindow = model.CanAddTeacher;

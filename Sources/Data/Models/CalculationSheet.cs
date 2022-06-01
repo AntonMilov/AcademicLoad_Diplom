@@ -96,6 +96,5 @@ namespace Data.Models
         #endregion
 
         public List<CalculationSheetDiscipline> CalculationSheetDisciplines { get; set; }
-
     }
 }

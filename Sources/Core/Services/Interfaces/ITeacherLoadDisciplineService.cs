@@ -22,6 +22,9 @@ namespace Core.Services.Interfaces
         /// </summary>
         void DeleteTeacherLoadDiscipline(TeacherLoadDiscipline teacherLoadDiscipline, CalculationSheetDiscipline calculationSheetDiscipline);
 
+
+        void Clear();
+
         /// <summary>
         /// Дисциплины преподовательской нагрузки.
         /// </summary>

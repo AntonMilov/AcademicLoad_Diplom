@@ -96,6 +96,13 @@ namespace AcademicLoadModule.Controllers
             return path;
         }
 
+        public void DeletedCalculationSheet()
+        {
+            eventAggregator.GetEvent<CalculationSheetDeletedEvent>().Publish();
+            CalculationSheet = null;
+            teacherLoadDisciplineService.Clear();
+        }
+
         /// <inheritdoc/>
         public void ExportTeacherLoad(string path)
         {

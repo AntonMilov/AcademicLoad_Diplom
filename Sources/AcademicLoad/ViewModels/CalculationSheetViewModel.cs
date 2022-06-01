@@ -92,7 +92,7 @@ namespace AcademicLoadModule.ViewModels
 
         private void DeleteCalculationSheet()
         {
-
+            calculationSheetController.DeletedCalculationSheet();
         }
 
         private void ExportTeacherLoad()

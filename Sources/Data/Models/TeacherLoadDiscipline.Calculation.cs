@@ -18,10 +18,27 @@ namespace Data.Models
         /// </summary>
         public void Update()
         {
+           
             CalculateHoursTest();
             CalculateHoursKp();
             CalculateHoursKr();
         }
+
+
+        private void CalculateHoursLab()
+        {
+            if (!TeacherLoadDisciplineFlags.HasFlag(Enums.TeacherLoadDisciplineFlags.HasLab))
+            {
+                return;
+            }
+
+            HoursLaboratoryWork = 0;
+            foreach (var group in groups)
+            {
+                HoursLaboratoryWork = HoursLaboratoryWork + CalculateStudents(group) * NormsOfTime.LabrotoryWork;
+            }
+        }
+
 
         private void CalculateHoursTest()
         {

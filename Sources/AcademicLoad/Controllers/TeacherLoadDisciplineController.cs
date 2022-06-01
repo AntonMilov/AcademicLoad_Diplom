@@ -52,8 +52,8 @@ namespace AcademicLoadModule.Controllers
             var addDialogParameters = new AddDialogParameters();
             addDialogParameters.CloseButtonText = Properties.Resources.Cancel;
             addDialogParameters.ConfirmButtonText = Properties.Resources.Add;
-            addDialogParameters.Header = Properties.Resources.AddingTeacher;
-            addDialogParameters.Title = Properties.Resources.AddingTeacher;
+            addDialogParameters.Header = "Назначение преподавателя";
+            addDialogParameters.Title = "Назначение преподавателя";
             addDialogParameters.Content = view;
             addDialogParameters.CanCloseWindow = model.CanAddTeacherLoadDiscipline;
 

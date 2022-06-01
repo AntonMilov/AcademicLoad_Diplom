@@ -65,18 +65,18 @@
 
             <TextBlock Style="{StaticResource HeaderH2}"
                        Margin="{StaticResource MarginH2}"
-                       Text="{x:Static prop:Resources.Name}" />
-            <TextBox Margin="{StaticResource MarginTextBox}"
-                     Text="{Binding FirstName}"
-                     Style="{StaticResource EditTextBox}" />
-
-            <TextBlock Style="{StaticResource HeaderH2}"
-                       Margin="{StaticResource MarginH2}"
                        Text="{x:Static prop:Resources.LastName}" />
             <TextBox Margin="{StaticResource MarginTextBox}"
                      Text="{Binding LastName}"
                      Style="{StaticResource EditTextBox}" />
-
+            
+            <TextBlock Style="{StaticResource HeaderH2}"
+                       Margin="{StaticResource MarginH2}"
+                       Text="{x:Static prop:Resources.Name}" />
+            <TextBox Margin="{StaticResource MarginTextBox}"
+                     Text="{Binding FirstName}"
+                     Style="{StaticResource EditTextBox}" />
+            
             <TextBlock Style="{StaticResource HeaderH2}" 
                        Margin="{StaticResource MarginH2}"
                        Text="{x:Static prop:Resources.MiddleName}" />

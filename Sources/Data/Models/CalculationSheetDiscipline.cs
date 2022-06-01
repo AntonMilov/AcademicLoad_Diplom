@@ -26,12 +26,12 @@
         public string LengthSemester { get; set; }
 
         /// <summary>
-        /// 
+        /// Количество групп
         /// </summary>
         public int CountGroups { get; set; }
 
         /// <summary>
-        /// 
+        /// Учебные групы.
         /// </summary>
         public string Groups { get; set; }
 
@@ -46,12 +46,12 @@
         public string StreamPracticumLabrotory { get; set; }
 
         /// <summary>
-        /// 
+        /// Количество студентов на бюджетной основе.
         /// </summary>
         public int StudentsBudget { get; set; }
 
         /// <summary>
-        /// 
+        /// Количество студентов на договорной основе.
         /// </summary>
         public int StudentsContract { get; set; }
 

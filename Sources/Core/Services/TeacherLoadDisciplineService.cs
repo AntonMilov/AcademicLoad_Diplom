@@ -70,6 +70,12 @@ namespace Core.Services
             }
         }
 
+        public void Clear()
+        {
+            teacherLoadDisciplines = null;
+            teacherLoadDisciplines =  new List<TeacherLoadDiscipline>();
+        }
+
         /// <inheritdoc/>
         public void DeleteTeacherLoadDiscipline(TeacherLoadDiscipline teacherLoadDiscipline, CalculationSheetDiscipline calculationSheetDiscipline)
         {
